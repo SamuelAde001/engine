@@ -14,5 +14,6 @@ description: Weekly review — finds the pattern in the week's ledger and update
 6. Check the forfeit conditions in context/stakes.md. State plainly whether one
    triggered. Do not soften this.
 7. Ask what changes next week. Take the answer. Append to memory.md.
+8. Commit and push (see REMOTE.md). If you skip this, the review is lost.
 
 One paragraph of analysis maximum. The evidence does the work, not your prose.
