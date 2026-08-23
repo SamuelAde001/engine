@@ -24,14 +24,25 @@ Three cloud routines fire on their own. They do not need the laptop on.
 Each one opens a session at claude.ai/code and stops with a question waiting.
 Samuel opens it on his phone and answers there.
 
-| Routine | Fires (WAT) | Runs |
-|---|---|---|
-| Morning brief | 7:00am daily | `brief` |
-| Midday checkpoint | 3:00pm daily | `midday` |
-| Evening reckoning | 9:00pm daily | `reckon` |
-| Weekly review | 8:00pm Sunday | `reckoning-week` |
+| Routine | Fires (WAT) | Runs | Model | Routine id |
+|---|---|---|---|---|
+| Morning brief | 7:03am daily | `brief` | opus-5 | `trig_017jmYaxhXS8fzSvPqcbKo28` |
+| Midday checkpoint | 2:57pm daily | `midday` | sonnet-5 | `trig_016aJvRJSfsffXpzJrQzBv1M` |
+| Evening reckoning | 9:03pm daily | `reckon` | opus-5 | `trig_014S2QR2QWBjj1WYLVQhgC1z` |
+| Weekly review | 7:57pm Sunday | `reckoning-week` | opus-5 | `trig_01S1iyrdZctdL7WNhGPBNokF` |
+
+Odd minutes are deliberate — they keep the runs off the crowded o'clock marks.
 
 Manage them at https://claude.ai/code/routines
+
+There is also a disabled `Connector probe (diagnostic)` routine. Leave it. It's the
+fastest way to check whether TickTick, Gmail and repo push still work from the cloud
+when something breaks.
+
+## Repo
+
+`https://github.com/SamuelAde001/engine` (private). Cloud runs clone it to
+`/home/user/engine`. Push from the cloud is verified working (2026-08-23).
 
 **2. Claude Code on the phone — Samuel reaches in**
 
