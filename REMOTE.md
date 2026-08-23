@@ -54,6 +54,17 @@ on the phone exactly as they do on the desktop.
 - `context/mission.md` and `context/stakes.md` are never edited without asking.
 - `context/memory.md` and `context/ledger.md` are append-only.
 
+## Finding TickTick in a cloud session
+
+In cloud runs the connector tools are **deferred** — they don't appear in the tool
+list until you load them. They are named `mcp__TickTick__*`, not the local UUID
+names. Load them first:
+
+`ToolSearch` with query `ticktick projects tasks`
+
+Same for `mcp__Gmail__*`, `mcp__Google_Calendar__*`, `mcp__Google_Drive__*`.
+Verified working from a cloud run on 2026-08-23.
+
 ## If TickTick is missing from a session
 
 Say so in one line and run off `context/` alone. Mark anything taken on Samuel's
