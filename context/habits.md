@@ -4,10 +4,13 @@ Tracked in TickTick. The evening reckoning asks these by name.
 
 | Habit | Cadence | Check time | TickTick habit id |
 |---|---|---|---|
-| Prayer and Bible study | daily | 6:00am WAT | 6a8b60638f085902f9e2efa9 |
-| No masturbating | daily | end of day (9pm WAT) | 6a8b606a8f0898590054ebf6 |
 
 Created 2026-08-23. More will be added — append, don't rewrite.
+
+## Removed
+
+- Prayer and Bible study — removed 2026-08-24 (archived in TickTick, id 6a8b60638f085902f9e2efa9)
+- No masturbating — removed 2026-08-24 (archived in TickTick, id 6a8b606a8f0898590054ebf6)
 
 ## Cost
 
