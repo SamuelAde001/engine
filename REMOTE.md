@@ -26,12 +26,14 @@ Samuel opens it on his phone and answers there.
 
 | Routine | Fires (WAT) | Runs | Model | Routine id |
 |---|---|---|---|---|
-| Morning brief | 7:03am daily | `brief` | opus-5 | `trig_017jmYaxhXS8fzSvPqcbKo28` |
+| Morning brief | 7:03am daily | `brief` | opus-4.8 | `trig_017jmYaxhXS8fzSvPqcbKo28` |
 | Midday checkpoint | 2:57pm daily | `midday` | sonnet-5 | `trig_016aJvRJSfsffXpzJrQzBv1M` |
 | Evening reckoning | 9:03pm daily | `reckon` | opus-5 | `trig_014S2QR2QWBjj1WYLVQhgC1z` |
 | Weekly review | 7:57pm Sunday | `reckoning-week` | opus-5 | `trig_01S1iyrdZctdL7WNhGPBNokF` |
 
 Odd minutes are deliberate — they keep the runs off the crowded o'clock marks.
+The morning brief runs opus-4.8, not opus-5: early-morning demand for opus-5 is
+high and the 7am run was getting auto-downgraded anyway (2026-08-24).
 
 Manage them at https://claude.ai/code/routines
 
