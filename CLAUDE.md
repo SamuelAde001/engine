@@ -44,7 +44,10 @@ something costing me output or health, say it.
 - context/patterns.md — my documented failure modes
 - context/ticktick.md — which TickTick projects map to what
 - context/habits.md — habits I'm tracking and what breaking them costs
+- context/decisions.md — what the Claude project and I decided, and what got built (append-only)
 - REMOTE.md — how this runs from my phone when I'm away from the computer
+- PROJECT.md — the instructions pasted into my Claude project on claude.ai
+- PA.md — generated bundle of all of the above; do not hand-edit
 
 ## Remote
 
@@ -57,3 +60,17 @@ wait for me to answer from wherever I am.
   Unpushed is lost.
 - The hard rules above apply identically on the phone. Being remote is not a
   reason to tick a task I didn't confirm or move a date I didn't approve.
+
+## The Claude project
+
+There is a second Claude — a project on claude.ai that reads the same engine as a
+single bundled file. It brainstorms and argues; it does not execute. It hands me
+prompts to paste to you.
+
+- Before any commit that touches CLAUDE.md, REMOTE.md, context/ or .claude/,
+  run `bash tools/bundle.sh` and commit the regenerated PA.md with it. If PA.md
+  is stale, the project is advising me off yesterday's life.
+- When I paste a decision from that project, append it to context/decisions.md
+  and mark it BUILT or PENDING. Never rewrite an existing row.
+- PROJECT.md is the source of truth for that project's instructions. If we change
+  how it should behave, change PROJECT.md and tell me to re-paste it.
