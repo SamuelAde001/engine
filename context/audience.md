@@ -97,9 +97,26 @@ the course gradually makes sense, so people can start."*
 | 5 — Delivery | 33–37 | 5 | Assets, templates, export, review pass, **CAPSTONE** |
 
 - **Recording cadence: 2 lessons a week, ~2.5h, one block.**
-- **Module 1 beta ships mid-October 2026.** 11 lessons at 2/week = 5.5 weeks from
-  1 Sep, landing the week of 5 Oct, with buffer. Proposed launch **Friday 16 October
-  2026** — `[OPEN — awaiting his confirmation, asked 2026-08-26]`
+- **THE BLOCK: Sunday 5:00–7:30pm** — confirmed by Samuel 2026-08-26. Sunday dinner
+  moves for it (his call). It runs an hour past the 6:30pm hard stop; that is the
+  only sanctioned exception and it is Sunday only. See `context/body.md`.
+  Two lessons per session: 5:00–6:15pm and 6:15–7:30pm.
+- **Module 1 schedule, in TickTick and dated:**
+
+| Session | Lessons |
+|---|---|
+| Sun 6 Sep | 01 Anatomy · 02 The 3-pointer anatomy |
+| Sun 13 Sep | 03 Planning Your Edit · 04 How Editing Software Works |
+| Sun 20 Sep | 05 Cutting Talking-Head · 06 Pacing |
+| Sun 27 Sep | 07 A-Roll / B-Roll · 08 Building From B-Roll Alone |
+| Sun 4 Oct | 09 Transitions · 10 Keyframing 101 |
+| **Sun 11 Oct** | **11 LIVE EDIT 01 — the whole block, 5:00–7:30pm** |
+
+- **Module 1 completes Sunday 11 October.** Proposed launch **Friday 16 October
+  2026** — 5 days of buffer, which makes the date achievable.
+  `[OPEN — awaiting his confirmation, asked 2026-08-26]`
+  If the 11 Oct LIVE EDIT slips a week, the launch slips a week. Never launch a
+  module whose last lesson is not recorded.
 - **Full course at 2/week completes early January 2027.** To land it inside 2026 he
   needs **3 lessons a week**. His choice, stated plainly, not decided for him.
 - **The October full-course date is dead.** 35 lessons × 70 min ≈ **41 hours of

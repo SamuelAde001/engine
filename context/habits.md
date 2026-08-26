@@ -50,16 +50,18 @@ Ends 2026-08-31, same day as the detox block. Decide both explicitly at the
 
 | Habit | Cadence | Starts | TickTick habit id |
 |---|---|---|---|
-| Gym | 3× per week | Tue 1 Sep 2026 | see below |
-| Sleep by [floor] | daily | pending | NOT CREATED — blocked on his bedtime |
+| Gym | 3× per week | Tue 1 Sep 2026 | 6a8eec9b8f0800ee1524083a |
+| Sleep by 10:30pm | daily | Tue 1 Sep 2026 | 6a8ef0058f0804d720eb9be9 |
 
 - **Gym** — 3 sessions a week, floor of 2. Block is 7:00–8:20am (estate gate opens
   7:00am). Costs ~1.5h of client morning per gym day, ~4.5h/week. Accepted knowingly.
   See context/body.md.
-- **Sleep by [floor]** — NOT created. Blocked: Samuel has not given his sleep floor
-  or the bedtime that produces it. Asked 2026-08-26. Last three nights on record are
-  1:00am, 11:00pm, 12:30am against a 5:30am wake — 4.5h, 6.5h, 5h. Do not invent a
-  time; create the habit the day he names one.
+- **Sleep by 10:30pm** — his floor is **7 hours**, given 2026-08-26, which against a
+  5:30am wake is a 10:30pm bedtime. Reminder set 10:15pm. He has not hit this floor
+  once on the record: last three nights were 1:00am, 11:00pm, 12:30am (4.5h, 6.5h,
+  5h). This is the load-bearing habit — gym, the 5:30am prayer block and the 6:30pm
+  hard stop all sit on top of it. When it breaks, ask what happened that afternoon,
+  not why he stayed up.
 
 ## End of the 25–31 Aug block
 

@@ -15,7 +15,7 @@ medication, no injuries.
 | Gym sessions/week | **0** — habit starts Tue 1 Sep 2026 |
 | Bed time, last three nights on record | **1:00am, 11:00pm, 12:30am** |
 | Sleep against a 5:30am wake | **4.5h, 6.5h, 5h** |
-| Sleep floor | `[OPEN — asked 2026-08-26]` |
+| **Sleep floor** | **7 hours — bed 10:30pm** (his answer, 2026-08-26) |
 | Longest recorded working day | **19h06m**, 25 Aug 2026, no nap |
 
 ## The one lever
@@ -52,9 +52,16 @@ He is now adding a 7:00am gym on top of that.
 **A gym session stacked on a 4-hour night makes him feel worse, and he will conclude
 the gym is the problem.** It is not. The bedtime is.
 
-**Sleep floor is UNANSWERED.** `[OPEN — asked 2026-08-26]` Once he gives the number,
-derive the bedtime from the 5:30am wake, write it in here, and put a TickTick
-reminder on it.
+**THE FLOOR: 7 hours. Bed 10:30pm.** His number, given 2026-08-26. Against a 5:30am
+wake that is exactly 7 hours.
+
+Read that against the last three nights — 1:00am, 11:00pm, 12:30am. **He has not hit
+this floor once on the record.** 10:30pm is not a tightening of what he does; it is
+2.5 hours earlier than his worst night and 30 minutes earlier than his best. Treat
+every miss as data about the afternoon that caused it, not as a discipline failure.
+
+TickTick habit **"Sleep by 10:30pm"** created 2026-08-26, daily from 1 Sep,
+reminder 10:15pm.
 
 The chain, stated so nobody has to rediscover it: **5:30am prayer requires an early
 bedtime. Spirit is downstream of sleep, and sleep is downstream of not finishing
@@ -116,15 +123,33 @@ Non-gym day                          Gym day
 7:00-12:00  client block 1           8:30-12:00  client block 1
 12:00-1:00  breakfast                12:00-1:00  breakfast
 1:00-2:00   nap                      1:00-2:00   nap
-2:00-4:00   CONTENT or COURSE        2:00-4:00   CONTENT or COURSE
+2:00-4:00   CONTENT                  2:00-4:00   CONTENT
 4:00-6:30   client block 2           4:00-6:30   client block 2
-6:30        HARD STOP                6:30        HARD STOP
 6:00pm      dinner                   6:00pm      dinner
-[floor]     bed                      [floor]     bed
+6:30        HARD STOP                6:30        HARD STOP
+10:30pm     BED                      10:30pm     BED
 ```
 
 Saturday content (filming, 3h) and Monday content (editing, 3h) run 2:00–5:00pm and
 take the first hour of client block 2.
+
+**Sunday is its own shape:**
+
+```
+7:30am-3:00pm   church + commute (service 9:00am, up to 1h30 each way)
+3:00-5:00pm     rest / buffer
+5:00-7:30pm     COURSE — record 2 lessons
+7:30pm+         dinner (MOVED from 6:00pm, Sundays only — his call, 26 Aug)
+10:30pm         BED
+```
+
+**The hard-stop exception.** The Sunday course block runs to 7:30pm, an hour past the
+6:30pm hard stop. Samuel chose this knowingly and moved Sunday dinner for it. It is
+the **only** sanctioned exception, it is Sunday only, and it is not client work.
+
+The rule the exception must not break: **if a weekday block starts running past
+6:30pm citing "but Sunday does," that is the hard stop eroding.** Say so the first
+time it happens, not the third. The 6:30pm stop exists because of 25 Aug.
 
 ---
 
@@ -161,7 +186,7 @@ take the first hour of client block 2.
 
 ## Open questions
 
-- **Sleep floor in hours, and what bedtime produces it?** `[OPEN — asked 2026-08-26, blocks the sleep habit]`
+- ~~Sleep floor~~ **ANSWERED 2026-08-26: 7 hours, bed 10:30pm.**
 - Which day and time is the weekly 2h chores block? `[OPEN — asked 2026-08-26]`
 - Which day is the fortnightly haircut? `[OPEN — asked 2026-08-26]`
 - What recreation beyond cycling does he want scheduled? `[OPEN — ask at weekly review]`
