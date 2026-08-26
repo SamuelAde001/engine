@@ -45,6 +45,18 @@ Bank balance screenshot sent to Claude Code at the evening reckoning, **plus a
 spoken account of what went out that day.** A screenshot with no spend list is
 not verification — it shows the number, not the decisions.
 
+**The workbook:** `C:\Users\repzy\Desktop\Money-2026.xlsx` — built 2026-08-26.
+Tabs: Dashboard, Income, Expenses, Transfers, Budget, Setup. Covers Aug 2026 –
+Jul 2027, so it reaches both targets. Deliberately NOT in the repo: it is a binary
+that changes daily, and `context/money-ledger.md` stays the text source of truth.
+The workbook is the budgeting layer; the ledger is the record. If the two disagree,
+the ledger wins.
+
+Design point, straight out of the June–August failure: **nothing is typed on the
+Budget or Dashboard tabs.** Budget reads actuals from Expenses via SUMIFS, so a
+budget line cannot claim money moved when no row exists. That was the whole bug in
+the old sheets.
+
 ---
 
 ## Income mechanics
@@ -138,8 +150,8 @@ Starting balance ₦3,503. Four months: September, October, November, December.
 | Scenario | Gross / month | After obligations + ₦100k investment | Sep–Dec total |
 |---|---|---|---|
 | August mix (2×$333 + 2×$175) | ₦1,387,741 | ₦268,000–₦302,000 | **₦1.07M–₦1.21M** |
-| 4 × $333.33 | ₦1,820,001 | ₦700,000–₦734,000 | ₦2.80M–₦2.94M |
-| 2 videos / month | ₦910,000 | **−₦176,000 to −₦210,000** | **underwater every month** |
+| 4 × $333.33 | ₦1,819,982 | ₦700,000–₦734,000 | ₦2.80M–₦2.94M |
+| 2 videos / month | ₦909,991 | **−₦176,000 to −₦210,000** | **underwater every month** |
 
 **₦1M by 31 Dec closes at the August mix — with ₦70k–₦210k of margin across four
 months.** That is not comfortable. One ₦200,000 raid on savings, of exactly the
