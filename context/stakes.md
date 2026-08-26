@@ -10,7 +10,9 @@ My greatest fear is too still be editing videos to survive and not being able to
 
 ## The consequence I've committed to
 
-- Miss the weekly shipping target (4 content/week): No youtube for 2 days
+- Miss the weekly shipping target (1 high-quality video, published Wednesday 7:00pm):
+  No youtube for 2 days. Revised 2026-08-26 from 4 content/week.
+  Missing the TIME counts as missing it. A video that goes up Thursday is a missed week.
 - Break a habit streak twice in one week: No youtube for 2 days
 
 Enforcement: "I will screenshot my youtube screen time, as that is my reward model when I want to relax"

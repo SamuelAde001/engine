@@ -1,5 +1,17 @@
 # Mission
 
+## The Big 3 for this year
+
+In Samuel's stated order of importance (2026-08-26). This is the tiebreaker
+whenever two things want the same block.
+
+1. **Video editing** — "I need to make money from video editing right now"
+2. **Course creation** — "so I make more money"
+3. **Content creation**
+
+Everything else sits below these. Coaching is downstream of the audience.
+Scripnals is explicitly out of scope this year (see below).
+
 ## Video editing (client work)
 
 - Current: editing content based on what my client gives me, deadlines stated per project.
@@ -10,7 +22,14 @@
 
 - Current: inconsistent. Social media stagnant.
 - 12-month target: "my goal is to get 5000 followers by the end of the year which will need me to be both consistent and creative"
-- The lever: 4 pieces of content a week, every week. Consistency is the whole mechanism.
+- The lever (revised 2026-08-26): **one high-quality piece a week, published Wednesday
+  7:00pm WAT, every week.** Depth over volume. Consistency is the cadence, not the count.
+- Why it changed, in his words: "it is when I focus and put in time in one video does it
+  get views and reach, if I focus on just quantity, I would burn out without any standard
+  content... but if I focus on quality, I get feedbacks and follows, cause my content is
+  about storytelling and video editing."
+- The old lever was 4 pieces a week. It was never hit, and his own posted content says
+  reach follows focus, not frequency.
 
 ## Video editing course
 
@@ -26,7 +45,30 @@
 
 ## Shipping cadence
 
-At least 4 content a week.
+**One high-quality video a week. Published Wednesday, 7:00pm WAT.** Same day, same
+time, every week. Revised 2026-08-26 from "at least 4 content a week."
+
+The weekly loop, so publish day never contains production:
+
+| Day | Phase | Time |
+|---|---|---|
+| Thursday | Ideation | ~1h |
+| Friday | Scripting | ~2h |
+| Saturday | Filming | ~3h |
+| Monday | Editing | ~3h+ |
+| Tuesday | Finish + schedule the upload | ~2h |
+| **Wednesday** | **PUBLISH 7:00pm — banked, zero work** | — |
+
+The video is banked the day before it goes out. That rule exists because of
+25 Aug 2026, when a deliverable due 6:20pm went out at 1:42am.
+
+## Scripnals
+
+A phone app Samuel has devs building for him for free. He hopes it becomes a
+successful startup one day and the app is already in decent shape.
+
+**Not a priority this year. Maybe next year.** Deliberately outside the Big 3.
+It gets scheduled around the Big 3, never through them.
 
 ## Why any of this matters
 
