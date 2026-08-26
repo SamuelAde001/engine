@@ -153,6 +153,54 @@ time it happens, not the third. The 6:30pm stop exists because of 25 Aug.
 
 ---
 
+## Client #2 week — 27–30 Aug 2026 (temporary override)
+
+**Scope, in his words (26 Aug): 40 minutes raw, roughly 25 minutes finished.**
+That is a long-form cut, not a short. It is the biggest single deliverable on the
+record so far and it is written here so nobody re-estimates it downward mid-week.
+
+Where the extra time came from — all of it from unused daylight, none from the evening:
+
+| Source | Gain |
+|---|---|
+| 7:00am start instead of 7:30am, Thu–Sat (gym does not begin until 1 Sep) | +0.5h × 3 = **1.5h** |
+| Sunday 30 Aug: **no church** — his call, no transport money. Day 5 runs 7:30am–4:00pm instead of a 2h window | **+5h** |
+| Content production blocks — cadence does not start until Wed 2 Sep, so the 2:00–5:00pm slots are genuinely free this week | already absorbed |
+
+**Total across Days 2–5: ~34h for a ~25 min deliverable, sent 4:00pm Sunday
+against an 8:45pm deadline.** The hours are not the risk. The risk is Thursday and
+Friday going slack and Saturday becoming the march — that is P2, and it is what
+the 3pm pace markers on each day exist to catch.
+
+**Picture lock is Saturday 6:30pm.** Sunday being a working day does NOT promote it
+to a third cutting day. It is the buffer.
+
+**The 5:00–7:30pm Sunday course block still stands.** Client work does not take it.
+
+### The Wednesday-night exception — 26 Aug 2026
+
+Client #1 sent revisions on the delivered project. Samuel worked **9:00–11:00pm**,
+hard cap 11:00pm, to ship the same night. The client asked for tonight — confirmed,
+it was a real external deadline, not one he invented.
+
+**This broke the 6:30pm hard stop and the 10:30pm sleep floor.** It is on the record
+as an exception, not a precedent. The honest cause is not the revisions: **26 Aug
+logged 0h of focus.** An empty Wednesday is what turns a 2-hour client loop into
+night work.
+
+The rule this must not erode: **one live-client exception is not a standing evening
+block.** If a second night block appears inside Client #2's Days 2–5, say it out
+loud at that day's checkpoint, not at the weekly review.
+
+### Money signal, logged here because it changed the week
+
+He is skipping church on 30 Aug for lack of transport money. That is a body/spirit
+cost paid by a money shortfall. Raise it at the reckoning and check it against
+`context/money.md` — do not treat it as a scheduling convenience just because it
+happened to free up a Sunday.
+
+---
+
 ## Hygiene and chores
 
 - **Bathe daily.**
