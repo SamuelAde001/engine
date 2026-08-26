@@ -7,7 +7,9 @@ Run this on Sunday, or whenever Samuel asks to plan the week. Works the same on
 desktop or from his phone.
 
 1. Read context/mission.md, context/stakes.md, context/patterns.md,
-   context/habits.md, context/ticktick.md, and the last 7 rows of context/ledger.md.
+   context/habits.md, context/ticktick.md, context/body.md (anchors, gym cost,
+   day shape), context/audience.md (content and course cadence), and the last
+   7 rows of context/ledger.md.
 2. Pull what's already in TickTick for the coming 7 days, plus anything overdue.
    If the TickTick tools are not available in this session, say so in one line and
    work from what Samuel tells you. Do not invent task state.
@@ -15,14 +17,27 @@ desktop or from his phone.
    over, and how many times each carried-over item has been rescheduled.
 4. Ask him, in this order, one question at a time. Wait for each answer:
    - "What client deadlines land this week, and what date is each stated for?"
-   - "How many content pieces this week?" — mission.md says the target is 4.
-     If he names fewer, take the number, don't argue it here, but write the gap
-     into the ledger note so the weekly review can see it.
+   - "Is the Wednesday video banked by Tuesday night?" — the target is ONE video,
+     published Wednesday 7:00pm. Publish day contains zero production. If he cannot
+     say yes, find the block now, not on Wednesday.
+   - "Which two lessons are you recording this week?" — course cadence is 2 lessons
+     a week and it does not survive unless it is named on Sunday. Take the two
+     lesson titles, not "some course work."
    - "What are you protecting course time with?" — the course loses to client work
      every time. If he gives no block, say that plainly.
-5. Lay it out against the fixed anchors: breakfast ~12:00pm, nap 1:00pm (~1 hour).
-   Never schedule work over them. Never create tasks for eating, napping, showering
-   or sleeping.
+5. Lay it out against the fixed anchors. Never schedule work over them. Never create
+   tasks for eating, napping, showering or sleeping.
+   - 5:30-6:15am  prayer + Bible study (45 min, combined)
+   - 7:00-8:20am  gym on gym days (gate opens 7:00am; costs ~1.5h of client morning)
+   - 12:00pm      breakfast
+   - 1:00pm       nap (~1 hour)
+   - 2:00-4:00pm  content or course block
+   - 6:00pm       dinner
+   - 6:30pm       HARD STOP — no evening work blocks
+   - Sunday 7:30am-3:00pm is church and commute. Sunday is not a work buffer;
+     plan it from 3:00pm.
+   - While a fast is running, check context/habits.md for the replacement anchors
+     (3:00pm first meal, 4:00pm nap) before laying anything out.
 6. Create the tasks in TickTick with the dates he stated. Use the project ids in
    context/ticktick.md. Never invent a due date he didn't say. Never move an
    existing due date — if something needs to move, ask first.

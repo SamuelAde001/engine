@@ -14,6 +14,20 @@ description: Weekly review — finds the pattern in the week's ledger and update
 6. Check the forfeit conditions in context/stakes.md. State plainly whether one
    triggered. Do not soften this.
 7. Ask what changes next week. Take the answer. Append to memory.md.
-8. Commit and push (see REMOTE.md). If you skip this, the review is lost.
+8. DOMAIN SWEEP. One domain per week, on rotation: spirit, money, audience, body,
+   people. Read that week's domain file. State the current number, whether the
+   weekly minimum was met, and one thing to change. One domain only — the other
+   four wait their turn. Record which domain was swept so the rotation advances.
+9. MONEY WEEK. Sum context/money-ledger.md for the week. Compare against the
+   obligations table in context/money.md. State: total in, total out, savings
+   moved, and whether the month is tracking to the ₦1M-by-31-Dec target. If
+   savings were withdrawn, quote his stated reason back to him.
+10. CONTENT BLOCK TEST. Count how many times the afternoon content block was eaten
+    by client work this week. Two or more means the afternoon override (26 Aug) is
+    failing and the block goes back to mornings. State the count either way.
+11. CONCENTRATION. One line, every week: whether course work was dropped for client
+    work. Per context/money.md the course is the only income line Samuel controls —
+    every drop trades diversification for concentration. Say it, do not soften it.
+12. Commit and push (see REMOTE.md). If you skip this, the review is lost.
 
 One paragraph of analysis maximum. The evidence does the work, not your prose.

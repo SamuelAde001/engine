@@ -46,6 +46,33 @@ Ends 2026-08-31, same day as the detox block. Decide both explicitly at the
 - Prayer and Bible study — removed 2026-08-24 (archived in TickTick, id 6a8b60638f085902f9e2efa9)
 - No masturbating — removed 2026-08-24 (archived in TickTick, id 6a8b606a8f0898590054ebf6)
 
+## New habits from 1 Sep 2026 (added 2026-08-26)
+
+| Habit | Cadence | Starts | TickTick habit id |
+|---|---|---|---|
+| Gym | 3× per week | Tue 1 Sep 2026 | see below |
+| Sleep by [floor] | daily | pending | NOT CREATED — blocked on his bedtime |
+
+- **Gym** — 3 sessions a week, floor of 2. Block is 7:00–8:20am (estate gate opens
+  7:00am). Costs ~1.5h of client morning per gym day, ~4.5h/week. Accepted knowingly.
+  See context/body.md.
+- **Sleep by [floor]** — NOT created. Blocked: Samuel has not given his sleep floor
+  or the bedtime that produces it. Asked 2026-08-26. Last three nights on record are
+  1:00am, 11:00pm, 12:30am against a 5:30am wake — 4.5h, 6.5h, 5h. Do not invent a
+  time; create the habit the day he names one.
+
+## End of the 25–31 Aug block
+
+**The detox block and the fast BOTH end 31 August** — Samuel confirmed 2026-08-26.
+
+At the **31 Aug reckoning**, decide explicitly for each one: **keep, drop, or
+extend.** Two separate decisions, both spoken out loud. Do not let either lapse
+silently, and do not assume that extending one extends the other.
+
+**Post-fast anchors return to 12:00pm breakfast / 1:00pm nap / 6:00pm dinner**, plus
+the 5:30am prayer + Bible study block (45 min, combined — his number). See
+context/body.md.
+
 ## Cost
 
 Break a streak twice in one week: no YouTube for 2 days (see context/stakes.md).

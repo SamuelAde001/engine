@@ -9,8 +9,13 @@ Samuel: "Everything is important except, welcome, also I don't use content ideas
 
 ## Audience / course (the 12-month lever)
 
-- 📽Content Creation (680528b5ebad3900000002ea) — the 4-per-week cadence
-- Course recording (6a14348bebdd1b000000027a) — the course that hasn't started
+- 📽Content Creation (680528b5ebad3900000002ea) — **one video a week, published
+  Wednesday 7:00pm.** Revised 2026-08-26 from the old 4-per-week cadence. The
+  production blocks (Thu/Fri/Sat/Mon/Tue) sit in the **afternoon, 2:00pm**, moved
+  from mornings 2026-08-26 at Samuel's instruction. See context/audience.md.
+- Course recording (6a14348bebdd1b000000027a) — now carries the **Called to Edit**
+  lesson tasks. 37 lessons, 2 recorded, Module 1 (11 lessons) first. Cadence
+  2 lessons/week. See context/audience.md.
 - 🕯HighSignals (668f0602ebad390000001102)
 
 ## Self

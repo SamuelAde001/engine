@@ -13,6 +13,14 @@ description: Evening reckoning — audits today against what I committed to.
    actually completed. Tick the ones I confirm — use complete_task. Do not tick
    anything I did not confirm. Do not tick anything not due today.
 2c. Ask me the habit checks for today by name (see context/habits.md). Record what I say.
+2d. MONEY. Ask for today's bank balance screenshot and for what went out today,
+    item by item. Take the amounts in his own words. Write one row into
+    context/money-ledger.md. If he sends a screenshot with no spend list, say so
+    and ask for the list — a balance alone is not verification. If he skips it,
+    write the row with balance UNREPORTED. Do not fill it in from memory.
+2e. SLEEP. Ask what time he actually went to bed last night. Record it. If it is
+    below the floor in context/body.md, say the number of hours and move on —
+    do not lecture.
 3. Compare. State the gap in one line. No preamble.
 4. Score: SHIPPED (did the committed thing) / PARTIAL / MISSED.
 5. If MISSED: quote the relevant line from context/stakes.md verbatim, then ask
@@ -26,3 +34,7 @@ description: Evening reckoning — audits today against what I committed to.
 
 Never reschedule anything. Never move a due date. The only thing you may change in
 TickTick is ticking a task I explicitly confirmed in step 2b.
+
+Under five minutes. This is a check-in, not an interrogation. Steps 2b-2e are
+short questions with short answers. If the day needs a longer conversation, say
+so and let him choose to have it — do not extend the reckoning unilaterally.

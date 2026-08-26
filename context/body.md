@@ -1,0 +1,167 @@
+# Body
+
+## SMART goal
+
+**Gym 3 sessions a week, floor of 2, every week from 1 Sep to 31 Dec 2026.**
+
+Target state in his words: fit, muscle density, endurance, *"6 packs instead of pot
+belly."* He reports himself currently fit and healthy — no conditions, no
+medication, no injuries.
+
+## Current number (as of 2026-08-26)
+
+| | |
+|---|---|
+| Gym sessions/week | **0** — habit starts Tue 1 Sep 2026 |
+| Bed time, last three nights on record | **1:00am, 11:00pm, 12:30am** |
+| Sleep against a 5:30am wake | **4.5h, 6.5h, 5h** |
+| Sleep floor | `[OPEN — asked 2026-08-26]` |
+| Longest recorded working day | **19h06m**, 25 Aug 2026, no nap |
+
+## The one lever
+
+**Sleep. Nothing else in this file survives a 4-hour night.**
+
+## Weekly minimum
+
+- **2 gym sessions** (target 3).
+- **Sleep floor met 5 nights out of 7.**
+
+## Cost of breaking it
+
+Break a streak twice in one week: no YouTube for 2 days (`context/stakes.md`).
+Self-enforced, therefore currently unenforced.
+
+The real cost is not a forfeit. It is 25 Aug: a 19-hour day, 16.23h logged focus,
+delivery at 1:42am, and a deliverable that was still four days late.
+
+## How it is verified
+
+- Gym: TickTick habit, checked at the evening reckoning.
+- Sleep: reported at the reckoning as the **actual bed time**, not the intended one.
+
+---
+
+## Sleep — the load-bearing wall
+
+Last three nights on record: **1:00am, 11:00pm, 12:30am.** Against a 5:30am wake
+that is **4.5h, 6.5h, 5h**.
+
+He is now adding a 7:00am gym on top of that.
+
+**A gym session stacked on a 4-hour night makes him feel worse, and he will conclude
+the gym is the problem.** It is not. The bedtime is.
+
+**Sleep floor is UNANSWERED.** `[OPEN — asked 2026-08-26]` Once he gives the number,
+derive the bedtime from the 5:30am wake, write it in here, and put a TickTick
+reminder on it.
+
+The chain, stated so nobody has to rediscover it: **5:30am prayer requires an early
+bedtime. Spirit is downstream of sleep, and sleep is downstream of not finishing
+client work at 1am.**
+
+---
+
+## Daily anchors
+
+**Post-fast, from 1 Sep** (once the 25–31 Aug fast ends):
+
+| Time | Anchor |
+|---|---|
+| 5:30am | Prayer + Bible study, **45 minutes**, combined (his number) |
+| 12:00pm | Breakfast |
+| 1:00pm | Nap (~1 hour) |
+| 6:00pm | Dinner |
+
+**During the fast (25–31 Aug only):** 3:00pm first meal, 4:00pm nap, 7:00pm dinner.
+
+Never schedule work over any of these. Never create TickTick tasks for eating,
+napping, showering or sleeping — those are not tasks.
+
+The fast and the detox **both end 31 August** — Samuel confirmed. At the 31 Aug
+reckoning, decide explicitly for each: **keep, drop, or extend.** Do not let either
+lapse silently.
+
+---
+
+## Gym mechanics
+
+His estate gate opens at **7:00am**, so 7:00am is the earliest possible departure.
+
+```
+7:00-7:15   cycle there
+7:15-7:45   session (30 min)
+7:45-8:00   cycle back
+8:00-8:20   shower and change
+```
+
+**7:00–8:20am. That is 1h20, not 1h.**
+
+It costs **~1.5h of client-edit morning on each gym day — ~4.5h/week across 3 days.**
+That is the price of the habit. It is worth paying. It is written here so it is
+planned for on Sunday, not discovered on Thursday.
+
+Cycling doubles as his current recreation, so the bike legs are not dead time.
+
+---
+
+## The default day shape
+
+Reference only. **Do not create TickTick tasks for this.**
+
+```
+Non-gym day                          Gym day
+5:30-6:15   prayer + Bible           5:30-6:15   prayer + Bible
+6:15-7:00   shower, prep             7:00-8:20   gym (cycle, session, cycle, shower)
+7:00-12:00  client block 1           8:30-12:00  client block 1
+12:00-1:00  breakfast                12:00-1:00  breakfast
+1:00-2:00   nap                      1:00-2:00   nap
+2:00-4:00   CONTENT or COURSE        2:00-4:00   CONTENT or COURSE
+4:00-6:30   client block 2           4:00-6:30   client block 2
+6:30        HARD STOP                6:30        HARD STOP
+6:00pm      dinner                   6:00pm      dinner
+[floor]     bed                      [floor]     bed
+```
+
+Saturday content (filming, 3h) and Monday content (editing, 3h) run 2:00–5:00pm and
+take the first hour of client block 2.
+
+---
+
+## Hygiene and chores
+
+- **Bathe daily.**
+- **All chores in one weekly 2-hour block:** wash clothes, clean house, wash toilet.
+  His words: *"once in a week works for all of them... 2 hours is enough."*
+  Day/time `[OPEN — asked 2026-08-26]`
+- **Haircut: once every two weeks.** Separate recurring task. Day `[OPEN — asked 2026-08-26]`
+
+## Recreation
+
+- **Currently cycling only.** He intends to broaden it over time — outdoors, events,
+  taking himself out, games — but has nothing specific to schedule yet.
+- **Do not invent recreation tasks.** Ask at the weekly review what he wants to add.
+- **Standing risk:** YouTube is both his default relaxation and his forfeit currency.
+  Watch for YouTube being the only recreation on the ledger week after week. A
+  forfeit that removes the only rest he has is not a forfeit, it is a punishment
+  with a side effect.
+
+## Rules
+
+```
+1. Sleep floor is the wall. Gym, prayer and focus all sit on top of it.
+2. Gym days cost ~1.5h of client morning. Plan for it Sunday. Never discover it
+   on the day and cancel the gym.
+3. Floor of 2 sessions. Two is a met week. Three is the target.
+4. No evening work blocks. Hard stop 6:30pm. Work that misses the stop rolls to
+   the buffer, never into the night.
+5. Any day whose logged focus exceeds 12h is not a good day. It is an invoice.
+6. Never create tasks for eating, napping, showering or sleeping.
+```
+
+## Open questions
+
+- **Sleep floor in hours, and what bedtime produces it?** `[OPEN — asked 2026-08-26, blocks the sleep habit]`
+- Which day and time is the weekly 2h chores block? `[OPEN — asked 2026-08-26]`
+- Which day is the fortnightly haircut? `[OPEN — asked 2026-08-26]`
+- What recreation beyond cycling does he want scheduled? `[OPEN — ask at weekly review]`
