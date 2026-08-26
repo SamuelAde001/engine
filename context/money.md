@@ -48,17 +48,31 @@ Bank balance screenshot sent to Claude Code at the evening reckoning, **plus a
 spoken account of what went out that day.** A screenshot with no spend list is
 not verification — it shows the number, not the decisions.
 
-**The workbook:** `C:\Users\repzy\Desktop\Money-2026.xlsx` — built 2026-08-26.
-Tabs: Dashboard, Income, Expenses, Transfers, Budget, Setup. Covers Aug 2026 –
-Jul 2027, so it reaches both targets. Deliberately NOT in the repo: it is a binary
-that changes daily, and `context/money-ledger.md` stays the text source of truth.
-The workbook is the budgeting layer; the ledger is the record. If the two disagree,
-the ledger wins.
+**The workbook:** Google Sheets — **"My Claude Budget"**, moved there 2026-08-26 so
+Claude Code can write it directly instead of Samuel typing updates by hand. Tabs:
+Dashboard, Setup, Income, Expenses, Transfers, Budget, Details. Covers Aug 2026 –
+Jul 2027, so it reaches both targets.
+
+`context/money-ledger.md` stays the text source of truth. The sheet is the
+budgeting layer; the ledger is the record. **If the two disagree, the ledger wins.**
+
+Claude writes it through `tools/sheets/` — an Apps Script web app bound to the
+sheet. Setup and security are in `tools/sheets/README.md`; the credentials live in
+a gitignored `.env`. The line items behind every category live in
+`tools/sheets/plan.json`, and `tools/sheets/build_budget.py` rebuilds the Budget
+and Details tabs from it.
 
 Design point, straight out of the June–August failure: **nothing is typed on the
-Budget or Dashboard tabs.** Budget reads actuals from Expenses via SUMIFS, so a
-budget line cannot claim money moved when no row exists. That was the whole bug in
-the old sheets.
+Budget or Dashboard tabs.** Budget's plan column reads Details, its month columns
+read Expenses, and its savings block reads Transfers — all via SUMIFS. A budget
+line cannot claim money moved when no row exists. That was the whole bug in the
+old sheets.
+
+**The Details tab** answers "what is this category actually made of" — every
+subscription, every line, with its amount, due day, tier and payday. It is the only
+place a plan number is typed. Cancelled items go Active=No; they are never deleted,
+because a subscription that reappears in three months is a pattern and a deleted
+row hides it.
 
 ---
 
@@ -99,25 +113,75 @@ August lands as: **70% ≈ ₦971,416 at month end**, **30% ≈ ₦416,325 mid-S
 **Income has halved in two months.** This is the single most important number in
 the system.
 
-## Monthly obligations
+## Monthly obligations — exact, from 2026-08-26
 
-| Item | Amount |
-|---|---|
-| Building project | ₦500,000 |
-| Parents | ₦100,000 |
-| Girlfriend allowance | ₦100,000 (varies with need) |
-| Community admin salary | ₦15,000 |
-| Business subscriptions | ₦51,000–₦84,500 |
-| Feeding | ~₦200,000 |
-| Giving | ~₦20,000 |
-| Creator visits (network) | ₦25,000 |
-| **Obligations floor** | **₦1,011,000–₦1,044,500** |
-| Investment contribution | ₦100,000 |
-| **Total committed outflow** | **₦1,111,000–₦1,144,500 / month** |
+Samuel gave the real line items. They are on the Details tab and in
+`tools/sheets/plan.json`. **Payday** is which half of the month pays it — see
+"The two paydays" below.
+
+| Item | Amount | Tier | Payday |
+|---|---|---|---|
+| Building project | ₦500,000 | Fixed | A |
+| Parents | ₦100,000 | Committed | A |
+| Girlfriend allowance | ₦100,000 | Committed | A |
+| Subscriptions | ₦66,700 | mixed | split |
+| Chores / household | ₦40,000 | Discretionary | B |
+| Health — gym | ₦30,000 | Committed | A |
+| Feeding | ₦30,000 | Committed | B |
+| Creator visits (network) | ₦25,000 | Discretionary | B |
+| Transport | ₦20,000 | Committed | B |
+| Community admin salary | ₦15,000 | Fixed | B |
+| Giving | ₦10,000 | Committed | B |
+| Personal / misc | ₦10,000 | Discretionary | B |
+| Data / airtime | ₦5,000 | Committed | B |
+| **Obligations floor** | **₦951,700** | | |
+| Investment contribution | ₦100,000 | Fixed | A |
+| **Total committed outflow** | **₦1,051,700 / month** | | |
+
+Subscriptions, exactly: Claude ₦33,500 (16th) · Google ₦15,000 (2nd) · CapCut
+₦14,900 (4th) · YouTube Premium ₦1,700 (17th) · Spotify ₦1,600 (5th). Rubik's cube
+₦6,860 **cut 2026-08-26**. YouTube and Spotify kept — his words: they help his work,
+and they are his only entertainment.
+
+**The estimate was ₦1,044,500. The truth is ₦1,038,560 once personal/misc is
+counted — a difference of ₦5,940.** Nothing got cheaper. Feeding's ₦150,000 did not
+become savings, it moved house: into transport, data, household, the gym, and a misc
+line that did not exist before. That is worth remembering the next time a category
+looks like it has slack in it.
+
+Changed 2026-08-26 at his instruction: giving ₦20,000→₦10,000 ("only when someone
+asks" — `spirit.md` records no tithe commitment, so nothing pulls against it);
+feeding ₦50,000→₦30,000 (his sister feeds him); transport ₦30,000→₦20,000;
+personal/misc ₦50,000→₦10,000. Gym ₦30,000 **added**, starting September — he is
+resuming it. **The gym is not a line to raid.** It is the one item on this list
+that pays him back.
 
 Creator visits added 2026-08-26 at ₦25,000/month, his number. It is a real line now,
 not a good intention — and it cost the December target ₦100,000 across four months.
 That trade is stated below, not hidden.
+
+## The two paydays
+
+One batch, two dates. This is now the spine of the budget.
+
+| | Payday A — 70% | Payday B — 30% |
+|---|---|---|
+| Lands | end of the **previous** month | around the **14th** |
+| Funds | the 1st – 14th | the 15th – month end |
+| Expected in | ~₦971,416 | ~₦416,325 |
+| Committed | ₦861,500 | ₦190,200 |
+| **Free** | **₦109,916** | **₦226,125** |
+
+The 30% is always the previous month's remaining batch, never a new one.
+
+**They do not pay at weekends.** If a payday falls on a Saturday or Sunday the money
+lands the following Monday night. Two slips are already on the calendar:
+
+- **Oct 70%: Sat 31 Oct → Mon 2 Nov.** The tightest point of the year. November's
+  front half is funded on the 2nd, and Google bills on the 2nd, CapCut the 4th.
+- **Nov 30%: Sat 14 Nov → Mon 16 Nov.**
+
+Both are on the Budget tab's payday calendar.
 
 Removed and no longer owed:
 
@@ -128,7 +192,16 @@ Removed and no longer owed:
 - **HighSignals devs — ₦0.** Paid ₦150k in July; they have since agreed to work
   free because August was low. They are friends. Nothing owed. He intends to sort
   them out when Scripnals launches.
-- **Loans — all cleared.** Okash, FairMoney, bank loan. Gone. Do not carry forward.
+- **Commercial loans — all cleared.** Okash, FairMoney, bank loan. Gone. Do not
+  carry forward.
+
+**But one debt is live, added 2026-08-26: he owes his sister ₦90,000.** ₦40,000 goes
+in September on Payday B. **₦50,000 remains, with no date on it** — his words: "can
+hold for anytime I am free with more funds, no deadline." She is not pressing, so it
+is not scheduled. It is written down here anyway, because an undated debt is the
+kind of thing that ambushes a month, and because "when I have more funds" is the
+same sentence that moves due dates. Bring it up the first month that closes with the
+buffer full.
 
 ## The savings hole
 
@@ -155,22 +228,45 @@ saying what savings are for. That is the fix — not a tighter budget.
 
 Starting balance ₦3,503. Four months: September, October, November, December.
 
-| Scenario | Gross / month | After obligations + ₦100k investment | Sep–Dec total |
-|---|---|---|---|
-| August mix (2×$333 + 2×$175) | ₦1,387,741 | ₦243,000–₦277,000 | **₦973,000–₦1,107,000** |
-| 4 × $333.33 | ₦1,819,982 | ₦675,000–₦709,000 | ₦2.70M–₦2.84M |
-| 2 videos / month | ₦909,991 | **−₦201,000 to −₦235,000** | **underwater every month** |
+**Recalculated 2026-08-26 on his real line items, and it is materially better.**
 
-**₦1M by 31 Dec is now ON THE LINE, not over it.** Four months at the August mix
-produces ₦973,000–₦1,107,000 against a ₦1,000,000 target, starting from ₦3,503.
-**At the bottom of that range it misses by ₦27,000.**
+| Scenario | Gross / month | After ₦951,700 + ₦100k investment |
+|---|---|---|
+| August mix (2×$333 + 2×$175) | ₦1,387,741 | **₦336,041** |
+| 4 × $333.33 | ₦1,819,982 | ₦768,282 |
+| 2 videos / month | ₦909,991 | **−₦141,709 — underwater** |
 
-It was ₦1.07M–₦1.21M before the ₦25,000 creator-visit line went in on 26 Aug. That
-line cost ₦100,000 across four months and moved the December target from "just
-closes" to a coin flip. Worth it or not is his call — but it is now a coin flip, and
-one ₦200,000 savings raid of exactly August's kind ends it outright.
+At the August mix, with September's ₦140,000 of one-offs (son's school ₦50,000,
+Kaduna ₦50,000, sister ₦40,000):
+
+```
+Sep      196,041   one-offs eat 140,000
+Oct      336,041
+Nov      336,041
+Dec      336,041
+─────────────────
+       1,204,164  + 3,503 opening  =  1,207,667
+```
+
+**₦1,207,667 against a ₦1,000,000 target.** Take ₦50,000/month for the buffer
+(₦200,000) and **Goal 1 closes at ₦1,007,667** with a funded cushion standing
+behind it.
+
+That margin is only ₦7,667, and that is the right trade. ₦207,000 of margin with no
+buffer means the first urgency in October gets paid out of savings — which is
+exactly how ₦595,250 disappeared. Margin has never stopped a raid. A buffer does.
+
+Before his 26 Aug cuts this cleared December by **₦227 across four months.** The
+cuts — giving, feeding, transport, personal/misc, the Rubik's sub — are what turned
+a coin flip into a plan with a cushion. Worth saying once: that was his own doing,
+and it is the first time the arithmetic has moved because he changed behaviour
+rather than because income moved.
 
 **2 videos/month is what July was.** It is already visible in the building payments.
+At that mix he is ₦141,709 underwater every month, and steps 1–3 of the lean ladder
+only free ₦55,000 of it. The buffer is the only legal answer — Rule 1 forbids
+savings, Rule 7 forbids pausing Cowrywise. That is not a hypothetical: it is why
+Rule 8 exists.
 
 ### Goal 2 — and this is the real problem
 
@@ -221,8 +317,13 @@ The weekly review says so, out loud, every week.
    else. A girlfriend's visit is not an emergency.
 2. Any withdrawal from savings gets logged the same day in context/money-ledger.md
    with the amount and the reason, in Samuel's own words. No silent withdrawals.
-3. Savings move FIRST, on the day the 70% lands — before any discretionary spend.
-   Money that is saved at the end of the month is money that was never saved.
+3. Savings move ON A PAYDAY, the day the money lands — never at month end. Money
+   saved at the end of the month is money that was never saved.
+   Cowrywise moves on Payday A. Goal 1 and the Buffer move on Payday B — Samuel's
+   call 2026-08-26, because Payday A is nearly always full.
+   EXCEPTION: if Payday A leaves more than ₦50,000 free after its commitments,
+   that excess moves the same day. Six figures sitting loose for fourteen days is
+   how ₦595,250 disappeared.
 4. Building project is paid in full (₦500,000) before any discretionary line.
    August was ₦200,000. That is a shortfall of ₦300,000 and it is on the record.
 5. No new client project below $333/video without logging the reason in
@@ -233,6 +334,12 @@ The weekly review says so, out loud, every week.
    ends. It is not touched for the ₦1M, the ₦3M, the building, or anything else.
    New savings and the emergency fund are built OUTSIDE it. It does not pay out
    until January 2027, when it moves into actual stocks. Samuel's rule, 2026-08-26.
+8. THE BUFFER is where urgencies come from — not savings. ₦50,000/month to a
+   ₦200,000 target, plus any month-end underspend, plus the whole excess of any
+   4-video month. When a month lands short, the cut order is already decided:
+   personal/misc → creator visits → household down to ₦20,000 → the buffer covers
+   the rest → and ONLY THEN a conversation. If the buffer is empty, an urgency
+   gets negotiated, not funded. It never gets funded from Goal 1.
 ```
 
 **Said once about Rule 7, and not to be re-argued:** he is putting ₦100,000/month

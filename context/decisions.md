@@ -158,3 +158,71 @@ and the IG/TikTok numbers with 5,000 marked AMBITION against the SMART version
 (18 unbroken Wednesdays). stakes.md gained the scorecard mechanism and the
 savings-rule section. The 2026-08-23 unenforced note was left intact — history, not
 rewritten.
+
+2026-08-26 — DECISION: the budget moves to Google Sheets ("My Claude Budget") and
+Claude Code writes it directly. Samuel's reason: he does not want to type updates by
+hand. | BUILT: the Google Drive connector can read a sheet but cannot write a cell,
+and the Sheets API needs a Cloud project, so the bridge is an Apps Script web app
+bound to the sheet — one paste, one deploy, generic primitives so it never needs
+re-pasting. tools/sheets/{Code.gs, sheets.py, README.md}. Credentials in a gitignored
+.env; the committed Code.gs carries a __SHEETS_TOKEN__ placeholder so the secret
+never enters git history. Samuel proposed falling back to Excel-in-browser via the
+Chrome extension when the first deploy 403'd; REJECTED and explained — browser
+automation cannot fire from a cloud routine or his phone, which is the whole of
+REMOTE.md. The 403 was one dropdown ("Who has access") set wrong. He fixed it.
+
+2026-08-26 — DECISION: the Budget tab gets a Details tab behind it. Samuel's ask:
+"I need to know what actually makes up each budget category." | BUILT: Details is
+the only place a plan number is typed; Budget's plan column reads it with SUMIFS,
+so a category total can always be broken down. Cancelled items go Active=No and are
+never deleted — a subscription that reappears is a pattern, and a deleted row hides
+it. Savings block added to Budget per his ask (building/Goal 1, Cowrywise, marriage,
+emergency fund, buffer), reading Transfers, so a savings line cannot claim money
+that never moved.
+
+2026-08-26 — DECISION (his real numbers, first time the budget has been exact):
+subscriptions are ₦73,560 not the ₦51k–84.5k guess — Claude 33,500 / Google 15,000 /
+CapCut 14,900 / Rubik's 6,860 / YouTube 1,700 / Spotify 1,600. Then cut, same
+session: Rubik's OUT, giving 20k→10k, feeding 50k→30k, transport 30k→20k,
+personal/misc 50k→10k. Gym ₦30,000 ADDED from September. Obligations floor is now
+**₦951,700**. | BUILT: plan.json, Details tab, money.md obligations table rewritten.
+The finding worth keeping: his estimate and his truth differed by ₦5,940 — feeding's
+₦150,000 did not become savings, it moved into transport, data, household, gym and
+a misc line. Nothing got cheaper.
+
+2026-08-26 — DECISION: the two paydays become the spine of the budget. Every line
+item carries Payday A (70%, lands end of previous month, funds 1st–14th) or Payday B
+(30%, lands ~14th, funds 15th–end), so expenses can be pushed to the back half when
+the front is loaded — his own instinct, now on paper. Girlfriend MOVED to A (she
+needs it for household essentials); community admin MOVED to B (he is paid
+mid-month). | BUILT: Budget payday block, Details payday column. September proved it
+immediately — Payday A came out ₦15,084 over, so giving and feeding moved to B.
+
+2026-08-26 — DECISION: Rule 3 AMENDED and Rule 8 ADDED. Rule 3 was "savings move
+first on the day the 70% lands"; Goal 1 now moves on Payday B at Samuel's request
+(Payday A is always full), with an exception that any Payday A surplus over ₦50,000
+moves the same day rather than sitting loose for a fortnight. Rule 8 creates the
+BUFFER: ₦50,000/month to ₦200,000, fed also by underspend and by any 4-video month's
+excess, and it — not savings — is where urgencies come from. The lean-month cut
+order is decided in advance: personal/misc → creator visits → household to ₦20,000 →
+buffer → only then a conversation. | BUILT: money.md rules, Setup tab, Budget lean
+ladder. The argument that carried it: at a 2-video month he is ₦141,709 underwater
+and the discretionary cuts only free ₦55,000 — with Rule 1 forbidding savings and
+Rule 7 forbidding a Cowrywise pause, the buffer is the only legal way to balance
+that month.
+
+2026-08-26 — DECISION: Samuel's cuts moved the December verdict from ₦227 of margin
+across four months to ₦1,207,667 against the ₦1M — closing at ₦1,007,667 after
+₦200,000 goes to the buffer. | BUILT: money.md "Does the ₦1M close?" rewritten.
+Worth recording once: this is the first time the arithmetic moved because he changed
+behaviour rather than because income moved.
+
+2026-08-26 — FACTS ADDED, not previously in the engine: (a) he has a SON with his
+girlfriend, whose money rides inside her allowance — which is why the allowance
+varies; September carries +₦50,000 for school. OPEN: termly or one-off? (b) he owes
+his SISTER ₦90,000; ₦40,000 goes in September, ₦50,000 is undated ("anytime I am
+free with more funds"). money.md's "loans all cleared" was wrong and is corrected.
+(c) Route Rise does not pay at weekends — a payday on a Saturday lands Monday night.
+Oct 70% slips Sat 31 Oct → Mon 2 Nov and Nov 30% slips Sat 14 Nov → Mon 16 Nov,
+making early November the tightest point of the year. | BUILT: people.md, money.md,
+Budget payday calendar.

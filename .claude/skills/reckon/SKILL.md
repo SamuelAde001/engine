@@ -18,6 +18,15 @@ description: Evening reckoning — audits today against what I committed to.
     context/money-ledger.md. If he sends a screenshot with no spend list, say so
     and ask for the list — a balance alone is not verification. If he skips it,
     write the row with balance UNREPORTED. Do not fill it in from memory.
+    Then mirror it into the budget sheet: one row per item that left the account,
+    appended to the EXPENSES tab via `python tools/sheets/sheets.py`, categorised
+    against the Setup category list. Money that moved to or from a pot goes on
+    TRANSFERS instead, not Expenses — and a "From pot" row with no reason in his
+    own words is money.md Rule 2 broken; get the reason.
+    The ledger is written first and is the source of truth. The sheet is the mirror.
+    If the bridge is not reachable (`tools/sheets/README.md`), say so in one line,
+    write the ledger anyway, and mirror it at the next session. Never skip the
+    ledger because the sheet failed.
 2e. SLEEP. Ask what time he actually went to bed last night. Record it. If it is
     below the floor in context/body.md, say the number of hours and move on —
     do not lecture.

@@ -53,6 +53,13 @@ something costing me output or health, say it.
   with my reason in my own words.
 - The Cowrywise investment is ring-fenced. ₦100,000/month goes in until the year
   ends. It never counts toward the ₦1M or the ₦3M, and it is never spent on them.
+- The budget lives in Google Sheets ("My Claude Budget") and is written from HERE,
+  never by hand — see tools/sheets/. As I log the reckoning I mirror the day into
+  it. context/money-ledger.md stays the source of truth: if the sheet and the
+  ledger disagree, the ledger wins.
+- Never type a plan number on the Budget tab. Plan totals are SUMIFS off the
+  Details tab, so a category total can always be broken down into the actual
+  items that make it up. Cancelled items are marked inactive, never deleted.
 
 ## Files
 
@@ -70,6 +77,7 @@ something costing me output or health, say it.
 - context/ticktick.md — which TickTick projects map to what
 - context/habits.md — habits I'm tracking and what breaking them costs
 - context/decisions.md — what the Claude project and I decided, and what got built (append-only)
+- tools/sheets/ — the bridge that reads and writes "My Claude Budget" from here
 - REMOTE.md — how this runs from my phone when I'm away from the computer
 - PROJECT.md — the instructions pasted into my Claude project on claude.ai
 - PA.md — generated bundle of all of the above; do not hand-edit

@@ -1,0 +1,65 @@
+{
+  "_comment": [
+    "The canonical line items behind every budget category.",
+    "SOURCE for the Details tab. Edit here, re-push, and the Budget tab's Plan",
+    "column follows automatically via SUMIFS.",
+    "",
+    "Amounts are ₦/month. tier: Fixed | Committed | Discretionary.",
+    "payday: A = the 70% landing at the END of the PREVIOUS calendar month.",
+    "            It funds the 1st-14th. ~₦971,416 at the August mix.",
+    "        B = the 30% landing ~the 14th (always last month's remainder).",
+    "            It funds the 15th-month end. ~₦416,325 at the August mix.",
+    "",
+    "Baseline given 2026-08-26. Revised same day by Samuel for September."
+  ],
+
+  "recurring": [
+    ["Building project",   "Building project — monthly construction payment", 500000, "Fixed",         "A", "",     "Yes", "money.md Rule 4: paid in full before any discretionary line. August was ₦200,000 — a ₦300,000 shortfall, on the record."],
+
+    ["Parents",            "Parents — monthly",                               100000, "Committed",     "A", "",     "Yes", ""],
+    ["Girlfriend",         "Girlfriend allowance",                            100000, "Committed",     "A", "",     "Yes", "MOVED to Payday A 2026-08-26. She needs it at the start of the month to buy essentials at home. This one does not flex to the back half."],
+    ["Community admin",    "Community admin salary",                           15000, "Fixed",         "B", "",     "Yes", "MOVED to Payday B 2026-08-26 — he is paid mid-month, not at the start."],
+
+    ["Subscriptions",      "Claude",                                           33500, "Fixed",         "B", "16th", "Yes", ""],
+    ["Subscriptions",      "Google",                                           15000, "Fixed",         "A", "2nd",  "Yes", ""],
+    ["Subscriptions",      "CapCut",                                           14900, "Fixed",         "A", "4th",  "Yes", ""],
+    ["Subscriptions",      "YouTube Premium",                                   1700, "Committed",     "B", "17th", "Yes", "KEPT. His words: helps his work, and his only entertainment."],
+    ["Subscriptions",      "Spotify",                                           1600, "Committed",     "A", "5th",  "Yes", "KEPT, same reason."],
+    ["Subscriptions",      "Rubik's cube",                                          0, "Discretionary", "B", "15th", "No",  "CUT 2026-08-26. Row kept, not deleted — a cancelled sub that reappears is a pattern."],
+
+    ["Health",             "Gym membership",                                   30000, "Committed",     "A", "",     "Yes", "STARTS SEPTEMBER 2026. He is resuming the gym. Not a line to raid — it is the one that pays back."],
+    ["Chores / household", "Household",                                        40000, "Discretionary", "B", "",     "Yes", ""],
+    ["Feeding",            "Feeding",                                          30000, "Committed",     "B", "",     "Yes", "50,000 → 30,000 on 2026-08-26. His sister feeds him, so he does not spend much. Moved wholly to Payday B — September's front half could not carry it."],
+    ["Creator visits",     "Creator visits — network",                         25000, "Discretionary", "B", "",     "Yes", "HELD at his request. Costs the December target ₦100,000 across four months."],
+    ["Transport",          "Transport",                                        20000, "Committed",     "B", "",     "Yes", "30,000 → 20,000 on 2026-08-26."],
+    ["Giving",             "Giving",                                           10000, "Committed",     "B", "",     "Yes", "20,000 → 10,000 on 2026-08-26. His words: 'I am not giving to anyone, only when someone asks.' context/spirit.md records no tithe or giving commitment, so this is his call with nothing pulling against it."],
+    ["Personal / misc",    "Personal / misc",                                  10000, "Discretionary", "B", "",     "Yes", "50,000 → 10,000 on 2026-08-26, his number, deeper than the 25,000 recommended."],
+    ["Data / airtime",     "Data / airtime",                                    5000, "Committed",     "B", "",     "Yes", ""]
+  ],
+
+  "one_offs": {
+    "2026-09": [
+      ["Girlfriend",     "Son's school — September top-up", 50000, "Committed",     "A", "", "Yes", "ON TOP of the ₦100,000 allowance, making September ₦150,000. OPEN: school fees are usually termly, not annual. If this repeats it is a LINE, not a surprise — ask before October."],
+      ["Transport",      "Kaduna trip — meeting, 12 Sep",   50000, "Discretionary", "A", "12th", "Yes", "One-off. Falls in the front half of the month."],
+      ["Other",          "Sister — debt repayment 1 of 2",  40000, "Committed",     "B", "", "Yes", "He owes her ₦90,000. This pays ₦40,000. ₦50,000 REMAINS OUTSTANDING WITH NO DATE. money.md still says 'Loans — all cleared'; that is now wrong."]
+    ]
+  },
+
+  "savings": [
+    ["Goal 1 — house / building",  1000000, "2026-12-31", "Sep 2026", "The ₦1M that moves him into the new house. Separate from the ₦500,000/month construction payment, which is an expense, not savings."],
+    ["Cowrywise investment",        100000, "monthly",    "running",  "RING-FENCED, money.md Rule 7. ₦100,000/month to year end. Never counts toward the ₦1M or the ₦3M. Moves into stocks Jan 2027."],
+    ["Goal 2 — marriage",          3000000, "2027-07-31", "Jan 2027", "ON TOP of Goal 1. ₦4,000,000 total. Jan–Jul 2027 = ₦428,571/month."],
+    ["Emergency fund",              300000, "2027-06-30", "Jan 2027", "Funded after Goal 1 closes. Does not compete with December."],
+    ["Buffer",                      200000, "rolling",    "Sep 2026", "NEW 2026-08-26. ₦50,000/month. The in-month cushion urgencies come out of, so savings stop being the valve — that is the direct fix for the ₦595,250 that evaporated June–August. Fed by month-end underspend and by any 4-video month's excess. Not a goal pot: it gets spent, on purpose."]
+  ],
+
+  "lean_month_ladder": [
+    "Decided in advance so it is not negotiated at 11pm on a short month.",
+    "1. Personal / misc (10,000)",
+    "2. Creator visits (25,000)",
+    "3. Household down to 20,000 (20,000)",
+    "4. Buffer absorbs the rest",
+    "5. ONLY THEN a conversation. Savings are never the valve (Rule 1).",
+    "   Cowrywise never pauses (Rule 7)."
+  ]
+}

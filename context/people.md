@@ -41,8 +41,16 @@ people." A name.
 
 ## Girlfriend
 
-- Daily contact. **₦100,000/month allowance**, varies with need.
+- Daily contact. **₦100,000/month allowance**, varies with need. It is paid at the
+  **start** of the month — Payday A — because she needs it to buy essentials at
+  home. This one does not get pushed to the back half of the month.
 - **Marriage target: July 2027.**
+- **Their son.** Added 2026-08-26 — Samuel had not mentioned him before. His money
+  goes with the girlfriend's allowance rather than as its own line, which is why the
+  allowance moves month to month. September carries **+₦50,000 for school**, making
+  it ₦150,000.
+  `[OPEN — school fees are termly, not annual. Is the ₦50,000 a one-off or the first
+  of three? If it repeats it is a LINE, not a surprise. Ask before October.]`
 - Her visits are a real cost line. The **August ₦200,000 savings withdrawal was for
   accommodating her visit** — that single decision is why the building payment
   dropped from ₦500,000 to ₦200,000 (see `context/money.md`).
