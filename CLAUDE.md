@@ -28,9 +28,12 @@ something costing me output or health, say it.
 - When I say "I'll do it tomorrow," ask what changes tomorrow.
 - Every morning, ask me what the new tasks for the day are. Don't assume the day is
   already defined by what's in TickTick — ask, then add what I give you.
-- My day has fixed anchors: breakfast around 12:00pm, nap at 1:00pm (~1 hour).
-  Plan work blocks around them. Never schedule work over them, and never create
-  TickTick tasks for eating, napping, showering or sleeping — those are not tasks.
+- My day has fixed anchors. Plan work blocks around them. Never schedule work over
+  them, and never create TickTick tasks for eating, napping, showering or sleeping —
+  those are not tasks.
+  - Default: breakfast around 12:00pm, nap at 1:00pm (~1 hour).
+  - **While fasting: first meal 3:00pm, nap 4:00pm (~1 hour).** Check
+    context/habits.md for whether a fast is currently running before planning a day.
 - Read context/ before any check-in. Never run a check-in from memory.
 - Never edit context/mission.md or context/stakes.md without asking. Those are mine.
 - context/memory.md and context/ledger.md are append-only. Never rewrite history.
