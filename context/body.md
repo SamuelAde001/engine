@@ -112,6 +112,31 @@ Cycling doubles as his current recreation, so the bike legs are not dead time.
 
 ---
 
+## How editing work is chunked — STANDING RULE, added 2026-08-26
+
+**All video-editing work is scheduled in 50-minute chunks with a 10-minute break
+between each one.** Each chunk is its own timed TickTick subtask under the day's
+parent task, so the timer has something to attach to and the break has a reminder.
+
+Samuel's words at the 26 Aug reckoning: *"I told you to break down my video editing
+into small chunks so I have 10 mins break in between, I checked tick tick it's all
+one long Block, let's correct that tonight."*
+
+He had given this instruction before and it was **never written down** — not here,
+not in memory.md — so every editing day built since was one monolithic block. That
+is a system failure, not his. It is written here now so it survives.
+
+**The cost, stated once and accepted:** the breaks turn an 8.75h scheduled day into
+8.0h of logged work. Roughly 45 minutes a day. That is the right trade. P2 says the
+alternative is a day that runs long and gets paid for with his body.
+
+**The breaks are not optional and they are not screen time.** Off the chair.
+
+Applied first to Thu 27 Aug (Client #2 Day 2, parent `6a8e3fc58f0800ee150fc0c0`,
+subtasks C1–C10). Every editing day from here is built the same way.
+
+---
+
 ## The default day shape
 
 Reference only. **Do not create TickTick tasks for this.**
@@ -184,9 +209,25 @@ hard cap 11:00pm, to ship the same night. The client asked for tonight — confi
 it was a real external deadline, not one he invented.
 
 **This broke the 6:30pm hard stop and the 10:30pm sleep floor.** It is on the record
-as an exception, not a precedent. The honest cause is not the revisions: **26 Aug
-logged 0h of focus.** An empty Wednesday is what turns a 2-hour client loop into
-night work.
+as an exception, not a precedent.
+
+**CORRECTED AT THE 26 AUG RECKONING.** This section originally read: *"The honest
+cause is not the revisions: 26 Aug logged 0h of focus. An empty Wednesday is what
+turns a 2-hour client loop into night work."* **That was wrong.** Samuel confirmed
+at the reckoning that he did the Scripnals review end to end, sent the findings to
+the devs, and completed the full Client #2 Day 1 ingest — roughly 6.25h of real
+work. The Wednesday was not empty. It was **untimed**: 18m43s of logged focus for
+the whole day.
+
+The real cause of the night block is simply that the client sent revisions and
+asked for them the same night. That is an external deadline, and it is allowed
+once.
+
+The lesson that survives is a different one, and it is bigger: **every automatic
+read of his day runs off logged focus.** The 3pm checkpoint, the reckoning verdict,
+the weekly pattern search. An untimed day is invisible to the whole system, and an
+invisible day produces a wrong diagnosis that then gets written into this file as
+fact — which is exactly what happened here. Timer on every chunk.
 
 The rule this must not erode: **one live-client exception is not a standing evening
 block.** If a second night block appears inside Client #2's Days 2–5, say it out

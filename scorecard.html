@@ -1,0 +1,451 @@
+<title>Reckoning Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  :root {
+    --ground:   #EFF1EE;
+    --surface:  #FFFFFF;
+    --ink:      #141817;
+    --muted:    #5B6461;
+    --faint:    #8A9390;
+    --rule:     #D6DBD6;
+    --band:     #1E3A33;
+    --band-ink: #E9EFEA;
+    --pass:     #1B6B41;
+    --pass-bg:  #E4F0E8;
+    --miss:     #A32E1B;
+    --miss-bg:  #F8E5E1;
+    --warn:     #8A5D0B;
+    --warn-bg:  #F8EEDA;
+    --null:     #6B7370;
+    --null-bg:  #E7EAE7;
+
+    --f-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --f-body:    'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --f-data:    'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #0E1211;
+      --surface:  #171C1A;
+      --ink:      #E8EDEA;
+      --muted:    #9AA5A1;
+      --faint:    #6C7773;
+      --rule:     #2A312E;
+      --band:     #0A1512;
+      --band-ink: #DCE7E0;
+      --pass:     #5FC088;
+      --pass-bg:  #14261C;
+      --miss:     #F0836C;
+      --miss-bg:  #2C1712;
+      --warn:     #E0A93F;
+      --warn-bg:  #2A2010;
+      --null:     #8C9793;
+      --null-bg:  #1E2422;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:   #0E1211;
+    --surface:  #171C1A;
+    --ink:      #E8EDEA;
+    --muted:    #9AA5A1;
+    --faint:    #6C7773;
+    --rule:     #2A312E;
+    --band:     #0A1512;
+    --band-ink: #DCE7E0;
+    --pass:     #5FC088;
+    --pass-bg:  #14261C;
+    --miss:     #F0836C;
+    --miss-bg:  #2C1712;
+    --warn:     #E0A93F;
+    --warn-bg:  #2A2010;
+    --null:     #8C9793;
+    --null-bg:  #1E2422;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    line-height: 1.45;
+    margin: 0;
+    padding: 20px 14px 40px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ---- header band ---- */
+  .band {
+    background: var(--band);
+    color: var(--band-ink);
+    padding: 14px 18px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
+  }
+  .band .mark {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .band .date {
+    font-family: var(--f-data);
+    font-size: 12px;
+    letter-spacing: .04em;
+    opacity: .8;
+    margin-left: auto;
+  }
+  .band .sub {
+    flex-basis: 100%;
+    font-size: 11.5px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    opacity: .62;
+    font-family: var(--f-data);
+  }
+
+  /* ---- verdict ---- */
+  .verdict {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 18px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .score {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 60px;
+    line-height: .84;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+    color: var(--pass);
+  }
+  .score small { font-size: 26px; letter-spacing: -.01em; }
+  .verdict-meta { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .stamp {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1.5px solid currentColor;
+    border-radius: 2px;
+  }
+  .stamp.open { color: var(--warn); background: var(--warn-bg); }
+  .stamp.won  { color: var(--pass); background: var(--pass-bg); }
+  .stamp.lost { color: var(--miss); background: var(--miss-bg); }
+  .ratio {
+    font-family: var(--f-data);
+    font-size: 12.5px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- sections ---- */
+  section { border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: 0; }
+
+  h2 {
+    font-family: var(--f-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin: 0;
+    padding: 14px 18px 8px;
+  }
+
+  .rows { display: flex; flex-direction: column; }
+
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 18px 9px 14px;
+    border-left: 4px solid transparent;
+  }
+  .row + .row { border-top: 1px solid var(--rule); }
+  .row.is-pass { border-left-color: var(--pass); }
+  .row.is-miss { border-left-color: var(--miss); }
+  .row.is-part { border-left-color: var(--warn); }
+  .row.is-null { border-left-color: var(--null); }
+
+  .row .what { flex: 1; min-width: 0; }
+  .row .what b { font-weight: 600; font-size: 14px; display: block; }
+  .row .what span {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--f-data);
+    margin-top: 2px;
+  }
+
+  .tag {
+    flex-shrink: 0;
+    font-family: var(--f-display);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-top: 2px;
+    white-space: nowrap;
+  }
+  .t-pass { color: var(--pass); background: var(--pass-bg); }
+  .t-miss { color: var(--miss); background: var(--miss-bg); }
+  .t-part { color: var(--warn); background: var(--warn-bg); }
+  .t-null { color: var(--null); background: var(--null-bg); }
+
+  /* ---- habits ---- */
+  .habits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 4px 18px 16px;
+  }
+  .habit {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    padding: 5px 9px;
+    border-radius: 2px;
+    background: var(--null-bg);
+    color: var(--null);
+    border: 1px solid transparent;
+  }
+  .habit .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: currentColor; flex-shrink: 0;
+  }
+  .habit.h-pass { background: var(--pass-bg); color: var(--pass); }
+  .habit.h-miss { background: var(--miss-bg); color: var(--miss); }
+
+  /* ---- metric grid ---- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border-top: 1px solid var(--rule);
+  }
+  .cell { background: var(--surface); padding: 12px 18px 13px; }
+  .cell .k {
+    font-family: var(--f-data);
+    font-size: 10.5px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--faint);
+  }
+  .cell .v {
+    font-family: var(--f-data);
+    font-size: 19px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    margin-top: 3px;
+    letter-spacing: -.01em;
+  }
+  .cell .n { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+  .v.bad { color: var(--miss); }
+  .v.ok  { color: var(--pass); }
+  .v.nil { color: var(--null); }
+
+  /* ---- footer ---- */
+  .foot {
+    background: var(--band);
+    color: var(--band-ink);
+    padding: 15px 18px 16px;
+  }
+  .foot .rule-quote {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0 0 10px;
+  }
+  .foot .rule-quote em { opacity: .72; font-style: normal; }
+  .foot .send {
+    font-family: var(--f-display);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    padding-top: 11px;
+    border-top: 1px solid rgba(255,255,255,.16);
+  }
+
+  .note {
+    max-width: 560px;
+    margin: 12px auto 0;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: var(--f-data);
+    line-height: 1.5;
+  }
+</style>
+
+<div class="card">
+
+  <div class="band">
+    <span class="mark">Reckoning Scorecard</span>
+    <span class="date">WED 26 AUG 2026</span>
+    <span class="sub">Fast day 2 of 7 &middot; detox day 2 of 7 &middot; anchors 3:00pm meal, 4:00pm nap</span>
+  </div>
+
+  <div class="verdict">
+    <div class="score">2<small>/2</small></div>
+    <div class="verdict-meta">
+      <span class="stamp won">Shipped</span>
+      <span class="ratio">Both committed tasks done &middot; habits 5 / 5</span>
+      <span class="ratio">Streak: 2 shipped days. Four is the target.</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>Committed today</h2>
+    <div class="rows">
+      <div class="row is-pass">
+        <div class="what">
+          <b>Scripnals build review</b>
+          <span>Build run end to end &middot; findings list SENT to the devs</span>
+        </div>
+        <span class="tag t-pass">Done</span>
+      </div>
+      <div class="row is-pass">
+        <div class="what">
+          <b>Client #2 &mdash; Day 1 ingest</b>
+          <span>Download, research, organise, scope &middot; 40 min raw &rarr; ~25 min finished</span>
+        </div>
+        <span class="tag t-pass">Done</span>
+      </div>
+      <div class="row is-null">
+        <div class="what">
+          <b>Talk through the course plan</b>
+          <span>Dropped today, his call &middot; task not deleted</span>
+        </div>
+        <span class="tag t-null">Dropped</span>
+      </div>
+      <div class="row is-null">
+        <div class="what">
+          <b>Wednesday Signal Session</b>
+          <span>Skipped today, detox &middot; recurring task untouched</span>
+        </div>
+        <span class="tag t-null">Skipped</span>
+      </div>
+      <div class="row is-part">
+        <div class="what">
+          <b>Client #1 revisions &mdash; unplanned</b>
+          <span>9:00&ndash;11:00pm &middot; client asked for tonight &middot; rendering at reckoning</span>
+        </div>
+        <span class="tag t-part">In flight</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Habits &mdash; 5 of 5</h2>
+    <div class="habits">
+      <span class="habit h-pass"><span class="dot"></span>No social media</span>
+      <span class="habit h-pass"><span class="dot"></span>Fasted</span>
+      <span class="habit h-pass"><span class="dot"></span>Prayed</span>
+      <span class="habit h-pass"><span class="dot"></span>Bible study</span>
+      <span class="habit h-pass"><span class="dot"></span>No masturbating</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Red marks on a green day</h2>
+    <div class="rows">
+      <div class="row is-miss">
+        <div class="what">
+          <b>The timer was off nearly all day</b>
+          <span>18m 43s logged against ~6h15 actually worked &mdash; 5% coverage</span>
+        </div>
+        <span class="tag t-miss">Red</span>
+      </div>
+      <div class="row is-miss">
+        <div class="what">
+          <b>6:30pm hard stop broken</b>
+          <span>Working 9:00&ndash;11:00pm. Real client deadline. One exception, now used up.</span>
+        </div>
+        <span class="tag t-miss">Red</span>
+      </div>
+      <div class="row is-miss">
+        <div class="what">
+          <b>Church is off on Sunday &mdash; no transport money</b>
+          <span>Needs &#8358;5,000, has &#8358;2,000. Nothing liquid to draw on.</span>
+        </div>
+        <span class="tag t-miss">Red</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <div class="cell">
+      <div class="k">Focus logged</div>
+      <div class="v bad">18m 43s</div>
+      <div class="n">One run, 3:42&ndash;4:01pm. The rest went untimed.</div>
+    </div>
+    <div class="cell">
+      <div class="k">Bed last night</div>
+      <div class="v bad">1:30am</div>
+      <div class="n">Floor is 10:30pm. About 4h of sleep.</div>
+    </div>
+    <div class="cell">
+      <div class="k">Bank balance</div>
+      <div class="v">&#8358;2,000</div>
+      <div class="n">&#8358;503 unexplained against the &#8358;3,503 opening</div>
+    </div>
+    <div class="cell">
+      <div class="k">Spent today</div>
+      <div class="v">&#8358;1,000</div>
+      <div class="n">Recharge card</div>
+    </div>
+    <div class="cell">
+      <div class="k">Savings moved</div>
+      <div class="v nil">&#8358;0</div>
+      <div class="n">Emergency fund &#8358;0 &middot; Cowrywise &#8358;305,000 locked</div>
+    </div>
+    <div class="cell">
+      <div class="k">Days to 31 Dec</div>
+      <div class="v">127</div>
+      <div class="n">&#8358;1,000,000 target &middot; &#8358;0 saved</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <p class="rule-quote">
+      <em>From stakes.md:</em> &ldquo;Four consecutive SHIPPED days = the streak.
+      The streak is the reward.&rdquo; &mdash; two down.
+    </p>
+    <div class="send">Screenshot this &mdash; send it &mdash; every night</div>
+  </div>
+
+</div>
+
+<p class="note">
+  This is the card the evening reckoning builds. It goes to the same link every night, so
+  the bookmark never changes. Nothing on it is assumed &mdash; every line was confirmed out
+  loud at the 9pm reckoning, and a red mark stays red on a day that went well.
+</p>
