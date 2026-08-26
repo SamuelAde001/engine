@@ -28,6 +28,25 @@ description: Evening reckoning — audits today against what I committed to.
    I was busy WITH.
 6. If SHIPPED: one line of acknowledgement. One. Then move on.
 7. Complete today's row in context/ledger.md.
+7b. SCORECARD. Build the day's visual scorecard and publish it as an Artifact.
+    Samuel screenshots it and sends it to his girlfriend — that is the accountability
+    mechanism in context/stakes.md, and it is the only one with a third party in it.
+
+    - Write to the SAME file path every night so it redeploys to the SAME URL:
+      scorecard.html in the scratchpad. Same favicon, same <title> ("Daily
+      Scorecard"). He bookmarks one link.
+    - It carries, every day: the date, the day's score and verdict, what shipped,
+      what did not, each habit hit or missed by name, bed time against the 10:30pm
+      floor, and the money row (balance + what went out).
+    - NO SOFTENING. If the day was a 0, the card says 0. If a habit broke, it is
+      red. The card is worthless as accountability if it flatters him — the whole
+      point is that someone else reads it.
+    - Only put on the card what he confirmed in steps 2b-2e. Anything unconfirmed
+      is marked UNVERIFIED, not omitted and not assumed.
+    - Give him the URL and say plainly: screenshot it and send it.
+
+    If a week passes with no scorecards sent, the mechanism has quietly gone back to
+    being self-policed. The weekly review says so.
 8. If anything is worth remembering long-term, append it to context/memory.md
    with today's date.
 9. Commit and push (see REMOTE.md). If you skip this, the reckoning is lost.

@@ -97,6 +97,64 @@ Timezone unchanged (WAT, UTC+1) so no schedule changed.
 
 2026-08-26 — DECISION: Samuel asked for a real budgeting and logging spreadsheet —
 income, budget lines logged when they actually pay, and daily expenses — to replace
-the old sheets that booked savings that never moved. | BUILT: see the report; the
-workbook is the companion to context/money-ledger.md, which stays the source of
-truth for what actually happened.
+the old sheets that booked savings that never moved. | BUILT: Money-2026.xlsx on the
+Desktop. Six tabs, Aug 2026 - Jul 2027. Verified in Excel, zero formula errors,
+wiring tested end to end. Nothing is typed on Budget or Dashboard — Budget reads
+actuals from Expenses by SUMIFS, so a budget line cannot claim money moved when no
+row exists. Not committed to the repo: binary, changes daily; money-ledger.md stays
+the text source of truth and wins any disagreement.
+
+2026-08-26 — DECISION (Batch A): sleep floor is 7 HOURS, bed 10:30pm against the
+5:30am wake. Course block is SUNDAY 5:00-7:30pm, two lessons per session, with
+Sunday dinner moved. | BUILT: TickTick habit "Sleep by 10:30pm" (6a8ef0058f0804d720eb9be9),
+daily from 1 Sep, reminder 10:15pm. Recurring "COURSE — record 2 lessons (2.5h)"
+Sundays 5:00-7:30pm from Sun 6 Sep. All 11 Module 1 lessons dated Sun 6/13/20/27 Sep
+and 4 Oct (two each) with LIVE EDIT 01 alone on Sun 11 Oct. body.md, habits.md and
+audience.md updated. HARD STOP EXCEPTION recorded: 7:30pm is an hour past the 6:30pm
+stop, sanctioned Sunday-only and non-client-work; if a weekday block cites it, that
+is the rule eroding and it gets called the FIRST time.
+
+2026-08-26 — DECISION (Batch B): the ₦3M for July 2027 is ON TOP of the ₦1M —
+₦4,000,000 total. Emergency fund ₦300,000, funded from January 2027 AFTER the ₦1M
+closes. Creator visits budgeted at ₦25,000/month. The ₦100,000/month investment
+NEVER pauses, even if December is behind. | BUILT: money.md and people.md rewritten
+with the new arithmetic; workbook updated with the creator-visit line and a GOAL 2
+dashboard block, re-verified zero errors. THE FINDING: the creator-visit line moved
+the ₦1M from a close to a coin flip (₦973k-₦1,107k against ₦1,000,000 from a ₦3,503
+start), and the ₦3M-on-top needs ₦428,571/month against a ₦243k-₦277k surplus, which
+is impossible at the August mix. Conclusion written into money.md and mission.md:
+FROM JANUARY THE COURSE MUST CARRY ~₦170,000/MONTH or the July 2027 number does not
+happen. Every skipped Sunday course block is a payment missed on that ₦1.2M.
+
+2026-08-26 — DECISION (Batch C): Module 1 beta priced ₦10,000, rising at full launch.
+Sold by a link, manual payment and access. Free community gets it free. Launch
+CONFIRMED Friday 16 October 2026. | BUILT: TickTick launch task dated 16 Oct
+(all-day); audience.md commercials table written. OBJECTION STATED ONCE AND NOT
+RE-ARGUED: at ₦10,000, free to the 20 warmest people, fulfilled by hand, this is a
+testimonial engine and not revenue — 17 sales/month would be needed to hit ₦170k.
+The strategy holds only if testimonials are actually collected, and only if the FULL
+COURSE PRICE is set before 16 Oct, since the beta price anchors it. That price is
+now the load-bearing open question.
+
+2026-08-26 — DECISION (Batch D): church media team is Sunday only, inside the
+service — no schedulable time cost. All THREE daily check-ins stay: 7am / 3pm / 9pm.
+| BUILT: spirit.md updated; no change needed to the routines in REMOTE.md.
+
+2026-08-26 — DECISION (Batch E, THE FORFEIT — first real third-party mechanism in
+the system): Claude Code generates a visual scorecard at every evening reckoning,
+scoring the day. Samuel screenshots it and sends it to his girlfriend. His words:
+"she is the best person to keep me accountable." | BUILT: reckon step 7b generates
+and publishes the scorecard as an Artifact to the same URL nightly — score, what
+shipped, what did not, every habit by name, bed time against the 10:30pm floor, and
+the money row, with no softening and UNVERIFIED on anything he did not confirm.
+reckoning-week step 6b asks how many days he actually sent it. stakes.md carries the
+mechanism and the remaining gap: the card is generated regardless, but the sending
+is still his choice, and a week with none sent means it has gone back to
+self-policed.
+
+2026-08-26 — DECISION: mission.md and stakes.md drafts APPROVED and applied at
+Samuel's word. | BUILT: mission.md gained the income reality, the full course plan
+and the IG/TikTok numbers with 5,000 marked AMBITION against the SMART version
+(18 unbroken Wednesdays). stakes.md gained the scorecard mechanism and the
+savings-rule section. The 2026-08-23 unenforced note was left intact — history, not
+rewritten.

@@ -60,9 +60,13 @@ treats it as a pattern, not a decision.
 be built around **3:00pm onward**, not the whole day. The 25 Aug pattern — dumping
 the week's debt into the weekend — does not have a weekend to dump into.
 
-He is on the **church media team** — a potential future work source, and a real
-unmeasured time cost. `[OPEN — what does the media team actually cost him in hours,
-and which days? Asked 2026-08-26.]`
+He is on the **church media team**. **Answered 2026-08-26: Sunday only, inside the
+service.** No extra time cost beyond the 7:30am–3:00pm block already accounted for,
+and nothing to schedule. If that ever changes to a weekday or a Saturday rehearsal,
+it needs naming — a weekday evening collides with the 6:30pm hard stop and the
+10:30pm bedtime, and Saturday already carries content filming 2:00–5:00pm.
+
+Still a potential future work source. Not a time problem today.
 
 ## The chain that matters
 

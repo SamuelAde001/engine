@@ -13,6 +13,11 @@ description: Weekly review — finds the pattern in the week's ledger and update
 5. If it's new, append it to patterns.md with the evidence.
 6. Check the forfeit conditions in context/stakes.md. State plainly whether one
    triggered. Do not soften this.
+6b. SCORECARD CHECK. Ask how many days this week he actually sent the scorecard to
+   his girlfriend. The card being generated is not the mechanism — the sending is.
+   If the answer is low, say it plainly: the forfeit has quietly gone back to being
+   self-policed, which is the exact thing he was told on 2026-08-23 does not work.
+   Take the number, do not argue past once.
 7. Ask what changes next week. Take the answer. Append to memory.md.
 8. DOMAIN SWEEP. One domain per week, on rotation: spirit, money, audience, body,
    people. Read that week's domain file. State the current number, whether the

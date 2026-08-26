@@ -112,11 +112,39 @@ the course gradually makes sense, so people can start."*
 | Sun 4 Oct | 09 Transitions · 10 Keyframing 101 |
 | **Sun 11 Oct** | **11 LIVE EDIT 01 — the whole block, 5:00–7:30pm** |
 
-- **Module 1 completes Sunday 11 October.** Proposed launch **Friday 16 October
-  2026** — 5 days of buffer, which makes the date achievable.
-  `[OPEN — awaiting his confirmation, asked 2026-08-26]`
+- **Module 1 completes Sunday 11 October. Beta launches FRIDAY 16 OCTOBER 2026 —
+  confirmed 2026-08-26.** 5 days of buffer.
   If the 11 Oct LIVE EDIT slips a week, the launch slips a week. Never launch a
   module whose last lesson is not recorded.
+
+### Beta commercials — confirmed 2026-08-26
+
+| | |
+|---|---|
+| Price | **₦10,000**, explicitly a beta price. Rises at full launch. |
+| Sold via | **A link.** Manual payment, manual access. |
+| Free community (20 people) | **Free.** |
+
+**Read this honestly, because it is not a revenue plan.** At ₦10,000, given free to
+the 20 warmest people, and fulfilled by hand, the beta will not move money. Against
+the ₦170,000/month the course must carry from January (`context/money.md`), ₦10,000
+is **17 sales a month** — roughly 1.7% of his entire 1,010-person following buying,
+every month.
+
+**So the beta's job is testimonials, not money.** That is a legitimate play and it is
+the only reading of these three choices that holds together. It only works if the
+testimonials are actually collected: **ask every beta buyer and every community
+member for a written result.** That is the deliverable of 16 October.
+
+**Which makes the full course price the load-bearing unknown.** At ₦10,000 the
+revenue target needs 17 sales/month; at ₦60,000 it needs 3. The beta price anchors
+whatever comes next, so the full price has to be set **before** 16 October, not
+after. `[OPEN — full course price, asked 2026-08-26]`
+
+**Standing risk:** manual payment and manual access is work with no external
+deadline. Pattern P1 says that is the first category he cuts when client edits land.
+If sales stall, check whether the bottleneck is demand or his own fulfilment before
+concluding nobody wants it.
 - **Full course at 2/week completes early January 2027.** To land it inside 2026 he
   needs **3 lessons a week**. His choice, stated plainly, not decided for him.
 - **The October full-course date is dead.** 35 lessons × 70 min ≈ **41 hours of
@@ -180,8 +208,16 @@ the same night. Flagged, not moved — it is his slot.
 
 ## Open questions
 
-- Module 1 beta price, and where it is sold — the community, a link, a platform? `[OPEN — asked 2026-08-26]`
-- Does the free community get it free, discounted, or full price? `[OPEN — asked 2026-08-26]`
-- Confirm or change the 16 October launch date. `[OPEN — asked 2026-08-26]`
+**Answered 2026-08-26:** beta price **₦10,000** (rises later) · sold by **a link**,
+manual payment and access · free community gets it **free** · launch **Fri 16 Oct
+2026, confirmed** · course block **Sunday 5:00–7:30pm**.
+
+**Still open:**
+
+- **Full course price.** The load-bearing number — the course must carry ~₦170,000/
+  month from January. Must be set BEFORE 16 Oct, because the beta price anchors it.
+  `[OPEN — asked 2026-08-26]`
 - How does the free community become a paid community next year? `[OPEN]`
-- 2 lessons/week (finishes early Jan 2027) or 3 lessons/week (finishes inside 2026)? `[OPEN]`
+- 2 lessons/week (finishes early Jan 2027) or 3 lessons/week (finishes inside 2026)?
+  Note this is no longer just a preference: the ₦3M is on top of the ₦1M, so course
+  revenue has to start in January, which argues for 3/week. `[OPEN]`
