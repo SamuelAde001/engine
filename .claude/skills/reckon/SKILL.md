@@ -32,9 +32,14 @@ description: Evening reckoning — audits today against what I committed to.
     Samuel screenshots it and sends it to his girlfriend — that is the accountability
     mechanism in context/stakes.md, and it is the only one with a third party in it.
 
-    - Write to the SAME file path every night so it redeploys to the SAME URL:
-      scorecard.html in the scratchpad. Same favicon, same <title> ("Daily
-      Scorecard"). He bookmarks one link.
+    - THE URL IS FIXED. Always update the existing artifact, never publish a new one:
+
+      https://claude.ai/code/artifact/6401a62e-c1d8-4ec2-8787-7d0a4794883d
+
+      Write scorecard.html, then call Artifact with that URL passed as `url`.
+      Publishing WITHOUT `url` from a fresh session creates a SECOND artifact and
+      breaks his bookmark — and a bookmark he has to re-find is a bookmark he stops
+      opening. Keep the <title> "Reckoning Scorecard" and the favicon stable.
     - It carries, every day: the date, the day's score and verdict, what shipped,
       what did not, each habit hit or missed by name, bed time against the 10:30pm
       floor, and the money row (balance + what went out).

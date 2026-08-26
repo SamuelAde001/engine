@@ -42,6 +42,9 @@ The scorecard carries, every day: the day's score, what shipped, what did not,
 habits hit and missed, bed time against the 10:30pm floor, and the money row.
 No softening. If the day was a 0, the card says 0.
 
+**One fixed link, updated nightly** — bookmark it once:
+https://claude.ai/code/artifact/6401a62e-c1d8-4ec2-8787-7d0a4794883d
+
 ## The savings rule — added 2026-08-26
 
 Across June–August, ₦900,250 was booked to Savings and Emergency funds. **₦305,000
