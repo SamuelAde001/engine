@@ -55,10 +55,12 @@ people." A name.
 
 - **One new creator visited in person, every month.**
 - Weekly: **one intentional outreach message.**
-- **Real cost:** transport and eating out, ~₦20,000–₦30,000/month.
-  `[OPEN — confirm the number, asked 2026-08-26]` Until confirmed this is not in
-  the obligations table in money.md, which means the ₦1M arithmetic does not
-  currently include it.
+- **Real cost: ₦25,000/month**, transport and eating out. Confirmed 2026-08-26 and
+  now a line in the obligations table in `context/money.md`.
+  What it cost to make it real: ₦100,000 across Sep–Dec, which moved the ₦1M
+  December target from "just closes" to a coin flip. That is the price of this goal
+  existing instead of being a good intention. Do not let it be spent on anything
+  else and then claimed as met.
 - Verification: named person, named date, in the ledger.
 
 ## Community admin
@@ -90,5 +92,7 @@ people." A name.
 ## Open questions
 
 - Wedding July 2027: total budget, and who pays which part? `[OPEN — asked 2026-08-26]`
-- Monthly budget for creator visits (transport + eating out)? `[OPEN — asked 2026-08-26]`
+  Note: the ₦3M is confirmed as ON TOP of the ₦1M — ₦4,000,000 total. Whether ₦3M is
+  actually the wedding number, or a guess, is what this question is for.
+- ~~Monthly budget for creator visits?~~ **ANSWERED 2026-08-26: ₦25,000/month.**
 - What is the forfeit for a month with no creator visit? `[OPEN — no forfeit attached]`

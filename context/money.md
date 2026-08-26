@@ -4,10 +4,13 @@
 
 - **₦1,000,000 saved and still there on 31 Dec 2026** — the money that moves him
   into the new house.
-- **₦3,000,000 by 31 July 2027** — marriage.
+- **₦3,000,000 more by 31 July 2027** — marriage. Confirmed 2026-08-26 as **ON TOP
+  of the ₦1M, not inclusive. ₦4,000,000 total.**
+- **Emergency fund ₦300,000** — funded from January 2027, **after** the ₦1M closes.
+  His call: it does not compete with the December target.
 - **Building project funded at ₦500,000 every month, no shortfall.**
 
-The investment pot does NOT count toward either target. See Rule 7.
+The investment pot does NOT count toward any of these. See Rule 7.
 
 ## Current number (as of 2026-08-26)
 
@@ -107,9 +110,14 @@ the system.
 | Business subscriptions | ₦51,000–₦84,500 |
 | Feeding | ~₦200,000 |
 | Giving | ~₦20,000 |
-| **Obligations floor** | **₦986,000–₦1,019,500** |
+| Creator visits (network) | ₦25,000 |
+| **Obligations floor** | **₦1,011,000–₦1,044,500** |
 | Investment contribution | ₦100,000 |
-| **Total committed outflow** | **₦1,086,000–₦1,119,500 / month** |
+| **Total committed outflow** | **₦1,111,000–₦1,144,500 / month** |
+
+Creator visits added 2026-08-26 at ₦25,000/month, his number. It is a real line now,
+not a good intention — and it cost the December target ₦100,000 across four months.
+That trade is stated below, not hidden.
 
 Removed and no longer owed:
 
@@ -149,21 +157,44 @@ Starting balance ₦3,503. Four months: September, October, November, December.
 
 | Scenario | Gross / month | After obligations + ₦100k investment | Sep–Dec total |
 |---|---|---|---|
-| August mix (2×$333 + 2×$175) | ₦1,387,741 | ₦268,000–₦302,000 | **₦1.07M–₦1.21M** |
-| 4 × $333.33 | ₦1,819,982 | ₦700,000–₦734,000 | ₦2.80M–₦2.94M |
-| 2 videos / month | ₦909,991 | **−₦176,000 to −₦210,000** | **underwater every month** |
+| August mix (2×$333 + 2×$175) | ₦1,387,741 | ₦243,000–₦277,000 | **₦973,000–₦1,107,000** |
+| 4 × $333.33 | ₦1,819,982 | ₦675,000–₦709,000 | ₦2.70M–₦2.84M |
+| 2 videos / month | ₦909,991 | **−₦201,000 to −₦235,000** | **underwater every month** |
 
-**₦1M by 31 Dec closes at the August mix — with ₦70k–₦210k of margin across four
-months.** That is not comfortable. One ₦200,000 raid on savings, of exactly the
-kind that happened in August, kills it outright.
+**₦1M by 31 Dec is now ON THE LINE, not over it.** Four months at the August mix
+produces ₦973,000–₦1,107,000 against a ₦1,000,000 target, starting from ₦3,503.
+**At the bottom of that range it misses by ₦27,000.**
+
+It was ₦1.07M–₦1.21M before the ₦25,000 creator-visit line went in on 26 Aug. That
+line cost ₦100,000 across four months and moved the December target from "just
+closes" to a coin flip. Worth it or not is his call — but it is now a coin flip, and
+one ₦200,000 savings raid of exactly August's kind ends it outright.
 
 **2 videos/month is what July was.** It is already visible in the building payments.
 
-The ₦3M by July 2027: seven months, Jan–July. If the ₦1M rolls in, that needs
-**₦286,000/month** — right at the ceiling of the August mix. If the ₦3M sits on top
-of the ₦1M, it needs **₦429,000/month**, which the August mix cannot produce.
-**The ₦3M requires either 4-video months as the norm, or the course earning.**
-Which of the two it is remains open — see Open questions.
+### Goal 2 — and this is the real problem
+
+Samuel confirmed 2026-08-26: **the ₦3M is ON TOP of the ₦1M. ₦4,000,000 total.**
+
+Jan–July 2027 is seven months. ₦3,000,000 over seven months is **₦428,571/month.**
+
+| At this mix | Surplus/month | Against ₦428,571 |
+|---|---|---|
+| August mix | ₦243,000–₦277,000 | **SHORT by ₦152,000–₦186,000, every month** |
+| 4 × $333.33 | ₦675,000–₦709,000 | clears it |
+
+**At the August mix the ₦3M is arithmetically impossible.** Not tight — impossible.
+It closes only if 4-video months become the norm, or the course earns.
+
+And per the concentration risk below, **4-video months are not his decision.** Route
+Rise sets the volume. Which leaves exactly one lever he owns:
+
+> **From January the course has to carry roughly ₦170,000/month — about ₦1.2M across
+> the seven months — or the July 2027 marriage number does not happen.**
+
+That is the whole argument for the course, in one line, with a number attached. Every
+Sunday the 5:00pm course block gets skipped is a payment missed on that ₦1.2M. The
+weekly review says so.
 
 The rate mix costs real money: 2 videos at $175 instead of $333.33 is **$316.66
 lost on this batch alone (~₦432,000)**.
@@ -212,9 +243,19 @@ December comes up short, the reason is on the record and not a mystery.
 
 ## Open questions
 
+**Answered 2026-08-26:**
+
+- ~~₦3M on top or inclusive?~~ **ON TOP. ₦4,000,000 total by 31 July 2027.**
+- ~~Emergency fund?~~ **₦300,000, funded from January 2027, after the ₦1M closes.**
+- ~~Creator visits budget?~~ **₦25,000/month.** Now a line in the obligations table.
+- ~~Does the investment pause if the ₦1M is behind in November?~~ **No. It never
+  pauses.** Ring-fenced in both directions, no escape hatch. Stated once: this means
+  if December is short, the house move slips rather than the contribution. His trade,
+  made with the numbers in front of him.
+
+**Still open:**
+
 - Wedding July 2027: total budget, and who pays which part? `[OPEN — asked 2026-08-26]`
-- Is the ₦3M by July on top of the ₦1M, or does the ₦1M roll into it? `[OPEN — asked 2026-08-26]`
-- Emergency-fund target, and is it funded before or alongside the ₦1M? `[OPEN — asked 2026-08-26]`
-- Monthly budget for creator visits — transport + eating out? `[OPEN — asked 2026-08-26]`
-- Does the ₦100k/month investment pause if the ₦1M falls behind in November? `[OPEN — asked 2026-08-26]`
 - What is the enforced consequence for breaking the savings rule? `[OPEN — unenforced]`
+- What does the course have to be priced at to carry ₦170,000/month from January?
+  Depends on the beta price, which is still open in `context/audience.md`. `[OPEN]`
