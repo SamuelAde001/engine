@@ -85,6 +85,34 @@ client work at 1am.**
 Never schedule work over any of these. Never create TickTick tasks for eating,
 napping, showering or sleeping — those are not tasks.
 
+### PA sessions are anchors too — added 2026-08-27
+
+Samuel, at the reckoning: *"I noticed Claude sessions take up my time to, so we
+need to add them to calender with timings too."* He is right, and until tonight
+they were invisible — four routines fired every day and none of them appeared in
+the day shape as time that had already been spent.
+
+**His number: 30 minutes each.**
+
+| Time | Session | Length |
+|---|---|---|
+| 7:03am | Morning brief | 30 min |
+| 2:57pm | Midday checkpoint | 30 min |
+| 9:03pm | Evening reckoning | 30 min |
+| 7:57pm Sun | Weekly review | 30 min |
+
+**THE NUMBER HE SHOULD SEE: that is 1h30m every weekday, 10h30m a week, plus the
+Sunday review.** More than a full working day per week goes into running the
+engine. That is not an argument for cutting the check-ins — they are what caught
+the 18-minute timer misread and the sleep chain. It IS an argument for keeping
+each one to its stated length. The reckoning skill already says "under five
+minutes"; if it routinely takes thirty, the gap between those two numbers is
+worth a conversation at a weekly review, not a nightly one.
+
+Plan around them, not over them. The 2:57pm checkpoint in particular sits right
+before the 3:00pm meal during a fast — the two together are an hour, and any work
+block that pretends otherwise will overrun.
+
 The fast and the detox **both end 31 August** — Samuel confirmed. At the 31 Aug
 reckoning, decide explicitly for each: **keep, drop, or extend.** Do not let either
 lapse silently.

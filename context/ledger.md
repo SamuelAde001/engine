@@ -15,4 +15,4 @@ Reading it: `tail -n 8 context/ledger.md` for the recent week. Never read it who
 | 2026-08-25 | Client edit only, 9h, send 6:20pm | Delivered 1:42am Wed — day 4 late, but out the door | 16.23h / 9h = 180% | 5/5 | 1:42am (19h day) | SHIPPED |
 | 2026-08-26 (interim) | No morning commitment made; Scripnals review + Client #2 Day 1 held | Download only. Scripnals not done. | 0h logged | UNVERIFIED | — | IN PROGRESS |
 | 2026-08-26 | Scripnals build review (2h) + Client #2 Day 1 ingest (4.25h) | BOTH SHIPPED. Findings SENT to devs. + unplanned Client #1 revisions 9–11pm. | 18m43s logged / ~6.25h worked = 5% coverage | 5/5 | 1:30am (4h) | SHIPPED |
-| 2026-08-27 | Client #2 Day 2 — CUT + INTRO (40min raw → ~25min), 7:00am–6:30pm | CUT done, raw fully cut, visuals planned. INTRO not started. 8/10 chunks. | 5h21m / 8h = 67% | 4/5 (social media broken) | asked at brief from now | PARTIAL |
+| 2026-08-27 | Client #2 Day 2 — CUT + INTRO (40min raw → ~25min), 7:00am–6:30pm | CUT done, raw fully cut, visuals planned. INTRO not started. 8/10 chunks. | 5h21m / 8h = 67% | 4/5 (social media broken) | 11:00pm TARGET (actual → brief) | PARTIAL |
