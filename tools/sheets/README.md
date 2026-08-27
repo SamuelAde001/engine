@@ -104,8 +104,19 @@ allowlist, and the **Trusted** default list does not contain Google Apps Script.
 The `/exec` URL also 302s to `script.googleusercontent.com`, so both hosts have
 to be allowed or the POST dies at the redirect.
 
-Fix both once, in the browser, at **claude.ai/settings -> Claude Code -> Cloud
-environments**, on the environment the routines run in:
+Fix both once, in the browser, on the environment the routines run in. There is
+no settings page for cloud environments and no direct URL — the editor is behind
+the cloud icon:
+
+- **From a routine (do it this way — it also shows you which environment that
+  routine actually uses):** claude.ai/code/routines → click the routine → pencil
+  icon (**Edit routine**) → below the **Instructions** box click the cloud icon
+  showing the environment name → hover that environment → gear icon →
+  **Update cloud environment**.
+- **From a session:** claude.ai/code → cloud icon in the row above the message
+  box → hover the environment → gear icon.
+
+In that dialog:
 
 **1. Network access -> Custom**, with *"also include default list of common
 package managers"* ticked. Allowed domains:

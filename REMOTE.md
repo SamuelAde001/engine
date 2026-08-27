@@ -91,8 +91,10 @@ environments also block Google Apps Script by default: it is not on the
 **Trusted** allowlist, and the `/exec` URL redirects to
 `script.googleusercontent.com`, so both hosts have to be allowed.
 
-Both are fixed once, in the browser, at **claude.ai/settings -> Claude Code ->
-Cloud environments**. Network access **Custom** (defaults included) plus:
+Both are fixed once, in the browser, on the environment the routines run in.
+There is no settings page for it: claude.ai/code/routines → routine → pencil →
+the cloud icon under **Instructions** → gear on the environment. Set network
+access to **Custom** (with the default list still included) plus:
 
 ```
 script.google.com

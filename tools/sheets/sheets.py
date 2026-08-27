@@ -53,8 +53,9 @@ DOMAINS = ["script.google.com", "*.googleusercontent.com"]
 
 FIX = """
 This session cannot write to the budget sheet. One-time fix, in the browser,
-at claude.ai/settings -> Claude Code -> Cloud environments (edit the environment
-the routines run in):
+by editing the cloud environment the routines run in. There is no settings page
+for it: open claude.ai/code/routines, open a routine, click the pencil, then the
+cloud icon under the Instructions box, then the gear on the environment.
 
   1. Network access: Custom, with "also include default list" ticked.
      Allowed domains:
