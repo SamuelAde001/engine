@@ -93,8 +93,11 @@ Then say it plainly:
 
 ## 6. Write it
 
-Push Details and the Budget plan column to the sheet in one `ops` batch. Confirm
-back what changed — category, old number, new number.
+Run `python tools/sheets/sheets.py flush` first, then push Details and the Budget
+plan column to the sheet in one `ops` batch sent with `--queue "budget <month>"`.
+Confirm back what changed — category, old number, new number. If the batch was
+queued rather than written, say so in that line — a queued plan is not a plan the
+sheet has.
 
 ## 7. Record
 
