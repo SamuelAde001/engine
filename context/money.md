@@ -83,10 +83,17 @@ row hides it.
 - Client pays **monthly in two stages: 70% at month end, 30% mid the following
   month.** The mid-month invoice is always the remainder of the previous month's
   batch — never a new batch. Every "mid-month payment" is last month's money.
-- **Route Rise Media LTD: $333.33/video.** He has tried to raise it; they will not
-  move. He is content with the rate.
-- **Second client, new this month: $175/video**, 2 videos agreed. May or may not
-  recur — depends on their volume and how fast he edits.
+- **Route Rise Media LTD is an AGENCY, and it is his only payer.** Corrected by
+  Samuel 2026-08-27. Route Rise works with two end clients; Samuel edits for both
+  and sends **one invoice to Route Rise covering both**. There is no second client
+  and there never was — the earlier "second client" line in this file was wrong.
+- **Rates: $333.33/video** on the original end client — he has tried to raise it,
+  they will not move, he is content with it. **$175/video** on the second end
+  client, new August 2026, 2 videos agreed, may or may not recur. Both rates are
+  set by Route Rise.
+- **One payer, one invoice, one relationship.** If Route Rise goes, 100% of his
+  income goes with it — including the "$175 client", which is not a separate
+  relationship he could keep.
 - **He does not want more clients.** His reason: one client's workload is already
   high. His call. Not to be re-litigated at every check-in — but read the
   concentration risk below before advising on anything income-shaped.
@@ -98,7 +105,7 @@ row hides it.
 | May | 5 | invoiced 06/14 |
 | June | 4 | invoiced 06/29 (70%) + 07/14 (30%) |
 | July | 2 | invoiced 07/29 (70%) + 08/14 (30%) |
-| August | 4 | 2 × $333.33 + 2 × $175 = **$1,016.66 ≈ ₦1,387,741** |
+| August | 4 | 2 × $333.33 + 2 × $175 = **$1,016.66 ≈ ₦1,387,741** — ONE Route Rise invoice covering both end clients |
 
 August lands as: **70% ≈ ₦971,416 at month end**, **30% ≈ ₦416,325 mid-September.**
 
@@ -293,11 +300,20 @@ Sunday the 5:00pm course block gets skipped is a payment missed on that ₦1.2M.
 weekly review says so.
 
 The rate mix costs real money: 2 videos at $175 instead of $333.33 is **$316.66
-lost on this batch alone (~₦432,000)**.
+lost on this batch alone (~₦432,000)**. Same payer, two rates — so that discount
+is Route Rise's pricing on one of its end clients, not a separate client he could
+walk away from.
 
 ## The concentration risk
 
-One client. One rate that will not move. Volume decided entirely by Route Rise.
+One PAYER. Not one client — one payer. Route Rise is an agency; the two end
+clients behind it are Route Rise's relationships, not his. Volume decided entirely
+by Route Rise. Both rates set by Route Rise. One invoice a month.
+
+**Corrected 2026-08-27.** This file used to carry a "second client" line that read
+like the beginnings of diversification. It was not. The concentration is total:
+100% of income arrives through one invoice to one company, and the "$175 client"
+does not survive Route Rise leaving.
 
 **"Hit 4 videos a month" is not a SMART goal** — the A fails. Achievement is
 another company's decision, not his.
@@ -326,8 +342,9 @@ The weekly review says so, out loud, every week.
    how ₦595,250 disappeared.
 4. Building project is paid in full (₦500,000) before any discretionary line.
    August was ₦200,000. That is a shortfall of ₦300,000 and it is on the record.
-5. No new client project below $333/video without logging the reason in
-   money-ledger.md. The August batch lost ~₦432,000 to the $175 rate.
+5. No new work below $333/video — whether it is a new Route Rise end client or a
+   new payer — without logging the reason in money-ledger.md. The August batch
+   lost ~₦432,000 to the $175 rate.
 6. A budget line that says money was saved when no money was saved is a lie in a
    spreadsheet. The daily ledger is the truth; the spreadsheet is a plan.
 7. The investment is ring-fenced. ₦100,000/month goes to Cowrywise until the year
