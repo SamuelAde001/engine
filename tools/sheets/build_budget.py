@@ -35,6 +35,7 @@ GREEN    = "#065f46"   # savings
 BLUE     = "#1e40af"   # paydays
 RED      = "#b91c1c"   # warnings
 AMBER    = "#92400e"   # lean month
+PRE      = "#e5e7eb"   # months before the plan existed
 WHITE    = "#ffffff"
 
 NGN = '"₦"#,##0;[Red]-"₦"#,##0'
@@ -71,6 +72,16 @@ def col(n):
 def load_plan():
     with open(os.path.join(HERE, "plan.json"), encoding="utf-8") as fh:
         return json.load(fh)
+
+
+def planned_months(plan):
+    """The month keys the Plan column actually describes.
+
+    The baseline was set on 2026-08-26 FOR September, so August was never
+    planned. Comparing August actuals to it would invent an overspend.
+    """
+    start = plan.get("plan_start", MONTHS[0])
+    return [m for m in MONTHS if m >= start]
 
 
 # ---------------------------------------------------------------- details ----
@@ -197,6 +208,13 @@ def build_budget(plan, details_range):
     def blank():
         rows.append([""] * 18)
 
+    plan_start  = plan.get("plan_start", MONTHS[0])
+    track_start = plan.get("tracking_start", "")
+    covered     = planned_months(plan)
+    n_covered   = len(covered)
+    first_plan_col = MONTHS.index(plan_start)          # 0-based into MONTHS
+    plan_label  = MONTH_LABELS[first_plan_col]
+
     # --- header -------------------------------------------------------------
     rows.append(["BUDGET — the plan, and what it costs to keep it"] + [""] * 17)
     rows.append(["Nothing on this sheet is typed by hand. Plan reads Details. The month columns read "
@@ -204,13 +222,47 @@ def build_budget(plan, details_range):
                  "when no row exists — money.md Rule 6."] + [""] * 17)
     blank()
 
+    # --- where you stand today ----------------------------------------------
+    # The bank figure lived only on Dashboard, so this tab could show a ₦1,000
+    # spend against a ₦951,700 plan and never say what was actually in the
+    # account. The breakdown is spelled out so the number can be checked by eye.
+    CASH_TITLE = len(rows) + 1
+    rows.append(["WHERE YOU STAND TODAY — what is actually in the account"] + [""] * 17)
+    rows.append(["In the bank right now", "", "Everything you can actually spend today. "
+                 "This is the same figure as the top of Dashboard."] + [""] * 15)
+    rows.append(["Made up of:", "", ""] + [""] * 15)
+    rows.append(["   Opening balance — %s" % track_start, "",
+                 "The figure you gave when this engine was built. Everything you earned or spent "
+                 "BEFORE that date is already inside it."] + [""] * 15)
+    rows.append(["   + money in since then", "", "Every row on the Income tab."] + [""] * 15)
+    rows.append(["   − money out since then", "", "Every row on the Expenses tab."] + [""] * 15)
+    rows.append(["   − net moved into pots", "", "Money that left the bank for Goal 1, the Buffer "
+                 "or Cowrywise. To pot minus From pot, off the Transfers tab."] + [""] * 15)
+    CASH_BANK = CASH_TITLE + 1
+    CASH_OPEN, CASH_IN, CASH_OUT, CASH_POT = (CASH_TITLE + 3, CASH_TITLE + 4,
+                                              CASH_TITLE + 5, CASH_TITLE + 6)
+    rows.append(["Tracking started %s. June, July and August's earnings are already inside the "
+                 "opening balance, so they are NOT on the Income tab — which is why the %s column "
+                 "below is nearly empty and its income reads zero. Nothing is missing. Putting them "
+                 "on Income as well would count them twice and break the bank figure above. "
+                 "The first month this sheet measures end to end is %s."
+                 % (track_start, MONTH_LABELS[0], plan_label)] + [""] * 17)
+    CASH_NOTE = CASH_POT + 1
+    blank()
+
     # --- monthly plan -------------------------------------------------------
-    PLAN_TITLE = 4
-    rows.append(["THE MONTHLY PLAN — recurring baseline"] + [""] * 17)
-    rows.append(["Category", "Plan / month", "Tier", "Payday"] + MONTH_LABELS
-                + ["Total actual", "vs plan (12m)"])
-    PLAN_HEAD = 5
-    PLAN_FIRST = 6
+    PLAN_TITLE = CASH_NOTE + 2
+    rows.append(["THE MONTHLY PLAN — recurring baseline, from %s onward" % plan_label] + [""] * 17)
+    # Months before the plan existed are marked, greyed, and excluded from vs-plan.
+    month_heads = [l if MONTHS[i] >= plan_start else l + "  ‡"
+                   for i, l in enumerate(MONTH_LABELS)]
+    NL = chr(10)
+    rows.append(["Category", "Plan / month" + NL + "(from %s)" % plan_label, "Tier", "Payday"]
+                + month_heads
+                + ["Total actual" + NL + "(all 12)",
+                   "vs plan" + NL + "(%d planned months)" % n_covered])
+    PLAN_HEAD = PLAN_TITLE + 1
+    PLAN_FIRST = PLAN_TITLE + 2
     for c in CATEGORIES:
         rows.append([c] + [""] * 17)
     PLAN_LAST = PLAN_FIRST + len(CATEGORIES) - 1
@@ -218,10 +270,17 @@ def build_budget(plan, details_range):
     rows.append(["INCOME THAT MONTH"] + [""] * 17)
     rows.append(["SURPLUS  (in − out)"] + [""] * 17)
     TOTAL, INCOME, SURPLUS = PLAN_LAST + 1, PLAN_LAST + 2, PLAN_LAST + 3
+    rows.append(["‡  %s had no plan — the baseline was set on %s FOR %s, and tracking only "
+                 "started that day. Its column is greyed, its income is zero because June–August "
+                 "sits in the opening balance, and it is left out of “vs plan” so an unplanned "
+                 "month can never read as an overspend. “Total actual” on the right still counts "
+                 "every month, including it."
+                 % (MONTH_LABELS[0], track_start, plan_label)] + [""] * 17)
+    PLAN_NOTE = SURPLUS + 1
     blank()
 
     # --- one-offs -----------------------------------------------------------
-    ONE_TITLE = SURPLUS + 2
+    ONE_TITLE = PLAN_NOTE + 2
     rows.append(["ONE-OFFS — dated, not recurring. Listed here so a month knows what is coming."] + [""] * 17)
     rows.append(["Month", "Category", "Item", "₦", "Payday", "Note"] + [""] * 12)
     ONE_FIRST = ONE_TITLE + 2
@@ -371,7 +430,11 @@ def build_budget(plan, details_range):
             f.append(("%s%d" % (col(5 + i), r),
                       '=SUMIFS(%s,%s,$A%d,%s,"%s")' % (EXP[0], EXP[1], r, EXP[2], m)))
         f.append(("Q%d" % r, "=SUM($E%d:$P%d)" % (r, r)))
-        f.append(("R%d" % r, "=$Q%d-($B%d*12)" % (r, r)))
+        # vs plan spans ONLY the planned months. Including an unplanned month
+        # here would book its spending as an overspend against a plan that did
+        # not exist yet.
+        f.append(("R%d" % r, "=SUM($%s%d:$P%d)-($B%d*%d)"
+                  % (col(5 + first_plan_col), r, r, r, n_covered)))
 
     # totals
     f.append(("B%d" % TOTAL, "=SUM(B%d:B%d)" % (PLAN_FIRST, PLAN_LAST)))
@@ -382,7 +445,8 @@ def build_budget(plan, details_range):
                   '=SUMIFS(%s,%s,"%s")' % (INC[0], INC[1], MONTHS[i])))
         f.append(("%s%d" % (c, SURPLUS), "=%s%d-%s%d" % (c, INCOME, c, TOTAL)))
     f.append(("Q%d" % TOTAL, "=SUM($E%d:$P%d)" % (TOTAL, TOTAL)))
-    f.append(("R%d" % TOTAL, "=$Q%d-($B%d*12)" % (TOTAL, TOTAL)))
+    f.append(("R%d" % TOTAL, "=SUM($%s%d:$P%d)-($B%d*%d)"
+              % (col(5 + first_plan_col), TOTAL, TOTAL, TOTAL, n_covered)))
     f.append(("Q%d" % INCOME, "=SUM($E%d:$P%d)" % (INCOME, INCOME)))
     f.append(("Q%d" % SURPLUS, "=SUM($E%d:$P%d)" % (SURPLUS, SURPLUS)))
 
@@ -400,6 +464,16 @@ def build_budget(plan, details_range):
     f.append(("F%d" % SAV_TOTAL, "=SUM(F%d:F%d)" % (SAV_FIRST, SAV_NOW_LAST)))
     f.append(("B%d" % SAV_LATER, "=SUM(B%d:B%d)" % (SAV_NOW_LAST + 1, SAV_LAST)))
     f.append(("F%d" % SAV_LATER, "=SUM(F%d:F%d)" % (SAV_NOW_LAST + 1, SAV_LAST)))
+
+    # cash position — the same arithmetic Dashboard uses, shown in its parts
+    f.append(("B%d" % CASH_OPEN, "=Setup!$B$5"))
+    f.append(("B%d" % CASH_IN,   "=SUM(%s)" % INC[0]))
+    f.append(("B%d" % CASH_OUT,  "=SUM(%s)" % EXP[0]))
+    f.append(("B%d" % CASH_POT,
+              '=SUMIFS(%s,%s,"To pot")-SUMIFS(%s,%s,"From pot")'
+              % (TRF[0], TRF[2], TRF[0], TRF[2])))
+    f.append(("B%d" % CASH_BANK, "=B%d+B%d-B%d-B%d"
+              % (CASH_OPEN, CASH_IN, CASH_OUT, CASH_POT)))
 
     # paydays
     gross = "(2*Setup!$B$18+2*Setup!$B$19)*Setup!$B$17"
@@ -431,6 +505,18 @@ def build_budget(plan, details_range):
 
     fmt("A1:%s1" % LASTCOL, merge=True, background=INK, fontColor=WHITE, bold=True, fontSize=13)
     fmt("A2:%s2" % LASTCOL, merge=True, fontColor=MUTED, italic=True, wrap=True)
+
+    fmt("A%d:%s%d" % (CASH_TITLE, LASTCOL, CASH_TITLE), merge=True, background=GREEN,
+        fontColor=WHITE, bold=True)
+    fmt("A%d:B%d" % (CASH_BANK, CASH_BANK), background=PAPER, bold=True, fontSize=12)
+    fmt("B%d:B%d" % (CASH_BANK, CASH_POT), numberFormat=NGN)
+    fmt("B%d:B%d" % (CASH_BANK, CASH_BANK), fontColor=GREEN)
+    fmt("A%d:A%d" % (CASH_TITLE + 2, CASH_TITLE + 2), italic=True, fontColor=MUTED)
+    fmt("A%d:A%d" % (CASH_OPEN, CASH_POT), fontColor=MUTED)
+    for _r in (CASH_BANK, CASH_OPEN, CASH_IN, CASH_OUT, CASH_POT):
+        fmt("C%d:%s%d" % (_r, LASTCOL, _r), merge=True, fontColor=MUTED, fontSize=9, wrap=True)
+    fmt("A%d:%s%d" % (CASH_NOTE, LASTCOL, CASH_NOTE), merge=True, fontColor=RED,
+        italic=True, wrap=True)
     fmt("A%d:%s%d" % (PLAN_TITLE, LASTCOL, PLAN_TITLE), merge=True, background=INK,
         fontColor=WHITE, bold=True)
     fmt("A%d:%s%d" % (PLAN_HEAD, LASTCOL, PLAN_HEAD), background=HEAD, fontColor=WHITE, bold=True,
@@ -441,6 +527,13 @@ def build_budget(plan, details_range):
     fmt("C%d:D%d" % (PLAN_FIRST, PLAN_LAST), horizontalAlignment="center")
     fmt("A%d:%s%d" % (TOTAL, LASTCOL, SURPLUS), background=PAPER, bold=True)
     fmt("A%d:%s%d" % (SURPLUS, LASTCOL, SURPLUS), fontColor=GREEN)
+
+    # months that predate the plan: greyed, and called out underneath
+    if first_plan_col > 0:
+        fmt("%s%d:%s%d" % (col(5), PLAN_FIRST, col(4 + first_plan_col), SURPLUS),
+            background=PRE, fontColor=MUTED)
+    fmt("A%d:%s%d" % (PLAN_NOTE, LASTCOL, PLAN_NOTE), merge=True, fontColor=MUTED,
+        italic=True, wrap=True)
 
     fmt("A%d:%s%d" % (ONE_TITLE, LASTCOL, ONE_TITLE), merge=True, background=AMBER,
         fontColor=WHITE, bold=True)
@@ -488,7 +581,109 @@ def build_budget(plan, details_range):
     # the two slip rows in red
     fmt("A%d:E%d" % (CAL_HEAD + 5, CAL_HEAD + 6), fontColor=RED, bold=True)
 
-    ops.append({"action": "freeze", "args": {"tab": "Budget", "rows": 5}})
+    ops.append({"action": "freeze", "args": {"tab": "Budget", "rows": 2}})
+    return ops, TOTAL
+
+
+def build_dashboard(budget_total_row):
+    """Repoint Dashboard at the rebuilt Budget tab and at the real pot names.
+
+    Two live bugs this fixes, both silent:
+
+      - "Obligations floor / month" read Budget!$B$18. After the Budget tab was
+        rebuilt, B18 stopped being the plan total and became Personal / misc.
+        The Dashboard was reporting a ₦10,000 monthly floor against a real one
+        of ₦951,700, so "income needed to hit the goal" was understated by about
+        ₦940,000.
+
+      - The pot rows summed Transfers where the pot was "Savings", "Emergency"
+        or "Investment". The pots were renamed to "Goal 1 — house", "Emergency
+        fund" and "Cowrywise investment", and those are the names the Transfers
+        dropdown now writes. The old SUMIFS could never match again, so the
+        Dashboard would have shown ₦0 saved however much money actually moved —
+        exactly the class of lie money.md Rule 6 exists to stop.
+
+    Rewrites rows 5-10 in place rather than inserting, so re-running this script
+    can never grow the tab. Everything from row 11 down keeps its position; only
+    the references that pointed at the old SAVED row are repointed.
+    """
+    def pot(name, opening=None):
+        """Opening balance (Setup) plus everything Transfers has moved since.
+
+        The opening term matters: Cowrywise already held ₦305,000 on the day
+        tracking started, and no Transfers row will ever account for it.
+        """
+        base = "%s+" % opening if opening else ""
+        return ('=%sSUMIFS(%s,%s,"%s",%s,"To pot")-SUMIFS(%s,%s,"%s",%s,"From pot")'
+                % (base, TRF[0], TRF[1], name, TRF[2], TRF[0], TRF[1], name, TRF[2]))
+
+    bank = ('=Setup!$B$5+SUM(%s)-SUM(%s)'
+            '-SUMIFS(%s,%s,"To pot")+SUMIFS(%s,%s,"From pot")'
+            % (INC[0], EXP[0], TRF[0], TRF[2], TRF[0], TRF[2]))
+
+    labels = [
+        ["Bank — liquid"],
+        ["Goal 1 — house"],
+        ["Emergency fund"],
+        ["Cowrywise investment"],
+        ["Buffer"],
+        ["SAVED TOWARD THE GOAL"],
+    ]
+    notes = [
+        ["Everything you can actually spend. Opening balance, plus Income, minus Expenses, "
+         "minus what moved into the pots."],
+        ["Counts toward the ₦1,000,000."],
+        ["Counts toward the goal. Starts Jan 2027, after Goal 1 closes."],
+        ["RING-FENCED. Does NOT count toward either goal — Rule 7."],
+        ["The in-month cushion urgencies come out of. Deliberately NOT counted below: "
+         "it is money meant to be spent, not saved."],
+        ["Goal 1 + Emergency fund. The investment and the buffer are both excluded, on purpose."],
+    ]
+
+    ops = [
+        {"action": "write", "args": {"tab": "Dashboard", "cell": "A5", "values": labels}},
+        {"action": "write", "args": {"tab": "Dashboard", "cell": "D5", "values": notes}},
+        {"action": "setFormulas", "args": {"tab": "Dashboard", "cell": "B5", "formulas": [
+            [bank],
+            [pot("Goal 1 — house",        "Setup!$B$6")],
+            [pot("Emergency fund",        "Setup!$B$7")],
+            [pot("Cowrywise investment",  "Setup!$B$8")],
+            [pot("Buffer")],                      # new pot, no opening balance
+            ["=$B$6+$B$7"],
+        ]}},
+
+        # rows 11+ kept their positions; the old SAVED row was 9, it is now 10
+        {"action": "setFormulas", "args": {"tab": "Dashboard", "cell": "B13",
+            "formulas": [["=$B$10"]]}},
+        {"action": "setFormulas", "args": {"tab": "Dashboard", "cell": "B14",
+            "formulas": [["=MAX(0,Setup!$B$11-$B$10)"]]}},
+        {"action": "setFormulas", "args": {"tab": "Dashboard", "cell": "B16",
+            "formulas": [['=IF(Setup!$B$12<=TODAY(),0,MAX(0,Setup!$B$11-$B$10)'
+                          '/MAX(1,(Setup!$B$12-TODAY())/30.4))']]}},
+        {"action": "setFormulas", "args": {"tab": "Dashboard", "cell": "B21",
+            "formulas": [['=IF(Setup!$B$14<=TODAY(),0,(Setup!$B$11+Setup!$B$13-$B$10)'
+                          '/MAX(1,(Setup!$B$14-TODAY())/30.4))']]}},
+
+        # the reality check, pointed at the real plan total
+        {"action": "setFormulas", "args": {"tab": "Dashboard", "cell": "B26",
+            "formulas": [["=Budget!$B$%d" % budget_total_row]]}},
+        {"action": "write", "args": {"tab": "Dashboard", "cell": "D26", "values": [[
+            "TOTAL SPENT, Plan column on Budget (row %d). The whole recurring baseline."
+            % budget_total_row]]}},
+
+        {"action": "format", "args": {"tab": "Dashboard", "range": "B5:B10",
+                                      "numberFormat": NGN}},
+        {"action": "format", "args": {"tab": "Dashboard", "range": "A10:D10",
+                                      "background": PAPER, "bold": True}},
+        {"action": "format", "args": {"tab": "Dashboard", "range": "D5:D10",
+                                      "fontColor": MUTED, "fontSize": 9, "wrap": True}},
+
+        # Setup's label for the same pot, so the two tabs agree
+        {"action": "write", "args": {"tab": "Setup", "cell": "A6",
+                                     "values": [["Goal 1 — house"]]}},
+        {"action": "write", "args": {"tab": "Setup", "cell": "C6", "values": [[
+            "Does not exist yet. Build it OUTSIDE the investment. This is the ₦1M pot."]]}},
+    ]
     return ops
 
 
@@ -523,8 +718,10 @@ def main():
     ops = []
     d_ops, d_range = build_details(plan)
     ops += d_ops
-    ops += build_budget(plan, d_range)
+    b_ops, budget_total_row = build_budget(plan, d_range)
+    ops += b_ops
     ops += build_setup()
+    ops += build_dashboard(budget_total_row)
 
     payload = os.path.join(HERE, "_build_ops.json")
     with open(payload, "w", encoding="utf-8") as fh:

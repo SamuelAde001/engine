@@ -241,3 +241,46 @@ everything else on Opus; (6) one check-in per session, /clear between them.
 rendered text. All ledger prose preserved verbatim in ledger-notes/2026-08.md.
 
 | 2026-08-27 | Samuel (Claude Code) | Cloud environment "Default" configured — Network access Custom (`script.google.com`, `*.googleusercontent.com`) plus the three `SHEETS_*` variables. VERIFIED from a real cloud session, not from the desktop: `doctor` reached 'My Claude Budget', all 7 tabs read back, no `.env` in the clone, queue empty. The bridge is now live from this machine, the routines and the phone. The old "Connector probe" routine was repurposed into a read-only bridge probe and renamed "Bridge probe (diagnostic — disabled, run by hand)" — fire it manually whenever the bridge is suspect. Known tradeoff, accepted: `SHEETS_TOKEN` lives in a cloud environment variable, which the platform warns is visible to anyone using that environment. Personal account, single user. Never share this environment. | BUILT |
+
+## 2026-08-27 — the sheet now shows the balance, and stops judging an unplanned month — BUILT
+
+Samuel, reading the Budget tab: his ₦1,000 recharge was being measured against a
+plan he had not agreed to for a month that had not started. Three things were
+true at once and none of them were visible on the tab he was looking at.
+
+Decided and built in the same session:
+
+1. **`WHERE YOU STAND TODAY` block, top of Budget.** The bank figure existed only
+   on Dashboard, so Budget could show a ₦1,000 spend against a ₦951,700 plan and
+   never say what was in the account. It now shows the balance AND its four
+   parts — opening balance, money in, money out, net moved to pots — so the
+   number can be checked by eye instead of trusted.
+
+2. **The plan column declares its own start.** `plan_start: "2026-09"` in
+   plan.json. Aug 26 is greyed, marked ‡, and excluded from `vs plan`, which now
+   spans 11 planned months, not 12. The baseline was set on 26 Aug FOR September;
+   comparing August to it invented an overspend that never happened.
+
+3. **August income was NOT back-filled, deliberately.** Samuel asked for it and
+   it was the wrong fix — Setup!B5 (₦3,503) is an opening balance dated
+   2026-08-26 that already nets out June–August. Adding that income to the Income
+   tab would have counted it twice and broken the bank figure. Instead the tab
+   says so in plain words. `tracking_start` records the boundary.
+
+Two live Dashboard bugs found while wiring it, both silent, both fixed:
+
+- `Obligations floor / month` read `Budget!$B$18`. After an earlier Budget
+  rebuild that cell became Personal / misc, so the Dashboard reported a ₦10,000
+  monthly floor against a real ₦951,700. **`Income needed to hit the goal` was
+  understated by ~₦940,000 — it reads ₦1,292,970/month, not ₦351,270.** That
+  number needs a conversation.
+- The pot rows summed Transfers on "Savings" / "Emergency" / "Investment" after
+  the pots were renamed to "Goal 1 — house" / "Emergency fund" / "Cowrywise
+  investment". The SUMIFS could never match again, so the Dashboard would have
+  shown ₦0 saved however much money actually moved — the exact lie Rule 6 exists
+  to stop. Buffer added as its own row; it is excluded from SAVED TOWARD THE GOAL
+  on purpose, being money meant to be spent.
+
+All of it regenerates from `python tools/sheets/build_budget.py`. Re-runnable —
+the Dashboard block is rewritten in place, never inserted, so repeat runs cannot
+grow the tab.

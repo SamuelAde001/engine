@@ -13,6 +13,20 @@
     "Baseline given 2026-08-26. Revised same day by Samuel for September."
   ],
 
+  "plan_start": "2026-09",
+  "tracking_start": "2026-08-26",
+  "_plan_start_note": [
+    "plan_start = the first month the Plan column actually describes.",
+    "The baseline was set 2026-08-26 FOR September, so August was never planned.",
+    "The Budget tab greys every month before this and excludes them from vs-plan,",
+    "so an unplanned month can never read as an overspend.",
+    "",
+    "tracking_start = the date Setup!B5 (the opening bank balance) was taken.",
+    "Everything earned or spent BEFORE it is already inside that balance, so it",
+    "must never also appear on Income/Expenses — that would double-count and",
+    "break the bank figure."
+  ],
+
   "recurring": [
     ["Building project",   "Building project — monthly construction payment", 500000, "Fixed",         "A", "",     "Yes", "money.md Rule 4: paid in full before any discretionary line. August was ₦200,000 — a ₦300,000 shortfall, on the record."],
 
