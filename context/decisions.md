@@ -226,3 +226,5 @@ free with more funds"). money.md's "loans all cleared" was wrong and is correcte
 Oct 70% slips Sat 31 Oct → Mon 2 Nov and Nov 30% slips Sat 14 Nov → Mon 16 Nov,
 making early November the tightest point of the year. | BUILT: people.md, money.md,
 Budget payday calendar.
+
+| 2026-08-27 | Samuel (Claude Code) | The budget sheet must be writable from the cloud and the phone, not just this desktop. Two blockers found: `.env` is gitignored so cloud clones have no credentials, and Apps Script is not on the cloud "Trusted" network allowlist (`/exec` also 302s to `script.googleusercontent.com`). Fix is one-time cloud-environment config — Custom network access plus the three `SHEETS_*` variables. Backed by a queue: `--queue` parks undeliverable batches in `context/sheet-queue.jsonl`, `flush` replays them from wherever the bridge is reachable, `doctor` names the broken link. The 2026-08-26 unmirrored row was backfilled. | BUILT |

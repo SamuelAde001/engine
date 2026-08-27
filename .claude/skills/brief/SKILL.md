@@ -10,6 +10,10 @@ Do these in order. Do not skip.
 2. Pull today's TickTick tasks, anything overdue, and current habit streaks.
    If the TickTick tools are not available in this session, say so in one line
    and run the brief off context/ alone. Do not guess task state.
+2b. Run `python tools/sheets/sheets.py pending`. If anything is queued, run
+   `flush` and say in one line what caught up. If it still cannot send, name the
+   verdict from `doctor` in one line — an unmirrored ledger that nobody mentions
+   is how the sheet quietly stops being true.
 3. Report in under 150 words:
    - What's due today
    - What's overdue, and how many times it's been rescheduled

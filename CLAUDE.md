@@ -57,6 +57,12 @@ something costing me output or health, say it.
   never by hand — see tools/sheets/. As I log the reckoning I mirror the day into
   it. context/money-ledger.md stays the source of truth: if the sheet and the
   ledger disagree, the ledger wins.
+- The sheet must be writable from everywhere: this machine, a cloud routine and
+  the phone. Money batches go out with `--queue "<label>"`, so a session that
+  can't reach the bridge parks the batch in `context/sheet-queue.jsonl` and the
+  next session that can reach it flushes. Never report the sheet as written when
+  it was queued. If the bridge is down, `python tools/sheets/sheets.py doctor`
+  says which link broke — see tools/sheets/README.md.
 - Never type a plan number on the Budget tab. Plan totals are SUMIFS off the
   Details tab, so a category total can always be broken down into the actual
   items that make it up. Cancelled items are marked inactive, never deleted.

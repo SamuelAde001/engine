@@ -39,6 +39,12 @@ One row on **Income**, via `python tools/sheets/sheets.py`. Columns:
 
 Append below the last real row. Never overwrite a row.
 
+Run `python tools/sheets/sheets.py flush` first, then send this batch with
+`--queue "paid <date> <source>"`. Works identically from the desktop, a cloud
+routine or the phone: reachable, it writes; unreachable, it parks in
+`context/sheet-queue.jsonl` and the next session that can reach the bridge sends
+it. If it queued, say so plainly — do not report the sheet as written.
+
 ## 4. Now the part that matters — move it
 
 Immediately, in the same breath, with the numbers in front of him:

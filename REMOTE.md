@@ -82,3 +82,39 @@ Verified working from a cloud run on 2026-08-23.
 
 Say so in one line and run off `context/` alone. Mark anything taken on Samuel's
 word as UNVERIFIED in the ledger. Never pretend the tasks were checked.
+
+## The budget sheet from the cloud
+
+The sheet is written through an Apps Script bridge whose URL and token live in
+`.env` — and `.env` is gitignored, so a cloud clone does not have it. Cloud
+environments also block Google Apps Script by default: it is not on the
+**Trusted** allowlist, and the `/exec` URL redirects to
+`script.googleusercontent.com`, so both hosts have to be allowed.
+
+Both are fixed once, in the browser, at **claude.ai/settings -> Claude Code ->
+Cloud environments**. Network access **Custom** (defaults included) plus:
+
+```
+script.google.com
+*.googleusercontent.com
+```
+
+and the three variables `SHEETS_WEBAPP_URL`, `SHEETS_TOKEN`, `SHEETS_ID`.
+Full walkthrough in `tools/sheets/README.md`.
+
+In any session, on any device, the first question is answered by:
+
+```bash
+python tools/sheets/sheets.py doctor
+```
+
+### If the bridge is down, the money is still not lost
+
+Money batches are sent with `--queue "<label>"`. Undeliverable ones are parked
+in `context/sheet-queue.jsonl` and committed with the rest of `context/`. The
+next session anywhere that can reach the bridge runs
+`python tools/sheets/sheets.py flush` and the sheet catches up.
+
+So the rule on the phone is the same as at the desk: **write the ledger first,
+queue the mirror, commit, push.** A cloud session never skips the ledger because
+the sheet failed, and never leaves the mirror silently behind.

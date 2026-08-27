@@ -95,10 +95,80 @@ Actions: `ping` `read` `readRaw` `readFormulas` `find` `write` `append`
 `deleteRows` `insertColumns` `setColumnWidth` `setRowHeight` `freeze` `format`
 `note` `validation` `clearValidation`.
 
-## Remote / phone
+## Cloud and phone — making the bridge work from everywhere
 
-Cloud routines run from the repo, and `.env` is not in the repo, so a cloud
-session cannot write to the sheet until `SHEETS_WEBAPP_URL` and `SHEETS_TOKEN`
-are set as environment variables there. Until that is done, remote check-ins
-still write `context/money-ledger.md` as normal — the ledger stays the source of
-truth (money.md Rule 6) and the sheet catches up at the next desktop session.
+A cloud session (a scheduled routine, or claude.ai/code on the phone) clones the
+repo. `.env` is gitignored, so it is not in the clone. That is blocker one.
+Blocker two is quieter: cloud environments only allow outbound traffic to an
+allowlist, and the **Trusted** default list does not contain Google Apps Script.
+The `/exec` URL also 302s to `script.googleusercontent.com`, so both hosts have
+to be allowed or the POST dies at the redirect.
+
+Fix both once, in the browser, at **claude.ai/settings -> Claude Code -> Cloud
+environments**, on the environment the routines run in:
+
+**1. Network access -> Custom**, with *"also include default list of common
+package managers"* ticked. Allowed domains:
+
+```
+script.google.com
+*.googleusercontent.com
+```
+
+**2. Environment variables** — the same three values as `.env`. Print them
+without them passing through a chat window:
+
+```powershell
+python tools/sheets/sheets.py env > "$env:TEMP\sheets-env.txt"; notepad "$env:TEMP\sheets-env.txt"
+```
+
+Paste, save the environment, then delete that file.
+
+Routines use the same environments as interactive cloud sessions, so this fixes
+the scheduled brief, midday and reckoning at the same time. Sessions already
+running keep the values they started with — start a new one to test.
+
+Then, from a cloud session:
+
+```bash
+python tools/sheets/sheets.py doctor
+```
+
+`doctor` names the broken link rather than making you guess: no credentials,
+blocked network, wrong token, or OK.
+
+### Env vars are not a secrets store
+
+Cloud environment variables are visible to anyone who uses that environment. On
+a personal account that is only Samuel. Do not put these values in a shared or
+organisation environment. If the token ever leaks: change `TOKEN` in the Apps
+Script, **Deploy -> Manage deployments -> New version**, update `.env`, update
+the cloud environment.
+
+## The queue — the sheet catches up by itself
+
+The environment config above is the fix. The queue is what makes the promise
+hold anyway on the day something breaks: a bad deploy, an expired environment,
+a phone session in an environment nobody configured.
+
+Any check-in that mirrors money sends its batch with a label:
+
+```bash
+python tools/sheets/sheets.py ops payload.json --queue "reckoning 2026-08-27"
+```
+
+If the bridge is reachable, it writes and that is the end of it. If it is not,
+the batch is parked in `context/sheet-queue.jsonl` — committed like everything
+else in `context/`, so it travels with the repo — and the next session anywhere
+that *can* reach the bridge replays it:
+
+```bash
+python tools/sheets/sheets.py pending   # what is in the ledger but not the sheet
+python tools/sheets/sheets.py flush     # send it
+```
+
+Flushed batches move to `context/sheet-queue.done.jsonl`. Nothing is deleted.
+
+The ledger is still written first and is still the source of truth (money.md
+Rule 6). The queue never excuses a missing ledger row — it only stops the mirror
+falling silently behind.

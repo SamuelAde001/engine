@@ -24,9 +24,15 @@ description: Evening reckoning — audits today against what I committed to.
     TRANSFERS instead, not Expenses — and a "From pot" row with no reason in his
     own words is money.md Rule 2 broken; get the reason.
     The ledger is written first and is the source of truth. The sheet is the mirror.
-    If the bridge is not reachable (`tools/sheets/README.md`), say so in one line,
-    write the ledger anyway, and mirror it at the next session. Never skip the
-    ledger because the sheet failed.
+
+    Send the batch with `--queue "reckoning <date>"`. That way it works the same
+    from the desktop, a cloud routine or the phone: if the bridge is reachable it
+    writes; if it is not, the batch is parked in `context/sheet-queue.jsonl` and
+    committed, and the next session anywhere that can reach the bridge sends it.
+    Before mirroring, run `python tools/sheets/sheets.py flush` so anything an
+    earlier offline session parked goes in tonight. If the bridge is down, say so
+    in ONE line plus what `doctor` says, and move on. Never skip the ledger
+    because the sheet failed, and never call the mirror done when it was queued.
 2e. SLEEP. Ask what time he actually went to bed last night. Record it. If it is
     below the floor in context/body.md, say the number of hours and move on —
     do not lecture.
