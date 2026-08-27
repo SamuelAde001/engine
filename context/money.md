@@ -94,6 +94,10 @@ row hides it.
 - **One payer, one invoice, one relationship.** If Route Rise goes, 100% of his
   income goes with it — including the "$175 client", which is not a separate
   relationship he could keep.
+- **Payment timing is Lewis's to control, not Samuel's.** 2026-08-27: Lewis
+  Mountstephens told the Route Rise channel payments would be "a day or so later
+  this month" — he is away till the 31st. August's 70% therefore lands ~1–3 Sep,
+  not 31 Aug. No confirmed date. Invoice still goes out on the 29th regardless.
 - **He does not want more clients.** His reason: one client's workload is already
   high. His call. Not to be re-litigated at every check-in — but read the
   concentration risk below before advising on anything income-shaped.
