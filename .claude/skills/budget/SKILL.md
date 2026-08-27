@@ -12,7 +12,8 @@ exists**, before he acts on it.
 
 ## 1. Read first
 
-`context/money.md` (rules, obligations floor, the goal arithmetic) and the current
+`context/money.md` (rules, obligations floor, the goal arithmetic) — whole, this
+skill needs the arithmetic — and nothing else from context/. Then the current
 sheet state:
 
 ```bash

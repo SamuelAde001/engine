@@ -3,6 +3,17 @@ name: reckon
 description: Evening reckoning — audits today against what I committed to.
 ---
 
+0. READ ONLY THESE. A whole-context read here costs ~32k tokens for a five-minute
+   check-in; these cost about 2k and contain every rule this skill enforces.
+   - `tail -n 4 context/ledger.md` — today's row and the days behind it
+   - `context/habits.md` (small, whole) — the habit names for step 2c
+   - `bash tools/section.sh context/body.md "Sleep"` — the floor for step 2e
+   - `bash tools/section.sh context/money.md "Rules"` — Rule 2 for step 2d
+   - `tail -n 5 context/money-ledger.md` — the opening balance to check against
+   Read `context/stakes.md` ONLY if the verdict lands on MISSED (step 5), and
+   `context/ledger-notes/` only if he asks about a past day. Never read mission.md,
+   decisions.md, memory.md whole, or the other four domain files at a reckoning.
+
 1. Read today's ledger row for what I committed to this morning. If there's no row
    for today, say so plainly and ask what I did instead of committing.
 2. Pull what actually closed in TickTick today, plus habit check-ins and focus time.
@@ -42,19 +53,42 @@ description: Evening reckoning — audits today against what I committed to.
    what specifically got in the way. Do not accept "I was busy" — ask what
    I was busy WITH.
 6. If SHIPPED: one line of acknowledgement. One. Then move on.
-7. Complete today's row in context/ledger.md.
+7. Complete today's row in `context/ledger.md`. It is a SCOREBOARD row — keep every
+   cell short enough to scan: what was committed, what shipped, focus, habits n/5,
+   bed time, verdict. If the day needs explaining, the explanation goes in
+   `context/ledger-notes/<YYYY-MM>.md` under a `## <date>` heading, NOT into the row.
+   A ledger row that grows into a paragraph is a row nobody rereads.
 7b. SCORECARD. Build the day's visual scorecard and publish it as an Artifact.
     Samuel screenshots it and sends it to his girlfriend — that is the accountability
     mechanism in context/stakes.md, and it is the only one with a third party in it.
+
+    - YOU WRITE THE DATA, NOT THE HTML. Write `context/scorecard-day.json` — about
+      thirty lines — then run:
+
+      ```bash
+      python tools/scorecard/build.py
+      ```
+
+      That renders `scorecard.html` from the frozen template in `tools/scorecard/`.
+      NEVER hand-write or edit scorecard.html. It is 450 lines; typing it out costs
+      more than the rest of the reckoning combined, and it is generated output.
+      If the card needs a new kind of row or a style change, change the template
+      or `build.py` — that is a one-time cost, not a nightly one.
+
+      The day file's shape (see the committed example for a full one):
+      `date`, `sub`, `score`, `score_of`, `verdict`, `verdict_class` (won/lost/open),
+      `ratios[]`, `committed[]`, `habits[]`, `red_title`, `red[]`, `cells[]`, `quote`.
+      Every row takes `state`: `pass` | `part` | `miss` | `null`.
 
     - THE URL IS FIXED. Always update the existing artifact, never publish a new one:
 
       https://claude.ai/code/artifact/6401a62e-c1d8-4ec2-8787-7d0a4794883d
 
-      Write scorecard.html, then call Artifact with that URL passed as `url`.
-      Publishing WITHOUT `url` from a fresh session creates a SECOND artifact and
-      breaks his bookmark — and a bookmark he has to re-find is a bookmark he stops
-      opening. Keep the <title> "Reckoning Scorecard" and the favicon stable.
+      Call Artifact on `scorecard.html` with that URL passed as `url`. Publishing
+      WITHOUT `url` from a fresh session creates a SECOND artifact and breaks his
+      bookmark — and a bookmark he has to re-find is a bookmark he stops opening.
+      The <title> "Reckoning Scorecard" and the favicon live in the template and
+      stay stable on their own.
     - It carries, every day: the date, the day's score and verdict, what shipped,
       what did not, each habit hit or missed by name, bed time against the 10:30pm
       floor, and the money row (balance + what went out).
@@ -68,7 +102,9 @@ description: Evening reckoning — audits today against what I committed to.
     If a week passes with no scorecards sent, the mechanism has quietly gone back to
     being self-policed. The weekly review says so.
 8. If anything is worth remembering long-term, append it to context/memory.md
-   with today's date.
+   with today's date. APPEND ONLY — never read the whole file to do it. Use
+   `tail -n 15 context/memory.md` if you need recent context, or grep for a keyword.
+   The file only grows; reading it whole gets more expensive every single day.
 9. Commit and push (see REMOTE.md). If you skip this, the reckoning is lost.
 
 Never reschedule anything. Never move a due date. The only thing you may change in

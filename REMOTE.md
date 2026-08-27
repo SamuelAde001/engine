@@ -66,6 +66,11 @@ on the phone exactly as they do on the desktop.
 - Due dates never move without asking.
 - `context/mission.md` and `context/stakes.md` are never edited without asking.
 - `context/memory.md` and `context/ledger.md` are append-only.
+- The read lists in each skill apply on the phone too. A cloud routine that reads
+  all of `context/` burns the same tokens as one at the desk, and it runs four
+  times a day unattended — so it burns them whether Samuel is there or not.
+- One routine, one session. The brief, midday and reckoning routines must not
+  share a session; each fires clean.
 
 ## Finding TickTick in a cloud session
 

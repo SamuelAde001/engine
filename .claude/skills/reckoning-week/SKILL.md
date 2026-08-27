@@ -3,6 +3,14 @@ name: reckoning-week
 description: Weekly review — finds the pattern in the week's ledger and updates patterns.md.
 ---
 
+0. READ LIST. This is the one heavy check-in and that is fine — but still targeted:
+   - `tail -n 9 context/ledger.md` and `context/patterns.md` (whole)
+   - `context/ledger-notes/<this month>.md` — the narrative behind the week's rows
+   - `context/stakes.md` (step 6), `context/money-ledger.md` (step 9)
+   - `bash tools/section.sh context/money.md "Monthly obligations" "Rules"` (step 9)
+   - THIS WEEK'S domain file only (step 8). One. The other four wait their turn.
+   Do not read memory.md or decisions.md whole — `tail -n 20` if you need recency.
+
 1. Read the last 7 ledger rows and all of context/patterns.md.
 2. Count: shipped / partial / missed.
 3. Find the pattern. Not "you were inconsistent" — the actual mechanism.

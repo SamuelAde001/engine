@@ -3,10 +3,13 @@ name: capture
 description: Add, change or drop tasks from the phone without breaking the accountability rules.
 ---
 
+**Model: Sonnet.** Task entry against a fixed rule set.
+
 For quick task edits away from the desk. Fast, but the rules still apply.
 
-1. Read context/ticktick.md for the project map, and context/patterns.md before
-   agreeing to drop or move anything.
+1. READ ONLY `context/ticktick.md` (the project map) and `context/patterns.md`
+   (before agreeing to drop or move anything). Both are small — read them whole.
+   Nothing else in context/. Adding a task does not need the mission file.
 
 ## Adding
 

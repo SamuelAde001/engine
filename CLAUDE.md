@@ -34,9 +34,19 @@ something costing me output or health, say it.
   - Default: breakfast around 12:00pm, nap at 1:00pm (~1 hour).
   - **While fasting: first meal 3:00pm, nap 4:00pm (~1 hour).** Check
     context/habits.md for whether a fast is currently running before planning a day.
-- Read context/ before any check-in. Never run a check-in from memory.
+- Never run a check-in from memory — but never read all of context/ either. Each
+  skill names the exact files it opens; read those and nothing else. Whole-context
+  reads cost ~32k tokens for a five-minute check-in. Use `tail` on the append-only
+  files and `bash tools/section.sh <file> "<heading>"` to pull one section out of
+  the big ones instead of loading the whole thing.
 - Never edit context/mission.md or context/stakes.md without asking. Those are mine.
-- context/memory.md and context/ledger.md are append-only. Never rewrite history.
+- context/memory.md, context/ledger.md, context/money-ledger.md, context/decisions.md
+  and context/ledger-notes/ are append-only. Never rewrite history. Read them with
+  `tail` or `grep` — they only grow, so a whole-file read gets more expensive every
+  day and is almost never what the task needs.
+- context/ledger.md is the SCOREBOARD: one short scannable row per day. The narrative
+  goes in context/ledger-notes/YYYY-MM.md under a `## <date>` heading. A ledger row
+  that grows into a paragraph is a row nobody rereads.
 - Five domain files carry the rest of my life: spirit, money, audience, body,
   people. Read the relevant one before advising on anything in it. They are
   connected — one domain going wrong shows up in another. Sleep is the wall
@@ -67,6 +77,28 @@ something costing me output or health, say it.
   Details tab, so a category total can always be broken down into the actual
   items that make it up. Cancelled items are marked inactive, never deleted.
 
+## Cost discipline
+
+Every file loaded is re-sent on every turn of the session, so waste compounds. None
+of this trades quality — it removes duplication.
+
+- **One check-in, one session.** `/clear` between the brief, the midday and the
+  reckoning. Running all three in one session makes the 9pm reckoning drag the whole
+  day's transcript along on every turn.
+- **Model routing.** `/brief`, `/midday` and `/capture` run on Sonnet — they are a
+  report, an 80-word gap check and task entry against fixed rules. `/reckon`,
+  `/paid`, `/budget`, `/month`, `/plan-week`, `/reckoning-week` and every design or
+  brainstorming conversation run on Opus. Set it with `/model` before starting.
+- **Never read PA.md in this repo.** It is a generated duplicate of every file here —
+  41k tokens of pure repetition. `.claude/settings.json` denies it. Generate it with
+  `bash tools/bundle.sh`, commit it, never open it.
+- **Never hand-write scorecard.html.** Write `context/scorecard-day.json` and run
+  `python tools/scorecard/build.py`. Output tokens cost several times input; a
+  450-line file typed out nightly was the most expensive act of the day.
+- **Narrow the tool calls too.** Ask TickTick for the project or date you need, not
+  for everything. A broad list comes back as a wall of JSON that then rides along in
+  context for the rest of the session.
+
 ## Files
 
 - context/mission.md — what I'm building and why
@@ -78,12 +110,17 @@ something costing me output or health, say it.
 - context/people.md — girlfriend, network, community admin, mentees
 - context/money-ledger.md — daily every-naira log (append-only)
 - context/memory.md — things I told you to remember (append-only)
-- context/ledger.md — daily scorecard (append-only)
+- context/ledger.md — daily scoreboard, one short row per day (append-only)
+- context/ledger-notes/YYYY-MM.md — the narrative behind the rows (append-only)
 - context/patterns.md — my documented failure modes
 - context/ticktick.md — which TickTick projects map to what
 - context/habits.md — habits I'm tracking and what breaking them costs
 - context/decisions.md — what the Claude project and I decided, and what got built (append-only)
+- context/scorecard-day.json — the reckoning's data for tonight's card; the card
+  itself is generated from it
 - tools/sheets/ — the bridge that reads and writes "My Claude Budget" from here
+- tools/scorecard/ — frozen template + build.py that render scorecard.html
+- tools/section.sh — print one named section of a file instead of the whole file
 - REMOTE.md — how this runs from my phone when I'm away from the computer
 - PROJECT.md — the instructions pasted into my Claude project on claude.ai
 - PA.md — generated bundle of all of the above; do not hand-edit

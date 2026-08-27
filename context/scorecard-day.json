@@ -1,0 +1,41 @@
+{
+  "date": "WED 26 AUG 2026",
+  "sub": "Fast day 2 of 7 · detox day 2 of 7 · anchors 3:00pm meal, 4:00pm nap",
+  "score": "2",
+  "score_of": "/2",
+  "verdict": "Shipped",
+  "verdict_class": "won",
+  "ratios": [
+    "Both committed tasks done · habits 5 / 5",
+    "Streak: 2 shipped days. Four is the target."
+  ],
+  "committed": [
+    { "what": "Scripnals build review", "detail": "Build run end to end · findings list SENT to the devs", "state": "pass", "tag": "Done" },
+    { "what": "Client #2 — Day 1 ingest", "detail": "Download, research, organise, scope · 40 min raw → ~25 min finished", "state": "pass", "tag": "Done" },
+    { "what": "Talk through the course plan", "detail": "Dropped today, his call · task not deleted", "state": "null", "tag": "Dropped" },
+    { "what": "Wednesday Signal Session", "detail": "Skipped today, detox · recurring task untouched", "state": "null", "tag": "Skipped" },
+    { "what": "Client #1 revisions — unplanned", "detail": "9:00–11:00pm · client asked for tonight · rendering at reckoning", "state": "part", "tag": "In flight" }
+  ],
+  "habits": [
+    { "name": "No social media", "state": "pass" },
+    { "name": "Fasted", "state": "pass" },
+    { "name": "Prayed", "state": "pass" },
+    { "name": "Bible study", "state": "pass" },
+    { "name": "No masturbating", "state": "pass" }
+  ],
+  "red_title": "Red marks on a green day",
+  "red": [
+    { "what": "The timer was off nearly all day", "detail": "18m 43s logged against ~6h15 actually worked — 5% coverage", "state": "miss", "tag": "Red" },
+    { "what": "6:30pm hard stop broken", "detail": "Working 9:00–11:00pm. Real client deadline. One exception, now used up.", "state": "miss", "tag": "Red" },
+    { "what": "Church is off on Sunday — no transport money", "detail": "Needs ₦5,000, has ₦2,000. Nothing liquid to draw on.", "state": "miss", "tag": "Red" }
+  ],
+  "cells": [
+    { "k": "Focus logged", "v": "18m 43s", "vclass": "bad", "n": "One run, 3:42–4:01pm. The rest went untimed." },
+    { "k": "Bed last night", "v": "1:30am", "vclass": "bad", "n": "Floor is 10:30pm. About 4h of sleep." },
+    { "k": "Bank balance", "v": "₦2,000", "n": "₦503 unexplained against the ₦3,503 opening" },
+    { "k": "Spent today", "v": "₦1,000", "n": "Recharge card" },
+    { "k": "Savings moved", "v": "₦0", "vclass": "nil", "n": "Emergency fund ₦0 · Cowrywise ₦305,000 locked" },
+    { "k": "Days to 31 Dec", "v": "127", "n": "₦1,000,000 target · ₦0 saved" }
+  ],
+  "quote": "“Four consecutive SHIPPED days = the streak. The streak is the reward.” — two down."
+}

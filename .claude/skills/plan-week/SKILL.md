@@ -6,10 +6,13 @@ description: Weekly planning — takes Samuel's week from him and lays it into T
 Run this on Sunday, or whenever Samuel asks to plan the week. Works the same on
 desktop or from his phone.
 
-1. Read context/mission.md, context/stakes.md, context/patterns.md,
-   context/habits.md, context/ticktick.md, context/body.md (anchors, gym cost,
-   day shape), context/audience.md (content and course cadence), and the last
-   7 rows of context/ledger.md.
+1. READ LIST — these and no more:
+   - `context/mission.md`, `context/patterns.md`, `context/habits.md`,
+     `context/ticktick.md` (whole; all small except mission)
+   - `bash tools/section.sh context/body.md "Daily anchors" "The default day shape" "How editing work is chunked"`
+   - `bash tools/section.sh context/audience.md "Weekly minimum" "The one lever"`
+   - `tail -n 9 context/ledger.md`
+   Not stakes.md, not money.md, not memory.md, not decisions.md, not the notes files.
 2. Pull what's already in TickTick for the coming 7 days, plus anything overdue.
    If the TickTick tools are not available in this session, say so in one line and
    work from what Samuel tells you. Do not invent task state.

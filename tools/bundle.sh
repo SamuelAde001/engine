@@ -25,6 +25,9 @@ emit() {
 
   emit CLAUDE.md
   emit REMOTE.md
+  # context/*.md only — context/ledger-notes/ is DELIBERATELY excluded. It is the
+  # raw daily narrative, it grows every day forever, and the project reads the
+  # compact ledger scoreboard instead. Do not add it.
   for f in context/*.md; do emit "$f"; done
   for f in .claude/agents/*.md; do emit "$f"; done
   for f in .claude/skills/*/SKILL.md; do emit "$f"; done

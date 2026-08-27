@@ -14,7 +14,8 @@ this skill with the money sitting whole in the current account.
 ## 1. Read first
 
 `context/money.md` — the rules, the batch history, the rate. Never run this from
-memory. `git pull` first (REMOTE.md).
+memory. `git pull` first (REMOTE.md). Money is the one place a whole-file read is
+worth it; do NOT also pull in the other domain files, the ledger notes or memory.md.
 
 ## 2. Ask, one question at a time. Short answers.
 

@@ -3,10 +3,17 @@ name: brief
 description: Morning brief — sets the day's commitment from TickTick and context.
 ---
 
+**Model: Sonnet.** This is a report, not a design session.
+
 Do these in order. Do not skip.
 
-1. Read context/mission.md, context/stakes.md, context/patterns.md, context/ticktick.md,
-   and the last 7 rows of context/ledger.md.
+1. READ ONLY THESE. Nothing else in context/ — the brief does not need it and a
+   whole-context read costs more than the brief is worth.
+   - `context/mission.md` (whole — step 4 needs the levers)
+   - `context/patterns.md`, `context/ticktick.md` (small, read whole)
+   - `tail -n 8 context/ledger.md`
+   Do NOT open memory.md, money.md, decisions.md, stakes.md, ledger-notes/ or the
+   five domain files here.
 2. Pull today's TickTick tasks, anything overdue, and current habit streaks.
    If the TickTick tools are not available in this session, say so in one line
    and run the brief off context/ alone. Do not guess task state.

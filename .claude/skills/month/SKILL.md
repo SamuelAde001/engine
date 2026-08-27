@@ -5,7 +5,8 @@ description: Month-end financial close — what came in, what went out, what sur
 
 Run on the last day of the month, or when Samuel asks.
 
-1. Read context/money.md and all of context/money-ledger.md for the month.
+1. Read `context/money.md` (whole — this skill genuinely needs the arithmetic)
+   and `context/money-ledger.md`. Nothing else in context/.
 2. State four numbers and nothing else first:
    - Total in
    - Total out
