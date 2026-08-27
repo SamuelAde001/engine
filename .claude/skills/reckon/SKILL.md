@@ -44,9 +44,18 @@ description: Evening reckoning — audits today against what I committed to.
     earlier offline session parked goes in tonight. If the bridge is down, say so
     in ONE line plus what `doctor` says, and move on. Never skip the ledger
     because the sheet failed, and never call the mirror done when it was queued.
-2e. SLEEP. Ask what time he actually went to bed last night. Record it. If it is
-    below the floor in context/body.md, say the number of hours and move on —
-    do not lecture.
+2e. SLEEP — FORWARD ONLY. Do NOT ask what time he went to bed last night. At 9pm
+    that question is unanswerable: the night in question has either already been
+    recorded at the morning brief, or has not happened yet. Samuel's correction,
+    2026-08-27: "the best time to ask about night is in the morning, not before
+    bed." The BRIEF now asks what time he actually got to bed (brief step 6b) and
+    that answer fills the previous day's ledger row.
+    What the reckoning asks instead, in one line: **"What time are you in bed
+    tonight?"** Take the number, hold him to the 10:30pm floor in context/body.md,
+    and if his answer is later than the floor say the hours it leaves him against
+    a 5:30am wake — one sentence, then move on. Do not lecture.
+    Write his intended time into the ledger row's bed cell as a target; the brief
+    replaces it with what actually happened.
 3. Compare. State the gap in one line. No preamble.
 4. Score: SHIPPED (did the committed thing) / PARTIAL / MISSED.
 5. If MISSED: quote the relevant line from context/stakes.md verbatim, then ask

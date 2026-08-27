@@ -1,41 +1,42 @@
 {
-  "date": "WED 26 AUG 2026",
-  "sub": "Fast day 2 of 7 · detox day 2 of 7 · anchors 3:00pm meal, 4:00pm nap",
-  "score": "2",
+  "date": "THU 27 AUG 2026",
+  "sub": "Fast day 3 of 7 · detox day 3 of 7 · anchors 3:00pm meal, 4:00pm nap",
+  "score": "1",
   "score_of": "/2",
-  "verdict": "Shipped",
-  "verdict_class": "won",
+  "verdict": "Partial",
+  "verdict_class": "open",
   "ratios": [
-    "Both committed tasks done · habits 5 / 5",
-    "Streak: 2 shipped days. Four is the target."
+    "Cut shipped · intro not started · 8 of 10 chunks",
+    "Habits 4 / 5 — the detox broke. Streak ends at 2 shipped days."
   ],
   "committed": [
-    { "what": "Scripnals build review", "detail": "Build run end to end · findings list SENT to the devs", "state": "pass", "tag": "Done" },
-    { "what": "Client #2 — Day 1 ingest", "detail": "Download, research, organise, scope · 40 min raw → ~25 min finished", "state": "pass", "tag": "Done" },
-    { "what": "Talk through the course plan", "detail": "Dropped today, his call · task not deleted", "state": "null", "tag": "Dropped" },
-    { "what": "Wednesday Signal Session", "detail": "Skipped today, detox · recurring task untouched", "state": "null", "tag": "Skipped" },
-    { "what": "Client #1 revisions — unplanned", "detail": "9:00–11:00pm · client asked for tonight · rendering at reckoning", "state": "part", "tag": "In flight" }
+    { "what": "Client #2 Day 2 — THE CUT", "detail": "All 40 min of raw cut · visuals planned · \"ready for main edit\"", "state": "pass", "tag": "Done" },
+    { "what": "Client #2 Day 2 — THE INTRO", "detail": "C9 + C10, 5:00–6:30pm · planned it, never started it · \"I needed to rest\"", "state": "miss", "tag": "Not done" },
+    { "what": "Budget sheet — unblock cloud bridge", "detail": "5 min browser job, scheduled 9:00–9:15pm tonight · still open, NOT rescheduled", "state": "miss", "tag": "Open" },
+    { "what": "Call Tehila", "detail": "1h, due by 8pm · she didn't call back — not his miss", "state": "null", "tag": "No answer" },
+    { "what": "GTA 6 Netflix", "detail": "Scheduled 8pm · watched", "state": "pass", "tag": "Done" }
   ],
   "habits": [
-    { "name": "No social media", "state": "pass" },
+    { "name": "No social media", "state": "miss" },
     { "name": "Fasted", "state": "pass" },
     { "name": "Prayed", "state": "pass" },
     { "name": "Bible study", "state": "pass" },
     { "name": "No masturbating", "state": "pass" }
   ],
-  "red_title": "Red marks on a green day",
+  "red_title": "Red marks",
   "red": [
-    { "what": "The timer was off nearly all day", "detail": "18m 43s logged against ~6h15 actually worked — 5% coverage", "state": "miss", "tag": "Red" },
-    { "what": "6:30pm hard stop broken", "detail": "Working 9:00–11:00pm. Real client deadline. One exception, now used up.", "state": "miss", "tag": "Red" },
-    { "what": "Church is off on Sunday — no transport money", "detail": "Needs ₦5,000, has ₦2,000. Nothing liquid to draw on.", "state": "miss", "tag": "Red" }
+    { "what": "The detox broke on day 3 of 7", "detail": "His words: \"I really wanted to get entertained, I was so bored.\" One break, not two — no YouTube penalty yet.", "state": "miss", "tag": "Red" },
+    { "what": "Every timer stops at 2:32pm", "detail": "Nothing logged after the pace marker. C4 and C5 have no timer at all. First timer started 8:29am on a 7:00am block.", "state": "miss", "tag": "Red" },
+    { "what": "The 5:00–6:30pm block went to nothing", "detail": "Rest was needed. Rest turned into scrolling because nothing was scheduled in the gap.", "state": "miss", "tag": "Red" }
   ],
   "cells": [
-    { "k": "Focus logged", "v": "18m 43s", "vclass": "bad", "n": "One run, 3:42–4:01pm. The rest went untimed." },
-    { "k": "Bed last night", "v": "1:30am", "vclass": "bad", "n": "Floor is 10:30pm. About 4h of sleep." },
-    { "k": "Bank balance", "v": "₦2,000", "n": "₦503 unexplained against the ₦3,503 opening" },
-    { "k": "Spent today", "v": "₦1,000", "n": "Recharge card" },
+    { "k": "Focus logged", "v": "5h 21m", "n": "3h56m pomodoro + 1h26m stopwatch. Up 17× on yesterday's 18m43s — the chunking worked." },
+    { "k": "Against plan", "v": "67%", "n": "5h21m of 8h scheduled. 8 of 10 chunks." },
+    { "k": "Bed last night", "v": "12:00am", "vclass": "bad", "n": "Floor is 10:30pm. About 5.5h. Question moves to the morning brief from now on." },
+    { "k": "Bank balance", "v": "₦2,000", "n": "Unchanged. ₦503 from 26 Aug still unexplained." },
+    { "k": "Spent today", "v": "₦0", "vclass": "nil", "n": "Nothing went out." },
     { "k": "Savings moved", "v": "₦0", "vclass": "nil", "n": "Emergency fund ₦0 · Cowrywise ₦305,000 locked" },
-    { "k": "Days to 31 Dec", "v": "127", "n": "₦1,000,000 target · ₦0 saved" }
+    { "k": "Days to 31 Dec", "v": "126", "n": "₦1,000,000 target · ₦0 saved · Route Rise 70% now ~1–3 Sep" }
   ],
-  "quote": "“Four consecutive SHIPPED days = the streak. The streak is the reward.” — two down."
+  "quote": "“The debt gets paid with the body.” — P2. Tuesday's 19 hours came due this afternoon."
 }

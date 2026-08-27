@@ -75,6 +75,24 @@ silently, and do not assume that extending one extends the other.
 the 5:30am prayer + Bible study block (45 min, combined — his number). See
 context/body.md.
 
+### First break: 27 Aug, day 3 of 7
+
+**No social media BROKE on 2026-08-27**, day 3 of the block. His words: "I really
+wanted to get entertained, I was so bored." It happened in the 5:00–6:30pm window
+that C9/C10 were supposed to fill, after he decided he needed rest. One break, not
+two — the YouTube penalty in stakes.md does NOT trigger. If it goes twice in this
+week, it does.
+
+**What he asked for, same breath:** "we need to schedule times for social media in
+future after this detox so that I won't be bored all day." Read that as the real
+finding — the detox removed the input and put nothing in its place, so the first
+unscheduled hour went straight back to the phone. Willpower was never the variable.
+
+**THIS IS NOW PART OF THE 31 AUG DECISION.** Deciding "keep / drop / extend" is not
+enough on its own — whichever way it goes, come out of it with named social-media
+windows in the day shape (a time, a length, a cap), because an unnamed window is
+what broke today. Get the numbers from him; do not invent them.
+
 ## Cost
 
 Break a streak twice in one week: no YouTube for 2 days (see context/stakes.md).

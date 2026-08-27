@@ -29,6 +29,16 @@ Do these in order. Do not skip.
 5. If patterns.md shows I've dodged this exact kind of task before, say so and
    cite the ledger date.
 6. Ask one question: "What are you committing to today?" Then stop and wait.
+6b. SLEEP — ask it HERE, not at the reckoning. One line: "What time did you
+   actually get to bed last night?" Samuel's instruction, 2026-08-27 — the 9pm
+   reckoning cannot ask about a night that has not happened yet, so the question
+   moved to the morning where the answer exists. Take the time, work out the
+   hours against the 5:30am wake, and write it into YESTERDAY's ledger row bed
+   cell (that row already carries the target he gave at last night's reckoning —
+   replace the target with what actually happened). If it is under the 7h floor
+   in context/body.md, say the number of hours in one sentence and move on. Do
+   not lecture, and do not let it turn into a conversation before the commitment
+   question is answered.
 7. Ask the second question: "What are the new tasks for today?" Take what I give
    you, create them in TickTick against the project map in context/ticktick.md,
    and read them back with dates. Never invent a due date I didn't state. Never
