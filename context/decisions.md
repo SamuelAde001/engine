@@ -239,3 +239,5 @@ this repo — it is a generated duplicate; (5) brief/midday/capture run on Sonne
 everything else on Opus; (6) one check-in per session, /clear between them.
 | BUILT: all six, 2026-08-27. Scorecard verified byte-for-byte identical in
 rendered text. All ledger prose preserved verbatim in ledger-notes/2026-08.md.
+
+| 2026-08-27 | Samuel (Claude Code) | Cloud environment "Default" configured — Network access Custom (`script.google.com`, `*.googleusercontent.com`) plus the three `SHEETS_*` variables. VERIFIED from a real cloud session, not from the desktop: `doctor` reached 'My Claude Budget', all 7 tabs read back, no `.env` in the clone, queue empty. The bridge is now live from this machine, the routines and the phone. The old "Connector probe" routine was repurposed into a read-only bridge probe and renamed "Bridge probe (diagnostic — disabled, run by hand)" — fire it manually whenever the bridge is suspect. Known tradeoff, accepted: `SHEETS_TOKEN` lives in a cloud environment variable, which the platform warns is visible to anyone using that environment. Personal account, single user. Never share this environment. | BUILT |
