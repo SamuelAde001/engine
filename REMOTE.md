@@ -125,3 +125,23 @@ next session anywhere that can reach the bridge runs
 So the rule on the phone is the same as at the desk: **write the ledger first,
 queue the mirror, commit, push.** A cloud session never skips the ledger because
 the sheet failed, and never leaves the mirror silently behind.
+
+## Cloud sessions start on a DETACHED HEAD — 2026-08-28
+
+The cloud clone checks out a commit, not a branch. So `git push -u origin main`
+pushes the stale local `main` ref and is **rejected as non-fast-forward**, while
+`git pull --rebase` reports "HEAD is up to date" and hides the problem. The 28 Aug
+reckoning hit this after everything was written and committed.
+
+The rule this protects is the one that matters: **unpushed is lost.**
+
+Check first, fix in one line:
+
+```bash
+git rev-parse --abbrev-ref HEAD          # prints "HEAD" if detached
+git branch -f main HEAD && git checkout main && git push -u origin main
+```
+
+`git branch -f` is only safe because the local `main` is an ancestor of the new
+commit — verify with `git merge-base --is-ancestor main HEAD` before forcing it.
+Never force a branch that has commits the new HEAD does not contain.
