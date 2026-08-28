@@ -40,7 +40,8 @@
       "unit": "naira",
       "deadline": "2026-12-31",
       "status": "at risk",
-      "note": "The money that moves him into the new house. Separate from the ₦500,000/month construction payment, which is an expense, not savings. At the August mix Sep–Dec produce ~₦1,204,164, closing at ~₦1,007,667 after ₦200,000 goes to the Buffer — a margin of ₦7,667. One ₦200,000 raid of exactly August's kind ends it."
+      "account": "NOT SET",
+      "note": "NO ACCOUNT YET — ₦146,041 moves on 14 Sep and has nowhere to go. It cannot share the Buffer's account: the Buffer is designed to be spent and the ₦1M is not. Budgeted PER MONTH from 2026-08-28, not as a flat average: Sep ₦146,041 (its ₦140,000 of one-offs come first), then ₦286,041 × 3. The money that moves him into the new house. Separate from the ₦500,000/month construction payment, which is an expense, not savings. At the August mix Sep–Dec produce ~₦1,204,164, closing at ~₦1,007,667 after ₦200,000 goes to the Buffer — a margin of ₦7,667. One ₦200,000 raid of exactly August's kind ends it."
     },
     {
       "id": "goal2",
@@ -52,7 +53,7 @@
       "unit": "naira",
       "deadline": "2027-07-31",
       "status": "behind",
-      "note": "The ₦3M is ON TOP of the ₦1M. Jan–Jul 2027 needs ₦428,571/month against a surplus of ₦243,000–₦277,000. SHORT BY ₦152,000–₦186,000 EVERY MONTH. At the August mix this is not tight, it is arithmetically impossible. It closes only if 4-video months become normal — Route Rise's decision, not his — or the course earns."
+      "note": "The ₦3M is ON TOP of the ₦1M. CORRECTED 2026-08-28: the old ₦152,000–₦186,000/month shortfall was wrong twice over — it used the pre-26-Aug surplus figure, and it subtracted Cowrywise from a period in which Cowrywise has already stopped. From January, income ₦1,387,741 minus bills ₦951,700 leaves ₦436,041 free. Goal 2 needs ₦428,571, so it clears by ₦7,470 — a 1.7% margin — and the ₦50,000 emergency fund on top does not fit, leaving ₦42,530/month to find. NOT impossible. Knife-edge, and only while the August mix holds for seven straight months. July was 2 videos, which does not cover the bills."
     },
     {
       "id": "emergency",
@@ -88,7 +89,8 @@
       "unit": "naira",
       "deadline": "2026-12-31",
       "status": "not started",
-      "note": "₦50,000/month, plus month-end underspend, plus the whole excess of any 4-video month. THE IN-MONTH CUSHION URGENCIES COME OUT OF, so savings stop being the valve. Not a goal pot: it gets spent, on purpose. Margin has never stopped a raid. A buffer does."
+      "account": "Emergency (savings a/c)",
+      "note": "LIVES IN THE SAVINGS ACCOUNT ALREADY CALLED ‘Emergency’ — his answer 2026-08-28. NAME CLASH: that account holds the BUFFER Sep–Dec, not the emergency fund, which does not start until Jan 2027. From January two pots would share one account and the balance stops meaning anything. ₦50,000/month, plus month-end underspend, plus the whole excess of any 4-video month. THE IN-MONTH CUSHION URGENCIES COME OUT OF, so savings stop being the valve. Not a goal pot: it gets spent, on purpose. Margin has never stopped a raid. A buffer does."
     },
     {
       "id": "course_m1",

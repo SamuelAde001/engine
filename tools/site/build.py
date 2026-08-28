@@ -302,7 +302,12 @@ def parse_ledger_notes():
     return notes
 
 
-def parse_budget_plan():
+BUDGET_MONTHS = ["2026-08", "2026-09", "2026-10", "2026-11", "2026-12",
+                 "2027-01", "2027-02", "2027-03", "2027-04", "2027-05",
+                 "2027-06", "2027-07"]
+
+
+def parse_budget_plan(income=None):
     path = REPO / "tools" / "sheets" / "plan.json"
     if not path.exists():
         warn("tools/sheets/plan.json missing")
@@ -322,11 +327,44 @@ def parse_budget_plan():
                           "payday": payday, "due": due,
                           "active": str(active).lower().startswith("y"),
                           "month": month, "note": note})
+    savings = plan.get("savings", [])
+
+    # THE MONTH MUST BALANCE. Derived here, never typed: income minus bills
+    # minus that month's one-offs minus every pot. A month that does not end at
+    # zero is not planned, it is estimated — and the leftover is money with no
+    # name on it, which is exactly what evaporated June-August.
+    bills = sum(i["amount"] for i in items if i["active"] and not i["month"])
+    one_by_month = {}
+    for i in items:
+        if i["active"] and i["month"]:
+            one_by_month[i["month"]] = one_by_month.get(i["month"], 0) + i["amount"]
+    gross = 0
+    if income:
+        gross = round((2 * income["rate_primary_usd"] + 2 * income["rate_secondary_usd"])
+                      * income["usd_ngn"])
+    plan_start = plan.get("plan_start") or BUDGET_MONTHS[0]
+    balance = []
+    for m in BUDGET_MONTHS:
+        if m < plan_start:
+            continue
+        pots = sum(v["schedule"].get(m, 0) for v in savings)
+        one = one_by_month.get(m, 0)
+        balance.append({
+            "month": m,
+            "income": gross,
+            "bills": bills,
+            "one_offs": one,
+            "pots": pots,
+            "pot_split": {v["pot"]: v["schedule"][m] for v in savings if m in v["schedule"]},
+            "left": gross - bills - one - pots,
+        })
     return {
         "plan_start": plan.get("plan_start"),
         "tracking_start": plan.get("tracking_start"),
         "items": items,
-        "savings": plan.get("savings", []),
+        "savings": savings,
+        "balance": balance,
+        "bills_total": bills,
         "lean_ladder": plan.get("lean_month_ladder", []),
     }
 
@@ -410,7 +448,7 @@ def main():
     money = parse_money_ledger()
     habits = parse_habits()
     patterns = parse_patterns()
-    budget = parse_budget_plan()
+    budget = parse_budget_plan(site["income"])
 
     # score + attach narrative
     for row in ledger:

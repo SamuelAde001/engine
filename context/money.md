@@ -27,6 +27,30 @@ income. **Real August income ≈ ₦910,000.**
 Projected investment balance 31 Dec 2026: ₦305,000 + (Sep–Dec × ₦100,000) = **₦705,000**.
 It does not pay out until January 2027, when he moves it into actual stocks.
 
+## Where each pot physically lives
+
+Added 2026-08-28. A pot with no account is a pot that cannot be funded on payday.
+
+| Pot | Account | Payday |
+|---|---|---|
+| Buffer | **the savings account already called "Emergency"** — his answer 2026-08-28 | B |
+| Cowrywise investment | Cowrywise, locked to Jan 2027 | A |
+| Goal 1 — house | **NOT SET** | B |
+| Goal 2 — marriage | NOT SET (starts Jan 2027) | B |
+| Emergency fund | the "Emergency" account (starts Jan 2027) | B |
+
+**Two things are open and both have dates on them.**
+
+**Goal 1 has no home, and ₦146,041 moves on 14 September.** It cannot share the
+Buffer's account: the Buffer is designed to be spent and the ₦1M is not. If they
+sit together, the first urgency that empties the Buffer will take the house money
+with it, because nothing on a bank statement says which naira was which.
+
+**The account is called "Emergency" but from September to December it holds the
+BUFFER, not the emergency fund** — that pot does not start until January 2027.
+From January two different pots would share one account and the balance stops
+meaning anything. Decide before then.
+
 ## The one lever
 
 **Monthly surplus that survives the month.** Not income — surplus that is still
@@ -250,18 +274,28 @@ Starting balance ₦3,503. Four months: September, October, November, December.
 At the August mix, with September's ₦140,000 of one-offs (son's school ₦50,000,
 Kaduna ₦50,000, sister ₦40,000):
 
-```
-Sep      196,041   one-offs eat 140,000
-Oct      336,041
-Nov      336,041
-Dec      336,041
-─────────────────
-       1,204,164  + 3,503 opening  =  1,207,667
-```
+| Month | Income | − Bills | − One-offs | − Cowrywise | − Buffer | → Goal 1 | Left |
+|---|---|---|---|---|---|---|---|
+| Sep | 1,387,741 | 951,700 | 140,000 | 100,000 | 50,000 | **146,041** | **0** |
+| Oct | 1,387,741 | 951,700 | — | 100,000 | 50,000 | **286,041** | **0** |
+| Nov | 1,387,741 | 951,700 | — | 100,000 | 50,000 | **286,041** | **0** |
+| Dec | 1,387,741 | 951,700 | — | 100,000 | 50,000 | **286,041** | **0** |
+| | | | | | **200,000** | **1,004,164** | |
 
-**₦1,207,667 against a ₦1,000,000 target.** Take ₦50,000/month for the buffer
-(₦200,000) and **Goal 1 closes at ₦1,007,667** with a funded cushion standing
-behind it.
+**₦1,004,164 + the ₦3,503 opening = ₦1,007,667 against a ₦1,000,000 target**, with
+the buffer landing on exactly ₦200,000 the same month.
+
+**Set 2026-08-28: Goal 1 is budgeted per month, not as a flat average.** The sheet
+used to carry ₦249,124/month — ₦996,497 ÷ 4. That is an average, and it asked
+September for ₦103,083 September does not have, because September carries
+₦140,000 of one-offs the other three months do not. A plan that asks for money
+you do not have gets paid out of the building fund or the buffer. Same finish
+line, four honest numbers instead of one convenient one.
+
+**Every month now balances to zero.** Bills + one-offs + every pot = income,
+exactly. That is the point: a leftover is money with no name on it, and money with
+no name on it is what ₦595,250 was. The Budget tab proves it in a block called
+THE MONTH MUST BALANCE, and the site's Budget page shows the same table.
 
 That margin is only ₦7,667, and that is the right trade. ₦207,000 of margin with no
 buffer means the first urgency in October gets paid out of savings — which is
@@ -285,19 +319,42 @@ Samuel confirmed 2026-08-26: **the ₦3M is ON TOP of the ₦1M. ₦4,000,000 to
 
 Jan–July 2027 is seven months. ₦3,000,000 over seven months is **₦428,571/month.**
 
-| At this mix | Surplus/month | Against ₦428,571 |
-|---|---|---|
-| August mix | ₦243,000–₦277,000 | **SHORT by ₦152,000–₦186,000, every month** |
-| 4 × $333.33 | ₦675,000–₦709,000 | clears it |
+**CORRECTED 2026-08-28, and the correction is material.** This table used to read
+"surplus ₦243,000–₦277,000, SHORT by ₦152,000–₦186,000 every month." Both halves
+were wrong. The surplus figure was the pre-26-Aug number, superseded by his own
+cuts the same day — it is ₦336,041 now. And it subtracted Cowrywise from a period
+in which Cowrywise has already stopped: Rule 7 funds it "until the year ends," so
+from January that ₦100,000/month is free. Two errors stacked in one row.
 
-**At the August mix the ₦3M is arithmetically impossible.** Not tight — impossible.
-It closes only if 4-video months become the norm, or the course earns.
+From January: income ₦1,387,741 − bills ₦951,700 = **₦436,041 free per month.**
+
+| At this mix | Free/month | Goal 2 needs ₦428,571 | + emergency fund ₦50,000 |
+|---|---|---|---|
+| August mix | ₦436,041 | clears by ₦7,470 | **SHORT ₦42,530/month** |
+| 4 × $333.33 | ₦868,282 | clears easily | clears easily |
+| 2 videos / month | −₦41,709 | underwater on the BILLS | — |
+
+**So the ₦3M is not arithmetically impossible. It is arithmetically knife-edge.**
+At the August mix, Goal 2 alone clears by ₦7,470 a month — a margin of 1.7% — and
+the emergency fund on top of it does not fit, leaving ₦42,530/month to find.
+
+That is a much smaller hole than this file used to claim, and it does not make the
+position safe. It makes it fragile in a different way: **the whole thing now rests
+on the August mix holding for seven straight months, and July was a 2-video month
+in which he could not even cover the bills.** The exposure was never the size of
+the gap. It is that Route Rise decides the volume.
 
 And per the concentration risk below, **4-video months are not his decision.** Route
 Rise sets the volume. Which leaves exactly one lever he owns:
 
-> **From January the course has to carry roughly ₦170,000/month — about ₦1.2M across
-> the seven months — or the July 2027 marriage number does not happen.**
+> **From January the course has to carry roughly ₦42,530/month — about ₦300,000
+> across the seven months — to fund the emergency fund alongside the ₦3M. Revised
+> down from ₦170,000/month on 2026-08-28, when the arithmetic above was corrected.**
+
+That is the number when the August mix holds. **It is ₦470,000/month if a 2-video
+month repeats**, because a 2-video month does not cover the bills, let alone a pot.
+The course's real job was never the ₦42,530. It is that it is the only income line
+whose existence he controls.
 
 That is the whole argument for the course, in one line, with a number attached. Every
 Sunday the 5:00pm course block gets skipped is a payment missed on that ₦1.2M. The

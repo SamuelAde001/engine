@@ -59,12 +59,70 @@
     ]
   },
 
+  "_savings_note": [
+    "Per-month plan, not a flat average. Goal 1 is LOWER in September because",
+    "September carries ₦140,000 of one-offs the other months do not. A flat",
+    "₦249,124/month asked for money September does not have, and a plan that asks",
+    "for money you do not have gets paid out of the building fund or the buffer.",
+    "",
+    "bills + one-offs + every pot = income, exactly, every month Sep-Dec.",
+    "The Budget tab proves it in THE MONTH MUST BALANCE.",
+    "",
+    "account = where the money physically goes. A pot with no account is a pot",
+    "that cannot be funded on payday."
+  ],
+
   "savings": [
-    ["Goal 1 — house / building",  1000000, "2026-12-31", "Sep 2026", "The ₦1M that moves him into the new house. Separate from the ₦500,000/month construction payment, which is an expense, not savings."],
-    ["Cowrywise investment",        100000, "monthly",    "running",  "RING-FENCED, money.md Rule 7. ₦100,000/month to year end. Never counts toward the ₦1M or the ₦3M. Moves into stocks Jan 2027."],
-    ["Goal 2 — marriage",          3000000, "2027-07-31", "Jan 2027", "ON TOP of Goal 1. ₦4,000,000 total. Jan–Jul 2027 = ₦428,571/month."],
-    ["Emergency fund",              300000, "2027-06-30", "Jan 2027", "Funded after Goal 1 closes. Does not compete with December."],
-    ["Buffer",                      200000, "rolling",    "Sep 2026", "NEW 2026-08-26. ₦50,000/month. The in-month cushion urgencies come out of, so savings stop being the valve — that is the direct fix for the ₦595,250 that evaporated June–August. Fed by month-end underspend and by any 4-video month's excess. Not a goal pot: it gets spent, on purpose."]
+    {
+      "pot": "Goal 1 — house",
+      "account": "NOT SET",
+      "payday": "B",
+      "target": 1000000,
+      "deadline": "2026-12-31",
+      "starts": "Sep 2026",
+      "schedule": { "2026-09": 146041, "2026-10": 286041, "2026-11": 286041, "2026-12": 286041 },
+      "note": "THE December number. ₦1,004,164 across four months + the ₦3,503 opening = ₦1,007,667. September is lower because its ₦140,000 of one-offs come first. Moves on Payday B — Samuel's call 2026-08-26, because Payday A is always full. NO ACCOUNT YET: he named the Emergency savings account for the Buffer on 2026-08-28 but has not said where the ₦1M lives. It cannot share the Buffer's account — the Buffer is designed to be spent and Goal 1 is not."
+    },
+    {
+      "pot": "Cowrywise investment",
+      "account": "Cowrywise (locked)",
+      "payday": "A",
+      "target": 705000,
+      "deadline": "2026-12-31",
+      "starts": "running",
+      "schedule": { "2026-09": 100000, "2026-10": 100000, "2026-11": 100000, "2026-12": 100000 },
+      "note": "RING-FENCED, Rule 7. Never pauses, never counts toward the ₦1M or the ₦3M. ₦305,000 already in. STOPS after December — it moves into actual stocks Jan 2027, which frees ₦100,000/month from January."
+    },
+    {
+      "pot": "Buffer",
+      "account": "Emergency (savings a/c)",
+      "payday": "B",
+      "target": 200000,
+      "deadline": "rolling",
+      "starts": "Sep 2026",
+      "schedule": { "2026-09": 50000, "2026-10": 50000, "2026-11": 50000, "2026-12": 50000 },
+      "note": "Lives in the savings account he already has, called Emergency — his answer 2026-08-28. NOTE THE NAME CLASH: that account holds the BUFFER from Sep to Dec, not the emergency fund, which does not start until Jan 2027. From January two different pots would share one account and the balance stops meaning anything. Decide before then. The cushion urgencies come out of, so savings stop being the valve — the direct fix for the ₦595,250 that evaporated June–August. Also fed by month-end underspend and by any 4-video month's excess."
+    },
+    {
+      "pot": "Goal 2 — marriage",
+      "account": "NOT SET",
+      "payday": "B",
+      "target": 3000000,
+      "deadline": "2027-07-31",
+      "starts": "Jan 2027",
+      "schedule": { "2027-01": 428571, "2027-02": 428571, "2027-03": 428571, "2027-04": 428571, "2027-05": 428571, "2027-06": 428571, "2027-07": 428571 },
+      "note": "Starts Jan 2027, after Goal 1 closes. ON TOP of the ₦1M — ₦4,000,000 total."
+    },
+    {
+      "pot": "Emergency fund",
+      "account": "Emergency (savings a/c)",
+      "payday": "B",
+      "target": 300000,
+      "deadline": "2027-06-30",
+      "starts": "Jan 2027",
+      "schedule": { "2027-01": 50000, "2027-02": 50000, "2027-03": 50000, "2027-04": 50000, "2027-05": 50000, "2027-06": 50000 },
+      "note": "Starts Jan 2027. Does not compete with December. SHARES AN ACCOUNT WITH THE BUFFER — see the Buffer note."
+    }
   ],
 
   "lean_month_ladder": [

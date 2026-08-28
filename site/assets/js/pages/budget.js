@@ -122,16 +122,97 @@
         ]))));
   }
 
+  /* --------------------------------------------- the month must balance */
+
+  const BAL = B.balance || [];
+  const y26 = BAL.filter(r => r.month < '2027-01');
+  const y27 = BAL.filter(r => r.month >= '2027-01');
+  const mLabel = m => new Date(m + '-01T00:00:00')
+    .toLocaleString('en', { month: 'short', year: '2-digit' });
+
+  add(h('h2', {}, 'The month must balance'));
+  add(callout('info', '=',
+    '<strong>Every naira has a job, and the bottom line is ₦0.</strong> Income, minus the bills, ' +
+    'minus that month\u2019s one-offs, minus every pot. Zero is the target \u2014 not a surplus.',
+    'A positive number is unallocated money, and <strong>money with no name on it is what ' +
+    'evaporated June\u2013August</strong>. A negative number means the month does not fund its own ' +
+    'plan \u2014 that is what the lean ladder below is for.'));
+
+  const balRow = (label, pick, opts = {}) => [
+    opts.strong ? h('strong', {}, label) : label,
+    ...y26.map(r => {
+      const v = pick(r);
+      const txt = (opts.neg ? '\u2212 ' : '') + naira(Math.abs(v));
+      if (opts.total) {
+        return h('strong', { class: 'v ' + (v === 0 ? 'green' : 'red') },
+          v === 0 ? naira(0) : naira(v));
+      }
+      return v === 0 && opts.neg ? h('span', { class: 't-dim' }, '\u2014') : txt;
+    }),
+  ];
+
+  add(h('div', { class: 'card pad-0', style: 'margin-top:10px' },
+    table(['', ...y26.map(r => ({ label: mLabel(r.month), num: true }))], [
+      balRow('Expected income', r => r.income, { strong: true }),
+      balRow('Bills', r => r.bills, { neg: true }),
+      balRow('One-offs', r => r.one_offs, { neg: true }),
+      balRow('Into the pots', r => r.pots, { neg: true }),
+      balRow('LEFT OVER', r => r.left, { strong: true, total: true }),
+    ])));
+  add(note('September\u2019s pot number is lower on purpose \u2014 its ₦140,000 of one-offs ' +
+    '(school, Kaduna, the sister) come first. <strong>A flat monthly average asked September for ' +
+    'money it does not have</strong>, and a plan that asks for money you do not have gets paid ' +
+    'out of the building fund or the buffer.'));
+
+  if (y27.length) {
+    const short = y27.filter(r => r.left < 0);
+    add(callout('bad', '!',
+      '<strong>From January it stops balancing.</strong> Cowrywise ends in December, freeing ' +
+      naira(100000) + '/month \u2014 but Goal 2 needs ' + naira(428571) + ' and the emergency ' +
+      'fund ' + naira(50000) + '. At the August mix that is <strong>' + naira(-short[0].left) +
+      ' short, every month from January to June</strong>.',
+      'That gap is the course\u2019s job. It is also far smaller than the ₦152,000\u2013₦186,000 ' +
+      'money.md carried \u2014 that figure was a Sep\u2013Dec surplus wrongly applied to a period ' +
+      'in which Cowrywise has already stopped.'));
+  }
+
   /* ------------------------------------------------------- savings plan */
 
   add(h('h2', {}, 'The savings plan'));
+  add(h('p', { class: 'lede', style: 'margin-bottom:14px' },
+    'Per month, not a flat average \u2014 and ',
+    h('strong', {}, 'every pot needs an account it physically goes into'),
+    '. A pot with no home cannot be funded on payday.'));
+
+  const months26 = ['2026-09', '2026-10', '2026-11', '2026-12'];
   add(h('div', { class: 'card pad-0' },
-    table(['Pot', { label: 'Target', num: true }, 'By', 'Starts', 'What it is'],
-      B.savings.map(([name, target, by, starts, why]) => [
-        h('strong', {}, name),
-        typeof target === 'number' ? naira(target) : target,
-        by, starts,
-        h('span', { class: 't-sm t-dim' }, why),
+    table(['Pot', 'Where it lives', 'Payday', { label: 'Target', num: true },
+      ...months26.map(m => ({ label: mLabel(m), num: true }))],
+      B.savings.map(v => [
+        h('strong', {}, v.pot),
+        v.account === 'NOT SET'
+          ? h('span', { class: 'pill bad' }, 'NOT SET')
+          : h('span', { class: 't-sm' }, v.account),
+        h('span', { class: 'pill ' + (v.payday === 'A' ? 'ok' : 'info') }, v.payday),
+        naira(v.target),
+        ...months26.map(m => v.schedule[m]
+          ? naira(v.schedule[m])
+          : h('span', { class: 't-dim' }, '\u2014')),
+      ]))));
+
+  add(callout('warn', '\u26a0',
+    '<strong>Two pots, one account.</strong> The Buffer lives in the savings account already ' +
+    'called \u201cEmergency\u201d. From January the actual emergency fund starts \u2014 and if it ' +
+    'goes to the same place, the balance stops meaning anything. Decide before then.',
+    '<strong>Goal 1 has no account at all.</strong> It cannot share the Buffer\u2019s: the Buffer ' +
+    'is designed to be spent and the ₦1M is not. On Payday B, ' + naira(146041) +
+    ' needs somewhere to go that is not the account he buys fuel from.'));
+
+  add(h('div', { class: 'card pad-0', style: 'margin-top:10px' },
+    table(['Pot', 'What it is'],
+      B.savings.map(v => [
+        h('strong', {}, v.pot),
+        h('span', { class: 't-sm t-dim' }, v.note),
       ]))));
 
   /* ------------------------------------------------------- lean ladder */

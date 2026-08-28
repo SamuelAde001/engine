@@ -202,7 +202,8 @@ def build_budget(plan, details_range):
     ops = [{"action": "freeze", "args": {"tab": "Budget", "rows": 0, "columns": 0}},
            {"action": "clear", "args": {"tab": "Budget"}}]
 
-    LASTCOL = "R"
+    LASTCOL = "S"
+    WIDTH = 19
     rows = []
 
     def blank():
@@ -292,51 +293,74 @@ def build_budget(plan, details_range):
     blank()
 
     # --- savings ------------------------------------------------------------
+    # Per-month, not a flat average. A flat number asked September for money it
+    # does not have, because September carries the one-offs. Read from plan.json
+    # so the pots have exactly one source, like every other number on this tab.
     SAV_TITLE = ONE_TOTAL + 2
-    rows.append(["SAVINGS PLAN — the pots, and whether the money actually moved"] + [""] * 17)
-    rows.append(["“Moved to date” is not a plan. It reads the Transfers tab: To pot minus From pot. "
-                 "If it says zero, no money moved, whatever the intention was."] + [""] * 17)
-    rows.append(["Pot", "Per month", "Payday", "Target", "Moved to date", "Still to find",
-                 "Starts", "Deadline", "Note"] + [""] * 9)
+    rows.append([u"SAVINGS PLAN — the pots, where they live, and whether the money actually moved"] + [""] * 17)
+    rows.append([u"Planned per month, NOT a flat average — September is lower because its one-offs come "
+                 u"first. “Moved to date” is not a plan: it reads the Transfers tab, To pot minus "
+                 u"From pot. If it says zero, no money moved, whatever the intention was."] + [""] * 17)
+    rows.append([u"Pot", u"Where it lives", u"Payday", u"Target"] + MONTH_LABELS
+                + [u"Moved to date", u"Still to find"])
     SAV_HEAD = SAV_TITLE + 2
     SAV_FIRST = SAV_HEAD + 1
-    # (pot, per month, payday, target, starts, deadline, note)
-    # The first RUNNING_NOW of these are live; the rest do not start until January
-    # and must never be summed into a "this month" figure.
-    savings_rows = [
-        ("Goal 1 — house", 249124, "B", 1000000, "Sep 2026", "2026-12-31",
-         "THE December number. ₦249,124/month from a ₦3,503 start. Moves on Payday B — "
-         "Samuel's call 2026-08-26, because Payday A is always full. See the Rule 3 note on Setup."),
-        ("Cowrywise investment", 100000, "A", 705000, "running", "2026-12-31",
-         "RING-FENCED, Rule 7. Never pauses, never counts toward the ₦1M or the ₦3M. "
-         "₦305,000 already in. Moves into stocks Jan 2027."),
-        ("Buffer", 50000, "B", 200000, "Sep 2026", "rolling",
-         "NEW. The cushion urgencies come out of, so savings stop being the valve. This is the direct "
-         "fix for the ₦595,250 that evaporated June–August. Also fed by month-end underspend "
-         "and by any 4-video month's excess."),
-        ("Goal 2 — marriage", 428571, "B", 3000000, "Jan 2027", "2027-07-31",
-         "Starts Jan 2027, after Goal 1 closes. ON TOP of the ₦1M — ₦4,000,000 total."),
-        ("Emergency fund", 50000, "B", 300000, "Jan 2027", "2027-06-30",
-         "Starts Jan 2027. Does not compete with December."),
-    ]
-    RUNNING_NOW = 3
-    for s in savings_rows:
-        rows.append([s[0], s[1], s[2], s[3], "", "", s[4], s[5], s[6]] + [""] * 9)
-    SAV_LAST = SAV_FIRST + len(savings_rows) - 1
-    SAV_NOW_LAST = SAV_FIRST + RUNNING_NOW - 1
-    rows.append(["MOVING NOW  (Sep – Dec 2026)", "", "", "", "", "", "", "",
-                 "Goal 1 + Cowrywise + Buffer. This is what has to leave the account every month "
-                 "between now and December."] + [""] * 9)
-    rows.append(["FROM JAN 2027", "", "", "", "", "", "", "",
-                 "Goal 2 + the emergency fund, once Goal 1 closes. Against a ₦336,041 surplus at the "
-                 "August mix this is SHORT every month — which is the entire argument for the course "
-                 "carrying ~₦170,000/month from January."] + [""] * 9)
+    savings = plan["savings"]
+    # Pots running between now and December vs pots that do not start until
+    # January. They must never be summed into one "this month" figure.
+    running = [v for v in savings if any(m < "2027-01" for m in v["schedule"])]
+    later = [v for v in savings if v not in running]
+    ordered = running + later
+    for sv in ordered:
+        rows.append([sv["pot"], sv["account"], sv["payday"], sv["target"]]
+                    + [sv["schedule"].get(m, "") for m in MONTHS]
+                    + ["", "", sv["note"]])
+    SAV_LAST = SAV_FIRST + len(ordered) - 1
+    SAV_NOW_LAST = SAV_FIRST + len(running) - 1
+    rows.append([u"MOVING NOW  (Sep – Dec 2026)"] + [""] * 17)
+    rows.append([u"FROM JAN 2027"] + [""] * 17)
     SAV_TOTAL = SAV_LAST + 1
     SAV_LATER = SAV_LAST + 2
+    rows.append([u"A pot with no account is a pot that cannot be funded on payday. "
+                 u"The Buffer lives in the savings account already called “Emergency” "
+                 u"(Samuel, 2026-08-28) — which from Jan 2027 would also hold the actual emergency "
+                 u"fund. Two pots, one account, one balance that means nothing. Decide before then."] + [""] * 17)
+    SAV_NOTE = SAV_LATER + 1
+    blank()
+
+    # --- the month must balance ---------------------------------------------
+    # The whole point of this block: income minus bills minus one-offs minus
+    # every pot must be ZERO. A leftover is money with no name on it, and money
+    # with no name on it is how the June-August savings evaporated.
+    BAL_TITLE = SAV_NOTE + 2
+    rows.append([u"THE MONTH MUST BALANCE — every naira has a job, and the bottom line is ZERO"] + [""] * 17)
+    rows.append([u"Expected income minus the bills above, minus that month's one-offs, minus every pot. "
+                 u"If the last row is not zero, the month is not planned — it is estimated. Anything "
+                 u"left over has no name on it, and money with no name is what evaporated June–August."] + [""] * 17)
+    rows.append(["", u"Per month", "", ""] + MONTH_LABELS + ["", ""])
+    BAL_HEAD = BAL_TITLE + 2
+    bal_rows = [
+        u"Expected income",
+        u"− Bills (the plan above)",
+        u"− One-offs that month",
+        u"− Into the pots",
+        u"LEFT OVER  (must be ₦0)",
+    ]
+    for label in bal_rows:
+        rows.append([label] + [""] * 17)
+    BAL_IN, BAL_BILLS, BAL_ONE, BAL_POTS, BAL_LEFT = (BAL_HEAD + 1, BAL_HEAD + 2, BAL_HEAD + 3,
+                                                      BAL_HEAD + 4, BAL_HEAD + 5)
+    rows.append([u"Sep – Dec 2026 balance to exactly zero. FROM JANUARY THEY DO NOT: Cowrywise stops "
+                 u"(freeing ₦100,000/month) but Goal 2 needs ₦428,571 and the emergency fund "
+                 u"₦50,000, so the month is short ₦42,530 at the August mix. That gap is the "
+                 u"course's job — and it is far smaller than the ₦152,000–₦186,000 "
+                 u"money.md used to claim, which was a Sep–Dec surplus figure wrongly applied to a "
+                 u"period in which Cowrywise has already stopped."] + [""] * 17)
+    BAL_NOTE = BAL_LEFT + 1
     blank()
 
     # --- paydays ------------------------------------------------------------
-    PAY_TITLE = SAV_LATER + 2
+    PAY_TITLE = BAL_NOTE + 2
     rows.append(["THE TWO PAYDAYS — one batch, split across two dates"] + [""] * 17)
     rows.append(["", "Payday A — 70%", "Payday B — 30%", "", "", "", ""] + [""] * 11)
     rows.append(["When it lands", "End of the PREVIOUS month",
@@ -394,10 +418,14 @@ def build_budget(plan, details_range):
         rows.append(list(c) + [""] * 13)
     CAL_LAST = CAL_HEAD + len(cal)
 
+    rows = [r + [""] * (WIDTH - len(r)) for r in rows]
+    assert all(len(r) == WIDTH for r in rows)
     ops.append({"action": "write", "args": {"tab": "Budget", "cell": "A1", "values": rows}})
 
     # ---------------------------------------------------------- formulas ----
     f = []
+
+    gross = "(2*Setup!$B$18+2*Setup!$B$19)*Setup!$B$17"
 
     # plan column B  <- Details
     for r in range(PLAN_FIRST, PLAN_LAST + 1):
@@ -453,17 +481,44 @@ def build_budget(plan, details_range):
     # one-offs total
     f.append(("D%d" % ONE_TOTAL, "=SUM(D%d:D%d)" % (ONE_FIRST, ONE_LAST)))
 
-    # savings: moved to date / still to find
+    # savings: moved to date (Q) / still to find (R). The month columns are the
+    # typed plan — the ONLY typed numbers on this tab besides Details, and they
+    # are here because a pot schedule cannot be derived from anything.
     for r in range(SAV_FIRST, SAV_LAST + 1):
-        f.append(("E%d" % r,
+        f.append(("Q%d" % r,
                   '=SUMIFS(%s,%s,$A%d,%s,"To pot")-SUMIFS(%s,%s,$A%d,%s,"From pot")'
                   % (TRF[0], TRF[1], r, TRF[2], TRF[0], TRF[1], r, TRF[2])))
-        f.append(("F%d" % r, "=MAX(0,$D%d-$E%d)" % (r, r)))
-    f.append(("B%d" % SAV_TOTAL, "=SUM(B%d:B%d)" % (SAV_FIRST, SAV_NOW_LAST)))
-    f.append(("E%d" % SAV_TOTAL, "=SUM(E%d:E%d)" % (SAV_FIRST, SAV_NOW_LAST)))
-    f.append(("F%d" % SAV_TOTAL, "=SUM(F%d:F%d)" % (SAV_FIRST, SAV_NOW_LAST)))
-    f.append(("B%d" % SAV_LATER, "=SUM(B%d:B%d)" % (SAV_NOW_LAST + 1, SAV_LAST)))
-    f.append(("F%d" % SAV_LATER, "=SUM(F%d:F%d)" % (SAV_NOW_LAST + 1, SAV_LAST)))
+        f.append(("R%d" % r, "=MAX(0,$D%d-$Q%d)" % (r, r)))
+    for _row, _lo, _hi in ((SAV_TOTAL, SAV_FIRST, SAV_NOW_LAST),
+                           (SAV_LATER, SAV_NOW_LAST + 1, SAV_LAST)):
+        for _i in range(12):
+            _c = col(5 + _i)
+            f.append(("%s%d" % (_c, _row), "=SUM(%s%d:%s%d)" % (_c, _lo, _c, _hi)))
+        f.append(("D%d" % _row, "=SUM(D%d:D%d)" % (_lo, _hi)))
+        f.append(("Q%d" % _row, "=SUM(Q%d:Q%d)" % (_lo, _hi)))
+        f.append(("R%d" % _row, "=SUM(R%d:R%d)" % (_lo, _hi)))
+
+    # the month must balance — every planned column ends at zero, or the month
+    # is not planned, it is estimated.
+    one_off_months = {}
+    for _m, _rws in (plan.get("one_offs") or {}).items():
+        one_off_months[_m] = sum(o[2] for o in _rws if str(o[6]).lower().startswith("y"))
+    for _i, _m in enumerate(MONTHS):
+        _c = col(5 + _i)
+        if _m < plan_start:
+            for _r in (BAL_IN, BAL_BILLS, BAL_ONE, BAL_POTS, BAL_LEFT):
+                f.append(("%s%d" % (_c, _r), '=""'))
+            continue
+        # ROUND: the rate math lands on ...740.90, and a block whose whole
+        # point is "this reads zero" cannot end at -0.1 of a naira.
+        f.append(("%s%d" % (_c, BAL_IN), "=ROUND(%s,0)" % gross))
+        f.append(("%s%d" % (_c, BAL_BILLS), "=-$B$%d" % TOTAL))
+        f.append(("%s%d" % (_c, BAL_ONE), "=-%d" % one_off_months.get(_m, 0)))
+        f.append(("%s%d" % (_c, BAL_POTS), "=-(%s%d+%s%d)" % (_c, SAV_TOTAL, _c, SAV_LATER)))
+        f.append(("%s%d" % (_c, BAL_LEFT), "=SUM(%s%d:%s%d)" % (_c, BAL_IN, _c, BAL_POTS)))
+    # column B repeats the first planned month, so the block reads as "per month"
+    for _r in (BAL_IN, BAL_BILLS, BAL_ONE, BAL_POTS, BAL_LEFT):
+        f.append(("B%d" % _r, "=%s%d" % (col(5 + first_plan_col), _r)))
 
     # cash position — the same arithmetic Dashboard uses, shown in its parts
     f.append(("B%d" % CASH_OPEN, "=Setup!$B$5"))
@@ -476,7 +531,6 @@ def build_budget(plan, details_range):
               % (CASH_OPEN, CASH_IN, CASH_OUT, CASH_POT)))
 
     # paydays
-    gross = "(2*Setup!$B$18+2*Setup!$B$19)*Setup!$B$17"
     f.append(("B%d" % PAY_IN, "=%s*0.7" % gross))
     f.append(("C%d" % PAY_IN, "=%s*0.3" % gross))
     f.append(("B%d" % PAY_OUT,
@@ -498,7 +552,7 @@ def build_budget(plan, details_range):
         a.update(kw)
         ops.append({"action": "format", "args": a})
 
-    for c, w in [(1, 190), (2, 115), (3, 105), (4, 70), (17, 115), (18, 120)]:
+    for c, w in [(1, 190), (2, 115), (3, 105), (4, 70), (17, 115), (18, 120), (19, 300)]:
         ops.append({"action": "setColumnWidth", "args": {"tab": "Budget", "column": c, "width": w}})
     for i in range(12):
         ops.append({"action": "setColumnWidth", "args": {"tab": "Budget", "column": 5 + i, "width": 88}})
@@ -546,15 +600,34 @@ def build_budget(plan, details_range):
         fontColor=WHITE, bold=True)
     fmt("A%d:%s%d" % (SAV_TITLE + 1, LASTCOL, SAV_TITLE + 1), merge=True, fontColor=MUTED,
         italic=True, wrap=True)
-    fmt("A%d:I%d" % (SAV_HEAD, SAV_HEAD), background=HEAD, fontColor=WHITE, bold=True, wrap=True)
-    fmt("B%d:B%d" % (SAV_FIRST, SAV_LATER), numberFormat=NGN)
-    fmt("D%d:F%d" % (SAV_FIRST, SAV_LATER), numberFormat=NGN)
-    fmt("C%d:C%d" % (SAV_FIRST, SAV_LAST), horizontalAlignment="center")
-    fmt("A%d:I%d" % (SAV_TOTAL, SAV_LATER), background=PAPER, bold=True)
-    fmt("I%d:I%d" % (SAV_TOTAL, SAV_LATER), fontColor=MUTED, fontSize=9, italic=True, wrap=True, bold=False)
-    fmt("A%d:B%d" % (SAV_LATER, SAV_LATER), fontColor=RED)
-    fmt("I%d:I%d" % (SAV_FIRST, SAV_LAST), fontColor=MUTED, fontSize=9, wrap=True)
-    fmt("G%d:H%d" % (SAV_FIRST, SAV_LAST), horizontalAlignment="center")
+    fmt("A%d:%s%d" % (SAV_HEAD, LASTCOL, SAV_HEAD), background=HEAD, fontColor=WHITE,
+        bold=True, wrap=True, horizontalAlignment="center")
+    fmt("A%d:A%d" % (SAV_HEAD, SAV_LATER), horizontalAlignment="left")
+    fmt("D%d:R%d" % (SAV_FIRST, SAV_LATER), numberFormat=NGN)
+    fmt("B%d:C%d" % (SAV_FIRST, SAV_LAST), horizontalAlignment="center")
+    fmt("A%d:%s%d" % (SAV_TOTAL, LASTCOL, SAV_TOTAL), background=PAPER, bold=True)
+    fmt("A%d:%s%d" % (SAV_LATER, LASTCOL, SAV_LATER), background=PAPER, bold=True)
+    fmt("A%d:A%d" % (SAV_LATER, SAV_LATER), fontColor=RED)
+    fmt("S%d:S%d" % (SAV_FIRST, SAV_LAST), fontColor=MUTED, fontSize=9, wrap=True)
+    fmt("A%d:%s%d" % (SAV_NOTE, LASTCOL, SAV_NOTE), merge=True, fontColor=RED, italic=True, wrap=True)
+    # a pot with no home is the one thing on this block that stops a payday
+    for _i, _sv in enumerate(ordered):
+        if _sv["account"] == "NOT SET":
+            fmt("B%d:B%d" % (SAV_FIRST + _i, SAV_FIRST + _i), background="#fee2e2",
+                fontColor=RED, bold=True)
+
+    # --- the month must balance --------------------------------------------
+    fmt("A%d:%s%d" % (BAL_TITLE, LASTCOL, BAL_TITLE), merge=True, background=GREEN,
+        fontColor=WHITE, bold=True)
+    fmt("A%d:%s%d" % (BAL_TITLE + 1, LASTCOL, BAL_TITLE + 1), merge=True, fontColor=MUTED,
+        italic=True, wrap=True)
+    fmt("A%d:%s%d" % (BAL_HEAD, LASTCOL, BAL_HEAD), background=HEAD, fontColor=WHITE,
+        bold=True, horizontalAlignment="center")
+    fmt("A%d:A%d" % (BAL_HEAD, BAL_LEFT), horizontalAlignment="left")
+    fmt("B%d:R%d" % (BAL_IN, BAL_LEFT), numberFormat=NGN)
+    fmt("A%d:%s%d" % (BAL_LEFT, LASTCOL, BAL_LEFT), background=PAPER, bold=True, fontSize=12)
+    fmt("A%d:%s%d" % (BAL_NOTE, LASTCOL, BAL_NOTE), merge=True, fontColor=RED,
+        italic=True, wrap=True)
     ops.append({"action": "setColumnWidth", "args": {"tab": "Budget", "column": 7, "width": 88}})
     ops.append({"action": "setColumnWidth", "args": {"tab": "Budget", "column": 8, "width": 88}})
 
