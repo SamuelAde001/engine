@@ -1,0 +1,74 @@
+name: Deploy Samuelsignals OS
+
+# Rebuilds the site from context/ and publishes it to GitHub Pages on every push
+# to main. That means the site is never stale for longer than a push: the phone,
+# a cloud routine and this machine all write context/, and whichever one pushes
+# last rebuilds the view.
+#
+# The build is pure stdlib Python — no npm, no lockfile, nothing to rot.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'context/**'
+      - 'site/**'
+      - 'tools/site/**'
+      - 'tools/sheets/plan.json'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; the last push wins.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build the data layer from context/
+        run: python tools/site/build.py
+
+      - name: Fail if the build produced nothing
+        # A silently empty site is worse than a broken one — it would look like a
+        # day with no record rather than a build that did not run.
+        run: |
+          test -s site/data/os.json || { echo "os.json missing or empty"; exit 1; }
+          python - <<'PY'
+          import json, sys
+          d = json.load(open('site/data/os.json', encoding='utf-8'))
+          n = len(d.get('ledger', []))
+          print(f"ledger rows: {n}")
+          if n == 0:
+              sys.exit("no ledger rows parsed — refusing to publish an empty record")
+          for w in d.get('warnings', []):
+              print("WARNING:", w)
+          PY
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

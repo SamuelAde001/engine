@@ -114,7 +114,23 @@ description: Evening reckoning — audits today against what I committed to.
    with today's date. APPEND ONLY — never read the whole file to do it. Use
    `tail -n 15 context/memory.md` if you need recent context, or grep for a keyword.
    The file only grows; reading it whole gets more expensive every single day.
-9. Commit and push (see REMOTE.md). If you skip this, the reckoning is lost.
+8b. REBUILD THE SITE. One command, after the ledger row is written:
+
+    ```bash
+    python tools/site/build.py
+    ```
+
+    That regenerates `site/data/os.json` and `os.js` from `context/`. Samuelsignals
+    OS is a VIEW of the record — it is never hand-edited, the same way
+    scorecard.html is never hand-edited. If a number on the site looks wrong, the
+    fix is in `context/`, and then this command.
+
+    It prints the day count and the last score. **Read that line back to yourself:
+    if the score it prints does not match the verdict you just wrote, the ledger
+    row is malformed and the parse silently dropped something.**
+
+9. Commit and push (see REMOTE.md) — the ledger, the money ledger, AND
+   `site/data/`. If you skip this, the reckoning is lost and the site is a day stale.
 
 Never reschedule anything. Never move a due date. The only thing you may change in
 TickTick is ticking a task I explicitly confirmed in step 2b.

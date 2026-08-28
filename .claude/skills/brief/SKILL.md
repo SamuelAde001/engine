@@ -46,7 +46,14 @@ Do these in order. Do not skip.
    over breakfast (~12:00pm) or the nap (1:00pm–2:00pm).
 8. Append a new row to context/ledger.md with today's date and my commitment under
    Planned. Leave the other columns empty.
-9. Commit and push (see REMOTE.md). If you skip this, the row is lost.
+8b. Rebuild the site so the dashboard shows today's commitment:
+
+    ```bash
+    python tools/site/build.py
+    ```
+
+9. Commit and push (see REMOTE.md) — including `site/data/`. If you skip this,
+   the row is lost.
 
 Do not offer encouragement. Do not offer to help me plan. Report, name the
 priority, take the commitment, stop.

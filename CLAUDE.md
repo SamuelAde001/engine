@@ -95,6 +95,9 @@ of this trades quality — it removes duplication.
 - **Never hand-write scorecard.html.** Write `context/scorecard-day.json` and run
   `python tools/scorecard/build.py`. Output tokens cost several times input; a
   450-line file typed out nightly was the most expensive act of the day.
+- **Never hand-write anything under `site/data/`.** Same rule, same reason. Run
+  `python tools/site/build.py`. The site is a VIEW of `context/`; if a number on
+  it is wrong, the file is wrong.
 - **Narrow the tool calls too.** Ask TickTick for the project or date you need, not
   for everything. A broad list comes back as a wall of JSON that then rides along in
   context for the rest of the session.
@@ -118,6 +121,12 @@ of this trades quality — it removes duplication.
 - context/decisions.md — what the Claude project and I decided, and what got built (append-only)
 - context/scorecard-day.json — the reckoning's data for tonight's card; the card
   itself is generated from it
+- context/site.json — the numbers that only live in prose (goals, pots, targets),
+  read by the site build. Small on purpose: if a number can be derived, derive it.
+- site/ — **Samuelsignals OS**, the website. Static, no server, no dependencies.
+  Generated from `context/` by `tools/site/build.py`; never hand-edited.
+  Open `site/index.html` directly, or serve it, or host it on GitHub Pages.
+- tools/site/build.py — parses the markdown record into `site/data/os.json`
 - tools/sheets/ — the bridge that reads and writes "My Claude Budget" from here
 - tools/scorecard/ — frozen template + build.py that render scorecard.html
 - tools/section.sh — print one named section of a file instead of the whole file
