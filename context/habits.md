@@ -5,7 +5,7 @@ Tracked in TickTick. The evening reckoning asks these by name.
 | Habit | Cadence | Check time | TickTick habit id |
 |---|---|---|---|
 | No social media (detox) | daily | end of day (9pm WAT) | 6a8ca7288f087c81d0ce5414 |
-| Fasted | daily | end of day (9pm WAT) | 6a8ca7298f085902fa0f8519 |
+| Phone away by 10pm | daily | end of day (9pm WAT) | 6a91bc238f0861e0f0b966f6 |
 | Prayed | daily | end of day (9pm WAT) | 6a8ca72b8f085902fa0f856a |
 | Bible study (morning) | daily | end of day (9pm WAT) | 6a8ca72d8f087c81d0ce54b1 |
 | No masturbating | daily | end of day (9pm WAT) | 6a8ca72d8f087c81d0ce54c1 |
@@ -96,3 +96,59 @@ what broke today. Get the numbers from him; do not invent them.
 ## Cost
 
 Break a streak twice in one week: no YouTube for 2 days (see context/stakes.md).
+
+## FAST DROPPED, PHONE HABIT ADDED — 2026-08-28
+
+Two changes, both his call, both made the evening the day was lost.
+
+### The fast is suspended completely
+
+**Not paused. Dropped.** His words: *"I would suspend fast completly, which means
+meal time resumes 12pm."*
+
+The habit `Fasted` (6a8ca7298f085902fa0f8519) is **ARCHIVED** in TickTick, 3
+check-ins of a 7-day target. Do not ask about it at the reckoning. Do not
+resurrect it without him saying so.
+
+**ANCHORS REVERT IMMEDIATELY, from 29 Aug onward:**
+
+| | |
+|---|---|
+| First meal | **12:00pm** |
+| Nap | **1:00pm** (~1 hour) |
+| Dinner | **6:00pm** |
+
+Every plan from here uses 12/1/6. The 3pm/4pm override is dead. Saturday, Sunday
+and next week have already been rebuilt to it.
+
+**Why it went, said plainly:** it broke on day 4 of 7, on the back of three
+consecutive nights of 4–5.5 hours, during the largest deliverable on the record.
+A no-food-till-3pm rule on a body in that state is not a discipline; it is a tax
+on the work that pays for September. It was the right thing to drop and dropping
+it deliberately is not the same as failing it.
+
+**This does NOT touch the detox block.** The 7-day social-media detox still ends
+31 Aug and still needs its own explicit keep / drop / extend decision at that
+reckoning — along with the named social-media windows he asked for. Two separate
+decisions. One of them just got made early; the other is still open.
+
+### New habit: Phone away by 10pm
+
+**TickTick habit `6a91bc238f0861e0f0b966f6`, daily, reminder 22:00, started
+28 Aug 2026.** Open-ended — no target-day block, because this one is not an
+experiment with an end date.
+
+The phone charges **in another room.** Every night.
+
+**Why this is the most important row in this file.** 28 August was lost entirely
+— late wake, doomscroll in bed, masturbation several times, broken fast, no
+prayer, no Bible, no editing — and every item on that list runs downstream of one
+fact: the phone was within arm's reach when he opened his eyes. Sleep explains
+the late wake. It does not explain the next ten hours. The phone does.
+
+It is the only rule in the stack that does not require a good decision at 6am on
+five hours of sleep. It requires one at 10pm, awake. That is the whole design.
+
+**Cost of breaking it:** none set yet, deliberately. Seven nights of data first
+(see `context/patterns.md` → P4). If the mornings do not turn with the phone out
+of the room, this gets thrown out rather than nagged about.

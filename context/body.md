@@ -360,3 +360,80 @@ The fast is his, and the keep/drop/extend decision is his at the 31 Aug
 reckoning. But the recommendation is on the record: **suspend it through Sunday's
 delivery, resume clean on Monday.** A fast kept badly for three days is worth
 less than one resumed properly, and the deliverable is what pays for September.
+
+---
+
+## Anchors restored — 2026-08-28
+
+**The fast is suspended completely, his call.** The 3:00pm meal / 4:00pm nap
+override that governed 25–31 Aug is dead as of 29 Aug.
+
+```
+12:00pm   first meal
+1:00pm    nap (~1 hour)
+6:00pm    dinner
+```
+
+Every plan from here uses these. See `context/habits.md` → "FAST DROPPED".
+
+## Client revisions are IMMEDIATE — standing rule, added 2026-08-28
+
+His words: *"revisions are always immediate request so take note, I have to do it
+now and send."*
+
+**A client revision is never scheduled for "later." It is same-day, top of the
+queue, and it DISPLACES planned work rather than stacking on top of it.**
+
+That last clause is the whole rule. On 28 Aug, revisions landed at 5pm needing
+2 hours, on a day that had already lost its morning. The wrong move — and the
+instinct — was to keep the planned intro AND absorb the revisions, which would
+have run to 11pm, put bed near midnight, and cost Saturday's 5:30am start.
+Saturday was the day that decided whether the project shipped at all.
+
+**What was actually done: the revisions took the evening and the intro gave up
+1h20, which rolled to Saturday.** Two hours of work displaced two hours of work.
+Nothing was absorbed. That is the pattern to repeat.
+
+Planning consequence: **every client week now carries an unbudgeted revision
+risk.** Client #1 sent revisions twice in three days, both unplanned, both
+eating evening hours. A week planned to 100% of capacity has no room for a
+2-hour immediate request, and one always comes. If a delivered project comes
+back a THIRD time, the revision terms are the problem, not the schedule — raise
+it with the client rather than absorbing it again.
+
+## Next week, 31 Aug – 4 Sep — the margin is gone
+
+**Client #3 is the same size as Client #2:** 40 min raw → ~25 min finished,
+$333.33. Confirmed 28 Aug.
+
+Client #2 got five days **plus a weekend** plus two broken hard stops. Client #3
+gets five days with content and gym inside them and **no weekend behind it — the
+deadline IS Friday.**
+
+What was done about it: **content shrunk, not skipped**, at his instruction.
+
+| Block | Was | Now |
+|---|---|---|
+| Mon — ideation + scripting | 3h | **1.5h** |
+| Tue — filming + editing | 6h | **3h** |
+| Wed — polish + publish | 2.5h | **1.5h** |
+| Recurring Thu ideation | 1h | 45m |
+| Recurring Fri scripting | 2h | 1.5h (moved to 3pm, after the send) |
+| Recurring Sat filming | 3h | 2h |
+
+Content #1 becomes a **one-take piece**: one setup, one location, one good take
+rather than five mediocre ones fixed in the edit. Publish date untouched —
+Wed 2 Sep, 7:00pm.
+
+**Why this is not P1.** P1 is the audience block getting quietly cancelled under
+pressure with nothing put in its place. This is a scope cut decided seven days
+out, publish date intact, cadence intact. Deciding is not dropping. But if the
+piece shrinks again next week, it IS P1 and the weekly review says so.
+
+**The honest arithmetic after the cut.** Content is now ~6h and gym ~4.5h across
+the week, so Client #3 has roughly 3.7 clean days for a 5-day job. **It fits, and
+only just — there is no margin for a lost morning.** Client #2 survived two slack
+days because a weekend sat behind it. Nothing sits behind Client #3.
+
+**Which makes the 10pm phone rule load-bearing for next week's money, not just
+for his mood.** One 28-August next week and the deliverable is late.
