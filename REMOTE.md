@@ -145,3 +145,41 @@ git branch -f main HEAD && git checkout main && git push -u origin main
 `git branch -f` is only safe because the local `main` is an ancestor of the new
 commit — verify with `git merge-base --is-ancestor main HEAD` before forcing it.
 Never force a branch that has commits the new HEAD does not contain.
+
+## The laptop pulls itself — 2026-08-28
+
+Nothing in the cloud can reach the laptop. A routine pushes to GitHub; a machine
+that is not listening stays stale. Samuel found this the hard way at the 28 Aug
+reckoning: *"You are meant to pull automatically and update the Laptop always."*
+
+So the laptop pulls itself. `tools/pull.sh` runs as a **SessionStart hook**
+(`.claude/settings.json`), which means every Claude Code session on any machine
+starts on the latest `context/` without anyone typing `git pull`.
+
+It is deliberately timid and never touches work in progress. It skips, and says
+which, on: a dirty tree, a branch other than `main`, a detached HEAD, or no
+network. A hook that eats uncommitted work once is a hook that gets deleted.
+
+**What it does NOT cover, stated plainly:** opening `site/index.html` by
+double-clicking outside a session still shows whatever was last pulled. The hook
+makes the *session* current, not the *file on disk at all times*. The only real
+fix for "a link that is always current" is hosting — see the note below.
+
+## The site is built but not published — 2026-08-28
+
+All six GitHub Pages deploys have FAILED at `actions/configure-pages`. The build
+step passes every time; only publishing is broken. GitHub does not serve Pages
+from a **private** repo on the free plan, and this repo must stay private.
+
+Two ways out, decided at a brief and not at 10pm:
+
+1. Enable Pages (Settings → Pages → Source → GitHub Actions). Only works on a
+   paid plan. Verify the deploy actually goes green — do not trust the push.
+2. Publish the dashboard as an Artifact, the same mechanism as the nightly
+   scorecard, which already works from the phone. One fixed URL, no GitHub
+   plan, no cost. Needs `tools/site/build.py` to emit a single bundled file.
+
+**The rule this leaves behind:** a failing GitHub Action is silent. Never report
+something as PUBLISHED on the strength of a successful push — check the deploy.
+Same discipline as the sheet queue: a mirror that was parked is not a mirror
+that was written.

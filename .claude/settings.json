@@ -4,5 +4,19 @@
     "deny": [
       "Read(./PA.md)"
     ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/tools/pull.sh\"",
+            "timeout": 30,
+            "statusMessage": "Pulling the engine from GitHub..."
+          }
+        ]
+      }
+    ]
   }
 }
