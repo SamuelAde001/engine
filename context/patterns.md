@@ -28,3 +28,30 @@ August building payment dropped from ₦500,000 to ₦200,000 to cover it. The s
 shape as P1: the line with no external party watching it is the line that gets cut,
 whether it is a content shoot or a savings transfer. Confirm or kill this at the
 first money-week review.
+
+## P4 — The day is lost in the morning, not the evening (candidate, 2026-08-28)
+
+Not yet a weekly-review finding. Seeded from two consecutive days.
+
+Both losses this week happened in an **unstructured, unsupervised gap**, and both
+times the phone filled it. 2026-08-27: the hole was 5:00–6:30pm, C9/C10 were
+supposed to be in it, he was "so bored," the detox broke and the intro died.
+2026-08-28: the hole was 6:00am–4:00pm, and it swallowed the whole day —
+doomscroll before standing up, masturbation, broken fast, no prayer, no Bible,
+no editing.
+
+The two are the same event at different scales. What differs is only how early
+the gap opened. **A gap that opens at 6am costs a day. A gap that opens at 5pm
+costs a block.** That is why the phone rule targets the night before and the
+prayer block targets 5:30am: the morning gap is the expensive one and it is the
+one that can be closed while asleep.
+
+The upstream cause is sleep, and it is measured: 25 Aug bed 1:42am, 26 Aug
+1:30am, 27 Aug 1:30am — three nights at 4h, 5h and 5.5h against a 7h floor he has
+not hit once on the record, stacked on day 4 of a fast. But sleep explains the
+late wake; it does not explain the ten hours after it. The phone does.
+
+**The intervention under test, from 28 Aug: the phone charges outside the bedroom,
+every night, 10:00pm.** Confirm or kill this at the first weekly review with seven
+nights of data. If the mornings do not turn with the phone out of the room, the
+cause is somewhere else and this candidate dies.

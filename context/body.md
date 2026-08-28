@@ -307,3 +307,56 @@ happened to free up a Sunday.
 - Which day and time is the weekly 2h chores block? `[OPEN — asked 2026-08-26]`
 - Which day is the fortnightly haircut? `[OPEN — asked 2026-08-26]`
 - What recreation beyond cycling does he want scheduled? `[OPEN — ask at weekly review]`
+
+---
+
+## The morning protocol — added 2026-08-28, after a day was lost to it
+
+28 August was lost before 7am. His account: woke late, doomscrolled before
+standing up, masturbated several times, broke the fast, no Bible, no prayer,
+never started the edit. Ten working hours, gone.
+
+**The cause is two things and they sit in this order.**
+
+**1. Sleep, which made the late wake inevitable.** 25 Aug bed 1:42am (19-hour
+day), 26 Aug 1:30am, 27 Aug 1:30am. Three nights at roughly 4h, 5h and 5.5h
+against a 7-hour floor, on day 4 of a fast, while running eight-hour edit days.
+Nobody wakes at 5:30 off that. This part is not a character failure and must not
+be spoken about as one.
+
+**2. The phone, which made the rest of the day optional.** Sleep explains the
+late wake. It does not explain the next ten hours. What explains those is that
+the phone was within arm's reach when he opened his eyes, so the first input of
+the day was a scroll instead of a floor. Everything after — prayer block dead,
+shame, arousal loop, food grab, avoidance of the hardest task on the board —
+runs downstream of that one fact.
+
+### The rules
+
+| | |
+|---|---|
+| **10:00pm** | **PHONE OUT OF THE BEDROOM.** It charges in another room. Every night. Daily recurring task in 🏵Personal Development. |
+| **10:30pm** | Bed. The floor. Never hit once on the record as of 28 Aug. |
+| **5:30am** | Feet on the floor BEFORE anything else. Vertical first, then prayer + Bible (45 min). |
+| **First input** | Not a screen. The 45-minute prayer block is the first thing the day touches. |
+
+**Why the phone rule and not a willpower rule.** Willpower was never the variable
+in this failure — reachability was. A rule that depends on him deciding well at
+6am on five hours of sleep is a rule that has already failed. A phone in another
+room does not require a decision at 6am; it requires one at 10pm, when he is
+awake and rational. That is the only leverage point in the sequence.
+
+**The test.** Seven nights of the phone out of the room, starting 28 Aug. If the
+mornings do not turn, the cause is somewhere else and this gets thrown out rather
+than nagged about. See `context/patterns.md` → P4.
+
+### The fast, said plainly
+
+Running a no-food-until-3pm fast on top of three sub-six-hour nights, during the
+biggest deliverable on the record, is asking a depleted body to do the hardest
+cognitive work of the year. It broke on day 4 and that is not surprising.
+
+The fast is his, and the keep/drop/extend decision is his at the 31 Aug
+reckoning. But the recommendation is on the record: **suspend it through Sunday's
+delivery, resume clean on Monday.** A fast kept badly for three days is worth
+less than one resumed properly, and the deliverable is what pays for September.
