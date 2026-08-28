@@ -32,3 +32,4 @@ written 2026-08-27 from this ledger. Nothing in the ledger was changed to do it.
 Cause and fix: `tools/sheets/README.md` → "Cloud and phone". From now on an
 unreachable bridge parks the batch in `context/sheet-queue.jsonl` instead of
 leaving a note for a human to remember.
+| 2026-08-28 | UNREPORTED | — | NOTHING OUT — his words: "No money spent" | 0 | Balance NOT given at this reckoning — spend list given, balance skipped. Last known ₦2,503 (27 Aug, verbally, unchanged since 26 Aug); NOT carried forward as fact, ask at the next reckoning. A zero-spend day: nothing moved because there is nothing to move. Route Rise August 70% (~$711.66 ≈ ₦971,416) invoiced and SENT 9:10am today — the one money act of the day and it landed. Payment still expected ~1–3 Sep, Lewis away till the 31st. Nothing to mirror to the sheet: no expense rows, no transfers. |
