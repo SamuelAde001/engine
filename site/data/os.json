@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T18:03:24",
+  "generated": "2026-09-02T18:08:38",
   "profile": {
     "name": "Samuel",
     "site_name": "Samuelsignals OS",
@@ -779,6 +779,16 @@
       "note": "Saved AND still there on the day. Miss it and the house move slips."
     }
   ],
+  "spirit": {
+    "church_next": "2026-09-06",
+    "church_status": "ON",
+    "church_note": "Service 9:00am. Commute up to 1h30 each way, home ~3pm.",
+    "transport_needed": 5000,
+    "last_missed": {
+      "date": "2026-08-30",
+      "reason": "No transport money — ₦2,503 against ₦5,000 needed. Not a scheduling choice."
+    }
+  },
   "work": {
     "cap_days": 5,
     "cap_note": "Route Rise's standing term, confirmed 2026-09-02. Five days maximum from start — their decision, not negotiable. A Sunday inside the five is not a working day.",
@@ -1847,5 +1857,5 @@
     "HABIT LOG IS 6 DAY(S) BEHIND: last entry 2026-08-27.",
     "HABIT LOG CONTAINS HABITS THAT ARE NO LONGER TRACKED: Bible study (morning), Fasted, No masturbating, No social media (detox), Prayed. History is fine to keep; just do not read it as current."
   ],
-  "content_hash": "06045d4c13947d59"
+  "content_hash": "b8df2f173e6ff3ea"
 }

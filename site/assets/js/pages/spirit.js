@@ -5,6 +5,7 @@
   const { h, statCard, callout, table, pageHead, note, legend, doc } = S;
 
   S.chrome('spirit');
+  const SP = OS.spirit || {};
   if (!S.guard()) return;
   const M = document.getElementById('main');
   const add = (...n) => n.flat().forEach(x => x && M.appendChild(x));
@@ -22,7 +23,9 @@
     statCard('Prayed', `${count('Prayed')}/${dates.length}`, 'days on the record', 'green'),
     statCard('Bible study', `${count('Bible study (morning)')}/${dates.length}`, 'the 5:30am block', 'green'),
     statCard('The block', '45 min', '5:30am, prayer and Bible combined'),
-    statCard('Church, 30 Aug', 'OFF', 'no transport money — not a choice', 'red')));
+    statCard('Next church', SP.church_next ? daysLabel(daysUntil(SP.church_next)) : '—',
+      SP.church_status === 'ON' ? SP.church_note : 'OFF — ' + (SP.last_missed||{}).reason,
+      SP.church_status === 'ON' ? 'green' : 'red')));
 
   add(h('div', { style: 'margin-top:14px' }, callout('info', '\u{1F517}',
     '<strong>Say this out loud whenever a late night is being negotiated:</strong>',

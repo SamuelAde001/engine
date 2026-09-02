@@ -919,5 +919,15 @@
         "note": "Eight days against a five-day cap. Shipped 12:07pm, 2.5 days past the deadline."
       }
     ]
+  },
+  "spirit": {
+    "church_next": "2026-09-06",
+    "church_status": "ON",
+    "church_note": "Service 9:00am. Commute up to 1h30 each way, home ~3pm.",
+    "transport_needed": 5000,
+    "last_missed": {
+      "date": "2026-08-30",
+      "reason": "No transport money — ₦2,503 against ₦5,000 needed. Not a scheduling choice."
+    }
   }
 }

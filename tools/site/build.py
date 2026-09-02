@@ -521,6 +521,7 @@ def main():
         "income": site["income"],
         "paydays": site["paydays"],
         "countdowns": site["countdowns"],
+        "spirit": site.get("spirit", {}),
         "work": site.get("work", {}),
         "content": site["content"],
         "course": site["course"],
@@ -588,6 +589,39 @@ def main():
             _mg = (date.fromisoformat(_today) - date.fromisoformat(_lastm)).days
             if _mg >= 1:
                 warn(f"MONEY LEDGER IS {_mg} DAY(S) BEHIND: last row {_lastm}.")
+
+    # ---------------------------------------------- HARDCODED DATES IN THE UI
+    # His rule, 2026-09-02: "Nothing should be hard coded, let it be easily
+    # updatable once the data is updated... the frontend reads from the data."
+    #
+    # Prose may legitimately cite a past date ("the 19-hour day on 25 Aug").
+    # A STATUS CARD may not — that is the part of the page that claims to say what
+    # is true right now, and a stale one reads as current. So this only inspects
+    # statCard(...) lines. The work page carried "Client #2 due — Sun 30 Aug" for
+    # three days after it shipped; that is the failure this catches.
+    _MONTHS = {"jan":1,"feb":2,"mar":3,"apr":4,"may":5,"jun":6,"jul":7,
+               "aug":8,"sep":9,"sept":9,"oct":10,"nov":11,"dec":12}
+    _pagedir = REPO / "site" / "assets" / "js" / "pages"
+    _stale_ui = []
+    if _pagedir.exists():
+        for _f in sorted(_pagedir.glob("*.js")):
+            for _ln, _line in enumerate(_f.read_text(encoding="utf-8").splitlines(), 1):
+                if "statCard(" not in _line:
+                    continue
+                for _m in re.finditer(r"\b(\d{1,2})\s+([A-Z][a-z]{2,4})\b", _line):
+                    _mon = _MONTHS.get(_m.group(2).lower())
+                    if not _mon:
+                        continue
+                    try:
+                        _d = date(date.today().year, _mon, int(_m.group(1)))
+                    except ValueError:
+                        continue
+                    if _d < date.today():
+                        _stale_ui.append(f"{_f.name}:{_ln} \"{_m.group(0)}\"")
+    if _stale_ui:
+        warn("HARDCODED PAST DATES IN STATUS CARDS: " + "; ".join(_stale_ui)
+             + ". A status card must read from context/site.json, not from a literal "
+               "in the page script — it goes stale silently and still looks current.")
 
     _job = (site.get("work") or {}).get("current_job") or {}
     if _job.get("due") and _job["due"] < _today:

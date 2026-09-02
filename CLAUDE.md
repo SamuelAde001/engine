@@ -54,6 +54,16 @@ something costing me output or health, say it.
     banner at the top.** If it warns, FIX THE CAUSE — do not just note it. A
     warning left standing means he opens the site and reads numbers he cannot
     trust.
+  - **NOTHING FACT-BEARING IS HARDCODED IN THE PAGE SCRIPTS.** His rule,
+    2026-09-02: *"Nothing should be hard coded, let it be easily updatable once the
+    data is updated, so we don't need to code always, it should just be an update
+    to the data and the frontend reads from the data."* Dates, states, balances,
+    schedules and job plans live in `context/` — `site.json` or the markdown — and
+    `site/assets/js/` only draws them. Updating the record must never require
+    editing JavaScript.
+    `build.py` enforces the sharp edge of this: it warns on any past date hardcoded
+    inside a `statCard(...)`, because a status card claims to say what is true now.
+    Narrative prose may cite a past date; a status card may not.
   - **Changing a rule means changing the page that renders it.** Data alone is not
     enough: a dropped fast left a live "While fasting" card, and dead countdowns
     outlived their decisions. When a rule dies, hunt down what draws it.

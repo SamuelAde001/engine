@@ -400,3 +400,40 @@ stamping was widened. Fixed: every local script is now stamped with the build ha
 **The standing rule, now in CLAUDE.md:** every session that writes `context/` ends
 with build → commit → push → `published.sh`. A push is not a publish. And when a rule
 dies, hunt down the page that draws it — data alone is not enough.
+
+## 2026-09-02 — NOTHING FACT-BEARING IS HARDCODED. Rule set, enforced by the build.
+
+His words: *"Nothing should be hard coded, let it be easily updatable once the data is
+updated, so we don't need to code always, it should just be an update to the data and
+the frontend reads from the data."*
+
+**This was the real disease; every stale panel today was a symptom.** The work page's
+whole client schedule — five days, their labels, their states — was a `const DAYS`
+array inside `work.js`. It could not go out of date "by accident"; it could only ever
+be right on the day it was typed. Same for the spirit page's church card.
+
+BUILT:
+
+- **`work` block in `context/site.json`** — the cap, the job in flight with its five
+  days and each day's must-close, and a history of every delivery. `work.js` now
+  renders whatever is there. Client #3 appears without a line of code being written.
+- **`spirit` block in `context/site.json`** — next church date, status, and why the
+  last one was missed. The hardcoded "Church, 30 Aug — OFF" card is gone.
+- **Two build guards.** One warns when the current job is past its due date or has
+  every day marked done. One scans every page script for a PAST date hardcoded inside
+  a `statCard(...)` and names the file and line. Prose may cite a past date — a status
+  card may not, because a status card claims to describe right now.
+
+**Also found and fixed while auditing, and it is the worst bug so far:** the site
+reported **average sleep 8h 45m**. The parser read the ledger cell `1:42am (19h day)`
+and took "19h" — the length of the WORKING day — as nineteen hours of sleep. The real
+average across recorded nights is **5h 20m**, under the 7-hour floor every single
+night. A comforting number, confidently wrong, on the one page about the thing every
+other rule stands on. `parse_bed_cell` now rejects a parenthetical qualified by
+"day"/"span"/"awake"/"work" and warns on any value outside 0–14h.
+
+**REMAINING DEBT, named so it is not forgotten.** The narrative callouts on money,
+course, content, people and systems still quote figures inline. They are not status
+cards so they do not go stale silently in the same way, but the same rule applies:
+when one of those numbers changes in `context/`, the prose must follow. Moving those
+into a `notes` block in `site.json` is the next step and has not been done.
