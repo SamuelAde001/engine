@@ -32,11 +32,25 @@ REPO = Path(__file__).resolve().parents[2]
 CTX = REPO / "context"
 OUT = REPO / "site" / "data"
 
-WARNINGS = []
+WARNINGS = []   # the SITE is wrong: it does not match context/
+GAPS = []       # the RECORD is thin: context/ is behind real life
 
 
 def warn(msg):
+    """The site is out of step with context/. A build or data problem. Fix it here."""
     WARNINGS.append(msg)
+
+
+def gap(msg):
+    """context/ is behind reality — a day not logged, a balance not given.
+
+    Split from warn() on 2026-09-02, because conflating the two made the dashboard
+    shout "THIS RECORD IS OUT OF SYNC" about things the site was rendering perfectly.
+    A missing money row is not a site failure; it is a reckoning that has not been
+    run yet. The two need different words because they need different actions:
+    a warning is fixed by building, a gap is closed by logging.
+    """
+    GAPS.append(msg)
 
 
 # ---------------------------------------------------------------- primitives
@@ -558,6 +572,7 @@ def main():
             "nights_recorded": sum(1 for r in ledger if r["bed"]),
         },
         "warnings": WARNINGS,
+        "gaps": GAPS,
     }
 
     # ------------------------------------------------------------------ STALENESS
@@ -576,12 +591,12 @@ def main():
         _last = ledger[-1]["date"]
         _gap = (date.fromisoformat(_today) - date.fromisoformat(_last)).days
         if _gap >= 1:
-            warn(f"LEDGER IS {_gap} DAY(S) BEHIND: last row {_last}, today {_today}. "
+            gap(f"LEDGER IS {_gap} DAY(S) BEHIND: last row {_last}, today {_today}. "
                  "A day with no row is a gap, and gaps get named at the weekly review.")
 
     _as_of = (site.get("pots") or {}).get("as_of")
     if _as_of and ledger and _as_of < ledger[-1]["date"]:
-        warn(f"POTS ARE STALE: balances as of {_as_of}, ledger runs to {ledger[-1]['date']}. "
+        gap(f"POTS ARE STALE: balances as of {_as_of}, ledger runs to {ledger[-1]['date']}. "
              "The money figures on every page are older than the day being shown.")
 
     if money:
@@ -589,7 +604,7 @@ def main():
         if _lastm and _lastm < _today:
             _mg = (date.fromisoformat(_today) - date.fromisoformat(_lastm)).days
             if _mg >= 1:
-                warn(f"MONEY LEDGER IS {_mg} DAY(S) BEHIND: last row {_lastm}.")
+                gap(f"MONEY LEDGER IS {_mg} DAY(S) BEHIND: last row {_lastm}.")
 
     # ---------------------------------------------- HARDCODED DATES IN THE UI
     # His rule, 2026-09-02: "Nothing should be hard coded, let it be easily
@@ -672,13 +687,13 @@ def main():
         if _lasth < _today:
             _hg = (date.fromisoformat(_today) - date.fromisoformat(_lasth)).days
             if _hg >= 1:
-                warn(f"HABIT LOG IS {_hg} DAY(S) BEHIND: last entry {_lasth}.")
-        _live = {h["name"] for h in habits.get("habits", [])}
-        _ghost = {n for day in _hl.values() for n in day} - _live
-        if _ghost:
-            warn("HABIT LOG CONTAINS HABITS THAT ARE NO LONGER TRACKED: "
-                 + ", ".join(sorted(_ghost))
-                 + ". History is fine to keep; just do not read it as current.")
+                gap(f"HABIT LOG IS {_hg} DAY(S) BEHIND: last entry {_lasth}.")
+        # DELETED 2026-09-02: a check that warned when habit_log named habits that
+        # are no longer tracked. It fired every single build and always will — the
+        # log is a HISTORICAL record and history does not change when a habit is
+        # archived. Warning that the past contains the past is noise, and noise is
+        # how a banner stops being read. If a check cannot ever go green by doing
+        # the right thing, it is not a check.
 
 
     if check_only:
@@ -740,9 +755,15 @@ def main():
     print(f"scores   : last {bundle['summary']['last_score']}, "
           f"avg {bundle['summary']['avg_score']}")
     if WARNINGS:
-        print("warnings :")
+        print("SITE OUT OF SYNC (fix here):")
         for w in WARNINGS:
             print(f"  - {w}")
+    if GAPS:
+        print("RECORD GAPS (close these by logging, not by building):")
+        for g in GAPS:
+            print(f"  - {g}")
+    if not WARNINGS and not GAPS:
+        print("in sync    : site matches context/, and context/ is current")
 
 
 if __name__ == "__main__":

@@ -20,18 +20,28 @@
   const add = (...n) => n.flat().forEach(x => x && M.appendChild(x));
 
   /* ------------------------------------------------- 0. is this record current? */
-  /* Added 2026-09-02. A stale site looks exactly like a correct one, which is how
-     dead fasting anchors and three expired countdowns stayed live for days. If the
-     build found anything out of sync, it says so HERE, at the top, before anything
-     else on the page can be believed. */
+  /* TWO different problems, deliberately shown differently. Conflating them made
+     this banner shout "OUT OF SYNC" about days Samuel simply had not logged yet —
+     which is not a site failure, and a banner that cries wolf stops being read.
+
+     WARNINGS = the site does not match context/. A build problem. Fix it in code.
+     GAPS     = context/ is behind real life. Closed by logging, not by building. */
 
   if ((OS.warnings || []).length) {
     add(callout('bad', '\u{26A0}\u{FE0F}',
-      '<strong>THIS RECORD IS OUT OF SYNC.</strong> The build found ' +
+      '<strong>THIS SITE IS OUT OF SYNC WITH THE RECORD.</strong> The build found ' +
       OS.warnings.length + ' thing' + (OS.warnings.length === 1 ? '' : 's') +
-      ' on this site that no longer match <code>context/</code>. ' +
-      'Everything below is still the real record — but these parts are behind:',
+      ' the site is showing wrongly. This is a build problem, not a logging one:',
       ...OS.warnings.map(w => '• ' + w)));
+  }
+
+  if ((OS.gaps || []).length) {
+    add(callout('warn', '\u{1F4DD}',
+      '<strong>THE RECORD HAS ' + OS.gaps.length + ' GAP' +
+      (OS.gaps.length === 1 ? '' : 'S') + ', AND THE SITE IS SHOWING THEM HONESTLY.</strong> ' +
+      'Everything below matches <code>context/</code> exactly. These are days and ' +
+      'numbers not yet written down — they close at the reckoning, not in the code:',
+      ...OS.gaps.map(g => '• ' + g)));
   }
 
   /* ------------------------------------------------------------ 1. today */

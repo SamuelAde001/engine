@@ -50,10 +50,13 @@ something costing me output or health, say it.
     `python tools/site/build.py` → commit → push → `bash tools/site/published.sh`.
     A push is not a publish. Do not report the site as updated until
     `published.sh` says PUBLISHED.
-  - **`build.py` prints staleness warnings and the dashboard shows them in a red
-    banner at the top.** If it warns, FIX THE CAUSE — do not just note it. A
-    warning left standing means he opens the site and reads numbers he cannot
-    trust.
+  - **`build.py` reports two separate things and they need different responses.**
+    **SITE OUT OF SYNC** — the site does not match `context/`. A build problem;
+    fix it in code before pushing. **RECORD GAPS** — `context/` is behind real
+    life (a day not logged, a balance not given). Those close at the reckoning,
+    not in the code, and the site showing them is the system working. The
+    dashboard renders them as two different banners for that reason. Never
+    "fix" a gap by editing the site.
   - **NOTHING FACT-BEARING IS HARDCODED IN THE PAGE SCRIPTS.** His rule,
     2026-09-02: *"Nothing should be hard coded, let it be easily updatable once the
     data is updated, so we don't need to code always, it should just be an update

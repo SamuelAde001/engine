@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T18:38:42",
+  "generated": "2026-09-02T19:19:14",
   "profile": {
     "name": "Samuel",
     "site_name": "Samuelsignals OS",
@@ -2188,11 +2188,11 @@
     "nights_floor_hit": 0,
     "nights_recorded": 4
   },
-  "warnings": [
+  "warnings": [],
+  "gaps": [
     "POTS ARE STALE: balances as of 2026-08-27, ledger runs to 2026-09-02. The money figures on every page are older than the day being shown.",
     "MONEY LEDGER IS 5 DAY(S) BEHIND: last row 2026-08-28.",
-    "HABIT LOG IS 6 DAY(S) BEHIND: last entry 2026-08-27.",
-    "HABIT LOG CONTAINS HABITS THAT ARE NO LONGER TRACKED: Bible study (morning), Fasted, No masturbating, No social media (detox), Prayed. History is fine to keep; just do not read it as current."
+    "HABIT LOG IS 6 DAY(S) BEHIND: last entry 2026-08-27."
   ],
-  "content_hash": "e263b62c63383246"
+  "content_hash": "ed64a1619953eba2"
 }
