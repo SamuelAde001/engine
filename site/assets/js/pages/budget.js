@@ -65,9 +65,7 @@
       h('span', { class: 'sub' }, 'grey = planned, colour = actual')),
     planHost,
     legend([[K.COLOURS.teal, 'Actual'], ['#1e2632', 'Planned']]),
-    note('September has not started, so every actual is ₦0 and the grey bars are the whole plan. ' +
-      '<strong>Actuals only ever come from logged rows</strong> — a category cannot claim money ' +
-      'moved when no row exists. That was the whole bug in the old sheets.')));
+    notesFor('budget', 'n1')));
 
   K.hBars(planHost, cats
     .map(c => ({ label: c, value: actualByCat[c] || 0, compare: planByCat[c] }))
@@ -110,10 +108,7 @@
   const dead = B.items.filter(i => !i.active);
   if (dead.length) {
     add(h('h2', {}, 'Cancelled — kept, never deleted'));
-    add(callout('warn', '🗄',
-      '<strong>A cancelled subscription that reappears in three months is a pattern, and a ' +
-      'deleted row hides it.</strong> These are marked inactive and excluded from every total, ' +
-      'but they stay on the record.'));
+    add(notesFor('budget', 'n2'));
     add(h('div', { class: 'card pad-0', style: 'margin-top:10px' },
       table(['Item', 'Category', { label: 'Was', num: true }, 'Note'],
         dead.map(i => [
@@ -131,12 +126,7 @@
     .toLocaleString('en', { month: 'short', year: '2-digit' });
 
   add(h('h2', {}, 'The month must balance'));
-  add(callout('info', '=',
-    '<strong>Every naira has a job, and the bottom line is ₦0.</strong> Income, minus the bills, ' +
-    'minus that month\u2019s one-offs, minus every pot. Zero is the target \u2014 not a surplus.',
-    'A positive number is unallocated money, and <strong>money with no name on it is what ' +
-    'evaporated June\u2013August</strong>. A negative number means the month does not fund its own ' +
-    'plan \u2014 that is what the lean ladder below is for.'));
+  add(notesFor('budget', 'n3'));
 
   const balRow = (label, pick, opts = {}) => [
     opts.strong ? h('strong', {}, label) : label,
@@ -159,10 +149,7 @@
       balRow('Into the pots', r => r.pots, { neg: true }),
       balRow('LEFT OVER', r => r.left, { strong: true, total: true }),
     ])));
-  add(note('September\u2019s pot number is lower on purpose \u2014 its ₦140,000 of one-offs ' +
-    '(school, Kaduna, the sister) come first. <strong>A flat monthly average asked September for ' +
-    'money it does not have</strong>, and a plan that asks for money you do not have gets paid ' +
-    'out of the building fund or the buffer.'));
+  add(notesFor('budget', 'n4'));
 
   if (y27.length) {
     const short = y27.filter(r => r.left < 0);
@@ -218,9 +205,7 @@
   /* ------------------------------------------------------- lean ladder */
 
   add(h('h2', {}, 'The lean-month ladder'));
-  add(callout('warn', '📉',
-    '<strong>Decided in advance so it is not negotiated at 11pm on a short month.</strong> ' +
-    'When a month lands short, the cut order is already fixed.'));
+  add(notesFor('budget', 'n5'));
   add(h('div', { class: 'card', style: 'margin-top:10px' },
     h('div', { class: 'rows' },
       B.lean_ladder.filter(l => /^\d\./.test(l.trim())).map((l, i) =>

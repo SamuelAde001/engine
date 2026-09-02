@@ -42,10 +42,7 @@
       h('span', { class: 'sub' }, 'amber outline = the gate')),
     gridHost,
     legend([[K.COLOURS.green, 'Recorded'], ['#1e2632', 'Not started'], [K.COLOURS.amber, 'Gates the launch']]),
-    note('Lesson 13 — <strong>LIVE EDIT 01, Sun 11 Oct</strong> — is the gate. Module 1 completes ' +
-      'that Sunday and the beta launches Friday 16 Oct with five days of buffer. ' +
-      '<strong>If the 11 Oct live edit slips a week, the launch slips a week.</strong> ' +
-      'Never launch a module whose last lesson is not recorded.')));
+    notesFor('course', 'n1')));
   K.lessonGrid(gridHost, C.lessons, { cols: 13 });
 
   /* --------------------------------------------------------- by module */
@@ -91,37 +88,14 @@
     statCard('Sold via', 'A link', 'manual payment, manual access'),
     statCard('The 20-person community', 'Free', 'they get Module 1 free')));
 
-  add(h('div', { style: 'margin-top:14px' }, callout('warn', '🧾',
-    '<strong>Read this honestly, because it is not a revenue plan.</strong> At ₦10,000, given free ' +
-    'to the 20 warmest people, fulfilled by hand, the beta will not move money. Against the ' +
-    '₦170,000/month the course must carry, ₦10,000 is <strong>17 sales a month</strong> — roughly ' +
-    '1.7% of his entire 1,010-person following buying, every month.',
-    '<strong>So the beta\'s job is testimonials, not money.</strong> That is a legitimate play and ' +
-    'it is the only reading of these three choices that holds together. It only works if the ' +
-    'testimonials are actually collected: ask every beta buyer and every community member for a ' +
-    'written result. <strong>That is the deliverable of 16 October.</strong>',
-    '<strong>Which makes the full course price the load-bearing unknown.</strong> At ₦10,000 the ' +
-    'target needs 17 sales/month; at ₦60,000 it needs 3. The beta price anchors whatever comes ' +
-    'next, so the full price has to be set BEFORE 16 October, not after.')));
+  add(h('div', { style: 'margin-top:14px' }, notesFor('course', 'n2')));
 
-  add(h('div', { style: 'margin-top:12px' }, callout('bad', '🚩',
-    '<strong>Standing risk:</strong> manual payment and manual access is work with no external ' +
-    'deadline. <strong>Pattern P1 says that is the first category he cuts when client edits land.</strong> ' +
-    'If sales stall, check whether the bottleneck is demand or his own fulfilment before concluding ' +
-    'nobody wants it.')));
+  add(h('div', { style: 'margin-top:12px' }, notesFor('course', 'n3')));
 
   /* ------------------------------------------------------ the cadence */
 
   add(h('h2', {}, 'The open question'));
-  add(callout('warn', '⏱',
-    '<strong>Two lessons a week completes the course early January 2027. Three a week lands it ' +
-    'inside 2026.</strong>',
-    'This is no longer just a preference: the ₦3M is on top of the ₦1M, so course revenue has to ' +
-    'start in January — <strong>which argues for 3/week.</strong> His choice, stated plainly, not ' +
-    'decided for him.',
-    'The October full-course date is dead. 35 lessons × 70 min ≈ <strong>41 hours of recording</strong> ' +
-    'before editing, on top of client work, content and a new gym habit. That is the same arithmetic ' +
-    'that produced the 19-hour day on 25 Aug.'));
+  add(notesFor('course', 'n4'));
 
   add(h('h2', {}, 'context/audience.md — the course sections'));
   add(doc('audience'));

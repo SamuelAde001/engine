@@ -40,15 +40,7 @@
   /* ------------------------------------------------------ architecture */
 
   add(h('h2', {}, 'How this site is built'));
-  add(callout('info', '\u{1F527}',
-    '<strong>context/*.md is the source of truth. This site is derived from it.</strong> ' +
-    'Same rule as the nightly scorecard: generated output is never hand-written, so it cannot ' +
-    'drift from the record.',
-    'That also means the whole site inherits git’s append-only guarantee for free. ' +
-    '<strong>You cannot silently soften a 40% day, because the day lives in a committed markdown ' +
-    'file and the site is only a view of it.</strong>',
-    'No database, no server, no npm, no CDN. A Python script reads the markdown and writes one ' +
-    'JSON file; the charts are hand-rolled SVG.'));
+  add(notesFor('systems', 'n1'));
 
   add(h('div', { class: 'card', style: 'margin-top:12px' },
     h('pre', { style: 'margin:0;background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:14px 16px;overflow-x:auto' },
@@ -79,9 +71,7 @@ site/                   static HTML + hand-rolled SVG charts`))));
   /* ------------------------------------------------------ cost discipline */
 
   add(h('h2', {}, 'Cost discipline'));
-  add(callout('warn', '\u{1F4B8}',
-    '<strong>Everything loaded is re-sent on every turn, so waste compounds.</strong> ' +
-    'None of this trades quality — it removes duplication.'));
+  add(notesFor('systems', 'n2'));
   const COST = [
     ['One check-in, one session.', '/clear between the brief, the midday and the reckoning. Running all three in one session drags the whole day’s transcript along on every turn.'],
     ['Model routing.', 'brief, midday and capture on Sonnet. reckon, paid, budget, month, plan-week, reckoning-week and every design conversation on Opus.'],

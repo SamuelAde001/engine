@@ -33,14 +33,7 @@
       'Cowrywise · locked to Jan 2027', 'violet')));
 
   add(h('div', { style: 'margin-top:14px' },
-    callout('bad', '🔒',
-      '<strong>Savings are untouchable.</strong> Three permitted withdrawals only: medical ' +
-      'emergency, building-project shortfall that would stop work, family emergency. ' +
-      '<strong>A girlfriend\'s visit is not an emergency.</strong>',
-      'June–August, <strong>₦900,250 was booked to savings. ₦305,000 survives. ₦595,250 is gone</strong> ' +
-      '— and the August building payment dropped from ₦500,000 to ₦200,000 to cover it. ' +
-      'A third became a real asset; two thirds evaporated because no rule existed saying what ' +
-      'savings are for. <strong>That is the fix — not a tighter budget.</strong>')));
+    notesFor('money', 'n1')));
 
   /* ---------------------------------------------------------------- the pots */
 
@@ -72,17 +65,12 @@
       h('div', { class: 'card-h' }, h('h3', {}, 'Runway to 31 December'),
         h('span', { class: 'sub' }, 'projected, August mix')),
       runwayHost,
-      note('Closes at <strong>₦1,007,667</strong> — a margin of <strong>₦7,667</strong> after ' +
-        '₦200,000 goes to the buffer. <strong>One ₦200,000 raid of exactly August\'s kind ends it.</strong> ' +
-        'That margin is the right trade: ₦207,000 of margin with no buffer means the first urgency ' +
-        'in October gets paid out of savings, which is exactly how ₦595,250 disappeared.')),
+      notesFor('money', 'n2')),
     h('div', { class: 'card' },
       h('div', { class: 'card-h' }, h('h3', {}, 'Cash actually landing'),
         h('span', { class: 'sub' }, 'per calendar month')),
       cashHost,
-      note('<strong>Income has halved in two months.</strong> ~₦200k of August was a savings ' +
-        'withdrawal, not income, so the real August number is ~₦910,000. This is the single ' +
-        'most important number in the system.'))));
+      notesFor('money', 'n3'))));
 
   // cumulative: opening balance + monthly surplus − ₦50,000/month to the buffer
   let acc = P.bank;
@@ -117,10 +105,7 @@
     h('div', { class: 'card-h' }, h('h3', {}, 'Monthly surplus, by video mix'),
       h('span', { class: 'sub' }, 'after ₦951,700 obligations + ₦100,000 Cowrywise')),
     scenHost,
-    note('<strong>2 videos a month is what July was.</strong> At that mix he is ₦141,709 underwater ' +
-      'every month, and steps 1–3 of the lean ladder only free ₦55,000 of it. Rule 1 forbids savings ' +
-      'and Rule 7 forbids pausing Cowrywise — <strong>the buffer is the only legal answer.</strong> ' +
-      'And the volume is Route Rise\'s decision, not his.')));
+    notesFor('money', 'n4')));
 
   K.hBars(scenHost, I.scenarios.map(s => ({
     label: s.name, value: s.surplus,
@@ -133,16 +118,7 @@
   /* ------------------------------------------------------------ goal 2 */
 
   add(h('h2', {}, 'Goal 2 — and this is the real problem'));
-  add(callout('bad', '⚠',
-    'The ₦3M is <strong>on top</strong> of the ₦1M — ₦4,000,000 total. Jan–Jul 2027 is seven months. ' +
-    '₦3,000,000 over seven months is <strong>₦428,571/month</strong> against a surplus of ' +
-    '₦243,000–₦277,000. <strong>Short by ₦152,000–₦186,000, every month.</strong>',
-    'At the August mix the ₦3M is <strong>arithmetically impossible</strong>. Not tight — impossible. ' +
-    'It closes only if 4-video months become the norm, or the course earns. ' +
-    'And 4-video months are not his decision.',
-    '<strong>From January the course has to carry roughly ₦170,000/month — about ₦1.2M across the ' +
-    'seven months — or the July 2027 marriage number does not happen.</strong> ' +
-    'Every Sunday the 5:00pm course block gets skipped is a payment missed on that ₦1.2M.'));
+  add(notesFor('money', 'n5'));
 
   /* ------------------------------------------------------------ the ledger */
 

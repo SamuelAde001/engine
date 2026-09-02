@@ -522,6 +522,7 @@ def main():
         "paydays": site["paydays"],
         "countdowns": site["countdowns"],
         "spirit": site.get("spirit", {}),
+        "notes": site.get("notes", {}),
         "work": site.get("work", {}),
         "content": site["content"],
         "course": site["course"],
@@ -622,6 +623,20 @@ def main():
         warn("HARDCODED PAST DATES IN STATUS CARDS: " + "; ".join(_stale_ui)
              + ". A status card must read from context/site.json, not from a literal "
                "in the page script — it goes stale silently and still looks current.")
+
+    # Every notesFor(page, id) in a page script must resolve to an entry in
+    # site.json -> notes. A missing one renders a visible marker on the page, but
+    # this catches it before it ships.
+    _notes = site.get("notes") or {}
+    _missing_notes = []
+    if _pagedir.exists():
+        for _f in sorted(_pagedir.glob("*.js")):
+            for _m in re.finditer(r"notesFor\(\s*['\"]([^'\"]+)['\"]\s*,\s*['\"]([^'\"]+)['\"]", _f.read_text(encoding="utf-8")):
+                if _m.group(2) not in (_notes.get(_m.group(1)) or {}):
+                    _missing_notes.append(f"{_m.group(1)}/{_m.group(2)}")
+    if _missing_notes:
+        warn("PAGE ASKS FOR NOTES THAT DO NOT EXIST: " + ", ".join(sorted(set(_missing_notes)))
+             + ". Add them under notes in context/site.json.")
 
     _job = (site.get("work") or {}).get("current_job") or {}
     if _job.get("due") and _job["due"] < _today:

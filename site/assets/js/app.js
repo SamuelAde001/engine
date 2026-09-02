@@ -343,6 +343,23 @@ function legend(items) {
       h('span', {}, h('i', { style: `background:${colour}` }), label)));
 }
 
+/* Every static callout and chart note on this site lives in context/site.json
+   under `notes`, keyed by page and id. Rewriting a sentence — a figure that
+   moved, a rule that died — is a data edit, never a code edit. That is Samuel's
+   rule from 2026-09-02, and this function is the whole of the reading half.
+
+   A missing id renders a visible marker rather than nothing. Silence is how the
+   dead "While fasting" card survived a rule change: the page looked fine. */
+function notesFor(page, id) {
+  const entry = ((OS.notes || {})[page] || {})[id];
+  if (!entry) {
+    return h('p', { class: 'chart-note' },
+      `[missing note ${page}/${id} — add it to notes.${page}.${id} in context/site.json]`);
+  }
+  if (entry.type === 'note') return note(entry.html);
+  return callout(entry.kind, entry.icon, ...(entry.paras || []));
+}
+
 /* Classic-script namespace. ES modules are blocked over file://, and the first
    thing Samuel will do is double-click index.html. */
 window.SS = {
@@ -350,5 +367,5 @@ window.SS = {
   RECORD_TODAY, daysUntil, daysLabel,
   h, $, mount, chrome, guard,
   verdictPill, stat, statCard, callout, toggle, bar, table,
-  scoreClass, pageHead, section, chartCard, legend, note, md, doc, sliceDoc,
+  scoreClass, pageHead, section, chartCard, legend, note, notesFor, md, doc, sliceDoc,
 };

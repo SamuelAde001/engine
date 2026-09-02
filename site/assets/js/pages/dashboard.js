@@ -102,19 +102,14 @@
       h('div', { class: 'card-h' }, h('h3', {}, 'Behaviour score'),
         h('span', { class: 'sub' }, '0–100')),
       scoreLine,
-      note(
-        '<strong>25 Aug shipped and still scored 70.</strong> Focus ran to 180% of ' +
-        'commitment, which the formula caps at 100% and then halves because logged ' +
-        'focus passed 12h. A day can ship and still cost too much.')),
+      notesFor('dashboard', 'n1')),
     h('div', { class: 'card' },
       h('div', { class: 'card-h' }, h('h3', {}, 'What made up each score'),
         h('span', { class: 'sub' }, 'components')),
       scoreStack,
       legend([[K.COLOURS.blue, 'Verdict'], [K.COLOURS.teal, 'Focus'],
               [K.COLOURS.violet, 'Habits'], [K.COLOURS.green, 'Sleep']]),
-      note(
-        'Sleep has contributed <strong>zero on every recorded night</strong>. ' +
-        'That is the whole green band missing from every bar.'))));
+      notesFor('dashboard', 'n2'))));
 
   K.lineChart(scoreLine, closed.map(r => ({ date: r.date, value: r.score })), {
     id: 'score', yMax: 100, colour: K.COLOURS.blue, height: 230,
@@ -157,20 +152,12 @@
       focusHost,
       legend([[K.COLOURS.teal, 'Logged'], [K.COLOURS.surface3 || '#1e2632', 'Committed'],
               [K.COLOURS.red, '12h — the invoice line']]),
-      note(
-        'body.md Rule 5: <strong>any day whose logged focus exceeds 12h is not a good ' +
-        'day, it is an invoice.</strong> 26 Aug logged 19 minutes against 6¼ hours ' +
-        'actually worked — the timer was off, and an untimed day is invisible to the ' +
-        'whole system.')),
+      notesFor('dashboard', 'n3')),
     h('div', { class: 'card' },
       h('div', { class: 'card-h' }, h('h3', {}, 'What time he actually went to bed'),
         h('span', { class: 'sub' }, `${sum.nights_floor_hit}/${sum.nights_recorded} nights hit the floor`)),
       bedHost,
-      note(
-        'Every dot below the line is a night under 7 hours. <strong>He has not hit the ' +
-        '10:30pm floor once on the record.</strong> Sleep is the wall under gym, the ' +
-        '5:30am prayer block and the 6:30pm hard stop — when it breaks, ask what ' +
-        'happened that afternoon, not why he stayed up.'))));
+      notesFor('dashboard', 'n4'))));
 
   K.barChart(focusHost, ledger.filter(r => r.focus_logged != null), {
     height: 230, yStep: 4,
@@ -200,13 +187,7 @@
           h('span', { class: 'sub' }, '7-day block · 25–31 Aug')),
         heatHost,
         legend([[K.COLOURS.green, 'Hit'], [K.COLOURS.red, 'Broken'], ['#1e2632', 'Not tracked']]),
-        note(
-          'Two broke on 27 Aug, day 3 of 7. His words on the social-media break: ' +
-          '<em>"I really wanted to get entertained, I was so bored."</em> It happened in ' +
-          'the 5:00–6:30pm window that C9/C10 were meant to fill. <strong>That is a ' +
-          'scheduling hole, not a discipline failure</strong> — the detox removed the ' +
-          'input and put nothing in its place. One break each, not two, so the YouTube ' +
-          'penalty has not triggered.')));
+        notesFor('dashboard', 'n5')));
     K.heatmap(heatHost, hnames, hdates, (name, d) => {
       const v = hlog[d]?.[name];
       return v === undefined ? null : v;
@@ -256,13 +237,7 @@
         ];
       }))));
 
-  add(callout('bad', '⚠',
-    '<strong>Goal 2 is the real problem.</strong> The ₦3M is on top of the ₦1M — ₦4,000,000 total. ' +
-    'Jan–Jul 2027 needs <strong>₦428,571/month</strong> against a surplus of ₦243,000–₦277,000. ' +
-    'Short by ₦152,000–₦186,000 every month. At the August mix it is not tight, it is arithmetically impossible.',
-    'It closes only if 4-video months become normal — which is Route Rise\'s decision, not his — ' +
-    'or the course earns. <strong>From January the course has to carry roughly ₦170,000/month.</strong> ' +
-    'Every Sunday the 5:00pm block gets skipped is a payment missed on that ₦1.2M.'));
+  add(notesFor('dashboard', 'n6'));
 
   /* ------------------------------------------------------- 8. patterns */
 

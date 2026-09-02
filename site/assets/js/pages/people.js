@@ -19,39 +19,16 @@
     statCard('Owed to his sister', naira(50000), 'after September · NO DATE', 'amber'),
     statCard('Community admin', naira(15000), 'per month · not a cost-cutting target')));
 
-  add(h('div', { style: 'margin-top:14px' }, callout('info', '\u{1F4C7}',
-    '<strong>How it is verified: a named person and a named date in the ledger.</strong> ' +
-    'Not "I reached out to a few people." A name.',
-    'Weekly minimum: <strong>one intentional outreach message a week</strong>, so the monthly visit ' +
-    'has someone to visit. He cannot visit someone he has not messaged.')));
+  add(h('div', { style: 'margin-top:14px' }, notesFor('people', 'n1')));
 
   add(h('h2', {}, 'Girlfriend'));
-  add(callout('warn', '⚠',
-    '<strong>Her visits are a real cost line.</strong> The August ₦200,000 savings withdrawal was ' +
-    'for accommodating her visit — that single decision is why the building payment dropped from ' +
-    '₦500,000 to ₦200,000.',
-    '<strong>Per Rule 1: a girlfriend’s visit is not an emergency.</strong> Visits get budgeted in ' +
-    'advance as a line, not funded from savings after the fact.',
-    '<strong>OPEN — school fees are termly, not annual.</strong> Is the ₦50,000 a one-off or the ' +
-    'first of three? If it repeats it is a LINE, not a surprise. Ask before October.'));
+  add(notesFor('people', 'n2'));
 
   add(h('h2', {}, 'The network line, and what it cost'));
-  add(callout('warn', '\u{1F4B8}',
-    'Creator visits are budgeted at <strong>₦25,000/month</strong>, his number, confirmed 26 Aug. ' +
-    'It is a real line now, not a good intention.',
-    '<strong>What it cost to make it real: ₦100,000 across Sep–Dec, which moved the ₦1M December ' +
-    'target from "just closes" to a coin flip.</strong> That is the price of this goal existing. ' +
-    'Do not let it be spent on anything else and then claimed as met.'));
+  add(notesFor('people', 'n3'));
 
   add(h('h2', {}, 'The live debt'));
-  add(callout('bad', '\u{1F4CC}',
-    '<strong>He owes his sister ₦90,000.</strong> ₦40,000 goes in September on Payday B. ' +
-    '<strong>₦50,000 remains, with no date on it</strong> — his words: <em>"can hold for anytime ' +
-    'I am free with more funds, no deadline."</em>',
-    'She is not pressing, so it is not scheduled. It is written down anyway, because an undated ' +
-    'debt is the kind of thing that ambushes a month, and <strong>"when I have more funds" is the ' +
-    'same sentence that moves due dates.</strong> Bring it up the first month that closes with the ' +
-    'buffer full.'));
+  add(notesFor('people', 'n4'));
 
   add(h('h2', {}, 'Money that goes to people'));
   const cats = ['Girlfriend', 'Parents', 'Community admin', 'Creator visits', 'Giving', 'Other'];
