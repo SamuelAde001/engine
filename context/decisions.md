@@ -338,3 +338,25 @@ one. The 3× full-session target lives in the Mon/Wed/Fri task, not a second hab
 **Honest price: 7h30/week of client morning, up from 4h30.** Paid on purpose, not
 recovered by working past 6:30pm. Escalation to 4×/week is EARNED — two consecutive
 weeks of 3 logged sessions first.
+
+## 2026-09-02 — THE SITE IS LIVE. First successful deploy ever. BUILT.
+
+`https://samuelade001.github.io/engine/` is serving the real record. Verified by
+`tools/site/published.sh`: local and live content_hash both `0da3999a5a544679`.
+
+**The cause of the six failures, recorded 28 Aug and unexplained until now: the repo's
+Pages source was set to "deploy from a branch", not "GitHub Actions."** So
+`actions/configure-pages` failed on every run, and the branch source meanwhile served
+the repo root — which is why the URL answered 200 with a stale page while
+`site/data/os.json` was never at `/data/os.json`. Every session that reported "rebuilt
+and pushed" was telling the truth and was still wrong about the only thing that
+mattered.
+
+**Fix: `enablement: true` on `actions/configure-pages@v5`** in
+`.github/workflows/pages.yml`. It flips the source to GitHub Actions from inside the
+workflow, so this cannot silently regress on a settings change.
+
+**The lesson that generalises beyond this repo: a push is not a publish.** Run
+`bash tools/site/published.sh` after any session that writes to `context/`. It compares
+content hashes with the build clock stripped, so this machine's WAT stamps and the CI
+runner's UTC stamps do not produce false mismatches.
