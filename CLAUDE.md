@@ -40,6 +40,23 @@ something costing me output or health, say it.
     sequence — because that is a checklist he works through, not prose he skips.
     Reasoning, arguments, history and warnings belong in `context/`, not in a
     task nobody opens. Writing them there costs tokens and changes nothing.
+- **THE SITE MUST ALWAYS BE IN SYNC. Standing rule, set 2026-09-02.** His words:
+  *"At all times the site must be in sync with everything, let it be a rule, cause
+  I check the site to know what is going on. If something doesn't show well, or
+  isn't showing the current stats, it must always be updated."*
+  The site is how he knows what is going on. A stale site is worse than no site,
+  because it looks exactly like a correct one.
+  - **Every session that writes anything under `context/` ends with:**
+    `python tools/site/build.py` → commit → push → `bash tools/site/published.sh`.
+    A push is not a publish. Do not report the site as updated until
+    `published.sh` says PUBLISHED.
+  - **`build.py` prints staleness warnings and the dashboard shows them in a red
+    banner at the top.** If it warns, FIX THE CAUSE — do not just note it. A
+    warning left standing means he opens the site and reads numbers he cannot
+    trust.
+  - **Changing a rule means changing the page that renders it.** Data alone is not
+    enough: a dropped fast left a live "While fasting" card, and dead countdowns
+    outlived their decisions. When a rule dies, hunt down what draws it.
 - My day has fixed anchors. Plan work blocks around them. Never schedule work over
   them, and never create TickTick tasks for eating, napping, showering or sleeping —
   those are not tasks.

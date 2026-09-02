@@ -360,3 +360,43 @@ workflow, so this cannot silently regress on a settings change.
 `bash tools/site/published.sh` after any session that writes to `context/`. It compares
 content hashes with the build clock stripped, so this machine's WAT stamps and the CI
 runner's UTC stamps do not produce false mismatches.
+
+## 2026-09-02 — THE SITE MUST ALWAYS BE IN SYNC. Rule set, and three real bugs found proving why.
+
+His words: *"At all times the site must be in sync with everything, let it be a rule,
+cause I check the site to know what is going on."*
+
+**The audit found the site quietly lying in several places.** All fixed:
+
+| Was showing | Truth |
+|---|---|
+| "While fasting" anchor card, 25–31 Aug | The fast was DROPPED 28 Aug. Card replaced with Morning movement. |
+| Countdown: Client #2 deadline 30 Aug | Shipped 2 Sep, 2.5 days late. Retired. |
+| Countdown: detox/fast decision 31 Aug | Decided 2 Sep. Retired. |
+| Countdown: content cadence starts 2 Sep | It did not start. Retired. |
+| Goal: "Gym, 3× a week" | Habit archived 2 Sep. Now Morning movement 6×/week. |
+| Content: "Next publish — Wed 2 Sep" | Nothing published. Now "Weeks banked 0/18". |
+| Content callout: "at risk, needs his call" | Resolved — a confirmed miss, P1 confirmed. |
+| Nothing about the 5-day client cap | Added as a goal: deliveries inside the cap, 0 of 3. |
+| No countdowns for Client #3, Kaduna, Payday B | All three added. |
+
+**THE ROOT CAUSE, and it is the important part.** `build.py` stamped `?v=` on
+`data/os.js` ONLY. Every app script — `app.js`, `charts.js`, `pages/*.js` — was served
+with no version, so browsers and the CDN cached them indefinitely. **The numbers
+updated and the code that RENDERS them never did.** That is why a dead fasting card
+survived a rule change and why the new out-of-sync banner did not appear until the
+stamping was widened. Fixed: every local script is now stamped with the build hash.
+
+**TWO NEW MECHANISMS so this cannot rot silently again:**
+
+1. **`build.py` now emits staleness warnings** — ledger behind today, pots older than
+   the last ledger row, money ledger behind, countdowns in the past, habit log behind
+   or naming habits no longer tracked. They warn, never block: a stale record shown
+   with a warning still beats no record.
+2. **The dashboard renders those warnings as a red banner at the very top**, before
+   anything else on the page can be believed. Verified live 2 Sep — it is currently
+   showing four, all genuine.
+
+**The standing rule, now in CLAUDE.md:** every session that writes `context/` ends
+with build → commit → push → `published.sh`. A push is not a publish. And when a rule
+dies, hunt down the page that draws it — data alone is not enough.
