@@ -4,15 +4,16 @@ Tracked in TickTick. The evening reckoning asks these by name.
 
 | Habit | Cadence | Check time | TickTick habit id |
 |---|---|---|---|
-| No social media (detox) | daily | end of day (9pm WAT) | 6a8ca7288f087c81d0ce5414 |
+| Morning movement (gym or run) | 6× per week (Mon–Sat) | end of day (9pm WAT) | 6a984bc38f0842fe13de746c |
+| Sleep by 10:30pm | daily | end of day (9pm WAT) | 6a8ef0058f0804d720eb9be9 |
 | Phone away by 10pm | daily | end of day (9pm WAT) | 6a91bc238f0861e0f0b966f6 |
-| Prayed | daily | end of day (9pm WAT) | 6a8ca72b8f085902fa0f856a |
-| Bible study (morning) | daily | end of day (9pm WAT) | 6a8ca72d8f087c81d0ce54b1 |
-| No masturbating | daily | end of day (9pm WAT) | 6a8ca72d8f087c81d0ce54c1 |
+
+**THREE habits. That is the whole tracked list as of 2026-09-02.** The reckoning asks
+these three by name and nothing else.
 
 Created 2026-08-23. More will be added — append, don't rewrite.
 
-## The 7-day detox block (25–31 Aug 2026)
+## Detox block, 25–31 Aug 2026 — ENDED, habit archived 2 Sep
 
 The five habits above were created 2026-08-24 as a 7-day block, targetStartDate
 20260825, targetDays 7. Samuel's reason: social media addiction and scrolling
@@ -27,7 +28,7 @@ the weekly review treats it as a pattern, not a decision.
 Ends 2026-08-31. At the 31 Aug reckoning, decide explicitly: keep, drop, or
 extend. Do not let it lapse silently.
 
-## The 7-day fast (25–31 Aug 2026)
+## Fast, 25–31 Aug 2026 — DROPPED 28 Aug
 
 Running alongside the detox block, same 7 days. Started Tue 25 Aug.
 
@@ -50,8 +51,8 @@ Ends 2026-08-31, same day as the detox block. Decide both explicitly at the
 
 | Habit | Cadence | Starts | TickTick habit id |
 |---|---|---|---|
-| Gym | 3× per week | Tue 1 Sep 2026 | 6a8eec9b8f0800ee1524083a |
-| Sleep by 10:30pm | daily | Tue 1 Sep 2026 | 6a8ef0058f0804d720eb9be9 |
+| Gym | 3× per week | Tue 1 Sep 2026 | ARCHIVED 2 Sep — see Morning movement |
+| Sleep by 10:30pm | daily | Tue 1 Sep 2026 | still live — see the table at the top |
 
 - **Gym** — 3 sessions a week, floor of 2. Block is 7:00–8:20am (estate gate opens
   7:00am). Costs ~1.5h of client morning per gym day, ~4.5h/week. Accepted knowingly.
@@ -245,3 +246,45 @@ at 5 days. It is being paid on purpose. It is NOT recovered by working past 6:30
 goes to four. Not before. body.md already warns that a session stacked on a four-hour
 night makes him feel worse and he will blame the gym — daily training on the current
 sleep record is that trap with extra steps.
+
+## FOUR HABITS REMOVED — 2026-09-02, his instruction
+
+**Archived in TickTick: No social media (detox), No masturbating, Prayed, Bible study.**
+He asked for them off the list. They are archived, not deleted — the check-in history
+stands.
+
+**Removing the habit does NOT remove the anchor.** Prayer + Bible study remain a fixed
+5:30–6:15am block in `context/body.md` and the whole of `context/spirit.md` still
+stands. What stopped is the nightly tick, not the practice. The reckoning no longer
+asks about them by name.
+
+**On the record without comment attached: this is the second removal.** Prayer/Bible
+study and No masturbating were removed once before, on 24 Aug, and re-created the same
+night. That flip is noted in the sections above. The 7-day block those sat inside has
+since ended, so the "treat it as a pattern" trigger written for it does not apply here.
+Stated once, factually, and left alone.
+
+### THE SOCIAL-MEDIA WINDOW — named at last, 2026-09-02
+
+Asked for on 27 August, open for six days, answered today. His words: *"Social media
+window would be when I am eating so it's a relaxation with it."*
+
+| Window | Time | Length |
+|---|---|---|
+| Lunch | **12:00 – 12:45pm** | 45 min |
+| Dinner | **6:00 – 6:30pm** | 30 min |
+
+**Why this is a good answer and not a cop-out:** the 27 Aug break happened in an
+unstructured 5:00–6:30pm hour — an unnamed gap the phone walked into. A meal is an
+anchor with a start, an end and a reason to put the phone down at the end of it. The
+window is bounded by something that already exists.
+
+**One change made to his number and it should be said:** he said "when I am eating",
+and lunch is 12:00–1:00pm followed immediately by the 1:00pm nap. A phone in hand until
+1:00 usually costs the nap. **The lunch window ends 12:45**, leaving fifteen minutes
+between the screen and the pillow.
+
+**Outside those two windows there is no tracked rule any more** — the detox habit is
+archived. The window IS the rule now. If scrolling starts showing up in work blocks
+again, that is the thing to notice, and it will show up as lost focus hours rather than
+as a broken habit tick.

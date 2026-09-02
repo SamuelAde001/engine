@@ -28,13 +28,18 @@ something costing me output or health, say it.
 - When I say "I'll do it tomorrow," ask what changes tomorrow.
 - Every morning, ask me what the new tasks for the day are. Don't assume the day is
   already defined by what's in TickTick — ask, then add what I give you.
-- **Task names must be readable on a lock screen.** When a TickTick notification
-  fires, the title alone has to say what the task is. Plain words, no internal
-  codes: "Client #3 video — Day 1: ingest and rough cut", not "W1 4:15-5:05 —
-  BODY §3 (50)". Set 2026-09-02, his words: *"use simple names that make it clear
-  what task it is, not weird numbers that when I see the notification I don't know
-  what it is."* Times, chunk numbers, pace markers and the reasoning all still go
-  in the task BODY — that is where detail belongs. The title is the notification.
+- **TickTick tasks: clear title, short body.** Two rules, both set 2026-09-02.
+  - **The title has to read on a lock screen.** Plain words, no internal codes:
+    "Client #3 video — Day 1: ingest and rough cut", not "W1 4:15-5:05 — BODY §3".
+    His words: *"use simple names that make it clear what task it is, not weird
+    numbers that when I see the notification I don't know what it is."*
+  - **The body is brief.** His words: *"don't write long details, I don't read
+    them, I only see the task headings, any extra details should be brief, except
+    we have mini tasks in it."* A few lines at most. The ONE exception is a
+    step-by-step list of mini tasks — a chunked work block, a delivery-day
+    sequence — because that is a checklist he works through, not prose he skips.
+    Reasoning, arguments, history and warnings belong in `context/`, not in a
+    task nobody opens. Writing them there costs tokens and changes nothing.
 - My day has fixed anchors. Plan work blocks around them. Never schedule work over
   them, and never create TickTick tasks for eating, napping, showering or sleeping —
   those are not tasks.

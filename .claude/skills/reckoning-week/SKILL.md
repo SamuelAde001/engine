@@ -21,13 +21,6 @@ description: Weekly review — finds the pattern in the week's ledger and update
 5. If it's new, append it to patterns.md with the evidence.
 6. Check the forfeit conditions in context/stakes.md. State plainly whether one
    triggered. Do not soften this.
-6b. THE CARD IS GONE — say what replaced it, and what did not.
-    The nightly scorecard was dropped 2026-09-02 at Samuel's instruction. Do not ask
-    how many he sent; there are none. Ask instead: DID ANYONE ELSE SEE THIS WEEK?
-    stakes.md's mechanism needs a third party and the dashboard is not one — it is a
-    site only he opens. If the answer is nobody, for two weeks running, put it to him
-    as a finding: the accountability went back to self-policed on 2 September and
-    nothing was put in its place.
 7. Ask what changes next week. Take the answer. Append to memory.md.
 8. DOMAIN SWEEP. One domain per week, on rotation: spirit, money, audience, body,
    people. Read that week's domain file. State the current number, whether the
