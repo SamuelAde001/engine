@@ -122,10 +122,22 @@ def parse_bed_cell(cell):
             h = 0
         bed = f"{h:02d}:{mi:02d}"
 
+    # The parenthetical after a bed time is USUALLY sleep — "1:30am (4h)" — but not
+    # always: "1:42am (19h day)" is the length of the WORKING day, and reading it as
+    # 19 hours of sleep pushed the site's average to 8h45m on a record whose real
+    # nights were 4h, 5.5h and 6.5h. A comforting number, confidently wrong, shown
+    # on the one page about the thing everything else stands on. Found 2026-09-02.
     slept = None
-    m = re.search(r"\(\s*~?\s*(\d+(?:\.\d+)?)\s*h", c)
+    m = re.search(r"\(\s*~?\s*(\d+(?:\.\d+)?)\s*h([^)]*)\)", c)
     if m:
-        slept = float(m.group(1))
+        qualifier = (m.group(2) or "").lower()
+        val = float(m.group(1))
+        if any(w in qualifier for w in ("day", "span", "awake", "work")):
+            slept = None          # a day length, not a night
+        elif 0 < val <= 14:
+            slept = val
+        else:
+            warn(f"IMPLAUSIBLE SLEEP VALUE IGNORED: {val}h parsed from bed cell {c!r}")
     return bed, slept
 
 

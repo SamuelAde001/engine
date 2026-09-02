@@ -28,7 +28,7 @@
       `floor is ${B.sleep_floor_hours}h`, 'red'),
     statCard('Longest day', hours(Math.max(...led.map(r => r.focus_logged || 0))),
       '25 Aug — 19h06m span, no nap', 'red'),
-    statCard('Gym', '0', `starts 1 Sep · floor 2/week, target 3`, 'amber')));
+    statCard('Morning movement', '0/6', 'gym Mon/Wed/Fri · run Tue/Thu/Sat', 'amber')));
 
   add(h('div', { style: 'margin-top:14px' }, callout('bad', '🧱',
     '<strong>He has not hit the 10:30pm floor once on the record.</strong> ' +
