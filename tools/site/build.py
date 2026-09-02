@@ -545,6 +545,58 @@ def main():
         "warnings": WARNINGS,
     }
 
+    # ------------------------------------------------------------------ STALENESS
+    # Added 2026-09-02, his standing rule: "At all times the site must be in sync
+    # with everything... If something doesn't show well, or isn't showing the
+    # current stats, it must always be updated."
+    #
+    # A site that is merely OLD looks identical to a site that is CORRECT, which is
+    # how the fasting anchors and three dead countdowns survived on the live pages
+    # for days after the rules behind them were dropped. These checks make staleness
+    # loud. They warn; they never block a build, because a stale record shown with a
+    # warning still beats no record at all.
+    _today = date.today().isoformat()
+
+    if ledger:
+        _last = ledger[-1]["date"]
+        _gap = (date.fromisoformat(_today) - date.fromisoformat(_last)).days
+        if _gap >= 1:
+            warn(f"LEDGER IS {_gap} DAY(S) BEHIND: last row {_last}, today {_today}. "
+                 "A day with no row is a gap, and gaps get named at the weekly review.")
+
+    _as_of = (site.get("pots") or {}).get("as_of")
+    if _as_of and ledger and _as_of < ledger[-1]["date"]:
+        warn(f"POTS ARE STALE: balances as of {_as_of}, ledger runs to {ledger[-1]['date']}. "
+             "The money figures on every page are older than the day being shown.")
+
+    if money:
+        _lastm = money[-1].get("date")
+        if _lastm and _lastm < _today:
+            _mg = (date.fromisoformat(_today) - date.fromisoformat(_lastm)).days
+            if _mg >= 1:
+                warn(f"MONEY LEDGER IS {_mg} DAY(S) BEHIND: last row {_lastm}.")
+
+    _past = [c for c in site.get("countdowns", []) if c.get("date", "9999") < _today]
+    if _past:
+        warn("COUNTDOWNS IN THE PAST, still on the site: "
+             + "; ".join(f"{c['date']} {c['label']}" for c in _past)
+             + ". Retire or re-date them in context/site.json.")
+
+    _hl = site.get("habit_log") or {}
+    if _hl:
+        _lasth = max(_hl)
+        if _lasth < _today:
+            _hg = (date.fromisoformat(_today) - date.fromisoformat(_lasth)).days
+            if _hg >= 1:
+                warn(f"HABIT LOG IS {_hg} DAY(S) BEHIND: last entry {_lasth}.")
+        _live = {h["name"] for h in habits.get("habits", [])}
+        _ghost = {n for day in _hl.values() for n in day} - _live
+        if _ghost:
+            warn("HABIT LOG CONTAINS HABITS THAT ARE NO LONGER TRACKED: "
+                 + ", ".join(sorted(_ghost))
+                 + ". History is fine to keep; just do not read it as current.")
+
+
     if check_only:
         print(json.dumps({k: bundle[k] for k in ("summary", "warnings")}, indent=2))
         for r in ledger:

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T17:42:24",
+  "generated": "2026-09-02T17:55:55",
   "profile": {
     "name": "Samuel",
     "site_name": "Samuelsignals OS",
@@ -565,16 +565,18 @@
       "note": "THE SCORED VERSION of the 5,000-follower ambition. 460 → 5,000 in four months is ~11x and fails the R in SMART. The goal that gets scored is the input he controls: one video, Wednesday 7:00pm WAT, no miss. Missing the TIME counts as missing the week."
     },
     {
-      "id": "gym",
-      "name": "Gym, 3× a week",
-      "short": "Gym",
-      "domain": "Body",
+      "name": "Morning movement, 6× a week",
+      "target": 6,
+      "current": 0,
+      "status": "not started",
+      "note": "Gym Mon/Wed/Fri, 30-min run Tue/Thu/Sat. Replaced the 3×/week gym habit on 2 Sep."
+    },
+    {
+      "name": "Client videos delivered inside the 5-day cap",
       "target": 3,
       "current": 0,
-      "unit": "sessions/week",
-      "deadline": "2026-12-31",
-      "status": "not started",
-      "note": "Floor of 2, target 3, from 1 Sep. Block is 7:00–8:20am. Costs ~1.5h of client morning per gym day, ~4.5h/week, accepted knowingly. NOT A LINE TO RAID — it is the one obligation that pays him back."
+      "status": "at risk",
+      "note": "Route Rise's standing term, confirmed 2 Sep. Client #1 late, Client #2 ran 8 days. Client #3 is the first one built to it."
     }
   ],
   "income": {
@@ -729,34 +731,34 @@
   ],
   "countdowns": [
     {
-      "date": "2026-08-30",
-      "label": "Client #2 deadline — 8:45pm",
-      "kind": "deadline",
-      "note": "Internal send target is 4:00pm. 4h45m of margin, and it is not to be spent in advance."
-    },
-    {
-      "date": "2026-08-31",
-      "label": "Detox + fast END — two separate decisions",
-      "kind": "decision",
-      "note": "Decide EXPLICITLY for each: keep, drop, or extend. Both spoken out loud. AND come out of it with named social-media windows — a time, a length, a cap. An unnamed window is what broke the detox on 27 Aug."
-    },
-    {
-      "date": "2026-09-02",
-      "label": "Wednesday content cadence STARTS",
-      "kind": "launch",
-      "note": "Week 1 of the 18. Video live 7:00pm WAT, banked the Tuesday before."
-    },
-    {
       "date": "2026-09-06",
       "label": "Notion→site parallel-run review",
       "kind": "decision",
       "note": "Not applicable any more — superseded 2026-08-28 when the site replaced the Notion plan."
     },
     {
+      "date": "2026-09-07",
+      "label": "Client #3 DUE — send 12 noon",
+      "kind": "deadline",
+      "note": "Route Rise caps every video at 5 days from start. Started Thu 3 Sep. Send target is noon, not evening. Client #2 ran 8 days against this same cap."
+    },
+    {
+      "date": "2026-09-11",
+      "label": "Kaduna — travel day",
+      "kind": "trip",
+      "note": "Not a working day. Clear any Route Rise revision before leaving. Back Sun 13 or Mon 14, not fixed."
+    },
+    {
       "date": "2026-09-12",
       "label": "Kaduna trip — meeting",
       "kind": "trip",
       "note": "₦50,000, Payday A, front half of the month."
+    },
+    {
+      "date": "2026-09-14",
+      "label": "Payday B — ₦416,325 in, ₦146,041 to Goal 1",
+      "kind": "money",
+      "note": "₦40,000 also goes to his sister. He may still be travelling back from Kaduna — the account has to be known before he leaves."
     },
     {
       "date": "2026-10-11",
@@ -1139,32 +1141,6 @@
         "label": "BED"
       }
     ],
-    "anchors_fasting": [
-      {
-        "time": "05:30",
-        "label": "Prayer + Bible study (45 min)"
-      },
-      {
-        "time": "15:00",
-        "label": "First meal"
-      },
-      {
-        "time": "16:00",
-        "label": "Nap (~1h)"
-      },
-      {
-        "time": "19:00",
-        "label": "Dinner"
-      },
-      {
-        "time": "18:30",
-        "label": "HARD STOP"
-      },
-      {
-        "time": "22:30",
-        "label": "BED"
-      }
-    ],
     "pa_sessions": [
       {
         "time": "07:03",
@@ -1189,7 +1165,39 @@
     ],
     "pa_weekly_hours": 10.5,
     "pomo_work_min": 50,
-    "pomo_break_min": 5
+    "pomo_break_min": 5,
+    "fast_status": "DROPPED 28 Aug 2026. Anchors are 12:00 / 13:00 / 18:00, permanently.",
+    "movement": [
+      {
+        "days": "Mon / Wed / Fri",
+        "what": "Gym — cycle, session, cycle, bathe",
+        "time": "07:00–08:20",
+        "then": "client block 1 at 08:30"
+      },
+      {
+        "days": "Tue / Thu / Sat",
+        "what": "Run 30 min, then bathe",
+        "time": "07:00–07:55",
+        "then": "client block 1 at 08:00"
+      },
+      {
+        "days": "Sunday",
+        "what": "Off — church",
+        "time": "—",
+        "then": "—"
+      }
+    ],
+    "movement_cost_hours_per_week": 7.5,
+    "social_media_windows": [
+      {
+        "window": "Lunch",
+        "time": "12:00–12:45"
+      },
+      {
+        "window": "Dinner",
+        "time": "18:00–18:30"
+      }
+    ]
   },
   "habits": {
     "habits": [
@@ -1772,6 +1780,11 @@
     "nights_floor_hit": 0,
     "nights_recorded": 4
   },
-  "warnings": [],
-  "content_hash": "65e4ba3951f2796f"
+  "warnings": [
+    "POTS ARE STALE: balances as of 2026-08-27, ledger runs to 2026-09-02. The money figures on every page are older than the day being shown.",
+    "MONEY LEDGER IS 5 DAY(S) BEHIND: last row 2026-08-28.",
+    "HABIT LOG IS 6 DAY(S) BEHIND: last entry 2026-08-27.",
+    "HABIT LOG CONTAINS HABITS THAT ARE NO LONGER TRACKED: Bible study (morning), Fasted, No masturbating, No social media (detox), Prayed. History is fine to keep; just do not read it as current."
+  ],
+  "content_hash": "20105cd223caf380"
 }

@@ -21,7 +21,7 @@
     statCard('Wednesdays shipped', `${goal.current} / ${goal.target}`, 'consecutive, no miss', 'red'),
     statCard('Instagram', num(C.instagram), 'followers', 'pink'),
     statCard('TikTok', num(C.tiktok), 'followers', 'pink'),
-    statCard('Next publish', daysLabel(daysUntil(C.cadence_start)), 'Wed 2 Sep, 7:00pm WAT', 'amber')));
+    statCard('Weeks banked', '0 / 18', 'cadence has not run once', 'amber')));
 
   add(h('div', { style: 'margin-top:14px' }, callout('warn', '\u{1F3AF}',
     '<strong>5,000 is an AMBITION, not a SMART goal.</strong> 460 → 5,000 on Instagram in four ' +
@@ -57,14 +57,14 @@
   K.streak(streakHost, cells, { cell: 26 });
 
   add(callout('bad', '\u{1F6A9}',
-    '<strong>Week 1 is at risk, and it was flagged at the build.</strong> The cadence starts Wed ' +
-    '2 Sep, which means its production week is <em>already running</em> — Thu 27 Aug ideation, ' +
-    'Fri 28 Aug scripting, Sat 29 Aug filming, Mon 31 Aug editing, Tue 1 Sep bank.',
-    '<strong>None of that has happened.</strong> This whole week is Client #2, and body.md ' +
-    'explicitly freed the 2:00–5:00pm content slots on the grounds that the cadence had not ' +
-    'started yet. Those two facts contradict each other.',
-    'Either week 1 slips to Wed 9 Sep, or the compressed one-off (Mon 31 / Tue 1 / Wed 2) recorded ' +
-    'on 26 Aug still stands. <strong>Needs his call — not decided here.</strong>'));
+    '<strong>Week 1 was missed. P1 is confirmed, not a candidate.</strong> Nothing was ideated, ' +
+    'scripted, filmed, edited or banked for Wed 2 Sep, and no Content #1 tasks were ever created.',
+    '<strong>That is three consecutive weeks at zero</strong> — 24 Aug (all three tasks deleted), ' +
+    'the week of 25–31 Aug, and this one. The afternoon-block override failed its own test every ' +
+    'week since it was written: eaten twice in a week meant it went back to mornings.',
+    '<strong>Content is being redesigned in a separate conversation (2 Sep).</strong> Nothing here ' +
+    'pre-empts that. The one constraint the new design must meet: it has to survive a week like ' +
+    '11–13 Sep, because the old one could not survive an ordinary Tuesday.'));
 
   add(h('h2', {}, 'The weekly pipeline'));
   add(h('div', { class: 'card pad-0' },

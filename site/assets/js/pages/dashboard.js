@@ -19,6 +19,21 @@
 
   const add = (...n) => n.flat().forEach(x => x && M.appendChild(x));
 
+  /* ------------------------------------------------- 0. is this record current? */
+  /* Added 2026-09-02. A stale site looks exactly like a correct one, which is how
+     dead fasting anchors and three expired countdowns stayed live for days. If the
+     build found anything out of sync, it says so HERE, at the top, before anything
+     else on the page can be believed. */
+
+  if ((OS.warnings || []).length) {
+    add(callout('bad', '\u{26A0}\u{FE0F}',
+      '<strong>THIS RECORD IS OUT OF SYNC.</strong> The build found ' +
+      OS.warnings.length + ' thing' + (OS.warnings.length === 1 ? '' : 's') +
+      ' on this site that no longer match <code>context/</code>. ' +
+      'Everything below is still the real record — but these parts are behind:',
+      ...OS.warnings.map(w => '• ' + w)));
+  }
+
   /* ------------------------------------------------------------ 1. today */
 
   add(h('div', { class: 'page-head' },

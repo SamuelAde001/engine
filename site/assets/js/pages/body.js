@@ -94,10 +94,13 @@
         h('div', { class: 'r mono', style: 'min-width:62px;font-weight:700' }, time12(a.time)),
         h('div', { class: 'grow' }, h('div', { class: 't' }, a.label)))))),
     h('div', { class: 'card' },
-      h('div', { class: 'card-h' }, h('h3', {}, 'While fasting'), h('span', { class: 'sub' }, '25–31 Aug')),
-      h('div', { class: 'rows' }, B.anchors_fasting.map(a => h('div', { class: 'row' },
-        h('div', { class: 'r mono', style: 'min-width:62px;font-weight:700;color:var(--amber)' }, time12(a.time)),
-        h('div', { class: 'grow' }, h('div', { class: 't' }, a.label))))))));
+      h('div', { class: 'card-h' }, h('h3', {}, 'Morning movement'),
+        h('span', { class: 'sub' }, (B.movement_cost_hours_per_week || 0) + 'h/week')),
+      h('div', { class: 'rows' }, (B.movement || []).map(m => h('div', { class: 'row' },
+        h('div', { class: 'r mono', style: 'min-width:96px;font-weight:700;color:var(--amber)' }, m.time),
+        h('div', { class: 'grow' },
+          h('div', { class: 't' }, m.what),
+          h('div', { class: 'sub' }, m.days + (m.then !== '—' ? ' · ' + m.then : '')))))))));
 
   /* --------------------------------------------------------- PA sessions */
 
