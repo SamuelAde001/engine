@@ -437,3 +437,174 @@ days because a weekend sat behind it. Nothing sits behind Client #3.
 
 **Which makes the 10pm phone rule load-bearing for next week's money, not just
 for his mood.** One 28-August next week and the deliverable is late.
+
+---
+
+## THE 5-DAY CAP — standing client term, confirmed 2026-09-02
+
+**Route Rise insists on 5 days maximum from start.** Samuel's words: *"The decision
+for the deadline of my clients videos are not to me, but to Route rise, they insist
+5 days max from start."*
+
+This is not an internal target and it is not negotiable. It is the term of the only
+income relationship he has.
+
+**What that means for every future client video, from now:**
+
+- The clock starts the day he opens the project, not the day he intends to start.
+- **Day 5 is delivery day, and the send target is noon on Day 5** — never the evening,
+  never "end of day". The internal target sits inside the client's deadline; that rule
+  predates this one and still holds.
+- **A Sunday inside the five days is NOT a working day.** Church runs 7:30am–3:00pm
+  and the course block runs 5:00–7:30pm. A five-day window containing a Sunday is a
+  **four-day window plus a 2h buffer**, and it must be planned that way from Day 1.
+- If a Day-5 window is impossible, Route Rise is told on **Day 2 or Day 3**, never on
+  Day 5. See the go/no-go marker below.
+
+**Client #2 ran 8 days against this cap.** Client #1 delivered on day 4 of a 3-day
+plan. Two consecutive breaches of a client term, with one client and no second income
+line. That is the actual risk in this business, and it is larger than the money risk.
+
+### Intensity is not the mechanism — structure is
+
+Samuel, 2026-09-02: *"So we would try to achieve todays intensity from Day 1 of
+clients videos so it doesn't overlap."* Right instinct, and the correction matters
+enough to write down.
+
+**2 September was not a harder day. It was a BUILT day.** Nine timed chunks written
+the night before, a pace marker at 8:45am, a picture lock at 9:40, five-minute breaks
+instead of ten, and a render started at 10:35 and walked away from. 28 August had the
+same body, the same skill and the same project, and produced 1h36m — because nothing
+was built.
+
+**So what repeats from Day 1 is the METHOD, not the adrenaline:**
+
+| Repeats every client day | Does NOT repeat |
+|---|---|
+| Chunks written the night before | The 4:00am start |
+| Timer on every chunk | Working through the nap |
+| ⚠ Pace marker at 11:30am, out loud | Skipping the 12:00pm meal |
+| A named MUST-CLOSE and a STRETCH | Pushing past the 6:30pm hard stop |
+| Picture lock as a time, not a feeling | |
+
+**Days 1–4 start at 7:30am. Only the ship day starts at 5:00am.** Five consecutive
+4am starts is P2 verbatim — the debt gets paid with the body — and it is how 25 August
+became a 19-hour day. Today's intensity came from a deliverable that was already late;
+that is not a renewable fuel and it must not be budgeted as one.
+
+### MUST-CLOSE / STRETCH — how slack is bought forward
+
+Every client day gets two lines, not one:
+
+- **MUST CLOSE** — the day fails if this does not close. Non-negotiable.
+- **STRETCH** — tomorrow's first item, pulled forward if today runs ahead.
+
+Slack is bought **forward**, never dumped on the ship day. Client #2 died the other
+way round: three days of carry all landed on one 4am morning.
+
+### The go/no-go marker
+
+**End of Day 2, 6:00pm.** Two questions, answered out loud: is the rough cut closed,
+is the intro closed. If either is NO, **Route Rise is messaged that evening** — while
+it is still a heads-up rather than a failure.
+
+27 Aug died because the shortfall was found at 6:30pm on the last day. 28 Aug died
+because nobody checked till 4pm. Client #2 ran three days over and the client was
+told on the day. A warning on Day 2 costs nothing. A late delivery on Day 5 costs
+the only client there is.
+
+### Revisions inside a live 5-day window
+
+Revisions remain immediate and same-day (rule above). Inside a live window they
+**displace that day's STRETCH, never the MUST-CLOSE.** If a revision is bigger than
+two hours, Route Rise is told the same hour that the current job's Day 5 is at risk —
+because a 5-day cap and an unbudgeted 2-hour interrupt cannot both be absorbed in
+silence.
+
+---
+
+## September 2026 — Kaduna, and what it moves
+
+**Fri 11 travel · Sat 12 the event · back Sun 13 or Mon 14 (not fixed).** Budgeted at
+₦50,000 in September's one-offs.
+
+Three consequences, all decided in advance rather than discovered:
+
+1. **Client #3 ships Mon 7 Sep, four clear days before the trip.** The 5-day cap made
+   this the date anyway; the travel makes it non-negotiable.
+2. **Sunday 13 September is a COURSE Sunday and it is at risk.** Module 1 has no
+   slack — 11 lessons at 2 a week completes 11 Oct, and the beta launches 16 Oct with
+   five days of buffer. Lose one Sunday and the launch slips a week.
+   **Recommendation on the record: record lessons 03 + 04 on Monday 7 Sep,
+   2:00–4:30pm**, using the ship-day afternoon that is free by design. The alternative
+   — four lessons on Sun 20 Sep, 5:00–10:00pm — is a five-hour evening past the hard
+   stop on the back of a travel week, which is how the 19-hour day happened.
+   **Decide by Thu 10 Sep, not on the 13th.**
+3. **Monday 14 September is PAYDAY B** — ₦416,325 lands, ₦146,041 moves to Goal 1,
+   ₦40,000 to his sister — **and he may be on a road.** Goal 1's account must be named
+   before he leaves, not after he gets back.
+
+**Gym this week: Tue 8, Wed 9, Thu 10.** Monday 7's session moved to Tuesday so the
+ship day keeps its morning; Friday 11's is lost to travel. Three sessions, target met,
+all before Kaduna. **This is the one sanctioned move.** If a gym session moves again
+next week for a different reason, the habit is dying and the weekly review says so.
+
+---
+
+## THE DAY SHAPE, REVISED 2026-09-02 — morning movement six days a week
+
+Supersedes the "default day shape" above for the morning half. Anchors, hard stop and
+bedtime are unchanged.
+
+```
+GYM DAY (Mon/Wed/Fri)              RUN DAY (Tue/Thu/Sat)
+5:30-6:15   prayer + Bible         5:30-6:15   prayer + Bible
+6:15-7:00   prep                   6:15-7:00   prep
+7:00-7:15   cycle there            7:00-7:30   RUN (30 min)
+7:15-7:45   session                7:30-7:55   BATHE and change
+7:45-8:00   cycle back
+8:00-8:20   BATHE and change
+8:30-12:00  client block 1         8:00-12:00  client block 1
+12:00-1:00  breakfast              12:00-1:00  breakfast
+1:00-2:00   nap                    1:00-2:00   nap
+2:00-6:00   client block 2         2:00-6:00   client block 2
+6:00        dinner                 6:00        dinner
+6:30        HARD STOP              6:30        HARD STOP
+10:30pm     BED                    10:30pm     BED
+```
+
+**Bathing is inside the block, not after it.** Samuel, 2 Sep: *"when I come back from
+Gym and run, I need to bathe."* It was already inside the gym block (8:00–8:20am) and
+is now inside the run block (7:30–7:55am). Client block 1 therefore starts **8:30am on
+gym days and 8:00am on run days** — never 7:00am on a movement day, and that is not
+recovered in the evening.
+
+**Sunday has no movement block.** Church is 7:30am–3:00pm; the day is already spoken for.
+
+### The cost, stated so it is never rediscovered mid-week
+
+| | Per day | Per week |
+|---|---|---|
+| Gym (Mon/Wed/Fri) | ~1h30 of client morning | **4h30** |
+| Run (Tue/Thu/Sat) | ~1h of client morning | **3h00** |
+| | | **7h30 total** |
+
+That is close to a full working day, in a month where Route Rise caps every video at
+five days from start. **It is being paid on purpose.** The body is what failed in
+August — three nights at 4–5.5 hours produced the 28 August collapse — and 7h30 a week
+is cheaper than another lost day.
+
+**But it makes the STRETCH mechanism load-bearing.** A run day is 6h20 of chunk time
+against a non-movement day's 7h. The hour does not come back by working later; it comes
+back by a preceding day closing its MUST-CLOSE early and pulling tomorrow's first item
+forward. If the stretch never happens, the movement habit and the 5-day cap are in
+direct conflict and one of them will break — say so at the weekly review rather than
+letting the gym quietly become the thing that gets cancelled.
+
+### Content is out of this shape, pending redesign
+
+The 2:00–4:00pm content window is **not allocated** in the block above. Samuel took
+content into a separate conversation on 2026-09-02 and is redesigning it. Client block 2
+runs 2:00–6:00pm in the meantime. When the new content design lands, it takes its slot
+back out of client block 2 — that is where the hours come from and it should be said
+plainly rather than discovered.

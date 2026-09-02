@@ -55,3 +55,47 @@ late wake; it does not explain the ten hours after it. The phone does.
 every night, 10:00pm.** Confirm or kill this at the first weekly review with seven
 nights of data. If the mornings do not turn with the phone out of the room, the
 cause is somewhere else and this candidate dies.
+
+## P1 — CONFIRMED 2026-09-02. No longer a candidate for the audience half.
+
+Three consecutive weeks at ZERO content. Evidence: 2026-08-24 (all three content
+tasks for the week DELETED); week of 25–31 Aug (nothing filmed, nothing published);
+week of 1–2 Sep (nothing filmed Saturday, nothing published Wednesday 2 Sep, and no
+Content #1 tasks were ever created in TickTick at all).
+
+Week 1 of the "18 consecutive Wednesdays" score is already a miss, and it was missed
+before the cadence ever ran once.
+
+The audience.md test — *"if the afternoon content block is eaten by client work twice
+in one week, the override was wrong and it goes back to mornings"* — has been failed
+every week since it was written. The afternoon override is dead on the evidence.
+
+**Samuel has taken content into a separate conversation (2026-09-02) and is redesigning
+it. That is his call and this file does not pre-empt it.** But the constraint any new
+design has to satisfy is written here so it cannot be quietly forgotten: it must survive
+a week like 11–13 Sep, because the old design could not survive an ordinary Tuesday.
+
+## P5 — The scope is estimated once and never re-estimated (candidate, 2026-09-02)
+
+Client #2 was planned as a 5-day job. It took **8 days, 27 Aug – 2 Sep**, against a
+Route Rise contractual cap of **5 days maximum from start** (confirmed by Samuel
+2026-09-02). That is 60% over the client's stated terms, on the back of Client #1
+delivering on day 4 of a 3-day plan.
+
+The estimate never moved during the overrun. There was no day on which the plan was
+re-cut to the truth — it just kept being the 5-day plan, later.
+
+What the data actually says, and it is not what it looks like: Client #2's eight days
+contained roughly **three productive days.** 27 Aug logged 5h21m, 28 Aug logged 1h36m
+verified, 29 Aug – 1 Sep are a hole in the record, and 2 Sep did body §3, §4, outro,
+sound and render in about eight hours and closed the job.
+
+**So the job is not an 8-day job. It is a ~30-hour job spread across whatever number
+of days it is allowed to occupy.** The variable is not scope and it is not skill. It
+is whether the day was built into timed chunks before it started. 2 Sep was. 28 Aug
+was not.
+
+Confirm or kill at the review after Client #3 delivers. The test: Client #3 is the
+first job with all five days pre-built and a total-hours figure logged at delivery.
+If it ships Monday 7 Sep inside the cap, this is confirmed and every future week gets
+planned from the real hours instead of a day count.

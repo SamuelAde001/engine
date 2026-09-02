@@ -152,3 +152,96 @@ five hours of sleep. It requires one at 10pm, awake. That is the whole design.
 **Cost of breaking it:** none set yet, deliberately. Seven nights of data first
 (see `context/patterns.md` → P4). If the mornings do not turn with the phone out
 of the room, this gets thrown out rather than nagged about.
+
+## THE 31 AUGUST DECISION LAPSED SILENTLY — recorded 2026-09-02
+
+This file said, in capital letters, **DO NOT LET EITHER LAPSE SILENTLY.** The detox
+block ended 31 August. No keep/drop/extend decision was made, by anyone, on any day.
+
+**And there have been ZERO habit check-ins since 28 August.** Five blank days across
+all five habits, plus the two that started 1 September:
+
+| Habit | Last check-in | Status |
+|---|---|---|
+| No social media (detox) | 27 Aug | block ended 31 Aug, undecided |
+| Phone away by 10pm | **28 Aug — night 1 only** | 1 night of data out of 7 |
+| Prayed | 27 Aug | untracked |
+| Bible study | 27 Aug | untracked |
+| No masturbating | 28 Aug (broken) | untracked |
+| **Gym** (started 1 Sep) | **never** | 0 sessions logged |
+| **Sleep by 10:30pm** (started 1 Sep) | **never** | 0 nights logged |
+
+**What this costs, specifically.** P4 in `context/patterns.md` put the 10pm phone rule
+under test and said: *"Confirm or kill this at the first weekly review with seven
+nights of data."* There is one night of data. So the rule that was designed to be
+judged on evidence will now be judged on nothing — and a rule judged on nothing gets
+thrown out even when it was working. The experiment did not fail. It was never run.
+
+The gym is worse: it started 1 September as a 3×/week habit and has not been logged
+once, in the same week it was meant to begin. Nothing on the record says whether he
+went.
+
+**TWO DECISIONS, BOTH STILL OPEN, BOTH DUE TONIGHT (2 Sep):**
+
+1. **Keep / drop / extend the detox.** Any of the three is a legitimate answer.
+   Not deciding is not.
+2. **The named social-media windows** he asked for on 27 August — his words:
+   *"we need to schedule times for social media in future after this detox so that I
+   won't be bored all day."* He was right, it was the real finding of that day, and
+   it never got built. A time, a length, a cap. His numbers, not invented ones.
+   An unnamed window is what broke the detox on day 3.
+
+### The rule that stops this recurring
+
+**A reckoning that does not run still writes a ledger row.** Even one that says
+UNRECORDED. Five blank days is why an 8-day overrun on Client #2 has no cause anywhere
+in the record — the engine that catches drift was switched off for the exact five days
+that drifted. A blank is worse than an ugly row, because an ugly row can be reviewed.
+
+## MORNING MOVEMENT — added 2026-09-02, replaces "gym 3×/week" as the tracked habit
+
+Samuel asked whether the gym should be daily, and morning or evening.
+
+**Morning. Evening was refused and the reason is structural, not preference.** Dinner
+is 6:00pm, hard stop 6:30pm, bed target 10:30pm. An evening session either breaks the
+hard stop or eats dinner, and it puts a training spike two hours from a bedtime he has
+never once hit on the record. Sleep is the wall the gym, the 5:30am prayer block and
+the 5-day client cap all stand on. Evening gym trades the load-bearing habit for one
+sitting on top of it.
+
+**Daily gym was also refused, for now.** The gym habit started 1 Sep and has ZERO
+logged sessions. 0 → 7 is how people get back to 0. And the arithmetic is real: 3×/week
+costs ~4h30 of client morning, daily costs ~10h30 — a quarter of a ~30-hour client job,
+against a cap of 5 days per video.
+
+**What was built instead — his instinct was right, the decision at 6:50am is the enemy:**
+
+| Day | Block | Time |
+|---|---|---|
+| **Mon / Wed / Fri** | GYM — cycle, session, cycle, bathe | 7:00–8:20am |
+| **Tue / Thu / Sat** | **RUN 30 min + bathe** — his call, 2 Sep ("we would have a run instead of a bike, 30 mins is enough") | **7:00–7:55am** |
+| Sunday | off — church | — |
+
+**Bathing is inside both blocks, not after them** — his point, 2 Sep: *"when I come
+back from Gym and run, I need to bathe."* Gym carries 8:00–8:20am, the run carries
+7:30–7:55am. Client block 1 starts **8:30am on gym days, 8:00am on run days.**
+
+- **TickTick habit `6a984bc38f0842fe13de746c` — "Morning movement (gym or run)",
+  6×/week (Mon–Sat), reminder 07:00, started 3 Sep 2026.** This is the habit the
+  reckoning asks about now. The separate Gym habit (`6a8eec9b8f0800ee1524083a`) stays
+  and still tracks the 3 full sessions — movement is the streak, gym is the training.
+- Recurring run task `6a984bd38f08b5fe1177ed9b`, Tue/Thu/Sat.
+
+**THE POINT IS NOT THE FITNESS.** It is that he is out of the house by 7:00am six
+mornings a week, so no morning ever contains an unstructured gap to negotiate with.
+P4: *a gap that opens at 6am costs a day.* This closes the gap with a commitment made
+the night before, not a decision made at 6:50am on five hours of sleep.
+
+**THE HONEST PRICE: 7h30 of client morning per week** (4h30 gym + 3h run), up from
+4h30. That is close to a full working day, in a month where Route Rise caps every video
+at 5 days. It is being paid on purpose. It is NOT recovered by working past 6:30pm.
+
+**ESCALATION IS EARNED, NOT ASKED FOR.** Log 3× gym for two consecutive weeks and it
+goes to four. Not before. body.md already warns that a session stacked on a four-hour
+night makes him feel worse and he will blame the gym — daily training on the current
+sleep record is that trap with extra steps.

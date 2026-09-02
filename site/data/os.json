@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T06:34:31",
+  "generated": "2026-08-28T22:22:56",
   "profile": {
     "name": "Samuel",
     "site_name": "Samuelsignals OS",
@@ -257,15 +257,15 @@
       "focus_committed": 8.0,
       "habits_hit": 0,
       "habits_set": 5,
-      "bed": "23:00",
-      "slept": 6.5,
+      "bed": "22:00",
+      "slept": null,
       "verdict": "PARTIAL",
       "interim": false,
       "content_due": false,
       "content_shipped": true,
       "money_due": false,
       "money_moved": false,
-      "score": 34,
+      "score": 44,
       "score_components": {
         "verdict": {
           "points": 20,
@@ -282,36 +282,14 @@
           "of": 20
         },
         "sleep": {
-          "points": 10,
+          "points": 20,
           "of": 20,
-          "bed": "23:00"
+          "bed": "22:00"
         }
       },
       "notes": "**Planned:** 9am start. Invoice (30m) → Client #2 INTRO carry from Day 2 → Client #2 Day 3 body, 6 pomos 11:15am–6:30pm. \"Remain focused, leave nothing undone.\"\n\n**What actually happened, his words:** woke late, doomscrolled before standing up, masturbated several times, broke the fast, no Bible, no prayer, procrastinated the editing. Intro still not started — second consecutive day of carry. Body untouched. Pomos P1–P4 marked DEAD in TickTick, not rescheduled; they are on the record as slots that did not happen.\n\n**New load that landed today:** Client #1 sent revisions AGAIN (round 2 in three days). Client #3 assigned — starts Mon 31 Aug, due Fri 4 Sep, next month's payment.\n\n**Diagnosis — the chain, not the character.** 25 Aug: 19h06m march, bed 1:42am. 26 Aug: bed 1:30am, 4h. 27 Aug: bed 1:30am, ~5.5h. Three straight nights under six hours, two of them at four to five and a half, on day 4 of a fast that removes food until 3pm, while running eight-hour edit days. The late wake was arithmetic, not a choice. The one controllable variable in the whole sequence: **the phone was within arm's reach when he woke.** The scroll, the dead 5:30am prayer block, the masturbation loop, the food grab and the avoidance all hang off that single fact. Willpower was never the variable — reachability was.\n\n**What got built at 4:45pm:**\n- Day 3 rebuilt as 4 evening pomos, 5:00–9:00pm. Intro closes tonight, body starts.\n- **6:30pm hard stop broken — exception #2 in three days**, approved on the grounds that 3h20m tonight is cheaper than the 12-hour Saturday it prevents. Price: laptop closed 9:00pm, phone out of the bedroom 10:00pm, bed 10:30pm.\n- Saturday 29 Aug rebuilt as **12 pomos, 5:30am–8:25pm**, prayer block restored at the front, pace marker at 4:20pm, picture lock 8:25pm. 10h logged against a personal best of 5h21m — said out loud now, not discovered at 6pm.\n- Sunday 30 Aug rebuilt: 3 sound pomos → render at 10:45 → 2h review → **SEND V1 4:00pm** against an 8:45pm deadline. Course block named as the declared flex if Saturday overruns.\n- New: Client #1 revisions (Sun 4–5pm, after the send), Client #3 ingest+scope (Mon, no cutting until the scope number exists), Client #3 send target 2:00pm Fri.\n- New daily recurring: **PHONE OUT OF THE BEDROOM, 10:00pm.**\n\n**Habits:** not closed — this is not the reckoning. Known broken today by his own account: fasted, prayed, Bible study, no masturbating. Social media unconfirmed but he says he doomscrolled, which would make it the **second break of the 7-day block** (first was 27 Aug) — and two breaks in one week triggers the stakes.md YouTube forfeit. Confirm at tonight's 9pm reckoning; do not tick or mark anything before then.\n\n**Verdict:** IN PROGRESS. Not a final reckoning — revisit at 9pm.",
       "week": "2026-08-24",
       "focus_pct": 20
-    },
-    {
-      "date": "2026-08-29",
-      "committed": "Client #2 Day 4 — intro carry + full body + outro → PICTURE LOCK. 12 pomos, 5:30am–8:45pm. Pace marker 4:40pm. No new tasks.",
-      "shipped": "",
-      "focus_logged": null,
-      "focus_committed": null,
-      "habits_hit": null,
-      "habits_set": null,
-      "bed": null,
-      "slept": null,
-      "verdict": "PLANNED",
-      "interim": false,
-      "content_due": false,
-      "content_shipped": true,
-      "money_due": false,
-      "money_moved": false,
-      "score": null,
-      "score_components": {},
-      "notes": "",
-      "week": "2026-08-24",
-      "focus_pct": null
     }
   ],
   "weeks": [
@@ -320,10 +298,10 @@
       "shipped": 2,
       "partial": 3,
       "missed": 0,
-      "open": 1,
+      "open": 0,
       "focus": 29.44,
-      "days": 6,
-      "avg_score": 51
+      "days": 5,
+      "avg_score": 53
     }
   ],
   "money_ledger": [
@@ -1681,17 +1659,18 @@
     ]
   },
   "summary": {
-    "days_recorded": 6,
+    "days_recorded": 5,
     "days_closed": 5,
     "shipped": 2,
     "partial": 3,
     "missed": 0,
     "total_focus": 29.44,
-    "last_score": 34,
-    "avg_score": 51,
-    "today": "2026-08-29",
-    "nights_floor_hit": 0,
+    "last_score": 44,
+    "avg_score": 53,
+    "today": "2026-08-28",
+    "nights_floor_hit": 1,
     "nights_recorded": 4
   },
-  "warnings": []
+  "warnings": [],
+  "content_hash": "0ce716608992a1e6"
 }
