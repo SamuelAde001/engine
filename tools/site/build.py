@@ -329,12 +329,46 @@ def parse_ledger_notes():
     return notes
 
 
+TODAY = date.today().isoformat()
+
 BUDGET_MONTHS = ["2026-08", "2026-09", "2026-10", "2026-11", "2026-12",
                  "2027-01", "2027-02", "2027-03", "2027-04", "2027-05",
                  "2027-06", "2027-07"]
 
 
-def parse_budget_plan(income=None):
+def parse_spend():
+    """context/spend.jsonl — the structured twin of the ledger's spend prose.
+
+    The ledger's Out column is a sentence, so nothing could add it up and every
+    category on the Budget page read N0. Same facts, same words, one JSON object
+    per line, and the same rows that go to the sheet's Expenses tab.
+    """
+    path = CTX / "spend.jsonl"
+    if not path.exists():
+        return []
+    out = []
+    for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            row = json.loads(line)
+        except ValueError:
+            warn("spend.jsonl line %d is not valid JSON" % n)
+            continue
+        if "_comment" in row:
+            continue
+        if not (row.get("date") and row.get("category") and row.get("amount") is not None):
+            warn("spend.jsonl line %d needs date, category and amount" % n)
+            continue
+        if not DATE_RE.match(row["date"]):
+            warn("spend.jsonl line %d has a bad date: %s" % (n, row["date"]))
+            continue
+        out.append(row)
+    return out
+
+
+def parse_budget_plan(income=None, paydays=None):
     path = REPO / "tools" / "sheets" / "plan.json"
     if not path.exists():
         warn("tools/sheets/plan.json missing")
@@ -355,6 +389,15 @@ def parse_budget_plan(income=None):
                           "active": str(active).lower().startswith("y"),
                           "month": month, "note": note})
     savings = plan.get("savings", [])
+    spend = parse_spend()
+
+    # Which categories the plan knows about. A spend row outside this set is a
+    # real signal, not a typo to swallow: it is money leaving under a name the
+    # budget never planned for.
+    known = {i["category"] for i in items if i["active"]}
+    for r in spend:
+        if r["category"] not in known:
+            warn("spend.jsonl: category %r is not in plan.json" % r["category"])
 
     # THE MONTH MUST BALANCE. Derived here, never typed: income minus bills
     # minus that month's one-offs minus every pot. A month that does not end at
@@ -390,9 +433,121 @@ def parse_budget_plan(income=None):
             "pot_split": {v["pot"]: v["schedule"][m] for v in savings if m in v["schedule"]},
             "left": gross - bills - one - pots,
         })
+    # ---------------------------------------------------------- actuals ----
+    # Everything below is DERIVED. Nothing is typed, so it moves the moment a
+    # spend row is logged, a plan line changes or a payday amount is corrected.
+    paydays = paydays or []
+
+    # A payday belongs to the month it FUNDS, not the month it lands in.
+    # Payday A is the 70% arriving at the end of the previous month, so
+    # 30 Sep funds October. Matching on the date put ~N962,000 of October's
+    # money into September's expected income. The labels already carry the
+    # month they fund ("Payday A - October"), so read that instead.
+    MONTH_NAMES = ["January", "February", "March", "April", "May", "June",
+                   "July", "August", "September", "October", "November", "December"]
+
+    def funds_month(pd):
+        # Read the month straight after "Payday A - ". Scanning the whole label
+        # for any month name matches the wrong one: "Payday A - September
+        # (August 70%)" names two months, and the batch's month is not the
+        # month it funds.
+        mo = re.match(r"\s*Payday\s+[AB]\s*[—–-]\s*([A-Za-z]+)", pd.get("label") or "")
+        if mo and mo.group(1) in MONTH_NAMES:
+            want = MONTH_NAMES.index(mo.group(1)) + 1
+            for m in BUDGET_MONTHS:
+                if int(m[5:7]) == want:
+                    return m
+        return (pd.get("date") or "")[:7]
+
+    def money_in(month):
+        got = still = 0
+        for pd in paydays:
+            if funds_month(pd) != month:
+                continue
+            amt = pd.get("amount") or 0
+            if pd.get("confirmed") and (pd.get("date") or "") <= TODAY:
+                got += amt
+            else:
+                still += amt
+        return got, still
+
+    months_out = {}
+    for m in BUDGET_MONTHS:
+        if m < plan_start:
+            continue
+        rows = [r for r in spend if r["date"].startswith(m)]
+        paid_by_cat = {}
+        for r in rows:
+            paid_by_cat[r["category"]] = paid_by_cat.get(r["category"], 0) + r["amount"]
+
+        # Plan for this month, per category, split by payday.
+        plan_by_cat = {}
+        for i in items:
+            if not i["active"] or (i["month"] and i["month"] != m):
+                continue
+            e = plan_by_cat.setdefault(i["category"], {"A": 0, "B": 0})
+            e[i["payday"] if i["payday"] in ("A", "B") else "B"] += i["amount"]
+        for v in savings:
+            amt = v["schedule"].get(m, 0)
+            if not amt:
+                continue
+            e = plan_by_cat.setdefault("Savings — " + v["pot"], {"A": 0, "B": 0})
+            e[v.get("payday") if v.get("payday") in ("A", "B") else "B"] += amt
+
+        # Attribute what was PAID against the plan, filling Payday A's share
+        # first and spilling into B. Not by the date it was spent: a category
+        # planned on B that gets paid on the 3rd must still reduce B's
+        # still-to-pay, or the cushion figure lies.
+        cats = []
+        for cat in sorted(set(list(plan_by_cat) + list(paid_by_cat))):
+            pl = plan_by_cat.get(cat, {"A": 0, "B": 0})
+            paid = paid_by_cat.get(cat, 0)
+            pa = min(paid, pl["A"])
+            pb = min(paid - pa, pl["B"])
+            over = paid - pa - pb
+            cats.append({
+                "category": cat, "planned": pl["A"] + pl["B"],
+                "planned_a": pl["A"], "planned_b": pl["B"],
+                "paid": paid, "paid_a": pa, "paid_b": pb, "unplanned": over,
+                "left": pl["A"] + pl["B"] - paid,
+                "is_pot": cat.startswith("Savings — "),
+            })
+
+        got, still = money_in(m)
+        agg = lambda k: sum(c[k] for c in cats)
+        budget_a, budget_b = agg("planned_a"), agg("planned_b")
+        paid_a, paid_b = agg("paid_a"), agg("paid_b")
+        months_out[m] = {
+            "month": m,
+            "categories": cats,
+            "income_expected": got + still,
+            "income_received": got,
+            "income_to_come": still,
+            "budget_a": budget_a, "budget_b": budget_b,
+            "budget_total": budget_a + budget_b,
+            "paid_a": paid_a, "paid_b": paid_b,
+            "paid_total": agg("paid"),
+            "unplanned": agg("unplanned"),
+            "left_a": budget_a - paid_a, "left_b": budget_b - paid_b,
+            "left_total": (budget_a + budget_b) - (paid_a + paid_b),
+            "cushion_a": None, "cushion_b": None,
+            "spend_rows": [r for r in rows],
+        }
+        for pd in paydays:
+            if funds_month(pd) != m:
+                continue
+            L = pd.get("label") or ""
+            if L.startswith("Payday A") and months_out[m]["cushion_a"] is None:
+                months_out[m]["cushion_a"] = (pd.get("amount") or 0) - budget_a
+            if L.startswith("Payday B") and months_out[m]["cushion_b"] is None:
+                months_out[m]["cushion_b"] = (pd.get("amount") or 0) - budget_b
+
     return {
         "plan_start": plan.get("plan_start"),
         "tracking_start": plan.get("tracking_start"),
+        "today": TODAY,
+        "months": months_out,
+        "spend": spend,
         "items": items,
         "savings": savings,
         "balance": balance,
@@ -480,7 +635,7 @@ def main():
     money = parse_money_ledger()
     habits = parse_habits()
     patterns = parse_patterns()
-    budget = parse_budget_plan(site["income"])
+    budget = parse_budget_plan(site["income"], site["paydays"])
 
     # score + attach narrative
     for row in ledger:
@@ -744,11 +899,20 @@ def main():
     # never appeared both survived that way. If the record changed, every file
     # that draws it is re-fetched.
     pattern = re.compile(r'(src="(?:\.\./)?(?:data/os|assets/js/[A-Za-z0-9_/-]+)\.js)(?:\?v=[^"]*)?(")')
+    # And the stylesheet, for exactly the same reason. Added 2026-09-02 after a
+    # new rule shipped and the browser kept serving a cached app.css: the bars
+    # were in the DOM with zero height, so the page rendered blank columns and
+    # looked like a code bug. JS was stamped, CSS was not, and a half-stamped
+    # site is the worst of both — the numbers update and the thing that draws
+    # them does not.
+    css_pattern = re.compile(
+        r'(href="(?:\.\./)?assets/css/[A-Za-z0-9_/-]+\.css)(?:\?v=[^"]*)?(")')
     shells = [REPO / "site" / "index.html", *sorted((REPO / "site" / "pages").glob("*.html"))]
     stamped = 0
     for shell in shells:
         html = shell.read_text(encoding="utf-8")
         new = pattern.sub(r'\g<1>?v=' + stamp + r'\g<2>', html)
+        new = css_pattern.sub(r'\g<1>?v=' + stamp + r'\g<2>', new)
         if new != html:
             shell.write_text(new, encoding="utf-8")
             stamped += 1

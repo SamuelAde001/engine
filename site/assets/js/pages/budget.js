@@ -10,17 +10,41 @@
   const add = (...n) => n.flat().forEach(x => x && M.appendChild(x));
 
   const B = OS.budget;
-  const MONTH = B.plan_start;                       // 2026-09 — the first planned month
+  // Which month this page is showing. Defaults to the month we are actually
+  // IN, not to plan_start — a dashboard pinned to September is a dashboard
+  // that starts lying on 1 October. ?m=YYYY-MM overrides it, and every figure
+  // on the page follows, so the whole thing is one month's view of the record.
+  const MONTHS_AVAIL = Object.keys(B.months || {}).sort();
+  const qsMonth = new URLSearchParams(location.search).get('m');
+  const nowMonth = (B.today || '').slice(0, 7);
+  const MONTH = (MONTHS_AVAIL.indexOf(qsMonth) >= 0 && qsMonth)
+    || (MONTHS_AVAIL.indexOf(nowMonth) >= 0 ? nowMonth : B.plan_start);
+  const monthLabel = (m) => new Date(m + '-02')
+    .toLocaleString('en-GB', { month: 'short', year: '2-digit' });
   const items = B.items.filter(i => i.active);
   const forMonth = items.filter(i => !i.month || i.month === MONTH);
 
-  /* actuals, from the money ledger — the only place actuals may come from */
+  /* The month, entirely derived in build.py from plan.json + spend.jsonl +
+     OS.paydays. Nothing on this page is typed: log a spend row, change a plan
+     line or correct a payday amount and every number below moves with it. */
+  const MO = (B.months || {})[MONTH] || {};
+  const CATS = MO.categories || [];
   const actualByCat = {};
-  OS.money_ledger.forEach(r => {
-    if (!r.date.startsWith(MONTH)) return;
-    // The ledger's out column is prose; category attribution lives in the note.
-    // Until a month is actually spent there is nothing to attribute.
-  });
+  CATS.forEach(c => { actualByCat[c.category] = c.paid; });
+
+  const TODAY = B.today || '';
+  const dayOfMonth = TODAY.startsWith(MONTH) ? parseInt(TODAY.slice(8), 10) : 0;
+  const inFirstHalf = dayOfMonth > 0 && dayOfMonth < 15;
+  const monthStarted = TODAY >= MONTH + '-01';
+
+  // Free right now = what is in the bank, less what the CURRENT payday period
+  // still has to pay. Payday B's bills are not yet funded, so counting them
+  // here would show a man with money in the bank as broke.
+  const stillThisHalf = monthStarted
+    ? (inFirstHalf ? (MO.left_a || 0) : (MO.left_b || 0))
+    : (MO.left_a || 0);
+  const bank = (OS.pots || {}).bank || 0;
+  const freeNow = bank - stillThisHalf;
 
   const cats = [...new Set(forMonth.map(i => i.category))];
   const planByCat = {};
@@ -49,10 +73,20 @@
     .reduce((a, v) => a + (v.schedule[MONTH] || 0), 0);
   const potsA = potsOn('A'), potsB = potsOn('B');
 
-  add(pageHead('Budget', `The plan for ${MONTH}`,
+  add(pageHead('Budget', `The plan for ${monthLabel(MONTH)}`,
     'Every line item, what it is made of, and which payday funds it. ' +
     '<strong>Nothing here is a mystery number</strong> — a category total is always the sum of ' +
     'named items underneath it.'));
+
+  if (MONTHS_AVAIL.length > 1) {
+    add(h('div', { class: 'monthpick' },
+      h('span', { class: 't-sm t-dim' }, 'Month:'),
+      MONTHS_AVAIL.map(m => h('a', {
+        class: 'mp' + (m === MONTH ? ' on' : '') + (m === nowMonth ? ' now' : ''),
+        href: '?m=' + m,
+        title: m === nowMonth ? 'the month you are in' : m,
+      }, monthLabel(m)))));
+  }
 
   add(callout('info', 'ℹ',
     `<strong>August was never planned, deliberately.</strong> The baseline was set on 26 August ` +
@@ -65,33 +99,143 @@
 
   /* ------------------------------------------------------------- headline */
 
-  add(h('div', { class: 'grid g4 tight', style: 'margin-top:14px' },
-    statCard('Planned, September', naira(totalPlan, { short: true }),
-      `${forMonth.length} active line items`),
-    statCard('Payday A funds', naira(paydayA, { short: true }), 'the 1st – 14th', 'green'),
-    statCard('Payday B funds', naira(paydayB, { short: true }), 'the 15th – month end', 'blue'),
-    statCard('Obligations floor', naira(OS.income.obligations_floor, { short: true }),
-      'recurring only, no one-offs', 'amber')));
+  const monthName = new Date(MONTH + '-02').toLocaleString('en-GB', { month: 'long' });
+
+  add(h('h2', {}, monthName + ' at a glance'),
+    h('p', { class: 'lede', style: 'margin-bottom:12px' },
+      monthStarted
+        ? h('span', {}, 'As at ', h('strong', {}, TODAY), ' — day ', h('strong', {}, String(dayOfMonth)),
+            ', in the ', h('strong', {}, inFirstHalf ? 'FIRST half (Payday A funds it)'
+                                                     : 'SECOND half (Payday B funds it)'), '.')
+        : h('span', {}, monthName + ' has not started yet. Everything below is the plan.')));
+
+  add(h('div', { class: 'grid g4 tight' },
+    statCard('Expected in this month', naira(MO.income_expected || 0, { short: true }),
+      naira(MO.income_received || 0, { short: true }) + ' received · ' +
+      naira(MO.income_to_come || 0, { short: true }) + ' still to come', 'green'),
+    statCard('Budgeted out', naira(MO.budget_total || 0, { short: true }),
+      CATS.length + ' categories, bills and pots together', 'amber'),
+    statCard('Paid so far', naira(MO.paid_total || 0, { short: true }),
+      MO.paid_total ? 'logged rows only — nothing is assumed paid' : 'nothing logged yet'),
+    statCard('Left to pay', naira(MO.left_total || 0, { short: true }),
+      naira(MO.left_a || 0, { short: true }) + ' on A · ' +
+      naira(MO.left_b || 0, { short: true }) + ' on B', 'blue')));
+
+  const isThisMonth = MONTH === nowMonth;
+
+  add(h('div', { class: 'grid g4 tight', style: 'margin-top:10px' },
+    isThisMonth
+      ? statCard('In the bank', naira(bank, { short: true }),
+          'as at ' + ((OS.pots || {}).as_of || '—'))
+      : statCard('In the bank', h('span', { class: 't-dim' }, '—'),
+          'a fact about today, not about ' + monthLabel(MONTH)),
+    isThisMonth
+      ? statCard('Free right now', naira(freeNow, { short: true }),
+          'after the ' + (inFirstHalf ? 'Payday A' : 'Payday B') + ' money still to go out',
+          freeNow < 0 ? 'red' : freeNow < 50000 ? 'amber' : 'green')
+      : statCard('Cushion if it goes to plan', naira((MO.income_expected || 0) - (MO.budget_total || 0), { short: true }),
+          'everything in, everything out',
+          (MO.income_expected || 0) - (MO.budget_total || 0) < 0 ? 'red' : 'green'),
+    statCard('Payday A', naira(inA, { short: true }),
+      naira(MO.budget_a || 0, { short: true }) + ' budgeted · ' +
+      naira(MO.paid_a || 0, { short: true }) + ' paid', 'green'),
+    statCard('Payday B', naira(inB, { short: true }),
+      naira(MO.budget_b || 0, { short: true }) + ' budgeted · ' +
+      naira(MO.paid_b || 0, { short: true }) + ' paid', 'blue')));
+
+  /* ------------------------------------------------ the two paydays, in full */
+
+  const cushA = (MO.cushion_a == null ? inA - (MO.budget_a || 0) : MO.cushion_a);
+  const cushB = (MO.cushion_b == null ? inB - (MO.budget_b || 0) : MO.cushion_b);
+  const vcol = (n) => h('strong', { class: 'v ' + (n < 0 ? 'red' : 'green') }, naira(n));
+
+  add(h('div', { class: 'card pad-0', style: 'margin-top:14px' },
+    table(['', { label: 'Payday A · 1st–14th', num: true },
+               { label: 'Payday B · 15th–end', num: true },
+               { label: 'The month', num: true }], [
+      ['Money in', naira(inA), naira(inB), h('strong', {}, naira(inA + inB))],
+      ['Budgeted out', naira(MO.budget_a || 0), naira(MO.budget_b || 0),
+        h('strong', {}, naira(MO.budget_total || 0))],
+      ['Paid so far', naira(MO.paid_a || 0), naira(MO.paid_b || 0),
+        h('strong', {}, naira(MO.paid_total || 0))],
+      ['Still to pay', naira(MO.left_a || 0), naira(MO.left_b || 0),
+        h('strong', {}, naira(MO.left_total || 0))],
+      [h('strong', {}, 'Cushion'), vcol(cushA), vcol(cushB), vcol(cushA + cushB)],
+    ])));
+
+  const shortHalf = cushA < 0 || cushB < 0;
+  const monthShort = (cushA + cushB) < 0;
+  if (shortHalf || monthShort) {
+    const paras = [];
+    if (shortHalf) {
+      const bad = cushA < 0 ? 'A' : 'B', good = cushA < 0 ? 'B' : 'A';
+      const gap = -(cushA < 0 ? cushA : cushB), spare = Math.max(cushA, cushB);
+      paras.push(
+        '<strong>Payday ' + bad + ' cannot fund itself \u2014 short ' + naira(gap) + '.</strong> ' +
+        (spare > 0
+          ? 'Payday ' + good + ' has ' + naira(spare) + ' spare, so ' +
+            (spare >= gap
+              ? 'this is a TIMING problem, not a money one. Rule 3 already covers it: any Payday A ' +
+                'excess over \u20a650,000 moves the same day it lands.'
+              : 'moving that across still leaves ' + naira(gap - spare) + ' to find.')
+          : 'and the other half has nothing spare to move.'));
+    }
+    if (monthShort) {
+      paras.push('<strong>And the month itself is short ' + naira(-(cushA + cushB)) + '.</strong> ' +
+        'That is real money missing, not a scheduling problem, and no amount of moving cash between ' +
+        'paydays closes it. It comes out of the Buffer or it comes out of a plan line.');
+    } else if (shortHalf) {
+      paras.push('The month as a whole still balances, with ' + naira(cushA + cushB) + ' over.');
+    }
+    add(callout('warn', '⚠', ...paras));
+  }
 
   /* --------------------------------------------------- plan vs actual chart */
 
   add(h('h2', {}, `Plan vs actual — ${MONTH}`));
 
-  const planHost = h('div');
-  add(h('div', { class: 'card' },
-    h('div', { class: 'card-h' }, h('h3', {}, 'Every category'),
-      h('span', { class: 'sub' }, 'grey = planned, colour = actual')),
-    planHost,
-    legend([[K.COLOURS.teal, 'Actual'], ['#1e2632', 'Planned']]),
-    notesFor('budget', 'n1')));
+  // Every row carries its own numbers. A bar with no figure beside it says
+  // "something is happening here" and nothing more, which is how a page ends
+  // up being looked at rather than read.
+  const rowsByPlan = CATS.slice().sort((a, b) => b.planned - a.planned);
+  const maxPlan = Math.max(1, ...rowsByPlan.map(c => Math.max(c.planned, c.paid)));
 
-  K.hBars(planHost, cats
-    .map(c => ({ label: c, value: actualByCat[c] || 0, compare: planByCat[c] }))
-    .sort((a, b) => b.compare - a.compare), {
-    rowH: 32, labelW: 148, valueW: 118, fmt: v => naira(v, { short: true }),
-    max: Math.max(...Object.values(planByCat)),
-    colour: K.COLOURS.teal,
-  });
+  add(h('div', { class: 'card pad-0' },
+    table([
+      'Category',
+      { label: 'Planned', num: true },
+      { label: 'Paid', num: true },
+      { label: 'Left', num: true },
+      { label: 'Payday A', num: true },
+      { label: 'Payday B', num: true },
+      'Progress',
+    ], rowsByPlan.map(c => {
+      const donePct = c.planned ? Math.min(100, Math.round(c.paid / c.planned * 100)) : (c.paid ? 100 : 0);
+      const w = (n) => Math.max(n > 0 ? 1 : 0, Math.round(n / maxPlan * 100));
+      return [
+        h('span', {}, c.is_pot ? h('span', { class: 'pill ok', style: 'margin-right:6px' }, 'pot') : null,
+          c.category.replace(/^Savings — /, '')),
+        naira(c.planned),
+        c.paid ? h('span', { class: 'v ' + (c.paid > c.planned ? 'red' : 'teal') }, naira(c.paid))
+               : h('span', { class: 't-dim' }, '—'),
+        h('span', { class: 'v ' + (c.left < 0 ? 'red' : '') }, naira(c.left)),
+        c.planned_a ? naira(c.planned_a) : h('span', { class: 't-dim' }, '—'),
+        c.planned_b ? naira(c.planned_b) : h('span', { class: 't-dim' }, '—'),
+        h('div', { class: 'minibar', title: donePct + '% paid' },
+          h('div', { class: 'minibar-plan', style: 'width:' + w(c.planned) + '%' },
+            h('div', { class: 'minibar-paid', style: 'width:' + donePct + '%' }))),
+      ];
+    }))));
+
+  add(h('p', { class: 't-sm t-dim', style: 'margin-top:8px' },
+    'Grey is the plan, teal is what has actually been paid. ',
+    h('strong', {}, 'Paid comes only from logged spend rows'),
+    ' — a category cannot claim money moved when no row exists. ',
+    MO.unplanned
+      ? h('strong', { class: 'v red' }, naira(MO.unplanned) + ' was spent outside any plan line.')
+      : 'Nothing has been spent outside a plan line this month.'));
+
+  add(notesFor('budget', 'n1'));
 
   /* -------------------------------------------------- the details, by cat */
 

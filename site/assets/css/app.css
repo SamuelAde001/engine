@@ -372,3 +372,26 @@ footer a { color: var(--muted); text-decoration: underline; text-underline-offse
   padding: 11px 15px; border-radius: 0 var(--r-s) var(--r-s) 0; margin: 13px 0;
   color: var(--text); font-size: 14.5px; font-weight: 500;
 }
+
+/* Plan-vs-paid bar inside a table row. The grey track is the category's
+   planned amount scaled against the biggest category on the page; the teal
+   fill is how much of that category has actually been paid. */
+.minibar { width: 100%; min-width: 90px; height: 8px; display: flex; align-items: center; }
+.minibar-plan {
+  height: 8px; background: var(--surface-3, #1e2632);
+  border-radius: 99px; overflow: hidden; min-width: 2px;
+}
+.minibar-paid {
+  height: 100%; background: var(--teal, #2dd4bf); border-radius: 99px;
+}
+
+/* Month switcher on the Budget page. The month you are actually in is
+   underlined, so "which month am I looking at" never needs a second look. */
+.monthpick { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0 4px; }
+.monthpick .mp {
+  font-size: 12.5px; padding: 4px 10px; border-radius: 99px; text-decoration: none;
+  background: var(--surface-2); color: var(--text-dim); border: 1px solid transparent;
+}
+.monthpick .mp:hover { color: var(--text); border-color: var(--line); }
+.monthpick .mp.on { background: var(--teal); color: #05201b; font-weight: 700; }
+.monthpick .mp.now:not(.on) { border-color: var(--teal); color: var(--teal); }
