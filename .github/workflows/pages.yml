@@ -57,7 +57,14 @@ jobs:
               print("WARNING:", w)
           PY
 
+      # enablement:true flips the repo's Pages source to "GitHub Actions" if it is
+      # still set to "deploy from a branch". That mis-set source is why all six
+      # deploys failed silently between 26-28 Aug 2026 while every session honestly
+      # reported "pushed": the branch source served the repo root, so the live URL
+      # answered 200 with an old page and site/data/os.json was never at /data/os.json.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
