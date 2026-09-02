@@ -101,8 +101,89 @@ class BridgeError(Exception):
         self.kind = kind
 
 
+# The last row of each tab the Budget tab's SUMIF windows actually reach.
+# A row past this is ON the tab and INVISIBLE to every total. Keep in step with
+# the ranges written by tools/sheets/build_budget.py.
+READABLE_TO = {"Income": 124, "Expenses": 404, "Transfers": 404}
+
+
+def _anchor_appends(ops):
+    """Point every bare `append` at the last row that has a DATE in column A.
+
+    Apps Script's getLastRow() counts formatting and footer text, so on Income
+    and Expenses it returns 124 and 404 — far below the real data. An append
+    that trusts it lands outside the SUMIF windows the Budget tab reads: the
+    row is on the tab, every total ignores it, and nothing says a word.
+
+    Found 2026-09-02 and fixed the same day — but only on the `append` CLI
+    verb, while the reckoning mirrors money through `ops`. It landed four
+    Payday A rows at 405-408 that same night. The anchoring belongs HERE, at
+    the one chokepoint every path goes through: `ops`, `append`, and `flush`.
+    """
+    todo = [o for o in ops if o.get("action") == "append" and "after" not in (o.get("args") or {})]
+    if not todo:
+        return
+
+    tabs = []
+    for o in todo:
+        tab = (o.get("args") or {}).get("tab")
+        if tab and tab not in tabs:
+            tabs.append(tab)
+
+    reads = _send_raw(
+        [{"action": "read", "args": {"tab": t, "range": "A1:A1000"}} for t in tabs]
+    )
+    last = {}
+    for tab, block in zip(tabs, reads):
+        rows = block.get("values") or []
+        n = 0
+        for i, row in enumerate(rows):
+            if row and str(row[0]).strip():
+                n = i + 1
+        last[tab] = n
+
+    # Several appends to one tab in a single batch must stack, not collide.
+    for o in todo:
+        args = o["args"]
+        tab = args.get("tab")
+        if last.get(tab):
+            args["after"] = last[tab]
+            last[tab] += len(args.get("values") or [])
+
+
+def _warn_out_of_range(ops, results):
+    """Say it out loud when a batch lands where no total can see it."""
+    for op, res in zip(ops, results or []):
+        if op.get("action") != "append" or not isinstance(res, dict):
+            continue
+        tab = (op.get("args") or {}).get("tab")
+        landed = res.get("appendedAtRow")
+        cap = READABLE_TO.get(tab)
+        rows = len(((op.get("args") or {}).get("values")) or [])
+        if cap and landed and landed + rows - 1 > cap:
+            sys.stderr.write(
+                "\nWARNING: %s rows landed at %d-%d but the Budget tab only reads that tab\n"
+                "to row %d. They are ON the tab and INVISIBLE to every total. Widen the\n"
+                "ranges in tools/sheets/build_budget.py and re-run it before trusting any\n"
+                "figure on the sheet.\n" % (tab, landed, landed + rows - 1, cap)
+            )
+
+
 def send(ops):
-    """POST a batch. Raises BridgeError on any failure — never exits."""
+    """POST a batch. Raises BridgeError on any failure — never exits.
+
+    Appends are anchored to real data first, so no caller can land a row
+    outside the ranges the Budget tab sums.
+    """
+    _anchor_appends(ops)
+    results = _send_raw(ops)
+    _warn_out_of_range(ops, results)
+    return results
+
+
+def _send_raw(ops):
+    """The bare POST. Never call this directly — go through send()."""
+    ops = list(ops)
     cfg = load_env()
     url = cfg.get("SHEETS_WEBAPP_URL")
     token = cfg.get("SHEETS_TOKEN")
@@ -343,38 +424,13 @@ def main(argv):
         grid(post([{"action": "readFormulas", "args": args}])[0]["formulas"])
 
     elif cmd == "append":
-        # Append AFTER the last row that has a DATE in column A, not after the
-        # sheet's last row with anything in it.
-        #
-        # Why: 2026-09-02. Income and Expenses carry formatting and footer text
-        # far below their data, so Apps Script's getLastRow() returned 124 and
-        # 404. Two payday rows landed at 125 and 405 — outside the SUMIF windows
-        # the Budget tab reads (Income!$I$5:$I$124, Expenses!$E$5:$E$404). The
-        # rows existed, the sheet showed nothing, and the bank figure stayed on
-        # a stale N2,503. That is the exact failure mode Rule 6 exists to stop,
-        # running backwards: not a plan claiming money that never moved, but
-        # money that moved and no plan able to see it. Silent, and it would have
-        # repeated at every reckoning.
+        # The anchoring and the out-of-range warning live in send(), so every
+        # path gets them — this verb, `ops`, and `flush` alike. See
+        # _anchor_appends() for why that matters and what it cost to learn.
         tab, values = rest[0], json.loads(rest[1])
         if not values or not values[0]:
             die("append needs at least one non-empty row.")
-        colA = post([{"action": "read", "args": {"tab": tab, "range": "A1:A1000"}}])[0]["values"]
-        last = 0
-        for i, row in enumerate(colA):
-            if row and str(row[0]).strip():
-                last = i + 1
-        args = {"tab": tab, "values": values}
-        if last:
-            args["after"] = last
-        res = post([{"action": "append", "args": args}])
-        show(res)
-        landed = (res[0] or {}).get("appendedAtRow")
-        cap = {"Income": 124, "Expenses": 404, "Transfers": 404}.get(tab)
-        if cap and landed and landed + len(values) - 1 > cap:
-            print("\nWARNING: rows landed at %d-%d but the Budget tab only reads %s up to row %d."
-                  % (landed, landed + len(values) - 1, tab, cap))
-            print("They are ON the tab and INVISIBLE to every total. Widen the ranges in")
-            print("tools/sheets/build_budget.py and re-run it before trusting any figure.")
+        show(post([{"action": "append", "args": {"tab": tab, "values": values}}]))
 
     elif cmd == "write":
         show(post([{"action": "write", "args": {"tab": rest[0], "cell": rest[1], "values": json.loads(rest[2])}}]))

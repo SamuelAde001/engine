@@ -19,14 +19,14 @@
  },
  "pots": {
   "as_of": "2026-09-02",
-  "bank": 962371,
+  "bank": 211787,
   "goal1_house": 0,
   "emergency": 0,
-  "cowrywise": 305000,
+  "cowrywise": 405000,
   "buffer": 0,
-  "note": "Payday A landed and is CONFIRMED in the account: ₦143 opening + ₦962,228 converted = ₦962,371. ₦934,600 of it goes out the same day, so the real free number is ₦27,771 to the 14th. Cowrywise is RING-FENCED and never counts toward the goals — and it now also hosts the Goal 1 account, which is a name clash that has to be resolved before December.",
-  "bank_free": 27771,
-  "bank_sub": "₦934,600 of it is already committed — ₦27,771 is what is actually free to the 14th"
+  "note": "Payday A landed AND the four biggest transfers went out the same day: building ₦500,000, son's school ₦100,000, Cowrywise ₦100,000 (+₦250 charge), girlfriend ₦50,000 = ₦750,250. Closing balance ₦211,787, which leaves ₦334 of unattributed bank charges — ₦584 of charges on the day in total. Reconciles to the naira. ₦184,600 across 9 lines is still to be paid across this week, so the real free number is ₦27,187 to the 14th. Cowrywise is RING-FENCED and never counts toward the goals — and it now also hosts the Goal 1 account, which is a name clash that has to be resolved before December.",
+  "bank_free": 27187,
+  "bank_sub": "₦184,600 of it is still committed this week — ₦27,187 is what is actually free to the 14th"
  },
  "goals": [
   {
@@ -72,7 +72,7 @@
    "short": "Cowrywise",
    "domain": "Money",
    "target": 705000,
-   "current": 305000,
+   "current": 405000,
    "unit": "naira",
    "deadline": "2026-12-31",
    "status": "on track",
@@ -699,6 +699,10 @@
    "Prayed": true,
    "Bible study (morning)": true,
    "No masturbating": false
+  },
+  "2026-09-02": {
+   "Phone away by 10pm": true,
+   "Sleep by 10:30pm": false
   }
  },
  "body": {

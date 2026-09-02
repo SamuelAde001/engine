@@ -165,13 +165,26 @@ Open: **Module 1 beta price, and where it is sold.** `[OPEN — asked 2026-08-26
 ## Community — HighSignals Community
 
 - **20 members, currently free.**
-- Weekly teaching **Wednesday 8:30pm**, freestyle, no prep block scheduled.
+- Weekly teaching **Wednesday 8:30pm — CANCELLED COMPLETELY 2026-09-02**, his words
+  at the reckoning: *"Wednesday signal sessions have been canceled completly."* The
+  recurring TickTick task (`6a6e685372ff2f55a028fd00`, HighSignals) is deleted.
 - Run day-to-day by a **paid admin (₦15,000/month)** who keeps members accountable
   when Samuel is inactive.
 - Plan: paid community next year. **No plan exists yet for how.** `[OPEN]`
 
-**Wednesday is heavy.** The video publishes at 7:00pm and the teaching runs 8:30pm
-the same night. Flagged, not moved — it is his slot.
+**Wednesday is no longer heavy — because both halves of it are gone.** The 7:00pm
+video did not publish on 2 Sep and the 8:30pm teaching is now cancelled outright.
+
+**Read this against P1, confirmed the same day.** The audience-facing line with no
+external deadline is the line that gets cut. Cancelling the teaching may well be the
+right call — it was freestyle with no prep block and it sat on the same night as the
+publish — but it is the third audience commitment to die in ten days, and it died
+with nothing put in its place.
+
+**What is now unanswered, and it is his to answer:** twenty members and a
+₦15,000/month admin are being paid for a community that has **no scheduled activity
+at all.** Either the ₦15,000 buys something specific, or it is a subscription to an
+empty room. `[OPEN — raised 2026-09-02]`
 
 ---
 

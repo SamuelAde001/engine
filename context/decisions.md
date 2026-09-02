@@ -540,3 +540,38 @@ passes it as `after`, and warns loudly if a batch still lands past the readable 
 subtitle *"everything he can spend today"* — which on a payday is the most misleading
 sentence on the site, since ₦934,600 of that balance was already committed. The payday
 table now subtracts the pots and calls the result a **cushion**, not free.
+
+
+---
+
+## 2026-09-02 — evening reckoning. BUILT.
+
+**The append fix from this afternoon only covered one code path, and tonight's
+reckoning drove straight through the other one.** `sheets.py append` was taught to
+anchor on the last dated row in column A. The reckoning does not use that verb — the
+reckon skill mirrors money with `ops payload.json --queue`, which went to the raw
+Apps Script `append` and `getLastRow()` all over again. Four Payday A expense rows
+landed at **Expenses 405–408** and the Cowrywise transfer at **Transfers 125**, both
+outside the windows the Budget tab sums. Same bug, same night, second path — caught
+only because the rows were read back after writing.
+
+**Fixed at the chokepoint instead of at the caller.** `_anchor_appends()` and
+`_warn_out_of_range()` now run inside `send()`, which every path goes through: `ops`,
+`append`, and `flush`. Appends to the same tab in one batch stack rather than collide.
+The duplicated logic in the `append` verb is deleted — one implementation, not two.
+`READABLE_TO` is a module constant so the caps live next to the code that enforces them.
+
+**The lesson, and it is the general one:** a fix applied at the call site is a fix for
+the call site. The bug was in what `send()` let through, so that is where the guard
+belongs. The verification step is what actually caught it — the rows were written,
+the tool reported success, and the sheet was still wrong. **Reading back after a
+write is not paranoia; it is the only thing that distinguishes "sent" from "landed."**
+
+Stray rows cleared, batch re-sent, and the sheet's bank figure now reads **₦211,787**,
+matching `context/money-ledger.md` to the naira.
+
+**Also recorded tonight:** Goal 1's account is picked (Cowrywise, opened at the budget
+session) — `plan.json`'s "NO ACCOUNT YET" note was stale and is corrected. It carries
+the warning that this is now the SECOND name clash on the sheet: Goal 1 and the
+ring-fenced investment share a platform, and Rule 7 says the investment never counts
+toward the ₦1M.
