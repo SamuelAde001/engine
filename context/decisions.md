@@ -284,3 +284,57 @@ Two live Dashboard bugs found while wiring it, both silent, both fixed:
 All of it regenerates from `python tools/sheets/build_budget.py`. Re-runnable —
 the Dashboard block is rewritten in place, never inserted, so repeat runs cannot
 grow the tab.
+
+## 2026-09-02 — three rule changes, all his, all BUILT
+
+**1. THE 5-DAY CLIENT CAP IS A CONTRACTUAL TERM, NOT AN INTERNAL TARGET.**
+His words: *"The decision for the deadline of my clients videos are not to me, but
+to Route rise, they insist 5 days max from start."* BUILT: `context/body.md` carries
+it as a standing rule — Sunday is not a working day inside the five, MUST-CLOSE /
+STRETCH buys slack forward, a go/no-go marker at the end of Day 2 messages the client
+while it is still a warning, and revisions displace the stretch and never the
+must-close. Client #3 built to it: start Thu 3 Sep, ship Mon 7 Sep, send 12 noon.
+
+**2. TASK NAMES MUST BE READABLE ON A LOCK SCREEN.**
+His words: *"use simple names that make it clear what task it is, not weird numbers
+that when I see the notification I don't know what it is."* BUILT: rule added to
+CLAUDE.md under Hard rules; every task created this session renamed to plain language.
+Times, chunk numbers and reasoning move into the task BODY. The title is the
+notification and nothing else.
+
+**3. NO MORE NIGHTLY SCORECARD.**
+His words: *"Don't generate a report card any more every night, we have the dashboard
+now, so to reduce tokens."* BUILT: step 7b of the reckon skill replaced with an
+explicit do-not; CLAUDE.md's cost-discipline entry rewritten; the weekly review's
+scorecard check replaced with "did anyone else see this week?".
+
+**The cost was stated once and he can overrule it.** The card was the only
+accountability mechanism in `context/stakes.md` with a THIRD PARTY in it — he
+screenshotted it and sent it to his girlfriend. The dashboard replaces the reporting,
+not the witness. A site only he opens is self-policing, which is the exact thing the
+card existed to stop, and the site has never successfully deployed (six failed Pages
+runs, recorded 28 Aug). If a run of days goes soft, this is a named candidate cause,
+not a mystery.
+
+## 2026-09-02 — morning movement, six days a week — BUILT
+
+He asked whether the gym should be daily, and morning or evening.
+
+**Evening refused** — dinner 6:00pm, hard stop 6:30pm, bed 10:30pm; an evening session
+puts a training spike two hours from a bedtime he has never hit, and sleep is the wall
+the gym itself stands on. **Daily gym refused** — the habit started 1 Sep with ZERO
+logged sessions, and daily costs ~10h30/week of client morning against a 5-day cap.
+
+BUILT instead, and his instinct about killing the 6:50am decision was right:
+gym Mon/Wed/Fri 7:00–8:20am, **run 30 min + bathe Tue/Thu/Sat 7:00–7:55am** (his call:
+*"we would have a run instead of a bike, 30 mins is enough"*), Sunday off. Bathing sits
+INSIDE both blocks — his point: *"when I come back from Gym and run, I need to bathe."*
+Client block 1 starts 8:30am on gym days, 8:00am on run days.
+
+TickTick: habit `6a984bc38f0842fe13de746c` "Morning movement (gym or run)", 6×/week.
+The old Gym habit `6a8eec9b8f0800ee1524083a` ARCHIVED — it double-logged against this
+one. The 3× full-session target lives in the Mon/Wed/Fri task, not a second habit.
+
+**Honest price: 7h30/week of client morning, up from 4h30.** Paid on purpose, not
+recovered by working past 6:30pm. Escalation to 4×/week is EARNED — two consecutive
+weeks of 3 logged sessions first.

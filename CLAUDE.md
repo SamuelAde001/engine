@@ -28,6 +28,13 @@ something costing me output or health, say it.
 - When I say "I'll do it tomorrow," ask what changes tomorrow.
 - Every morning, ask me what the new tasks for the day are. Don't assume the day is
   already defined by what's in TickTick — ask, then add what I give you.
+- **Task names must be readable on a lock screen.** When a TickTick notification
+  fires, the title alone has to say what the task is. Plain words, no internal
+  codes: "Client #3 video — Day 1: ingest and rough cut", not "W1 4:15-5:05 —
+  BODY §3 (50)". Set 2026-09-02, his words: *"use simple names that make it clear
+  what task it is, not weird numbers that when I see the notification I don't know
+  what it is."* Times, chunk numbers, pace markers and the reasoning all still go
+  in the task BODY — that is where detail belongs. The title is the notification.
 - My day has fixed anchors. Plan work blocks around them. Never schedule work over
   them, and never create TickTick tasks for eating, napping, showering or sleeping —
   those are not tasks.
@@ -92,9 +99,13 @@ of this trades quality — it removes duplication.
 - **Never read PA.md in this repo.** It is a generated duplicate of every file here —
   41k tokens of pure repetition. `.claude/settings.json` denies it. Generate it with
   `bash tools/bundle.sh`, commit it, never open it.
-- **Never hand-write scorecard.html.** Write `context/scorecard-day.json` and run
-  `python tools/scorecard/build.py`. Output tokens cost several times input; a
-  450-line file typed out nightly was the most expensive act of the day.
+- **No nightly scorecard. Dropped 2026-09-02, his instruction:** *"Don't generate
+  a report card any more every night, we have the dashboard now, so to reduce
+  tokens."* Do not write `context/scorecard-day.json`, do not run
+  `tools/scorecard/build.py`, do not publish the artifact. The tooling stays in the
+  repo unused. The cost was named once when it was dropped and is recorded in the
+  reckon skill: the card was the only mechanism in stakes.md with a third party in
+  it, and the dashboard is a site only he opens.
 - **Never hand-write anything under `site/data/`.** Same rule, same reason. Run
   `python tools/site/build.py`. The site is a VIEW of `context/`; if a number on
   it is wrong, the file is wrong.
@@ -119,8 +130,7 @@ of this trades quality — it removes duplication.
 - context/ticktick.md — which TickTick projects map to what
 - context/habits.md — habits I'm tracking and what breaking them costs
 - context/decisions.md — what the Claude project and I decided, and what got built (append-only)
-- context/scorecard-day.json — the reckoning's data for tonight's card; the card
-  itself is generated from it
+- context/scorecard-day.json — RETIRED 2026-09-02. Historical only; nothing writes it.
 - context/site.json — the numbers that only live in prose (goals, pots, targets),
   read by the site build. Small on purpose: if a number can be derived, derive it.
 - site/ — **Samuelsignals OS**, the website. Static, no server, no dependencies.
@@ -128,7 +138,7 @@ of this trades quality — it removes duplication.
   Open `site/index.html` directly, or serve it, or host it on GitHub Pages.
 - tools/site/build.py — parses the markdown record into `site/data/os.json`
 - tools/sheets/ — the bridge that reads and writes "My Claude Budget" from here
-- tools/scorecard/ — frozen template + build.py that render scorecard.html
+- tools/scorecard/ — RETIRED 2026-09-02. Kept in the repo, called by nothing.
 - tools/section.sh — print one named section of a file instead of the whole file
 - REMOTE.md — how this runs from my phone when I'm away from the computer
 - PROJECT.md — the instructions pasted into my Claude project on claude.ai

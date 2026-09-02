@@ -67,49 +67,21 @@ description: Evening reckoning — audits today against what I committed to.
    bed time, verdict. If the day needs explaining, the explanation goes in
    `context/ledger-notes/<YYYY-MM>.md` under a `## <date>` heading, NOT into the row.
    A ledger row that grows into a paragraph is a row nobody rereads.
-7b. SCORECARD. Build the day's visual scorecard and publish it as an Artifact.
-    Samuel screenshots it and sends it to his girlfriend — that is the accountability
-    mechanism in context/stakes.md, and it is the only one with a third party in it.
+7b. NO SCORECARD. Dropped by Samuel 2026-09-02: "Don't generate a report card any
+    more every night, we have the dashboard now, so to reduce tokens."
 
-    - YOU WRITE THE DATA, NOT THE HTML. Write `context/scorecard-day.json` — about
-      thirty lines — then run:
+    Do NOT write `context/scorecard-day.json`, do NOT run `tools/scorecard/build.py`,
+    and do NOT publish or update the scorecard artifact. The tooling stays in the repo
+    unused; nothing here calls it.
 
-      ```bash
-      python tools/scorecard/build.py
-      ```
+    WHAT THIS COSTS, AND IT WAS SAID TO HIM ONCE AT THE TIME. The card was the ONLY
+    accountability mechanism in `context/stakes.md` with a third party in it — he
+    screenshotted it and sent it to his girlfriend. The dashboard replaces the
+    reporting, not the witness: a site only he opens is self-policing, which is the
+    thing the card existed to stop. It is his call and it stands. But if a run of
+    days goes soft, the weekly review names this as a candidate cause rather than
+    treating it as a mystery.
 
-      That renders `scorecard.html` from the frozen template in `tools/scorecard/`.
-      NEVER hand-write or edit scorecard.html. It is 450 lines; typing it out costs
-      more than the rest of the reckoning combined, and it is generated output.
-      If the card needs a new kind of row or a style change, change the template
-      or `build.py` — that is a one-time cost, not a nightly one.
-
-      The day file's shape (see the committed example for a full one):
-      `date`, `sub`, `score`, `score_of`, `verdict`, `verdict_class` (won/lost/open),
-      `ratios[]`, `committed[]`, `habits[]`, `red_title`, `red[]`, `cells[]`, `quote`.
-      Every row takes `state`: `pass` | `part` | `miss` | `null`.
-
-    - THE URL IS FIXED. Always update the existing artifact, never publish a new one:
-
-      https://claude.ai/code/artifact/6401a62e-c1d8-4ec2-8787-7d0a4794883d
-
-      Call Artifact on `scorecard.html` with that URL passed as `url`. Publishing
-      WITHOUT `url` from a fresh session creates a SECOND artifact and breaks his
-      bookmark — and a bookmark he has to re-find is a bookmark he stops opening.
-      The <title> "Reckoning Scorecard" and the favicon live in the template and
-      stay stable on their own.
-    - It carries, every day: the date, the day's score and verdict, what shipped,
-      what did not, each habit hit or missed by name, bed time against the 10:30pm
-      floor, and the money row (balance + what went out).
-    - NO SOFTENING. If the day was a 0, the card says 0. If a habit broke, it is
-      red. The card is worthless as accountability if it flatters him — the whole
-      point is that someone else reads it.
-    - Only put on the card what he confirmed in steps 2b-2e. Anything unconfirmed
-      is marked UNVERIFIED, not omitted and not assumed.
-    - Give him the URL and say plainly: screenshot it and send it.
-
-    If a week passes with no scorecards sent, the mechanism has quietly gone back to
-    being self-policed. The weekly review says so.
 8. If anything is worth remembering long-term, append it to context/memory.md
    with today's date. APPEND ONLY — never read the whole file to do it. Use
    `tail -n 15 context/memory.md` if you need recent context, or grep for a keyword.
