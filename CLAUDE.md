@@ -158,6 +158,9 @@ of this trades quality — it removes duplication.
 - context/body.md — sleep, gym, anchors, chores, recreation, the day shape
 - context/people.md — girlfriend, network, community admin, mentees
 - context/money-ledger.md — daily every-naira log (append-only)
+- context/spend.jsonl — every spend as structured data, one JSON object per line
+  (append-only). The same items as the ledger's Out column, in a form that can be
+  totalled. THE SITE'S BUDGET PAGE READS ONLY THIS for what has been paid.
 - context/memory.md — things I told you to remember (append-only)
 - context/ledger.md — daily scoreboard, one short row per day (append-only)
 - context/ledger-notes/YYYY-MM.md — the narrative behind the rows (append-only)

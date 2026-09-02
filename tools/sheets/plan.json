@@ -235,6 +235,16 @@
    "",
    "Yes",
    ""
+  ],
+  [
+   "Bank charges",
+   "Bank transfer charges",
+   0,
+   "Fixed",
+   "A",
+   "",
+   "Yes",
+   "ADDED 2026-09-02, planned at ₦0 DELIBERATELY. ₦584 of charges left the account on the first payday — ₦250 visible inside the Cowrywise transfer, ₦334 he could not attribute at all. His words: 'Charges where dedcuted at random during different transfers, I couldn't keep track of them indiviudally.' It is real, recurring money with no line, which is precisely the thing this budget exists to stop. It accrues actuals against a zero plan so that at month end there is a true figure to set it to, rather than a guess."
   ]
  ],
  "one_offs": {

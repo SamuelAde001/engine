@@ -51,7 +51,7 @@ CATEGORIES = [
     "Building project", "Parents", "Girlfriend", "Community admin",
     "Subscriptions", "Feeding", "Transport", "Health",
     "Chores / household", "Creator visits", "Giving", "Data / airtime",
-    "Personal / misc", "Other",
+    "Personal / misc", "Bank charges", "Other",
 ]
 
 # Ranges of the log tabs, as they already exist in the workbook.

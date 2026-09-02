@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T20:47:49",
+  "generated": "2026-09-02T22:05:42",
   "profile": {
     "name": "Samuel",
     "site_name": "Samuelsignals OS",
@@ -1962,15 +1962,27 @@
         "month": "2026-09",
         "categories": [
           {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 584,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 584,
+            "left": -584,
+            "is_pot": false
+          },
+          {
             "category": "Building project",
             "planned": 500000,
             "planned_a": 500000,
             "planned_b": 0,
-            "paid": 0,
-            "paid_a": 0,
+            "paid": 500000,
+            "paid_a": 500000,
             "paid_b": 0,
             "unplanned": 0,
-            "left": 500000,
+            "left": 0,
             "is_pot": false
           },
           {
@@ -2038,11 +2050,11 @@
             "planned": 150000,
             "planned_a": 150000,
             "planned_b": 0,
-            "paid": 0,
-            "paid_a": 0,
+            "paid": 150000,
+            "paid_a": 150000,
             "paid_b": 0,
             "unplanned": 0,
-            "left": 150000,
+            "left": 0,
             "is_pot": false
           },
           {
@@ -2122,11 +2134,11 @@
             "planned": 100000,
             "planned_a": 100000,
             "planned_b": 0,
-            "paid": 0,
-            "paid_a": 0,
+            "paid": 100000,
+            "paid_a": 100000,
             "paid_b": 0,
             "unplanned": 0,
-            "left": 100000,
+            "left": 0,
             "is_pot": true
           },
           {
@@ -2172,13 +2184,13 @@
         "budget_a": 934600,
         "budget_b": 378241,
         "budget_total": 1312841,
-        "paid_a": 0,
+        "paid_a": 750000,
         "paid_b": 2360,
-        "paid_total": 2360,
-        "unplanned": 0,
-        "left_a": 934600,
+        "paid_total": 752944,
+        "unplanned": 584,
+        "left_a": 184600,
         "left_b": 375881,
-        "left_total": 1310481,
+        "left_total": 560481,
         "cushion_a": 27628,
         "cushion_b": 30256,
         "spend_rows": [
@@ -2195,12 +2207,66 @@
             "amount": 360,
             "what": "Recharge",
             "note": "Closes the N360 gap between the 27 Aug balance of N2,503 and the N143 reported on 2 Sep. His answer: it went on a recharge."
+          },
+          {
+            "date": "2026-09-02",
+            "category": "Building project",
+            "amount": 500000,
+            "what": "Building project — September construction payment",
+            "note": "PAID IN FULL on Payday A. money.md Rule 4 satisfied. August was N200,000, a N300,000 shortfall; this closes that pattern."
+          },
+          {
+            "date": "2026-09-02",
+            "category": "Girlfriend",
+            "amount": 100000,
+            "what": "Son's school fee",
+            "note": "Due before the 14th, confirmed by her, so it went on Payday A."
+          },
+          {
+            "date": "2026-09-02",
+            "category": "Girlfriend",
+            "amount": 50000,
+            "what": "Girlfriend allowance",
+            "note": "N50,000 this month, not N100,000 — her own confirmation."
+          },
+          {
+            "date": "2026-09-02",
+            "category": "Savings — Cowrywise investment",
+            "amount": 100000,
+            "what": "Cowrywise — September contribution",
+            "note": "MOVED ON PAYDAY A, the day the money landed. money.md Rule 3 satisfied on the savings side for the first time on the record. The N250 transfer charge is logged separately, not against the pot, so the pot reads its true N100,000."
+          },
+          {
+            "date": "2026-09-02",
+            "category": "Bank charges",
+            "amount": 250,
+            "what": "Transfer charge inside the Cowrywise transfer",
+            "note": "Visible because it sat inside a single named transfer."
+          },
+          {
+            "date": "2026-09-02",
+            "category": "Bank charges",
+            "amount": 334,
+            "what": "Unattributed bank charges",
+            "note": "His words: 'Charges where dedcuted at random during different transfers, I couldn't keep track of them indiviudally'. Reconciles the day to the naira: 962,371 − 750,250 named − 211,787 closing = 334."
           }
         ]
       },
       "2026-10": {
         "month": "2026-10",
         "categories": [
+          {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
           {
             "category": "Building project",
             "planned": 500000,
@@ -2415,6 +2481,18 @@
         "month": "2026-11",
         "categories": [
           {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
+          {
             "category": "Building project",
             "planned": 500000,
             "planned_a": 500000,
@@ -2627,6 +2705,18 @@
       "2026-12": {
         "month": "2026-12",
         "categories": [
+          {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
           {
             "category": "Building project",
             "planned": 500000,
@@ -2841,6 +2931,18 @@
         "month": "2027-01",
         "categories": [
           {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
+          {
             "category": "Building project",
             "planned": 500000,
             "planned_a": 500000,
@@ -3041,6 +3143,18 @@
       "2027-02": {
         "month": "2027-02",
         "categories": [
+          {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
           {
             "category": "Building project",
             "planned": 500000,
@@ -3243,6 +3357,18 @@
         "month": "2027-03",
         "categories": [
           {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
+          {
             "category": "Building project",
             "planned": 500000,
             "planned_a": 500000,
@@ -3443,6 +3569,18 @@
       "2027-04": {
         "month": "2027-04",
         "categories": [
+          {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
           {
             "category": "Building project",
             "planned": 500000,
@@ -3645,6 +3783,18 @@
         "month": "2027-05",
         "categories": [
           {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
+          {
             "category": "Building project",
             "planned": 500000,
             "planned_a": 500000,
@@ -3846,6 +3996,18 @@
         "month": "2027-06",
         "categories": [
           {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
+          {
             "category": "Building project",
             "planned": 500000,
             "planned_a": 500000,
@@ -4046,6 +4208,18 @@
       "2027-07": {
         "month": "2027-07",
         "categories": [
+          {
+            "category": "Bank charges",
+            "planned": 0,
+            "planned_a": 0,
+            "planned_b": 0,
+            "paid": 0,
+            "paid_a": 0,
+            "paid_b": 0,
+            "unplanned": 0,
+            "left": 0,
+            "is_pot": false
+          },
           {
             "category": "Building project",
             "planned": 500000,
@@ -4254,6 +4428,48 @@
         "amount": 360,
         "what": "Recharge",
         "note": "Closes the N360 gap between the 27 Aug balance of N2,503 and the N143 reported on 2 Sep. His answer: it went on a recharge."
+      },
+      {
+        "date": "2026-09-02",
+        "category": "Building project",
+        "amount": 500000,
+        "what": "Building project — September construction payment",
+        "note": "PAID IN FULL on Payday A. money.md Rule 4 satisfied. August was N200,000, a N300,000 shortfall; this closes that pattern."
+      },
+      {
+        "date": "2026-09-02",
+        "category": "Girlfriend",
+        "amount": 100000,
+        "what": "Son's school fee",
+        "note": "Due before the 14th, confirmed by her, so it went on Payday A."
+      },
+      {
+        "date": "2026-09-02",
+        "category": "Girlfriend",
+        "amount": 50000,
+        "what": "Girlfriend allowance",
+        "note": "N50,000 this month, not N100,000 — her own confirmation."
+      },
+      {
+        "date": "2026-09-02",
+        "category": "Savings — Cowrywise investment",
+        "amount": 100000,
+        "what": "Cowrywise — September contribution",
+        "note": "MOVED ON PAYDAY A, the day the money landed. money.md Rule 3 satisfied on the savings side for the first time on the record. The N250 transfer charge is logged separately, not against the pot, so the pot reads its true N100,000."
+      },
+      {
+        "date": "2026-09-02",
+        "category": "Bank charges",
+        "amount": 250,
+        "what": "Transfer charge inside the Cowrywise transfer",
+        "note": "Visible because it sat inside a single named transfer."
+      },
+      {
+        "date": "2026-09-02",
+        "category": "Bank charges",
+        "amount": 334,
+        "what": "Unattributed bank charges",
+        "note": "His words: 'Charges where dedcuted at random during different transfers, I couldn't keep track of them indiviudally'. Reconciles the day to the naira: 962,371 − 750,250 named − 211,787 closing = 334."
       }
     ],
     "items": [
@@ -4487,6 +4703,17 @@
         "active": true,
         "month": null,
         "note": ""
+      },
+      {
+        "category": "Bank charges",
+        "item": "Bank transfer charges",
+        "amount": 0,
+        "tier": "Fixed",
+        "payday": "A",
+        "due": "",
+        "active": true,
+        "month": null,
+        "note": "ADDED 2026-09-02, planned at ₦0 DELIBERATELY. ₦584 of charges left the account on the first payday — ₦250 visible inside the Cowrywise transfer, ₦334 he could not attribute at all. His words: 'Charges where dedcuted at random during different transfers, I couldn't keep track of them indiviudally.' It is real, recurring money with no line, which is precisely the thing this budget exists to stop. It accrues actuals against a zero plan so that at month end there is a true figure to set it to, rather than a guess."
       },
       {
         "category": "Girlfriend",
@@ -4800,5 +5027,5 @@
   },
   "warnings": [],
   "gaps": [],
-  "content_hash": "8ae8e21887432c95"
+  "content_hash": "6eac0248df9cfd7e"
 }

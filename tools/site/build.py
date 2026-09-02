@@ -395,6 +395,24 @@ def parse_budget_plan(income=None, paydays=None):
     # real signal, not a typo to swallow: it is money leaving under a name the
     # budget never planned for.
     known = {i["category"] for i in items if i["active"]}
+    known |= {"Savings — " + v["pot"] for v in savings}
+
+    # A ledger day that reports money out but has no spend.jsonl rows is the
+    # failure that made this file necessary in the first place: on 2026-09-02
+    # the reckoning wrote N750,250 of transfers to the ledger and the sheet,
+    # and the Budget page went on saying N0 paid because nothing wrote here.
+    # It is a RECORD GAP, not a build error - the fix is to log the rows, never
+    # to change the page.
+    _spend_days = {r["date"] for r in spend}
+    for _row in parse_money_ledger():
+        _out = (_row.get("out_text") or "").strip().lower()
+        if not _out or _out.startswith("nothing out") or _out.startswith("unreported"):
+            continue
+        if _row["date"] < (plan.get("plan_start") or "") + "-01":
+            continue
+        if _row["date"] not in _spend_days:
+            gap("SPEND NOT ITEMISED: %s reports money out in money-ledger.md but has no "
+                "rows in spend.jsonl, so the Budget page counts it as unpaid" % _row["date"])
     for r in spend:
         if r["category"] not in known:
             warn("spend.jsonl: category %r is not in plan.json" % r["category"])

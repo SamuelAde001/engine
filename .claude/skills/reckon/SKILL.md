@@ -29,12 +29,30 @@ description: Evening reckoning — audits today against what I committed to.
     context/money-ledger.md. If he sends a screenshot with no spend list, say so
     and ask for the list — a balance alone is not verification. If he skips it,
     write the row with balance UNREPORTED. Do not fill it in from memory.
+    THEN WRITE THE SAME ITEMS TO `context/spend.jsonl`, one JSON object per line,
+    appended. This is not optional and it is not a duplicate of the ledger: the
+    ledger's Out column is prose, so nothing can total it, and the site's Budget
+    page reads ONLY this file for what has been paid. Skip it and the page will
+    say ₦0 paid against every category while the ledger says otherwise — which
+    already happened once, on 2026-09-02, and is what a stale site looks like
+    from the outside.
+      `{"date":"YYYY-MM-DD","category":"...","amount":0,"what":"...","note":"..."}`
+    `category` must match a category in `tools/sheets/plan.json`. A pot movement
+    is a row too, with the category `"Savings — <pot name>"` exactly as the pot
+    is named there. Charges the bank took go to `"Bank charges"` — they are real
+    money and they had no line until they were logged.
+    If an item does not fit any existing category, WRITE IT ANYWAY with the name
+    that describes it. The build warns about unknown categories on purpose:
+    money leaving under a name the budget has no word for is the finding, not an
+    error to tidy away. Raise it at the next planning session.
+
     Then mirror it into the budget sheet: one row per item that left the account,
     appended to the EXPENSES tab via `python tools/sheets/sheets.py`, categorised
     against the Setup category list. Money that moved to or from a pot goes on
     TRANSFERS instead, not Expenses — and a "From pot" row with no reason in his
     own words is money.md Rule 2 broken; get the reason.
-    The ledger is written first and is the source of truth. The sheet is the mirror.
+    The ledger is written first and is the source of truth. `spend.jsonl` and the
+    sheet are both mirrors of it, and all three carry the same items.
 
     Send the batch with `--queue "reckoning <date>"`. That way it works the same
     from the desktop, a cloud routine or the phone: if the bridge is reachable it

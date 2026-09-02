@@ -75,6 +75,14 @@ Append the `In` amount and any savings moved to `context/money-ledger.md`. The
 ledger is the source of truth; the sheet is the mirror. If the two ever disagree,
 the ledger wins.
 
+**And append every pot that moved to `context/spend.jsonl`,** one JSON object per
+line, category `"Savings — <pot name>"` exactly as the pot is named in
+`tools/sheets/plan.json`. Any transfer charge the bank took goes on its own line
+under `"Bank charges"`, never folded into the pot amount — a pot has to read its
+true figure. The site's Budget page reads ONLY this file for what has been paid;
+a pot moved and not written here shows as unfunded on the site while the ledger
+says it moved.
+
 ## 6. State what it did to the runway
 
 Two lines, no more:
