@@ -858,5 +858,66 @@
       "icon": "⚙",
       "lever": "One check-in, one session. Everything loaded is re-sent every turn."
     }
-  ]
+  ],
+  "work": {
+    "cap_days": 5,
+    "cap_note": "Route Rise's standing term, confirmed 2026-09-02. Five days maximum from start — their decision, not negotiable. A Sunday inside the five is not a working day.",
+    "current_job": {
+      "name": "Client #3",
+      "scope": "40 min raw → ~25 min finished",
+      "fee_usd": 333.33,
+      "start": "2026-09-03",
+      "due": "2026-09-07",
+      "send_target": "12:00 noon",
+      "days": [
+        {
+          "date": "2026-09-03",
+          "label": "Day 1 — ingest + full rough cut",
+          "must": "rough cut closes",
+          "state": "open"
+        },
+        {
+          "date": "2026-09-04",
+          "label": "Day 2 — the intro, all of it",
+          "must": "intro closes",
+          "state": "open"
+        },
+        {
+          "date": "2026-09-05",
+          "label": "Day 3 — body §1 + §2 + §3",
+          "must": "three sections close",
+          "state": "open"
+        },
+        {
+          "date": "2026-09-06",
+          "label": "Day 4 — Sunday. Buffer only, 3–5pm",
+          "must": "nothing — church + course",
+          "state": "open"
+        },
+        {
+          "date": "2026-09-07",
+          "label": "Day 5 — §4, outro, sound, render → SEND",
+          "must": "picture lock 8:50am, send 12:00",
+          "state": "open"
+        }
+      ]
+    },
+    "history": [
+      {
+        "name": "Client #1",
+        "delivered": "2026-08-26",
+        "verdict": "LATE",
+        "note": "Went out 1:42am after a 6:20pm target — a 19-hour day."
+      },
+      {
+        "name": "Client #2",
+        "start": "2026-08-27",
+        "due": "2026-08-30",
+        "delivered": "2026-09-02",
+        "days_taken": 8,
+        "verdict": "LATE",
+        "note": "Eight days against a five-day cap. Shipped 12:07pm, 2.5 days past the deadline."
+      }
+    ]
+  }
 }

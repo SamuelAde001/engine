@@ -12,50 +12,66 @@
 
   const I = OS.income;
   const led = OS.ledger;
-  const deadline = OS.countdowns.find(c => /Client #2 deadline/.test(c.label));
+  const W = OS.work || {};
+  const JOB = W.current_job || null;
 
-  add(pageHead('Work & Clients', 'Hit every stated deadline. No deadline moves.',
-    'That is the whole of the client goal, in his words: <em>"I just want to meet all my deadlines."</em>'));
+  add(pageHead('Work & Clients', 'Five days from start. Route Rise sets it, not him.',
+    'The one lever he owns, in his words: <em>"I just want to meet all my deadlines."</em>'));
 
   add(h('div', { class: 'grid g4 tight' },
-    statCard('Client #2 due', deadline ? daysLabel(daysUntil(deadline.date)) : '—',
-      'Sun 30 Aug, 8:45pm', 'red'),
-    statCard('Internal target', '4:00pm', '4h45m of margin — not to be spent in advance', 'green'),
+    statCard(JOB ? JOB.name + ' due' : 'No job open',
+      JOB ? daysLabel(daysUntil(JOB.due)) : '—',
+      JOB ? 'send ' + JOB.send_target : 'nothing in flight', 'red'),
+    statCard('The cap', (W.cap_days || 5) + ' days', 'from start — their term, not his', 'amber'),
     statCard('Payers', '1', '100% of income, one invoice', 'red'),
-    statCard('Focus this week', hours(OS.summary.total_focus), `${OS.summary.days_closed} days closed`)));
+    statCard('Focus this week', hours(OS.summary.total_focus), OS.summary.days_closed + ' days closed')));
 
-  add(h('div', { style: 'margin-top:14px' }, callout('bad', '⚠',
+  add(h('div', { style: 'margin-top:14px' }, callout('bad', '\u{26A0}',
     '<strong>ONE PAYER. Not one client — one payer.</strong> Route Rise Media LTD is an agency. ' +
     'It works with two end clients; he edits for both and sends one invoice covering both. ' +
     'Both rates are Route Rise’s. The volume is Route Rise’s decision.',
-    '<strong>There is no second client and there never was.</strong> Corrected 27 Aug — the file ' +
-    'used to carry a "second client" line that read like the beginnings of diversification. It was not.',
+    '<strong>And the deadline is theirs too.</strong> ' + (W.cap_note || ''),
     '<strong>"Hit 4 videos a month" is not a SMART goal</strong> — the A fails. Achievement is ' +
     'another company’s decision, not his. Which leaves exactly one lever he owns: the course.')));
 
-  /* ------------------------------------------------------- client #2 */
+  /* ------------------------------------------------- the job in flight */
 
-  add(h('h2', {}, 'Client #2 — 40 min raw → ~25 min finished'));
-  const DAYS = [
-    ['Wed 26', 'Day 1 — ingest, research, organise, scope', 'done'],
-    ['Thu 27', 'Day 2 — CUT + INTRO', 'partial'],
-    ['Fri 28', 'Day 3 — BODY part 1, plus the INTRO carry', 'open'],
-    ['Sat 29', 'Day 4 — BODY part 2 + OUTRO → PICTURE LOCK 6:30pm', 'open'],
-    ['Sun 30', 'Day 5 — sound design, render, review. BUFFER DAY.', 'open'],
-  ];
-  add(h('div', { class: 'card' }, h('div', { class: 'rows' },
-    DAYS.map(([d, what, state]) => h('div', { class: 'row' },
-      h('div', { class: 'r mono', style: 'min-width:60px;font-weight:700' }, d),
-      h('div', { class: 'grow' }, h('div', { class: 't' }, what)),
-      h('div', { class: 'r' }, h('span', {
-        class: 'pill ' + (state === 'done' ? 'ok' : state === 'partial' ? 'warn' : 'neutral'),
-      }, state === 'done' ? 'shipped' : state === 'partial' ? 'cut only' : 'open')))))));
+  if (JOB) {
+    add(h('h2', {}, JOB.name + ' — ' + JOB.scope));
+    add(h('div', { class: 'card' }, h('div', { class: 'rows' },
+      JOB.days.map(d => {
+        const past = daysUntil(d.date) < 0;
+        const state = d.state === 'done' ? 'done' : (past ? 'missed' : 'open');
+        return h('div', { class: 'row' },
+          h('div', { class: 'r mono', style: 'min-width:74px;font-weight:700' }, dateLabel(d.date)),
+          h('div', { class: 'grow' },
+            h('div', { class: 't' }, d.label),
+            h('div', { class: 'sub' }, 'must close: ' + d.must)),
+          h('div', { class: 'r' }, h('span', {
+            class: 'pill ' + (state === 'done' ? 'ok' : state === 'missed' ? 'bad' : 'neutral'),
+          }, state === 'done' ? 'done' : state === 'missed' ? 'not closed' : 'open')));
+      }))));
+  }
 
-  add(h('div', { style: 'margin-top:12px' }, callout('bad', '\u{1F512}',
-    '<strong>Picture lock is Saturday 6:30pm.</strong> Sunday being a working day does NOT promote ' +
-    'it to a third cutting day. <strong>It is the buffer.</strong>',
-    'If he is still cutting on Sunday, the buffer is eaten and he is back in Tuesday’s hole with an ' +
-    '8:45pm deadline the same night.')));
+  /* --------------------------------------------- what the cap has cost */
+
+  if ((W.history || []).length) {
+    add(h('h2', {}, 'Every delivery so far'));
+    add(h('div', { class: 'card pad-0' },
+      table(['Job', 'Due', 'Delivered', 'Verdict', 'What happened'],
+        W.history.map(j => [
+          h('strong', {}, j.name),
+          j.due ? dateLabel(j.due) : '—',
+          j.delivered ? dateLabel(j.delivered) : '—',
+          h('span', { class: 'pill bad' }, j.verdict),
+          j.note,
+        ]))));
+    add(h('div', { style: 'margin-top:12px' }, callout('bad', '\u{1F6A9}',
+      '<strong>Two deliveries on the record. Both late.</strong> Client #2 ran eight days against ' +
+      'a five-day cap — 60% over a term the client states, not one he sets.',
+      'With one payer and no second income line, this is the largest risk in the system, and it is ' +
+      'bigger than the money risk. They do not renegotiate a repeat breach. They replace.')));
+  }
 
   /* --------------------------------------------------------- the record */
 

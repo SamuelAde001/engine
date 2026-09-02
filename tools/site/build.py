@@ -509,6 +509,7 @@ def main():
         "income": site["income"],
         "paydays": site["paydays"],
         "countdowns": site["countdowns"],
+        "work": site.get("work", {}),
         "content": site["content"],
         "course": site["course"],
         "body": site["body"],
@@ -575,6 +576,15 @@ def main():
             _mg = (date.fromisoformat(_today) - date.fromisoformat(_lastm)).days
             if _mg >= 1:
                 warn(f"MONEY LEDGER IS {_mg} DAY(S) BEHIND: last row {_lastm}.")
+
+    _job = (site.get("work") or {}).get("current_job") or {}
+    if _job.get("due") and _job["due"] < _today:
+        warn(f"THE JOB ON THE WORK PAGE IS OVER ITS DEADLINE: {_job.get('name')} was due "
+             f"{_job['due']}, today is {_today}. Either it shipped and the record does not say "
+             "so, or it is late. Update work.current_job in context/site.json.")
+    if _job and all(d.get("state") == "done" for d in _job.get("days", [])):
+        warn(f"{_job.get('name')} shows every day done but is still the CURRENT job. "
+             "Move it to work.history in context/site.json.")
 
     _past = [c for c in site.get("countdowns", []) if c.get("date", "9999") < _today]
     if _past:
