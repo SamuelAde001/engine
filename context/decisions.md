@@ -470,3 +470,73 @@ checks added earlier:
 **How to change any sentence on the site now:** find it in `context/site.json` under
 `notes.<page>.<id>`, edit it, run `python tools/site/build.py`, commit, push, then
 `bash tools/site/published.sh`. That is the whole loop.
+
+## 2026-09-02 — September replanned on confirmed money. Parents cancelled, CapCut cut, the front half funded. BUILT.
+
+Payday A landed and was verified in the bank the same hour: **$706.66 net, ₦962,228,
+bank ₦962,371** — reconciling exactly to ₦143 + ₦962,228. Everything below was decided
+against money that exists, not against a projection.
+
+**Two things the record had structurally wrong, both found by checking plan against
+the actual payment:**
+
+1. **Income was booked GROSS.** There is a **flat $5 charge per payment**, twice a
+   month — confirmed to the cent, $711.66 invoiced against $706.66 received — and the
+   measured rate is ₦1,361.66/$, not the ₦1,365 average being assumed. Together those
+   overstated every month by **₦17,016**. `build.py` now nets the charge out of the
+   balance block, and every payday figure on the site is net.
+2. **The front half of the month was never funded.** Feeding, transport, household and
+   personal/misc all sat on Payday B, leaving 1–14 September with **₦871**. That had
+   already cost something real and it is in the ledger: **church missed on 30 August
+   for want of ₦5,000.** Each of those lines is now split — front-half share on Payday
+   A, remainder on B. Same monthly totals, **₦27,771 of actual cushion.** The failure
+   was the timing of the budget, not the size of it.
+
+**Samuel's decisions, all his own:**
+
+| Decision | Effect |
+|---|---|
+| **Parents cancelled for September** — he spoke to his dad and his dad agreed | −₦100,000, September only. The lever that turned the month from ₦41,973 underwater into ₦58,027 free. |
+| **CapCut cancelled outright** — he edits on DaVinci Resolve | −₦14,900/month, ₦44,700 by December, ₦178,800/year. Obligations floor ₦951,700 → **₦936,800**. |
+| Girlfriend ₦100,000 → ₦50,000; son's school ₦50,000 → ₦100,000 | Net zero. ₦150,000 either way; only the split moved. School due before the 14th, so it stays on Payday A. |
+| Kaduna ₦50,000 → ₦80,000 | Still a guess. Any overrun comes from the Buffer, never Goal 1. |
+| Gym clothing ₦10,000 added | Buys the 6×/week movement habit. |
+| **Goal 1 account created, on Cowrywise** | Closes an open question that had a 14 September deadline on it. |
+
+**Declined, and he agreed: ₦40,000 out of Cowrywise.** He offered it to build a
+cushion. Rule 7 is his own, closed in writing on 26 August with *"it never pauses"* —
+and once the parents payment came off, the cushion existed anyway. **It would have
+broken the hardest rule in the file to solve a problem a better decision had already
+solved.** Worth recording because the temptation was reasonable and the answer was
+still no.
+
+**The Goal 1 account creates a second name clash.** Cowrywise now holds the ₦305,000
+ring-fenced investment AND the ₦1M house money — two pots that mean opposite things,
+showing as one balance. The Buffer already shares the "Emergency" account with the
+future emergency fund. So the Budget page's pots callout was rewritten to **derive
+clashes from the data** instead of asserting one hardcoded case; it now catches both,
+and will catch the next one without a code change. Two questions still open: is the
+Goal 1 plan separate from the investment, and does its lock expire before 31 Dec.
+
+**New: `context/things-to-buy.md`,** a buy-now list and a wish list, rendered on the
+Budget page and mirrored to TickTick as two checklists he ticks and adds to.
+The finding that justified it: **his ₦68,000 shopping list was ₦48,000 already
+funded.** The food came to exactly ₦30,000 — the Feeding line to the naira. Only
+₦20,000 was new, and ₦10,000 of that (snacks, his words *"not essential"*) was left
+unallocated inside the cushion rather than budgeted.
+
+**A real bug in the sheets bridge, found because the Budget tab would not move.**
+`append` used Apps Script's `getLastRow()`, which counts formatting and footer text,
+so two payday rows landed at Income 125 and Expenses 405 — **outside the SUMIF windows
+the Budget tab reads** (`Income!$I$5:$I$124`, `Expenses!$E$5:$E$404`). The rows were
+on the tabs and invisible to every total, and the bank figure sat on a stale ₦2,503.
+**This is Rule 6 running backwards** — not a plan claiming money that never moved, but
+money that moved and no total able to see it — and it would have repeated silently at
+every reckoning. `sheets.py append` now finds the last row with a date in column A,
+passes it as `after`, and warns loudly if a batch still lands past the readable range.
+
+**De-hardcoded in the same pass,** per the 2026-09-02 rule: the two-payday amounts, the
+₦146,041 Goal 1 line, the obligations floor in `money.js`, and the bank card's
+subtitle *"everything he can spend today"* — which on a payday is the most misleading
+sentence on the site, since ₦934,600 of that balance was already committed. The payday
+table now subtracts the pots and calls the result a **cushion**, not free.

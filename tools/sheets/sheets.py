@@ -343,7 +343,38 @@ def main(argv):
         grid(post([{"action": "readFormulas", "args": args}])[0]["formulas"])
 
     elif cmd == "append":
-        show(post([{"action": "append", "args": {"tab": rest[0], "values": json.loads(rest[1])}}]))
+        # Append AFTER the last row that has a DATE in column A, not after the
+        # sheet's last row with anything in it.
+        #
+        # Why: 2026-09-02. Income and Expenses carry formatting and footer text
+        # far below their data, so Apps Script's getLastRow() returned 124 and
+        # 404. Two payday rows landed at 125 and 405 — outside the SUMIF windows
+        # the Budget tab reads (Income!$I$5:$I$124, Expenses!$E$5:$E$404). The
+        # rows existed, the sheet showed nothing, and the bank figure stayed on
+        # a stale N2,503. That is the exact failure mode Rule 6 exists to stop,
+        # running backwards: not a plan claiming money that never moved, but
+        # money that moved and no plan able to see it. Silent, and it would have
+        # repeated at every reckoning.
+        tab, values = rest[0], json.loads(rest[1])
+        if not values or not values[0]:
+            die("append needs at least one non-empty row.")
+        colA = post([{"action": "read", "args": {"tab": tab, "range": "A1:A1000"}}])[0]["values"]
+        last = 0
+        for i, row in enumerate(colA):
+            if row and str(row[0]).strip():
+                last = i + 1
+        args = {"tab": tab, "values": values}
+        if last:
+            args["after"] = last
+        res = post([{"action": "append", "args": args}])
+        show(res)
+        landed = (res[0] or {}).get("appendedAtRow")
+        cap = {"Income": 124, "Expenses": 404, "Transfers": 404}.get(tab)
+        if cap and landed and landed + len(values) - 1 > cap:
+            print("\nWARNING: rows landed at %d-%d but the Budget tab only reads %s up to row %d."
+                  % (landed, landed + len(values) - 1, tab, cap))
+            print("They are ON the tab and INVISIBLE to every total. Widen the ranges in")
+            print("tools/sheets/build_budget.py and re-run it before trusting any figure.")
 
     elif cmd == "write":
         show(post([{"action": "write", "args": {"tab": rest[0], "cell": rest[1], "values": json.loads(rest[2])}}]))
