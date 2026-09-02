@@ -632,7 +632,13 @@ def main():
     # liar rather than merely stale. Stamping the build time onto the src makes
     # a rebuild a new URL, so a reload cannot miss it.
     stamp = bundle["generated"].replace("-", "").replace(":", "").replace("T", "")
-    pattern = re.compile(r'(src="(?:\.\./)?data/os\.js)(?:\?v=[^"]*)?(")')
+    # Stamp EVERY local script, not just the data file. Until 2026-09-02 only
+    # data/os.js carried ?v=, so app.js, charts.js and pages/*.js were cached
+    # forever by the browser and the CDN. Numbers updated; the code that RENDERS
+    # them did not. A dead "While fasting" card and an out-of-sync banner that
+    # never appeared both survived that way. If the record changed, every file
+    # that draws it is re-fetched.
+    pattern = re.compile(r'(src="(?:\.\./)?(?:data/os|assets/js/[A-Za-z0-9_/-]+)\.js)(?:\?v=[^"]*)?(")')
     shells = [REPO / "site" / "index.html", *sorted((REPO / "site" / "pages").glob("*.html"))]
     stamped = 0
     for shell in shells:
