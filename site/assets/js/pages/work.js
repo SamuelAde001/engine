@@ -66,11 +66,7 @@
           h('span', { class: 'pill bad' }, j.verdict),
           j.note,
         ]))));
-    add(h('div', { style: 'margin-top:12px' }, callout('bad', '\u{1F6A9}',
-      '<strong>Two deliveries on the record. Both late.</strong> Client #2 ran eight days against ' +
-      'a five-day cap — 60% over a term the client states, not one he sets.',
-      'With one payer and no second income line, this is the largest risk in the system, and it is ' +
-      'bigger than the money risk. They do not renegotiate a repeat breach. They replace.')));
+    add(h('div', { style: 'margin-top:12px' }, notesFor('work', 'n1')));
   }
 
   /* --------------------------------------------------------- the record */
@@ -94,9 +90,7 @@
     h('div', { class: 'card-h' }, h('h3', {}, 'Videos invoiced per batch'),
       h('span', { class: 'sub' }, 'volume is not his decision')),
     batchHost,
-    note('May 5 → June 4 → July 2 → August 4. <strong>July was a 2-video month, and at that mix he ' +
-      'is ₦141,709 underwater.</strong> The volume is set by Route Rise, which is exactly why ' +
-      '"hit 4 videos a month" cannot be a goal he owns.')));
+    notesFor('work', 'n2')));
 
   K.barChart(batchHost, I.batches.map(b => ({ label: b.month.slice(5) + '/' + b.month.slice(2, 4), videos: b.videos })), {
     height: 210, yStep: 1, yMax: 6,

@@ -437,3 +437,36 @@ course, content, people and systems still quote figures inline. They are not sta
 cards so they do not go stale silently in the same way, but the same rule applies:
 when one of those numbers changes in `context/`, the prose must follow. Moving those
 into a `notes` block in `site.json` is the next step and has not been done.
+
+## 2026-09-02 — the prose moved out of the code. 44 callouts now live in site.json.
+
+Finishing the rule set earlier the same day: *"Nothing should be hard coded... it
+should just be an update to the data and the frontend reads from the data."*
+
+**Every static callout and chart note on the site is now a data entry.** They live in
+`context/site.json` under `notes`, keyed by page and id, and the page scripts call
+`notesFor('<page>', '<id>')`. Rewriting a sentence — a figure that moved, a rule that
+died — is a data edit. No JavaScript is touched.
+
+- **44 moved** across all 11 pages.
+- **7 left in code deliberately.** Those interpolate live values — the out-of-sync
+  banner counts its own warnings, the budget page prints `plan_start` and computed
+  shortfalls, the work page prints the cap note. They are templates over data, not
+  hardcoded facts, and moving them would break them.
+- Migration tool kept at `tools/site/extract_notes.py`, re-runnable.
+
+**Three build guards now protect this**, on top of the staleness and hardcoded-date
+checks added earlier:
+
+1. A `notesFor()` call whose id is missing from `site.json` → warned, and the page
+   renders a visible `[missing note …]` marker rather than silently nothing.
+2. A note in `site.json` that no page renders → warned. This one exists because it
+   already happened: testing another guard, a `git checkout` of `work.js` reverted it
+   to the pre-migration index and silently undid its migration. The data survived, the
+   call site did not, and nothing would have said so.
+3. Icons are stored as real characters, not `\uXXXX` escapes. The first migration
+   pass stored the escape text and would have printed `\u{1F6A9}` on the page.
+
+**How to change any sentence on the site now:** find it in `context/site.json` under
+`notes.<page>.<id>`, edit it, run `python tools/site/build.py`, commit, push, then
+`bash tools/site/published.sh`. That is the whole loop.

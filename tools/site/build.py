@@ -634,6 +634,19 @@ def main():
             for _m in re.finditer(r"notesFor\(\s*['\"]([^'\"]+)['\"]\s*,\s*['\"]([^'\"]+)['\"]", _f.read_text(encoding="utf-8")):
                 if _m.group(2) not in (_notes.get(_m.group(1)) or {}):
                     _missing_notes.append(f"{_m.group(1)}/{_m.group(2)}")
+    # And the reverse: notes sitting in site.json that no page asks for. That is what
+    # a half-reverted migration looks like -- the data survived, the call site did not.
+    _used = set()
+    if _pagedir.exists():
+        for _f in sorted(_pagedir.glob("*.js")):
+            for _m in re.finditer(r"notesFor\(\s*['\"]([^'\"]+)['\"]\s*,\s*['\"]([^'\"]+)['\"]", _f.read_text(encoding="utf-8")):
+                _used.add((_m.group(1), _m.group(2)))
+    _orphans = [f"{_p}/{_i}" for _p, _items in _notes.items() for _i in _items
+                if (_p, _i) not in _used]
+    if _orphans:
+        warn("NOTES IN site.json THAT NO PAGE RENDERS: " + ", ".join(sorted(_orphans))
+             + ". Either the page lost its notesFor() call, or the note is dead and should go.")
+
     if _missing_notes:
         warn("PAGE ASKS FOR NOTES THAT DO NOT EXIST: " + ", ".join(sorted(set(_missing_notes)))
              + ". Add them under notes in context/site.json.")
