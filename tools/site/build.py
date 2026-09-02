@@ -365,10 +365,15 @@ def parse_budget_plan(income=None):
     for i in items:
         if i["active"] and i["month"]:
             one_by_month[i["month"]] = one_by_month.get(i["month"], 0) + i["amount"]
+    # NET, not gross. A flat charge is taken per payment and there are two
+    # payments a month, so a month's cash is the batch less 2 x the charge.
+    # Confirmed to the cent on 2026-09-02: $711.66 invoiced, $706.66 received.
+    # This was gross until then, which overstated every month by ~17,000.
     gross = 0
     if income:
-        gross = round((2 * income["rate_primary_usd"] + 2 * income["rate_secondary_usd"])
-                      * income["usd_ngn"])
+        usd = (2 * income["rate_primary_usd"] + 2 * income["rate_secondary_usd"]
+               - 2 * income.get("charge_usd", 0))
+        gross = round(usd * income["usd_ngn"])
     plan_start = plan.get("plan_start") or BUDGET_MONTHS[0]
     balance = []
     for m in BUDGET_MONTHS:
@@ -535,6 +540,7 @@ def main():
         "income": site["income"],
         "paydays": site["paydays"],
         "countdowns": site["countdowns"],
+        "shopping": site.get("shopping") or {},
         "spirit": site.get("spirit", {}),
         "notes": site.get("notes", {}),
         "work": site.get("work", {}),

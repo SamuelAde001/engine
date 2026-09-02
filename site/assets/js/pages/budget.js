@@ -31,6 +31,24 @@
   const paydayA = forMonth.filter(i => i.payday === 'A').reduce((a, i) => a + i.amount, 0);
   const paydayB = forMonth.filter(i => i.payday === 'B').reduce((a, i) => a + i.amount, 0);
 
+  // What the two paydays actually bring in. Read from OS.paydays, never typed:
+  // the amounts are NET of the flat per-payment charge and use the measured rate,
+  // so they move whenever the record does. Prefer this month's; fall back to the
+  // next one on the calendar so the table is never blank.
+  const payIn = (letter) => {
+    const of = OS.paydays.filter(x => (x.label || '').startsWith('Payday ' + letter));
+    const here = of.filter(x => (x.date || '').startsWith(MONTH));
+    return (here[0] || of.find(x => x.date >= MONTH) || of[of.length - 1] || {}).amount || 0;
+  };
+  const inA = payIn('A'), inB = payIn('B');
+
+  // Pots are committed money. Cowrywise moves on A; Goal 1 and the Buffer on B.
+  // A "free" figure that ignores them is the kind of number that gets spent.
+  const potsOn = (letter) => B.savings
+    .filter(v => v.payday === letter)
+    .reduce((a, v) => a + (v.schedule[MONTH] || 0), 0);
+  const potsA = potsOn('A'), potsB = potsOn('B');
+
   add(pageHead('Budget', `The plan for ${MONTH}`,
     'Every line item, what it is made of, and which payday funds it. ' +
     '<strong>Nothing here is a mystery number</strong> — a category total is always the sum of ' +
@@ -187,13 +205,31 @@
           : h('span', { class: 't-dim' }, '\u2014')),
       ]))));
 
+  const homeless = B.savings.filter(v => !v.account || /^NOT SET/i.test(v.account));
+  const clashes = (() => {
+    const byAcct = {};
+    B.savings.forEach(v => {
+      // Normalise to the INSTITUTION. "Cowrywise (locked)" and
+      // "Cowrywise — created 2026-09-02" are the same place, and the whole
+      // point of this callout is to say so.
+      const raw = (v.account || '').trim();
+      if (!raw || /^NOT SET/i.test(raw)) return;
+      const a = raw.split(/\s+[—(]/)[0].replace(/[^A-Za-z0-9 ]/g, '').trim().toLowerCase();
+      if (!a) return;
+      (byAcct[a] = byAcct[a] || { label: raw.split(/\s+—/)[0].trim(), pots: [] }).pots.push(v.pot);
+    });
+    return Object.values(byAcct).filter(g => g.pots.length > 1);
+  })();
+
   add(callout('warn', '\u26a0',
-    '<strong>Two pots, one account.</strong> The Buffer lives in the savings account already ' +
-    'called \u201cEmergency\u201d. From January the actual emergency fund starts \u2014 and if it ' +
-    'goes to the same place, the balance stops meaning anything. Decide before then.',
-    '<strong>Goal 1 has no account at all.</strong> It cannot share the Buffer\u2019s: the Buffer ' +
-    'is designed to be spent and the ₦1M is not. On Payday B, ' + naira(146041) +
-    ' needs somewhere to go that is not the account he buys fuel from.'));
+    ...clashes.map(g =>
+      '<strong>' + g.pots.length + ' pots, one place \u2014 ' + g.label + '.</strong> ' +
+      g.pots.join(' and ') + ' share it. Two pots that mean different things behind one ' +
+      'balance, and a balance that means two things means neither.'),
+    ...(homeless.length
+      ? homeless.map(v => '<strong>' + v.pot + ' has no account.</strong> A pot with no home ' +
+          'cannot be funded on payday.')
+      : ['<strong>Every pot has a home.</strong> Nothing is waiting on an account to exist.'])));
 
   add(h('div', { class: 'card pad-0', style: 'margin-top:10px' },
     table(['Pot', 'What it is'],
@@ -235,19 +271,85 @@
       'before. Nothing got cheaper. Worth remembering the next time a category looks like it has ' +
       'slack in it.')));
 
+  /* ------------------------------------------------------------ shopping */
+  const SH = OS.shopping || {};
+  if ((SH.buying || []).length) {
+    const priced  = SH.buying.filter(i => i.amount && !i.held);
+    const held    = SH.buying.filter(i => i.held);
+    const noPrice = SH.buying.filter(i => !i.amount && !i.held);
+    const byLine  = {};
+    priced.forEach(i => { byLine[i.line] = (byLine[i.line] || 0) + i.amount; });
+
+    add(h('h2', {}, 'Things to buy'));
+    add(h('p', { class: 't-dim' }, SH.note || ''));
+
+    add(h('div', { class: 'grid' },
+      statCard('Buying this month', naira(priced.reduce((a, i) => a + i.amount, 0), { short: true }),
+        priced.length + ' items, all inside a budget line', 'green'),
+      statCard('Held back', held.length ? naira(held.reduce((a, i) => a + i.amount, 0), { short: true }) : '—',
+        held.length ? held.map(i => i.item).join(', ') + ' — kept in the cushion' : 'nothing held', 'blue'),
+      statCard('No price yet', String(noPrice.length + (SH.wishlist || []).filter(w => !w.amount).length),
+        'unpriced items cannot be planned against a surplus', noPrice.length ? 'amber' : '')));
+
+    add(h('div', { class: 'card pad-0', style: 'margin-top:10px' },
+      table(['Item', { label: '₦', num: true }, 'Comes out of', 'Payday'],
+        SH.buying.map(i => [
+          h('span', {}, i.item,
+            i.new ? h('span', { class: 'pill ok', style: 'margin-left:6px' }, 'new') : null,
+            i.held ? h('span', { class: 'pill info', style: 'margin-left:6px' }, 'held') : null,
+            i.note ? h('span', { class: 'sub' }, i.note) : null),
+          i.amount ? naira(i.amount) : h('span', { class: 't-dim' }, '?'),
+          i.line,
+          h('span', { class: 'pill ' + (i.payday === 'A' ? 'ok' : 'info') }, i.payday || '—'),
+        ]))));
+
+    add(h('div', { class: 'card pad-0', style: 'margin-top:10px' },
+      table(['Budget line', { label: 'This list takes', num: true }, { label: 'The line holds', num: true }],
+        Object.keys(byLine).sort((a, b) => byLine[b] - byLine[a]).map(k => {
+          const hold = planByCat[k] || 0;
+          return [k, naira(byLine[k]),
+            hold ? h('span', { class: 'v ' + (byLine[k] > hold ? 'red' : 'green') }, naira(hold))
+                 : h('span', { class: 't-dim' }, '—')];
+        }))));
+
+    if (SH.buying_note) add(callout('ok', '✓', SH.buying_note));
+
+    add(toggle('The wish list', 'only from spare cash, and only after every pot is funded',
+      h('p', {}, SH.wishlist_note || ''),
+      table(['Item', { label: '₦', num: true }, 'Note'],
+        (SH.wishlist || []).map(w => [
+          w.item,
+          w.amount ? naira(w.amount) : h('span', { class: 't-dim' }, '?'),
+          w.note || '',
+        ]))));
+  }
+
   add(toggle('The two paydays', 'the spine of the budget',
     h('p', {}, 'One batch, two dates. Payday A is the 70% landing at the end of the previous month ' +
       'and funds the 1st–14th. Payday B is the 30% landing around the 14th and funds the 15th to ' +
       'month end. ', h('strong', {}, 'The 30% is always the previous month\'s remaining batch, never a new one.')),
     table(['', 'Payday A — 70%', 'Payday B — 30%'], [
-      ['Expected in', naira(971416), naira(416325)],
-      ['Committed', naira(paydayA), naira(paydayB)],
-      [h('strong', {}, 'Free'),
-        h('strong', { class: 'v green' }, naira(971416 - paydayA)),
-        h('strong', { class: 'v green' }, naira(416325 - paydayB))],
+      ['Expected in', naira(inA), naira(inB)],
+      ['Bills and one-offs', naira(paydayA), naira(paydayB)],
+      ['Into the pots', naira(potsA), naira(potsB)],
+      [h('strong', {}, 'Cushion'),
+        h('strong', { class: 'v ' + (inA - paydayA - potsA < 0 ? 'red' : 'green') },
+          naira(inA - paydayA - potsA)),
+        h('strong', { class: 'v ' + (inB - paydayB - potsB < 0 ? 'red' : 'green') },
+          naira(inB - paydayB - potsB))],
     ]),
+    h('p', {}, h('strong', {}, 'The pots are committed money, so they are subtracted here. '),
+      'Cowrywise moves on A; Goal 1 and the Buffer move on B. A cushion figure that ignores ' +
+      'them is a number that gets spent twice.'),
     h('p', {}, h('strong', {}, 'Girlfriend moved to A '), '— she needs it at the start of the month ' +
       'for household essentials. ', h('strong', {}, 'Community admin moved to B '),
-      '— he is paid mid-month. September proved the split immediately: Payday A came out ₦15,084 ' +
-      'over, so giving and feeding moved to B.')));
+      '— he is paid mid-month.'),
+    h('p', {}, h('strong', {}, 'And the front half got funded. '),
+      'Feeding, transport, household and personal/misc used to sit entirely on Payday B, which left ' +
+      'the 1st–14th with almost nothing to run on — and that already cost something real: he missed ' +
+      'church on 30 August for want of ₦5,000. Each of those lines is now split, its front-half share ' +
+      'on A and the remainder on B. ',
+      h('strong', {}, 'Same monthly totals. The failure was the timing, not the size.')),
+    OS.income.charge_note ? h('p', {}, h('strong', { class: 'v red' }, 'These figures are NET. '),
+      OS.income.charge_note) : null));
 })();

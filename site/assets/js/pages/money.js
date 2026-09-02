@@ -23,7 +23,8 @@
   /* ------------------------------------------------------------ the numbers */
 
   add(h('div', { class: 'grid g4 tight' },
-    statCard('In the bank', naira(P.bank), 'everything he can spend today', 'red'),
+    statCard('In the bank', naira(P.bank), P.bank_sub || 'everything he can spend today',
+      P.bank_free != null && P.bank_free < 50000 ? 'red' : ''),
     statCard('₦1M by 31 Dec', naira(g1.current, { short: true }),
       `${pct(g1.current / g1.target * 100)} · ${daysLabel(daysUntil(g1.deadline))} left`, 'red'),
     statCard('Next payday', nextPay ? daysLabel(nextPay.d) : '—',
@@ -103,7 +104,8 @@
   const scenHost = h('div');
   add(h('div', { class: 'card', style: 'margin-top:14px' },
     h('div', { class: 'card-h' }, h('h3', {}, 'Monthly surplus, by video mix'),
-      h('span', { class: 'sub' }, 'after ₦951,700 obligations + ₦100,000 Cowrywise')),
+      h('span', { class: 'sub' }, 'after ' + naira(I.obligations_floor) +
+        ' obligations + ' + naira(I.committed_outflow - I.obligations_floor) + ' Cowrywise')),
     scenHost,
     notesFor('money', 'n4')));
 

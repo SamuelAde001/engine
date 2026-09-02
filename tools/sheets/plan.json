@@ -36,25 +36,31 @@
 
     ["Subscriptions",      "Claude",                                           33500, "Fixed",         "B", "16th", "Yes", ""],
     ["Subscriptions",      "Google",                                           15000, "Fixed",         "A", "2nd",  "Yes", ""],
-    ["Subscriptions",      "CapCut",                                           14900, "Fixed",         "A", "4th",  "Yes", ""],
+    ["Subscriptions",      "CapCut",                                               0, "Fixed",         "A", "4th",  "No",  "CUT 2026-09-02, his call: he edits on DaVinci Resolve now. Row kept, not deleted. ₦14,900/month, ₦44,700 by December, ₦178,800 a year."],
     ["Subscriptions",      "YouTube Premium",                                   1700, "Committed",     "B", "17th", "Yes", "KEPT. His words: helps his work, and his only entertainment."],
     ["Subscriptions",      "Spotify",                                           1600, "Committed",     "A", "5th",  "Yes", "KEPT, same reason."],
     ["Subscriptions",      "Rubik's cube",                                          0, "Discretionary", "B", "15th", "No",  "CUT 2026-08-26. Row kept, not deleted — a cancelled sub that reappears is a pattern."],
 
     ["Health",             "Gym membership",                                   30000, "Committed",     "A", "",     "Yes", "STARTS SEPTEMBER 2026. He is resuming the gym. Not a line to raid — it is the one that pays back."],
-    ["Chores / household", "Household",                                        40000, "Discretionary", "B", "",     "Yes", ""],
-    ["Feeding",            "Feeding",                                          30000, "Committed",     "B", "",     "Yes", "50,000 → 30,000 on 2026-08-26. His sister feeds him, so he does not spend much. Moved wholly to Payday B — September's front half could not carry it."],
+    ["Chores / household", "Household — front half",                              3000, "Discretionary", "A", "",     "Yes", "SPLIT OUT 2026-09-02. Cleaning supplies bought with the front-half shop — hypo, bathing soap, washing soap."],
+    ["Chores / household", "Household — rest of month",                          37000, "Discretionary", "B", "",     "Yes", "The remainder of the ₦40,000 household line."],
+    ["Feeding",            "Feeding — the monthly shop",                          30000, "Committed",     "A", "",     "Yes", "MOVED B → A on 2026-09-02. It is a stock-up shop, not a drip, and it has to happen in the front half or he does not eat until the 14th. His September list came to exactly ₦30,000 — milk, cornflakes, garri, groundnuts, oats, biscuits, coffee milk — so this line has no slack in it at all. See context/things-to-buy.md."],
     ["Creator visits",     "Creator visits — network",                         25000, "Discretionary", "B", "",     "Yes", "HELD at his request. Costs the December target ₦100,000 across four months."],
-    ["Transport",          "Transport",                                        20000, "Committed",     "B", "",     "Yes", "30,000 → 20,000 on 2026-08-26."],
+    ["Transport",          "Transport — front half",                             10000, "Committed",     "A", "",     "Yes", "SPLIT OUT 2026-09-02: ₦5,000 around the house, ₦5,000 to church on Sunday. THIS LINE EXISTS BECAUSE HE MISSED CHURCH ON 30 AUGUST for want of ₦5,000, while the whole transport budget sat on Payday B."],
+    ["Transport",          "Transport — rest of month",                          10000, "Committed",     "B", "",     "Yes", "The remainder of the ₦20,000 transport line. 30,000 → 20,000 on 2026-08-26."],
     ["Giving",             "Giving",                                           10000, "Committed",     "B", "",     "Yes", "20,000 → 10,000 on 2026-08-26. His words: 'I am not giving to anyone, only when someone asks.' context/spirit.md records no tithe or giving commitment, so this is his call with nothing pulling against it."],
-    ["Personal / misc",    "Personal / misc",                                  10000, "Discretionary", "B", "",     "Yes", "50,000 → 10,000 on 2026-08-26, his number, deeper than the 25,000 recommended."],
+    ["Personal / misc",    "Personal / misc — front half",                        5000, "Discretionary", "A", "",     "Yes", "SPLIT OUT 2026-09-02. September: haircut ₦3,000, floss ₦1,000, pen ₦1,000."],
+    ["Personal / misc",    "Personal / misc — rest of month",                     5000, "Discretionary", "B", "",     "Yes", "The remainder. 50,000 → 10,000 on 2026-08-26, his number, deeper than the 25,000 recommended."],
     ["Data / airtime",     "Data / airtime",                                    5000, "Committed",     "B", "",     "Yes", ""]
   ],
 
   "one_offs": {
     "2026-09": [
-      ["Girlfriend",     "Son's school — September top-up", 50000, "Committed",     "A", "", "Yes", "ON TOP of the ₦100,000 allowance, making September ₦150,000. OPEN: school fees are usually termly, not annual. If this repeats it is a LINE, not a surprise — ask before October."],
-      ["Transport",      "Kaduna trip — meeting, 12 Sep",   50000, "Discretionary", "A", "12th", "Yes", "One-off. Falls in the front half of the month."],
+      ["Girlfriend",     "Son's school fee",                100000, "Committed",     "A", "", "Yes", "CORRECTED 2026-09-02 from ₦50,000 — she confirmed the school needs ₦100,000 and she herself needs ₦50,000. September's girlfriend spend is ₦150,000 either way; only the split moved. DUE BEFORE THE 14th, confirmed, so it stays on Payday A. OPEN: school fees are usually termly. If this repeats it is a LINE, not a surprise — ask before October."],
+      ["Girlfriend",     "Allowance — September reduction", -50000, "Committed",     "A", "", "Yes", "She needs ₦50,000 this month, not ₦100,000 — her own confirmation, 2026-09-02. Booked as a reduction against the recurring line so the ₦100,000 baseline still stands for October. OPEN: is ₦50,000 the new normal, or September only?"],
+      ["Parents",        "Parents — September CANCELLED",  -100000, "Committed",     "A", "", "Yes", "Samuel spoke to his dad on 2026-09-02 and his dad agreed to skip this month. SEPTEMBER ONLY — the ₦100,000 recurring line stands from October. This one decision is what turned September from ₦41,973 underwater into ₦58,027 free, and it is the only lever in the month that depended on someone else saying yes."],
+      ["Health",         "Gym clothing",                     10000, "Committed",     "A", "", "Yes", "NEW 2026-09-02. On top of the ₦30,000 membership. Buys the morning-movement habit, 6× a week — the one line on this budget that pays him back."],
+      ["Transport",      "Kaduna trip — 11-13 Sep",          80000, "Discretionary", "A", "12th", "Yes", "RAISED from ₦50,000 on 2026-09-02. His words: he has no idea what the trip, hotel, feeding and transport will cost, and he has not travelled in a while. STILL A GUESS. Any overrun comes from the Buffer — never Goal 1, never the building fund. Bring back the real number; October plans off truth, not off this."],
       ["Other",          "Sister — debt repayment 1 of 2",  40000, "Committed",     "B", "", "Yes", "He owes her ₦90,000. This pays ₦40,000. ₦50,000 REMAINS OUTSTANDING WITH NO DATE. money.md still says 'Loans — all cleared'; that is now wrong."]
     ]
   },
@@ -75,7 +81,7 @@
   "savings": [
     {
       "pot": "Goal 1 — house",
-      "account": "NOT SET",
+      "account": "Cowrywise — created 2026-09-02",
       "payday": "B",
       "target": 1000000,
       "deadline": "2026-12-31",

@@ -12,14 +12,19 @@
 
 The investment pot does NOT count toward any of these. See Rule 7.
 
-## Current number (as of 2026-08-26)
+## Current number (as of 2026-09-02)
 
 | Pot | Amount | Notes |
 |---|---|---|
-| Bank (liquid) | **₦3,503** | everything he can actually spend today |
-| Emergency fund | **₦0** | does not exist yet |
+| Bank (liquid) | **₦962,371** | Payday A landed and is confirmed in the account. ₦934,600 of it is spoken for the same day; **₦27,771 is the real free number.** |
+| Emergency fund | **₦0** | does not exist yet — starts Jan 2027 |
+| Buffer | **₦0** | first ₦50,000 moves on Payday B, 14 Sep |
+| Goal 1 — house | **₦0** | account now exists (Cowrywise). First ₦146,041 moves 14 Sep. |
 | Cowrywise investment | **₦305,000** | locked, ring-fenced, +₦100,000/month to year end |
-| **Available for goals** | **₦3,503** | |
+| **Available for goals** | **₦0** | |
+
+Bank reconciles exactly: ₦143 opening + ₦962,228 converted = ₦962,371. The ₦143 is
+what survived August — ₦2,503 on 27 Aug less ₦2,360 of recharge cards.
 
 August income: **₦1,109,987** — of which ~₦200,000 was a savings withdrawal, not
 income. **Real August income ≈ ₦910,000.**
@@ -35,16 +40,30 @@ Added 2026-08-28. A pot with no account is a pot that cannot be funded on payday
 |---|---|---|
 | Buffer | **the savings account already called "Emergency"** — his answer 2026-08-28 | B |
 | Cowrywise investment | Cowrywise, locked to Jan 2027 | A |
-| Goal 1 — house | **NOT SET** | B |
+| Goal 1 — house | **Cowrywise** — created 2026-09-02 | B |
 | Goal 2 — marriage | NOT SET (starts Jan 2027) | B |
 | Emergency fund | the "Emergency" account (starts Jan 2027) | B |
 
-**Two things are open and both have dates on them.**
+**Goal 1 now has a home. Samuel opened it on Cowrywise, 2026-09-02.** That closes
+the question that had a 14 September deadline on it, and it closes it well: a
+Cowrywise plan is harder to raid than a bank account, which is exactly what Rule 1
+needs.
 
-**Goal 1 has no home, and ₦146,041 moves on 14 September.** It cannot share the
-Buffer's account: the Buffer is designed to be spent and the ₦1M is not. If they
-sit together, the first urgency that empties the Buffer will take the house money
-with it, because nothing on a bank statement says which naira was which.
+**But it puts a SECOND name clash on the board, and this engine already has one.**
+Cowrywise now holds two pots that mean opposite things: the ₦305,000 ring-fenced
+investment that never counts toward any goal, and the ₦1M house money that is the
+goal. In December the app will show roughly ₦1.7M as one balance. Two questions
+have to be answered before the 14th, and they are on TickTick:
+
+1. **Is it a separate plan from the investment, or the same one?** If the same, the
+   ₦1M and the ring-fence are indistinguishable and Rule 7 stops meaning anything.
+2. **What is the maturity date?** The ₦1M has to be *saved and still there on
+   31 Dec 2026* and then spendable on the house. A lock that runs past December
+   protects the target and blocks the purpose.
+
+Two platforms, four pots, two name collisions — Buffer sharing the "Emergency"
+account, and Goal 1 sharing Cowrywise. Neither is wrong. Both are the kind of thing
+that reads fine today and is unreadable in December.
 
 **The account is called "Emergency" but from September to December it holds the
 BUFFER, not the emergency fund** — that pot does not start until January 2027.
@@ -102,8 +121,13 @@ row hides it.
 
 ## Income mechanics
 
-- Paid in **USD**, converted to NGN on **Cleva**. Observed average June–August
-  ≈ **₦1,365/$**. Rate moves with the market.
+- Paid in **USD**, converted to NGN on **Cleva**. **Measured on the 2026-09-02
+  payment: ₦1,361.66/$** — ₦962,228 for $706.66. The June–August average was
+  ₦1,365/$. Rate moves with the market; use the measured figure, not the average.
+- **THERE IS A FLAT $5 CHARGE PER PAYMENT.** Confirmed 2026-09-02 to the cent:
+  gross $711.66, received $706.66. It is flat, not a percentage — which means it
+  costs proportionally more on the smaller 30% payment. **$10/month, ~₦13,617/year.**
+  Every projection in this file that used a gross figure was overstated by it.
 - Client pays **monthly in two stages: 70% at month end, 30% mid the following
   month.** The mid-month invoice is always the remainder of the previous month's
   batch — never a new batch. Every "mid-month payment" is last month's money.
@@ -133,9 +157,20 @@ row hides it.
 | May | 5 | invoiced 06/14 |
 | June | 4 | invoiced 06/29 (70%) + 07/14 (30%) |
 | July | 2 | invoiced 07/29 (70%) + 08/14 (30%) |
-| August | 4 | 2 × $333.33 + 2 × $175 = **$1,016.66 ≈ ₦1,387,741** — ONE Route Rise invoice covering both end clients |
+| August | 4 | 2 × $333.33 + 2 × $175 = **$1,016.66 gross** — ONE Route Rise invoice covering both end clients |
 
-August lands as: **70% ≈ ₦971,416 at month end**, **30% ≈ ₦416,325 mid-September.**
+**August, as it actually paid — corrected 2026-09-02:**
+
+| | Gross | Charge | Net | ₦ |
+|---|---|---|---|---|
+| 70%, landed 2 Sep | $711.66 | $5.00 | **$706.66** | **₦962,228** confirmed |
+| 30%, due ~14 Sep | $305.00 | $5.00 | $300.00 | ~₦408,497 at ₦1,361.66 |
+| **Batch** | $1,016.66 | $10.00 | $1,006.66 | **~₦1,370,725** |
+
+The record planned ₦1,387,741. **The batch is ₦17,016 lighter than planned** — ₦9,188
+of it confirmed on the 70%, the rest an estimate that moves with the rate on the 14th.
+Two causes, both structural and both recurring: the flat $10/month of charges, and a
+rate ₦3.34 below the assumed average.
 
 ## Cash actually landing per calendar month
 
@@ -159,7 +194,7 @@ Samuel gave the real line items. They are on the Details tab and in
 | Building project | ₦500,000 | Fixed | A |
 | Parents | ₦100,000 | Committed | A |
 | Girlfriend allowance | ₦100,000 | Committed | A |
-| Subscriptions | ₦66,700 | mixed | split |
+| Subscriptions | ₦51,800 | mixed | split |
 | Chores / household | ₦40,000 | Discretionary | B |
 | Health — gym | ₦30,000 | Committed | A |
 | Feeding | ₦30,000 | Committed | B |
@@ -169,14 +204,20 @@ Samuel gave the real line items. They are on the Details tab and in
 | Giving | ₦10,000 | Committed | B |
 | Personal / misc | ₦10,000 | Discretionary | B |
 | Data / airtime | ₦5,000 | Committed | B |
-| **Obligations floor** | **₦951,700** | | |
+| **Obligations floor** | **₦936,800** | | |
 | Investment contribution | ₦100,000 | Fixed | A |
-| **Total committed outflow** | **₦1,051,700 / month** | | |
+| **Total committed outflow** | **₦1,036,800 / month** | | |
 
-Subscriptions, exactly: Claude ₦33,500 (16th) · Google ₦15,000 (2nd) · CapCut
-₦14,900 (4th) · YouTube Premium ₦1,700 (17th) · Spotify ₦1,600 (5th). Rubik's cube
-₦6,860 **cut 2026-08-26**. YouTube and Spotify kept — his words: they help his work,
-and they are his only entertainment.
+Subscriptions, exactly: Claude ₦33,500 (16th) · Google ₦15,000 (2nd) · YouTube
+Premium ₦1,700 (17th) · Spotify ₦1,600 (5th) = **₦51,800**. YouTube and Spotify
+kept — his words: they help his work, and they are his only entertainment.
+
+**Cut and gone: CapCut ₦14,900 (2026-09-02) and Rubik's cube ₦6,860 (2026-08-26).**
+CapCut went because he edits on DaVinci Resolve now — his call, unprompted, and it
+is the best line on this page. It is **₦14,900 every month, ₦44,700 by December and
+₦178,800 a year**, bought by cancelling something he had stopped using. Note the
+shape of it: the obligations floor has now fallen twice, both times because he
+changed a decision, and never once because income moved.
 
 **The estimate was ₦1,044,500. The truth is ₦1,038,560 once personal/misc is
 counted — a difference of ₦5,940.** Nothing got cheaper. Feeding's ₦150,000 did not
@@ -203,9 +244,14 @@ One batch, two dates. This is now the spine of the budget.
 |---|---|---|
 | Lands | end of the **previous** month | around the **14th** |
 | Funds | the 1st – 14th | the 15th – month end |
-| Expected in | ~₦971,416 | ~₦416,325 |
-| Committed | ₦861,500 | ₦190,200 |
-| **Free** | **₦109,916** | **₦226,125** |
+| Expected in | ~₦962,228 measured | ~₦408,497 est |
+| Committed | ₦846,600 | ₦190,200 |
+| **Free** | **₦115,628** | **₦218,297** |
+
+Updated 2026-09-02 for the measured rate, the flat $5 charge and the CapCut cut.
+The "expected in" figures are now NET of charges — the old ones were gross, and
+that error was worth ₦17,016 a month. **These are the numbers for a normal month;
+September itself is replanned below and looks nothing like this.**
 
 The 30% is always the previous month's remaining batch, never a new one.
 
@@ -237,6 +283,96 @@ is not scheduled. It is written down here anyway, because an undated debt is the
 kind of thing that ambushes a month, and because "when I have more funds" is the
 same sentence that moves due dates. Bring it up the first month that closes with the
 buffer full.
+
+## September 2026, as replanned
+
+Rebuilt 2026-09-02, the day Payday A landed, against **confirmed** money rather than
+projections. Every figure below is either measured or named as an estimate.
+
+**In:** ₦962,371 in the bank now (confirmed) + ~₦408,497 on the 14th (estimate)
+= **~₦1,370,868.**
+
+**What changed on 2026-09-02, and who changed it:**
+
+| Change | ₦ | Whose call |
+|---|---|---|
+| Parents — cancelled for September only | **−100,000** | Samuel. He spoke to his dad and his dad agreed. October onward it is back to ₦100,000. |
+| CapCut — cancelled outright | **−14,900/mo** | Samuel. DaVinci Resolve does the job. |
+| Girlfriend allowance 100,000 → 50,000 | −50,000 | Confirmed with her |
+| Son's school 50,000 → 100,000 | +50,000 | Confirmed with her. **Due before the 14th**, so it stays on Payday A. |
+| Kaduna trip 50,000 → 80,000 | +30,000 | Samuel — he has not travelled in a while and the real cost is unknown |
+| Gym clothing — new one-off | +10,000 | Buys the 6×/week movement habit |
+| Payment charges + rate | +17,016 | Route Rise/Cleva. Not his call, and it recurs. |
+
+The girlfriend lines cancel out exactly: ₦150,000 either way. Only the split moved.
+
+**Payday A — 2 to 14 September. ₦962,371 available.**
+
+| | ₦ |
+|---|---|
+| Building project | 500,000 |
+| Son's school | 100,000 |
+| Cowrywise | 100,000 |
+| Kaduna trip | 80,000 |
+| Girlfriend allowance | 50,000 |
+| Gym membership | 30,000 |
+| Food shop | 30,000 |
+| Google (2nd) | 15,000 |
+| Gym clothing | 10,000 |
+| Transport — house + church | 10,000 |
+| Haircut, floss, pen | 5,000 |
+| Hypo, soaps | 3,000 |
+| Spotify (5th) | 1,600 |
+| Parents · CapCut | **0 — cancelled** |
+| **Out** | **934,600** |
+| **CUSHION, 2–14 SEP** | **₦27,771** |
+
+**Payday B — 15 to 30 September. ~₦408,497 expected.**
+
+Goal 1 ₦146,041 · Buffer ₦50,000 · sister ₦40,000 · household remainder ₦37,000 ·
+Claude ₦33,500 · creator visits ₦25,000 · community admin ₦15,000 · giving ₦10,000 ·
+transport remainder ₦10,000 · data ₦5,000 · misc remainder ₦5,000 · YouTube ₦1,700
+= **₦378,241. Free: ₦30,256.**
+
+**The month closes with ₦58,027 free** — with Goal 1 whole, Cowrywise whole, and
+creator visits still funded.
+
+### Two structural fixes made the same day
+
+**1. The front half was funded.** Until 2026-09-02 the plan put feeding, transport,
+household and personal/misc entirely on Payday B, leaving the 1st–14th with ₦871.
+That is not a budget, and it had already cost something real: he missed church on
+30 August for want of ₦5,000. Each of those lines is now split — its front-half
+share moves on Payday A, the remainder on B. Same monthly totals, ₦27,771 of
+actual cushion. **The failure was never the size of the budget. It was the timing
+of it.**
+
+**2. The shopping list turned out to be already funded.** Samuel gave a ₦68,000 list
+of things he needed. Categorised against the existing lines, ₦48,000 of it was
+already inside Feeding, Household, Personal/misc and Transport — and the food came
+to exactly ₦30,000, the Feeding line to the naira. Only ₦20,000 was new money, and
+₦10,000 of that (snacks, his words: *"not essential"*) was deliberately left
+unallocated inside the cushion instead. The list lives in `context/things-to-buy.md`
+and on TickTick.
+
+### What was NOT done, and why
+
+**Cowrywise was not cut.** Samuel offered ₦40,000 out of it to build a cushion.
+Declined, and he agreed: Rule 7 is his own rule, closed in writing on 2026-08-26
+with *"it never pauses"* — and once parents came off, the cushion existed anyway. It
+would have broken the hardest rule in the file to solve a problem that had already
+been solved by a better decision.
+
+### Goal 1 after September
+
+The opening balance that carries into Goal 1 is **₦143, not ₦3,503** — ₦2,360 went on
+recharge cards in the last week of August. So Goal 1 lands at ₦1,004,307 against
+₦1,000,000: **a margin of ₦4,307, down from ₦7,667.**
+
+October–December each run **₦17,016 lighter** than planned (charges + rate) and
+**₦14,900 better** (CapCut) — a net **₦2,116/month**, or ₦6,351 across the quarter.
+**That comes out of the Buffer, not Goal 1.** Which is precisely what the Buffer is
+for, and the first time it has been used as designed instead of savings being raided.
 
 ## The savings hole
 
