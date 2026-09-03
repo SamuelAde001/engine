@@ -21,4 +21,5 @@ Reading it: `tail -n 8 context/ledger.md` for the recent week. Never read it who
 | 2026-08-30 | No brief, no commitment on record. Client #2 was DUE 4:00pm (client deadline 8:45pm). | NOT DELIVERED. | — | not tracked | — | GAP |
 | 2026-08-31 | No brief. Client #3 Day 1 scheduled — not started. Detox keep/drop/extend decision due — not made. | — | — | not tracked | — | GAP |
 | 2026-09-01 | No brief. 2 Sep ship plan built 10:18pm. | — | — | not tracked | — | GAP |
-| 2026-09-02 | Client #2 FINISH & SEND, 4:00am start, target 12:30pm | **SENT 12:07pm** — every pomo closed, picture lock held, render walked away from. 2.5 days past the client deadline. Payday A: 4 transfers out, ₦750,250. | 4h26m (5 pomos) | 1/2 (phone ✓ · sleep ✗) | 11:00pm target | SHIPPED |
+| 2026-09-02 | Client #2 FINISH & SEND, 4:00am start, target 12:30pm | **SENT 12:07pm** — every pomo closed, picture lock held, render walked away from. 2.5 days past the client deadline. Payday A: 4 transfers out, ₦750,250. | 4h26m (5 pomos) | 1/2 (phone ✓ · sleep ✗) | 11:00pm (6.5h) | SHIPPED |
+| 2026-09-03 | Run footage edit + GF video edit + Client #3 Day 1 cut (ingest + rough cut, ships Mon) |  |  |  |  |  |

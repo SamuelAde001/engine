@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T22:05:42",
+  "generated": "2026-09-03T07:34:14",
   "profile": {
     "name": "Samuel",
     "site_name": "Samuelsignals OS",
@@ -388,7 +388,7 @@
       "habits_hit": 1,
       "habits_set": 2,
       "bed": "23:00",
-      "slept": null,
+      "slept": 6.5,
       "verdict": "SHIPPED",
       "interim": false,
       "content_due": true,
@@ -415,6 +415,28 @@
       "notes": "**Planned:** ONE thing — Client #2, finish and send. 4:00am start, target 12:30pm.\nBody §3, body §4, outro, sound, render. Also on the day: gym 7:00–8:20am (Wednesday),\npick the bank account for the ₦1M, send the Payday A transfers.\n\n**Shipped:** **Client #2 SENT 12:07pm**, twenty-three minutes inside the target.\nEvery timed pomo closed, picture lock held at 9:40am, the render was started at\n10:35am and walked away from exactly as planned. The ₦1M savings account was picked\nand opened. Four Payday A transfers went out the same day the money landed.\n\n**Focus:** 4h26m across 5 pomos (W1 4:15am → W6 9:40am). W7 sound and the render\nwindow were not timed, so the real desk figure is higher than the logged one — same\ntimer-coverage gap as 26 Aug, smaller. The logged blocks ran within a few minutes of\nthe plan every single time.\n\n**What P5 says about this day.** Client #2 took 8 days against Route Rise's 5-day\ncap, but 2 Sep did §3, §4, outro, sound and render in about eight hours. The job was\nnever an 8-day job. The variable is whether the day was chunked before it started.\nThis one was — the night before, at 10:18pm. That is the finding, and Client #3 is\nthe test.\n\n**Missed:** **Gym.** Wednesday is a gym day, 7:00–8:20am, and the focus timer shows\nhim at the desk on body §4 from 7:03 to 7:58am. Confirmed not done, logged as not\ndone. First Wednesday of the new movement habit and the client block ate it — the\nexact trade `context/habits.md` warned about when it priced the habit at 7h30 of\nclient morning a week. Named once. The habit that starts 3 Sep now starts on a miss.\n\n**Money — PAYDAY A, and the transfers actually moved.** Bank opened ₦962,371.\nOut: building ₦500,000, son's school ₦100,000, Cowrywise ₦100,250, girlfriend\n₦50,000 = ₦750,250 named, closing ₦211,787, leaving ₦334 of unattributed bank\ncharges. Total charges ₦584 including the ₦250 inside the Cowrywise transfer. It\nreconciles to the naira.\n\n**This is P3 being tested and, tonight, passing.** P3 says money booked is not money\nmoved — ₦595,250 booked to savings across June–August, ₦305,000 survived. Rule 3 was\nwritten to stop exactly that: savings move ON the payday. Tonight Cowrywise ₦100,000\nleft the account the day the money landed, and the building got its full ₦500,000\nrather than August's ₦200,000. That is the first payday on the record where the rule\nwas actually executed. It is one data point, and Payday B on 14 Sep — Goal 1\n₦146,041 and the Buffer — is the one that decides whether P3 dies.\n\n**₦184,600 across 9 lines did NOT go out**, his call: *\"Other Payments would be made\nas the week passes as they can't be paid tonight.\"* Not an excuse — a food shop, a\nhaircut, a cash withdrawal and two auto-billed subscriptions genuinely cannot be\nsettled at 9pm. But it leaves ₦211,787 sitting loose for a week against ₦184,600 of\ncommitments, and a real cushion of ₦27,187, not the ₦27,771 planned. The ₦584 of\ncharges is the entire difference.\n\n**Wednesday Signal Session CANCELLED COMPLETELY**, his words. That is the weekly\nHighSignals community teaching, Wednesdays 8:30pm — the recurring task is deleted and\n`context/audience.md` is updated. **This is P1, confirmed today, doing it again on the\nsame day it was confirmed.** The audience-facing line with no external deadline is the\nline that gets cut: no video published 7:00pm today either, so week 1 of the 18\nWednesdays is a miss on both halves. The community still has a paid admin on ₦15,000\na month and now has nothing scheduled in it.\n\n**Habits: 1 of 2 live.** Phone away by 10pm — confirmed and ticked. Sleep by 10:30pm\n— **not ticked. His answer was \"may be by 11pm.\"** That is 30 minutes past the floor\nand it is hedged. Against a 5:30am wake, 11:00pm is 6.5 hours; the floor is 7. He has\nstill not hit it once on the record. Morning movement starts 3 Sep, so it was not a\nlive habit today.\n\n**Verdict: SHIPPED.** He committed to one thing, named the time, and beat it by\ntwenty-three minutes with the day chunked in advance.",
       "week": "2026-08-31",
       "focus_pct": null
+    },
+    {
+      "date": "2026-09-03",
+      "committed": "Run footage edit + GF video edit + Client #3 Day 1 cut (ingest + rough cut, ships Mon)",
+      "shipped": "",
+      "focus_logged": null,
+      "focus_committed": null,
+      "habits_hit": null,
+      "habits_set": null,
+      "bed": null,
+      "slept": null,
+      "verdict": "OPEN",
+      "interim": false,
+      "content_due": true,
+      "content_shipped": false,
+      "money_due": false,
+      "money_moved": false,
+      "score": null,
+      "score_components": {},
+      "notes": "",
+      "week": "2026-08-31",
+      "focus_pct": null
     }
   ],
   "weeks": [
@@ -433,9 +455,9 @@
       "shipped": 1,
       "partial": 0,
       "missed": 0,
-      "open": 2,
+      "open": 3,
       "focus": 4.43,
-      "days": 3,
+      "days": 4,
       "avg_score": 60
     }
   ],
@@ -1956,7 +1978,7 @@
   "budget": {
     "plan_start": "2026-09",
     "tracking_start": "2026-08-26",
-    "today": "2026-09-02",
+    "today": "2026-09-03",
     "months": {
       "2026-09": {
         "month": "2026-09",
@@ -5013,7 +5035,7 @@
     ]
   },
   "summary": {
-    "days_recorded": 10,
+    "days_recorded": 11,
     "days_closed": 6,
     "shipped": 3,
     "partial": 3,
@@ -5021,11 +5043,15 @@
     "total_focus": 33.88,
     "last_score": 60,
     "avg_score": 53,
-    "today": "2026-09-02",
+    "today": "2026-09-03",
     "nights_floor_hit": 0,
     "nights_recorded": 5
   },
   "warnings": [],
-  "gaps": [],
-  "content_hash": "6eac0248df9cfd7e"
+  "gaps": [
+    "POTS ARE STALE: balances as of 2026-09-02, ledger runs to 2026-09-03. The money figures on every page are older than the day being shown.",
+    "MONEY LEDGER IS 1 DAY(S) BEHIND: last row 2026-09-02.",
+    "HABIT LOG IS 1 DAY(S) BEHIND: last entry 2026-09-02."
+  ],
+  "content_hash": "a641bdefc42a7680"
 }
