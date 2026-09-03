@@ -22,4 +22,4 @@ Reading it: `tail -n 8 context/ledger.md` for the recent week. Never read it who
 | 2026-08-31 | No brief. Client #3 Day 1 scheduled — not started. Detox keep/drop/extend decision due — not made. | — | — | not tracked | — | GAP |
 | 2026-09-01 | No brief. 2 Sep ship plan built 10:18pm. | — | — | not tracked | — | GAP |
 | 2026-09-02 | Client #2 FINISH & SEND, 4:00am start, target 12:30pm | **SENT 12:07pm** — every pomo closed, picture lock held, render walked away from. 2.5 days past the client deadline. Payday A: 4 transfers out, ₦750,250. | 4h26m (5 pomos) | 1/2 (phone ✓ · sleep ✗) | 11:00pm (6.5h) | SHIPPED |
-| 2026-09-03 | Run footage edit + GF video edit + Client #3 Day 1 cut (ingest + rough cut, ships Mon) |  |  |  |  |  |
+| 2026-09-03 | Run footage edit + GF video edit + Client #3 Day 1 cut (ingest + rough cut, ships Mon) | Run footage ✓ · GF edit ✓ (4h12m against a 2h budget) · **VLOG POSTED — first content in 3 weeks** · CapCut cancelled ✓ · **Client #3: ingest only, no cut** · content ideation dropped. New client landed, 2nd video due Thu 10 Sep. | 4h49m | 1/3 (movement ✓ · sleep ✗ 11pm · phone ✗ 10:30pm) | 11:00pm (target) | PARTIAL |

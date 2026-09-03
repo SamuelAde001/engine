@@ -131,3 +131,22 @@ Append-only. Newest at the bottom. Never edit or delete an entry without asking 
 2026-09-02 (reckoning) — THE DAY THAT WORKED WAS CHUNKED THE NIGHT BEFORE. Client #2 sent 12:07pm against a 12:30pm target, from a 4:00am start, with body §3, §4, outro, sound and render all closed in about eight hours. The plan was built at 10:18pm on 1 Sep as timed 50-minute blocks with a named picture lock and an 8:45am pace marker. Every logged pomo ran within minutes of its slot. Set against P5 — the same job took 8 days against a 5-day cap — this is the evidence that the job is ~30 hours, not 8 days, and the only variable is whether the day was built before it started. Client #3 is the test: five days pre-built, total hours logged at delivery.
 
 2026-09-02 (reckoning) — GYM MISSED ON THE FIRST WEDNESDAY, EATEN BY THE CLIENT BLOCK. Confirmed not done, logged not done, nothing rescheduled. The focus timer has him on body §4 from 7:03 to 7:58am, straight through the 7:00–8:20am gym slot. habits.md priced Morning movement at 7h30 of client morning per week and said it is paid on purpose — this is the first invoice arriving, and it arrived on a delivery day. WATCH FOR: the movement habit starting 3 Sep off a miss, and whether the next delivery-day morning eats it too. If it goes twice, the 7:00am slot is not the problem — the delivery-day plan is, and the gym has to be planned around the ship date on Sunday rather than defended at 6:50am.
+
+## 2026-09-03
+
+- **A SECOND CLIENT VIDEO LANDED TODAY AND THE TWO RUN IN PARALLEL.** His words:
+  *"I was giving a new client video today, and both videos are to be done
+  simultaneausly, deadline of client 3 is Monday. Second is thursday."*
+  Client #3 → **Mon 7 Sep.** New client video → **Thu 10 Sep.**
+  At P5's ~30 hours per Route Rise video that is ~60 hours across six working days
+  (Sunday is church) — about 10h/day against a day that yields ~8 after the 7:00am
+  movement block and the 6:30pm hard stop. **The week does not fit as planned and
+  needs re-cutting before Friday's work starts.**
+- **THE RATE ON THE NEW CLIENT WAS NOT GIVEN.** money.md Rule 5: no new work below
+  $333/video without the reason logged. Ask at the next check-in; it is unlogged.
+- **First content published in three weeks** — a vlog, posted 3 Sep. Ends the zero-content
+  run that `patterns.md` P1 was CONFIRMED on the day before (2026-09-02).
+- **He asked to be told whether he is at financial risk, and he is.** ₦116,134 against
+  ₦126,600 of his own remaining commitments, 11 days to Payday B. He raised the overrun
+  himself before being asked — *"So, I shot out of budget"* — which is new, and it is
+  the reason it could be answered tonight instead of on the 12th.

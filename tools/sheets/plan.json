@@ -245,6 +245,16 @@
    "",
    "Yes",
    "ADDED 2026-09-02, planned at ₦0 DELIBERATELY. ₦584 of charges left the account on the first payday — ₦250 visible inside the Cowrywise transfer, ₦334 he could not attribute at all. His words: 'Charges where dedcuted at random during different transfers, I couldn't keep track of them indiviudally.' It is real, recurring money with no line, which is precisely the thing this budget exists to stop. It accrues actuals against a zero plan so that at month end there is a true figure to set it to, rather than a guess."
+  ],
+  [
+   "Shopping — unallocated",
+   "Shopping — unallocated (holding line, split pending)",
+   0,
+   "Discretionary",
+   "A",
+   "",
+   "Yes",
+   "OPENED 2026-09-03. A LIVE CATEGORY WITH A ₦0 PLAN, on purpose — not a cancelled line. The 3 Sep shop was ₦51,150 across feeding, household and personal; Samuel gave a total and an item list but no per-item amounts (\"I can't say it all\"), so it was NOT split rather than invent numbers into the record (money.md Rule 6). The Budget tab will therefore show ₦51,150 spent against ₦0 planned until the split is done. THAT IS THE FINDING, NOT A BUG. Allocate it across Feeding / Chores / Personal at the next planning session and retire this line to inactive."
   ]
  ],
  "one_offs": {
