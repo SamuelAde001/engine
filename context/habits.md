@@ -288,3 +288,12 @@ between the screen and the pillow.
 archived. The window IS the rule now. If scrolling starts showing up in work blocks
 again, that is the thing to notice, and it will show up as lost focus hours rather than
 as a broken habit tick.
+
+## NEW DAY SHAPE — 2026-09-15
+
+The habit list is unchanged: three habits. What moved:
+- **Morning movement → gym 5:00–6:00pm.** The habit id stays; the name is stale until
+  the TickTick habit is renamed. Checked at the 9pm session.
+- **Sleep by 10:30pm** stays. Against a 6:00am wake that is 7.5h, above the 7h floor.
+  Bed times 4–14 Sep, his word: *"random."*
+- **Phone away by 10pm** stays. It lines up with the end of the 9–10pm GF call.

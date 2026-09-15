@@ -101,18 +101,7 @@
   /* ---------------------------------------------------------- the rules */
 
   add(h('h2', {}, 'The rules that came out of the misses'));
-  const RULES = [
-    ['The internal send target is set BEFORE the deadline, never at it.',
-     'A target set at the deadline is not a target. Added after the 6:20pm miss on 25 Aug, which shipped at 1:42am.'],
-    ['Hard stop 6:30pm. No evening work blocks.',
-     'Work that misses the stop rolls to the buffer, never into the night.'],
-    ['One live-client exception is not a standing evening block.',
-     'The 26 Aug 9–11pm revision block was a real external deadline and is allowed once. If a second night block appears, say it at that day’s checkpoint — not at the weekly review.'],
-    ['Timer on every pomo.',
-     'Untimed work does not exist to the 3pm checkpoint. 26 Aug logged 18 minutes for a full day of work and produced a wrong diagnosis that got written into the record as fact.'],
-    ['All editing work is built as separate timed subtasks, one per pomo.',
-     '50 minutes work, 5 minute break, each its own calendar block — because he works off the calendar and a schedule buried in task notes renders as one long bar.'],
-  ];
+  const RULES = (OS.rules || {}).work || [];
   add(h('div', { class: 'card' }, h('div', { class: 'rows' },
     RULES.map(([t, s]) => h('div', { class: 'row' },
       h('div', { class: 'grow' }, h('div', { class: 't' }, t), h('div', { class: 's' }, s)))))));

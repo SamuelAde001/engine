@@ -38,3 +38,8 @@ The brief should never surface these:
 - Content Ideas (6a04a6beebdd1b00000000ba) — no longer used; Samuel says it can be deleted (not deleted by Claude — his call)
 - 🎖️Military (668d0261525014c46ea38628) — closed
 - 💒Wedding 💍 (696cb09c6b6400551cddef83) — closed
+
+## Client video task names — set 2026-09-15
+
+Numbered by month plus client name: `Alex video (Sep #3) — edit block 4`,
+`SEND Alex video (Sep #3)`. Numbering restarts each month. Never "Client #N".

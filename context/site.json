@@ -17,16 +17,65 @@
   "timezone": "WAT (UTC+1)",
   "tracking_start": "2026-08-24"
  },
+ "rules": {
+  "_comment": "The rule lists the pages print. Changing a rule in CLAUDE.md or body.md means changing it HERE — never in site/assets/js.",
+  "hard": [
+   "Tick only what he confirms out loud, only at the 9pm planning session.",
+   "Never move a due date without asking. Rescheduling is the addiction.",
+   "When he says \"I’ll do it tomorrow,\" ask what changes tomorrow.",
+   "Never congratulate him for planning. Only for shipping.",
+   "Tasks are created, scheduled and closed in TickTick only.",
+   "mission.md and stakes.md are his. Never edited without his word.",
+   "The ledger, money ledger, memory and decisions are append-only. Never rewrite history.",
+   "Hard stop 9:00pm. The 7–9pm slot is content edits, or client work in a deadline week.",
+   "Never schedule work over 6:15am prayer, 1:00pm breakfast, 2:00pm rest, 5:00pm gym, 6:00pm dinner or the 9:00pm GF call.",
+   "Savings are untouchable except medical emergency, building shortfall or family emergency."
+  ],
+  "work": [
+   ["The internal send target is set BEFORE the deadline, never at it.", "A target set at the deadline is not a target. Added after the 6:20pm miss on 25 Aug, which shipped at 1:42am."],
+   ["Hard stop 9:00pm. Client work is 7:00am–1:00pm.", "Moved from 6:30pm on 15 Sep with the new day shape. In a deadline week the 7–9pm slot may go to the client; work that misses 9pm rolls to the buffer, never into the night."],
+   ["A 30-hour video no longer fits five mornings with slack.", "6 hours of client time a day × 5 days = 30 hours. Deadline weeks take the evening slot, decided at the Sunday plan, not discovered on Thursday."],
+   ["Timer on every pomo.", "Untimed work does not exist to the record. 26 Aug logged 18 minutes for a full day of work and produced a wrong diagnosis."],
+   ["All editing work is built as separate timed subtasks, one per pomo.", "50 minutes work, 10 minute break, each its own calendar block — because he works off the calendar."]
+  ],
+  "touches": {
+   "lede": "No cloud routines — deleted 15 Sep. Two sessions he starts himself, one markdown record, and a static site generated from it. ",
+   "stat_label": "Check-ins",
+   "stat_value": "2",
+   "stat_sub": "9pm planning · Sunday week plan",
+   "heading": "The two touches",
+   "rows": [
+    ["9pm planning session", "9:00–9:30pm daily", "reckon + tomorrow’s tasks", "opus"],
+    ["Week plan", "Sunday", "plan-week", "opus"]
+   ],
+   "footnote": "The cloud routines were deleted 15 Sep: “they where constantly bugging me.” A skipped evening chases nobody — the gap banner on this site is the backstop.",
+   "closes_at": "Closes at tonight’s 9:00pm planning session. Nothing is ticked until he confirms out loud.",
+   "bed_ask": "asked at the 9pm session"
+  },
+  "cost": [
+   ["Two touches, he starts both.", "9pm planning session and the Sunday week plan. No brief, no midday, no routines — set 15 Sep."],
+   ["Model routing.", "capture on Sonnet. reckon, paid, budget, month, plan-week and every design conversation on Opus."],
+   ["Never read PA.md.", "It is a generated duplicate of every file in the repo — 41k tokens of pure repetition. Generate it, commit it, never open it."],
+   ["Never hand-write generated output.", "This site is built from the markdown. Output tokens cost several times input."],
+   ["Narrow the tool calls.", "Ask TickTick for the project or date you need, not for everything."]
+  ],
+  "day": {
+   "prayer": "6:15am",
+   "prayer_minutes": 30,
+   "body_lede": "Gym at 5:00pm, prayer at 6:15am and the 9:00pm hard stop all sit on top of the bedtime. ",
+   "gym_sub": "5:00–6:00pm daily, new day shape from 16 Sep"
+  }
+ },
  "pots": {
-  "as_of": "2026-09-03",
-  "bank": 116134,
+  "as_of": "2026-09-15",
+  "bank": 7564,
   "goal1_house": 0,
   "emergency": 0,
-  "cowrywise": 405000,
+  "cowrywise": 36959,
   "buffer": 0,
-  "note": "THE BUDGET BLEW ON 3 SEP AND HE NAMED IT HIMSELF: \"I bought so much things it blew out of my budget.\" Out today: Google ₦15,000, recharge ₦2,500, gym clothes ₦26,000 (planned ₦10,000 — 160% over), shopping ₦51,150 (planned ₦33,000 — 55% over), ₦1,003 bank charges. Balance ₦116,134. Still committed: Kaduna ₦80,000, gym membership ₦30,000, transport ₦10,000, Spotify ₦1,600, haircut + garri ~₦5,000 = ₦126,600. THAT IS A ₦10,466 SHORTFALL with 11 days to Payday B, before any transport, data or food top-up. The Buffer that money.md Rule 8 exists to absorb this with is NOT funded — Goal 1 and the Buffer only move on Payday B — so Rule 8 applies as written: an urgency gets negotiated, not funded. Kaduna at ₦80,000 is the only lever big enough to close the gap. Cowrywise is RING-FENCED and never counts toward the goals.",
-  "bank_free": -10466,
-  "bank_sub": "SHORT. ₦126,600 is still committed against ₦116,134 — a ₦10,466 hole to Payday B on 14 Sep"
+  "note": "THE RING-FENCE BROKE. Kaduna (the Tehila Foundation meeting) cost more than the ₦80,000 plan and he funded it from the Cowrywise investment: ₦405,000 → ₦36,959, ₦368,041 withdrawn. His words: \"kaduna was more expensive that plan and I ended up taking out of my Inestment money to fund Kaduna.\" Not a medical, building or family emergency — outside the savings rule and Rule 7. ₦476,611 left bank + investment between 3 and 15 Sep and is not itemised. Bank ₦7,564. The August 30% (~₦408,000) is expected 16 Sep; the budget is re-checked 16 Sep 3:00pm.",
+  "bank_free": 7564,
+  "bank_sub": "₦7,564 until the August 30% lands, expected Wed 16 Sep"
  },
  "goals": [
   {
@@ -293,34 +342,16 @@
  ],
  "countdowns": [
   {
-   "date": "2026-09-06",
-   "label": "Notion→site parallel-run review",
-   "kind": "decision",
-   "note": "Not applicable any more — superseded 2026-08-28 when the site replaced the Notion plan."
-  },
-  {
-   "date": "2026-09-07",
-   "label": "Client #3 DUE — send 12 noon",
-   "kind": "deadline",
-   "note": "Route Rise caps every video at 5 days from start. Started Thu 3 Sep. Send target is noon, not evening. Client #2 ran 8 days against this same cap."
-  },
-  {
-   "date": "2026-09-11",
-   "label": "Kaduna — travel day",
-   "kind": "trip",
-   "note": "Not a working day. Clear any Route Rise revision before leaving. Back Sun 13 or Mon 14, not fixed."
-  },
-  {
-   "date": "2026-09-12",
-   "label": "Kaduna trip — meeting",
-   "kind": "trip",
-   "note": "₦80,000 budgeted, raised from ₦50,000 on 2026-09-02. Travel 11 Sep, back 13 or 14. STILL A GUESS — he has not travelled in a while and does not know what the hotel, feeding and transport cost. Any overrun comes from the Buffer, never Goal 1."
-  },
-  {
-   "date": "2026-09-14",
-   "label": "Payday B — ₦408,497 in, ₦146,041 to Goal 1",
+   "date": "2026-09-16",
+   "label": "Payday B — August 30% expected, budget re-check 3:00pm",
    "kind": "money",
-   "note": "₦40,000 also goes to his sister and ₦50,000 to the Buffer. Goal 1's account now exists (Cowrywise). He may still be travelling back from Kaduna."
+   "note": "Invoiced 14 Sep, slipped two days. Bank is ₦7,564 and Cowrywise was drawn down to ₦36,959 for Kaduna, so this money has to cover the rest of September. The re-check decides what survives."
+  },
+  {
+   "date": "2026-09-17",
+   "label": "SEND Alex video (Sep #3) — 12:30pm",
+   "kind": "deadline",
+   "note": "Internal target. Client deadline is Fri 18 Sep."
   },
   {
    "date": "2026-10-11",
@@ -885,41 +916,35 @@
   "cap_days": 5,
   "cap_note": "Route Rise's standing term, confirmed 2026-09-02. Five days maximum from start — their decision, not negotiable. A Sunday inside the five is not a working day.",
   "current_job": {
-   "name": "Client #3",
-   "scope": "40 min raw → ~25 min finished",
+   "name": "Alex video (Sep #3)",
+   "scope": "not given",
    "fee_usd": 333.33,
-   "start": "2026-09-03",
-   "due": "2026-09-07",
-   "send_target": "12:00 noon",
+   "start": "2026-09-15",
+   "due": "2026-09-18",
+   "send_target": "Thu 17 Sep 12:30pm",
    "days": [
     {
-     "date": "2026-09-03",
-     "label": "Day 1 — ingest + full rough cut",
-     "must": "rough cut closes",
+     "date": "2026-09-15",
+     "label": "Tue evening — edit blocks 1–2, 7:00–9:00pm",
+     "must": "evening goes to the client, his call",
      "state": "open"
     },
     {
-     "date": "2026-09-04",
-     "label": "Day 2 — the intro, all of it",
-     "must": "intro closes",
+     "date": "2026-09-16",
+     "label": "Wed — edit blocks 3–8 (7am–1pm) + 9–10 (7–9pm)",
+     "must": "most of the cut closes",
      "state": "open"
     },
     {
-     "date": "2026-09-05",
-     "label": "Day 3 — body §1 + §2 + §3",
-     "must": "three sections close",
+     "date": "2026-09-17",
+     "label": "Thu — blocks 11–14, render, SEND 12:30pm",
+     "must": "sent by 12:30pm",
      "state": "open"
     },
     {
-     "date": "2026-09-06",
-     "label": "Day 4 — Sunday. Buffer only, 3–5pm",
-     "must": "nothing — church + course",
-     "state": "open"
-    },
-    {
-     "date": "2026-09-07",
-     "label": "Day 5 — §4, outro, sound, render → SEND",
-     "must": "picture lock 8:50am, send 12:00",
+     "date": "2026-09-18",
+     "label": "Fri — client deadline. Buffer only.",
+     "must": "nothing, if Thursday held",
      "state": "open"
     }
    ]
@@ -939,6 +964,18 @@
     "days_taken": 8,
     "verdict": "LATE",
     "note": "Eight days against a five-day cap. Shipped 12:07pm, 2.5 days past the deadline."
+   },
+   {
+    "name": "Andy video (Sep #1) — was Client #3",
+    "start": "2026-09-03",
+    "due": "2026-09-07",
+    "verdict": "DELIVERED",
+    "note": "Delivered during the 4–14 Sep dark stretch; date not given. TickTick shows the render ticked 8 Sep."
+   },
+   {
+    "name": "Alex video (Sep #2)",
+    "verdict": "DELIVERED",
+    "note": "New client, same rate as Andy. Due Thu 10 Sep; delivery date not given."
    }
   ]
  },

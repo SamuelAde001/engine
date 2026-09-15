@@ -26,8 +26,9 @@ something costing me output or health, say it.
   and never tick anything outside the reckoning.
 - Never move a due date without asking. Rescheduling is the addiction.
 - When I say "I'll do it tomorrow," ask what changes tomorrow.
-- Every morning, ask me what the new tasks for the day are. Don't assume the day is
-  already defined by what's in TickTick — ask, then add what I give you.
+- **At the 9pm planning session, ask me what tomorrow's new tasks are.** Don't assume
+  the day is already defined by what's in TickTick — ask, then add what I give you.
+  (Moved from the morning 2026-09-15: there is no morning brief any more.)
 - **TickTick tasks: clear title, short body.** Two rules, both set 2026-09-02.
   - **The title has to read on a lock screen.** Plain words, no internal codes:
     "Client #3 video — Day 1: ingest and rough cut", not "W1 4:15-5:05 — BODY §3".
@@ -73,9 +74,11 @@ something costing me output or health, say it.
 - My day has fixed anchors. Plan work blocks around them. Never schedule work over
   them, and never create TickTick tasks for eating, napping, showering or sleeping —
   those are not tasks.
-  - Default: breakfast around 12:00pm, nap at 1:00pm (~1 hour).
-  - **While fasting: first meal 3:00pm, nap 4:00pm (~1 hour).** Check
-    context/habits.md for whether a fast is currently running before planning a day.
+  - **The day shape, from 2026-09-16 (his schedule, set 2026-09-15):** wake 6:00am ·
+    prayer 6:15–6:45am · client work 7:00am–1:00pm · breakfast 1:00–2:00pm · rest
+    2:00–3:00pm · content 3:00–4:30pm · gym 5:00–6:00pm · dinner + rest 6:00–7:00pm ·
+    content edits 7:00–9:00pm · GF call + sleep prep 9:00–10:00pm, tomorrow planned by
+    9:30pm. Sunday: week planned. Full version in context/body.md.
 - Never run a check-in from memory — but never read all of context/ either. Each
   skill names the exact files it opens; read those and nothing else. Whole-context
   reads cost ~32k tokens for a five-minute check-in. Use `tail` on the append-only
@@ -93,11 +96,11 @@ something costing me output or health, say it.
   people. Read the relevant one before advising on anything in it. They are
   connected — one domain going wrong shows up in another. Sleep is the wall
   under all of them.
-- Never schedule work over 5:30am prayer (45 min), 12:00pm breakfast, 1:00pm nap
-  or 6:00pm dinner. While a fast is running, check context/habits.md for the
-  replacement anchors first.
-- Hard stop 6:30pm. No evening work blocks. Work that misses the stop rolls to the
-  buffer, never into the night.
+- Never schedule work over 6:15am prayer (30 min), 1:00pm breakfast, 2:00pm rest,
+  5:00pm gym, 6:00pm dinner or the 9:00pm GF call.
+- Hard stop 9:00pm (moved from 6:30pm, 2026-09-15). The 7–9pm slot is content edits;
+  in a client-deadline week it may go to client work, his call per week. Work that
+  misses 9pm rolls to the buffer, never into the night.
 - The internal send target on any client deliverable is set BEFORE the client
   deadline, never at it.
 - Money: savings are untouchable except medical emergency, building shortfall or
@@ -124,9 +127,15 @@ something costing me output or health, say it.
 Every file loaded is re-sent on every turn of the session, so waste compounds. None
 of this trades quality — it removes duplication.
 
-- **One check-in, one session.** `/clear` between the brief, the midday and the
-  reckoning. Running all three in one session makes the 9pm reckoning drag the whole
-  day's transcript along on every turn.
+- **Two touches, and he starts both. Set 2026-09-15.** He deleted the cloud routines:
+  *"they where constantly bugging me, I need a less bugging structure that doesn't
+  make me spend too much time on Claude."* No morning brief, no midday, no routines.
+  1. **9:00–9:30pm daily — planning session.** Reckon today (tick what he confirms,
+     money, habits) and take tomorrow's tasks into TickTick. One session, ~10 min.
+  2. **Sunday — week plan** (`/plan-week`).
+  TickTick reminders do the nagging, not Claude. The cost: a skipped evening chases
+  nobody. The backstop is the site's gap banner, and **if the record is 2+ days dark,
+  say so first thing the next time he opens a session.**
 - **Model routing.** `/brief`, `/midday` and `/capture` run on Sonnet — they are a
   report, an 80-word gap check and task entry against fixed rules. `/reckon`,
   `/paid`, `/budget`, `/month`, `/plan-week`, `/reckoning-week` and every design or
@@ -184,9 +193,9 @@ of this trades quality — it removes duplication.
 
 ## Remote
 
-This engine runs from my phone too, not just this machine. Scheduled cloud
-routines fire the brief, the reckoning and the weekly review on their own and
-wait for me to answer from wherever I am.
+This engine runs from my phone too, not just this machine. **There are no
+scheduled cloud routines — deleted 2026-09-15.** He opens a session himself, from
+here or claude.ai/code on the phone.
 
 - Always `git pull` before a check-in. The phone may have written since.
 - Always commit and push anything you write to context/ before the session ends.

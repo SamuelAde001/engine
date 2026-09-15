@@ -720,6 +720,7 @@ def main():
         "content": site["content"],
         "course": site["course"],
         "body": site["body"],
+        "rules": site.get("rules", {}),
         "habits": habits,
         "habit_log": site.get("habit_log", {}),
         "patterns": patterns,

@@ -575,3 +575,12 @@ session) — `plan.json`'s "NO ACCOUNT YET" note was stale and is corrected. It 
 the warning that this is now the SECOND name clash on the sheet: Goal 1 and the
 ring-fenced investment share a platform, and Rule 7 says the investment never counts
 toward the ₦1M.
+
+## 2026-09-15 — Routines deleted, two-touch structure, new day shape — BUILT
+
+- Cloud routines deleted by Samuel. Replaced by two self-started touches: a 9:00–9:30pm
+  planning session (reckon + tomorrow's tasks) and the Sunday week plan. No brief, no
+  midday. CLAUDE.md, REMOTE.md updated. — BUILT
+- New day shape from 16 Sep (context/body.md). Hard stop 6:30pm → 9:00pm, prayer
+  45 → 30 min at 6:15am, gym to 5:00pm. Site rule lists moved into data. — BUILT
+- Client videos named by month: "Sep #3 — Alex". — BUILT

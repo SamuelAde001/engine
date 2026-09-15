@@ -65,12 +65,12 @@
             h('span', { class: 'tiny', style: 'display:block;margin-bottom:3px' }, 'SHIPPED'),
             today.shipped)
         : h('p', { class: 'tiny', style: 'margin-top:12px' },
-            'Closes at tonight\'s 9:03pm reckoning. Nothing is ticked until he confirms out loud.'),
+            ((OS.rules || {}).touches || {}).closes_at || ''),
       h('div', { class: 'grid g3 tight', style: 'margin-top:16px' },
         stat('Focus', today.focus_logged != null ? hours(today.focus_logged) : '—',
           today.focus_committed ? `of ${hours(today.focus_committed)}` : 'not logged yet'),
         stat('Habits', today.habits_set ? `${today.habits_hit}/${today.habits_set}` : '—', 'confirmed at reckoning'),
-        stat('Bed', time12(today.bed) , today.bed ? '' : 'asked at the morning brief'))),
+        stat('Bed', time12(today.bed) , today.bed ? '' : (((OS.rules || {}).touches || {}).bed_ask || '')))),
     h('div', { class: 'card' },
       h('div', { class: 'card-h' }, h('h3', {}, 'Behaviour score'),
         h('span', { class: 'sub' }, dateLabel(last.date))),
@@ -301,17 +301,7 @@
 
   add(toggle('The hard rules', 'unchanged, and not negotiable',
     h('ul', {},
-      ['Tick only what he confirms out loud, only at the evening reckoning.',
-       'Never move a due date without asking. Rescheduling is the addiction.',
-       'When he says "I\'ll do it tomorrow," ask what changes tomorrow.',
-       'Never congratulate him for planning. Only for shipping.',
-       'Tasks are created, scheduled and closed in TickTick only.',
-       'mission.md and stakes.md are his. Never edited without his word.',
-       'The ledger, money ledger, memory and decisions are append-only. Never rewrite history.',
-       'Hard stop 6:30pm. No evening work blocks. The Sunday 5:00–7:30pm course block is the only sanctioned exception.',
-       'Never schedule work over 5:30am prayer, the 12:00pm meal, the 1:00pm nap or 6:00pm dinner.',
-       'Savings are untouchable except medical emergency, building shortfall or family emergency.',
-      ].map(t => h('li', {}, t)))));
+      ((OS.rules || {}).hard || []).map(t => h('li', {}, t)))));
 
   add(toggle('Where this data comes from', `${sum.days_recorded} days · generated`,
     h('p', {}, 'Everything on this site is derived from the markdown record in ',

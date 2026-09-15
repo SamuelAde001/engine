@@ -18,7 +18,7 @@
   const avgSleep = slept.length ? slept.reduce((a, r) => a + r.slept, 0) / slept.length : null;
 
   add(pageHead('Body', 'Sleep is the wall. Nothing else survives a 4-hour night.',
-    'Gym, the 5:30am prayer block and the 6:30pm hard stop all sit on top of the bedtime. ' +
+    (((OS.rules || {}).day || {}).body_lede || '') +
     '<strong>When the floor breaks, ask what happened that afternoon — not why he stayed up.</strong>'));
 
   add(h('div', { class: 'grid g4 tight' },
@@ -28,7 +28,7 @@
       `floor is ${B.sleep_floor_hours}h`, 'red'),
     statCard('Longest day', hours(Math.max(...led.map(r => r.focus_logged || 0))),
       '25 Aug — 19h06m span, no nap', 'red'),
-    statCard('Morning movement', '0/6', 'gym Mon/Wed/Fri · run Tue/Thu/Sat', 'amber')));
+    statCard('Gym', '—', ((OS.rules || {}).day || {}).gym_sub || '', 'amber')));
 
   add(h('div', { style: 'margin-top:14px' }, notesFor('body', 'n1')));
 

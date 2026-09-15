@@ -150,3 +150,10 @@ Append-only. Newest at the bottom. Never edit or delete an entry without asking 
   ₦126,600 of his own remaining commitments, 11 days to Payday B. He raised the overrun
   himself before being asked — *"So, I shot out of budget"* — which is new, and it is
   the reason it could be answered tonight instead of on the 12th.
+
+- **2026-09-15 — Client video naming.** His words: *"the naming of the client videos is
+  confusing me, so we name it based on videos giving this month."* Client videos are
+  numbered by month plus client name: **Sep #1 — Andy, Sep #2 — Alex, Sep #3 — Alex.**
+  Numbering restarts each month. "Client #N" is retired.
+- **2026-09-15 — Clients.** Andy is the old client. Alex is the new client, same rate.
+- **2026-09-15 — Tehila Foundation** was the Kaduna meeting.

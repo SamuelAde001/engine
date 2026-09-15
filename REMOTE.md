@@ -18,28 +18,13 @@ overwrite what the phone wrote.
 
 ## The channels
 
-**1. Scheduled routines — the PA reaches out**
+**1. Scheduled routines — DELETED 2026-09-15**
 
-Three cloud routines fire on their own. They do not need the laptop on.
-Each one opens a session at claude.ai/code and stops with a question waiting.
-Samuel opens it on his phone and answers there.
-
-| Routine | Fires (WAT) | Runs | Model | Routine id |
-|---|---|---|---|---|
-| Morning brief | 7:03am daily | `brief` | opus-4.8 | `trig_017jmYaxhXS8fzSvPqcbKo28` |
-| Midday checkpoint | 2:57pm daily | `midday` | sonnet-5 | `trig_016aJvRJSfsffXpzJrQzBv1M` |
-| Evening reckoning | 9:03pm daily | `reckon` | opus-5 | `trig_014S2QR2QWBjj1WYLVQhgC1z` |
-| Weekly review | 7:57pm Sunday | `reckoning-week` | opus-5 | `trig_01S1iyrdZctdL7WNhGPBNokF` |
-
-Odd minutes are deliberate — they keep the runs off the crowded o'clock marks.
-The morning brief runs opus-4.8, not opus-5: early-morning demand for opus-5 is
-high and the 7am run was getting auto-downgraded anyway (2026-08-24).
-
-Manage them at https://claude.ai/code/routines
-
-There is also a disabled `Connector probe (diagnostic)` routine. Leave it. It's the
-fastest way to check whether TickTick, Gmail and repo push still work from the cloud
-when something breaks.
+Samuel deleted the brief, midday, reckoning and weekly-review routines: *"they where
+constantly bugging me."* Nothing fires on its own any more. He opens a session
+himself — the 9:00pm planning session and the Sunday week plan (see CLAUDE.md, Cost
+discipline). The sections below about cloud sessions still apply to any session he
+opens from the phone.
 
 ## Repo
 

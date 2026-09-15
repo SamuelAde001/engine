@@ -608,3 +608,39 @@ content into a separate conversation on 2026-09-02 and is redesigning it. Client
 runs 2:00–6:00pm in the meantime. When the new content design lands, it takes its slot
 back out of client block 2 — that is where the hours come from and it should be said
 plainly rather than discovered.
+
+---
+
+## THE DAY SHAPE — from Wed 16 Sep 2026. SUPERSEDES "Daily anchors" and "The default day shape" above.
+
+His words, 2026-09-15: *"So I found a better schedule I can actually stick with."*
+Reference only. **Do not create TickTick tasks for the anchors.**
+
+```
+6:00am         wake
+6:15-6:45      prayer + Bible — 30 min (cut from 45, his call)
+7:00-1:00pm    CLIENT WORK (6h)
+1:00-2:00      breakfast
+2:00-3:00      rest
+3:00-4:30      CONTENT
+5:00-6:00      gym
+6:00-7:00      dinner + rest
+7:00-9:00pm    content edits (client work in a deadline week, his call)
+9:00-10:00     GF call + sleep prep · tomorrow planned by 9:30pm
+10:00-10:30pm  BED — 7.5h+ to a 6:00am wake
+Sunday         church; the week gets planned
+```
+
+**Anchors, never scheduled over:** 6:15am prayer · 1:00pm breakfast · 2:00pm rest ·
+5:00pm gym · 6:00pm dinner · 9:00pm GF call. **Hard stop 9:00pm**, moved from 6:30pm.
+
+**Costs, stated once:**
+- **Client time drops to 6h a day** from ~8h. A ~30h video is five mornings, which is
+  the whole 5-day cap with no slack. Deadline weeks will need the 7–9pm slot — the
+  first one (Sep #3, Alex) already does.
+- **Prayer is 15 minutes shorter.** Spirit is the domain he named first.
+- **Gym moved to evening.** It was refused on 2 Sep because it broke the 6:30pm stop
+  and sat two hours from bed. Now it ends 4 hours before bed, inside a day built for
+  it. That objection is gone.
+- **Evening work is back.** 7–9pm at a screen then a 10pm bed. If bedtime drifts, the
+  7–9pm block is the first suspect.
