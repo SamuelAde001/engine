@@ -580,3 +580,16 @@ December comes up short, the reason is on the record and not a mystery.
 - What is the enforced consequence for breaking the savings rule? `[OPEN — unenforced]`
 - What does the course have to be priced at to carry ₦170,000/month from January?
   Depends on the beta price, which is still open in `context/audience.md`. `[OPEN]`
+
+## September 2026 — what actually happened (added 2026-09-16)
+
+- **Kaduna cost ~₦430,011 against ₦80,000 planned** (derived, not itemised). ₦368,041 of it
+  came out of the Cowrywise investment, which now holds ₦36,959. Rule 7 broke. There is
+  no refill plan yet; at ₦100,000/month Oct–Dec the investment ends the year near ₦336,959, not ₦705,000.
+- **Payday B, 16 Sep:** ₦411,709. Goal 1 ₦146,041 and Buffer ₦50,000 moved the same day.
+  Sister ₦40,000 paid (₦50,000 still owed).
+- **September cuts, his calls:** creator visits ₦0, community admin held (the admin is
+  working for free for now), giving ₦0. **Feeding ₦30,000 added** for the second half.
+- **₦57,532 left unassigned in the current account, his call** — "liquid cash for anything
+  that comes up." Named once: unassigned cash is how ₦595,250 went, and the Buffer
+  exists for this. Check what it is at month end; whatever survives goes to a pot.
