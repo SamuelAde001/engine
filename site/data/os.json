@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-15T16:56:45",
+  "generated": "2026-09-16T18:12:26",
   "profile": {
     "name": "Samuel",
     "site_name": "Samuelsignals OS",
@@ -615,6 +615,24 @@
       "out_text": "NOT ITEMISED, 4–15 Sep: Kaduna trip (Tehila Foundation meeting, planned ₦80,000, went over) · gym membership ₦30,000 (amount from plan) · living costs. **₦476,611 left bank + investment in 12 days** (₦116,134 bank on 3 Sep + ₦368,041 withdrawn − ₦7,564 now)",
       "savings_moved": 0,
       "note": "**THE RING-FENCE BROKE. COWRYWISE ₦405,000 → ₦36,959, ₦368,041 WITHDRAWN to fund Kaduna.** His words: *\"kaduna was more expensive that plan and I ended up taking out of my Inestment money to fund Kaduna, I took a lot of money from my Ivestment funds, what is left there is exactly 36,959.\"* Amount confirmed by him 15 Sep. Not a medical, building or family emergency — outside the savings rule, and Rule 7 says the investment is never spent. Logged late: the withdrawal happened during the 4–14 Sep dark stretch, not same-day. Against the ₦126,600 still committed on 3 Sep, roughly ₦350,000 went on things never planned — itemise at the 16 Sep budget check, never invent it here. Payday B (August 30%) invoiced 14 Sep, expected 16 Sep — slipped two days. Goal 1 and Buffer: ₦0, not moved. NOT MIRRORED to the sheet: nothing is itemised yet; it mirrors at the budget check. Balances given verbally."
+    },
+    {
+      "date": "2026-09-15",
+      "label": "2026-09-15 (late add)",
+      "balance": 4064.0,
+      "in": null,
+      "out_text": "Chicken meal ₦3,500 (his words, given 16 Sep: \"I spent 3,500 from my balance yesterday on chicken meal\")",
+      "savings_moved": 0,
+      "note": "Reported the next day. Payday B has no Feeding line, so this is unbudgeted. Balance derived: ₦7,564 − ₦3,500 = ₦4,064, not screenshot-verified."
+    },
+    {
+      "date": "2026-09-16",
+      "label": "2026-09-16",
+      "balance": 415773.0,
+      "in": 303.21,
+      "out_text": "—",
+      "savings_moved": 0,
+      "note": "**PAYDAY B LANDED.** Route Rise August batch, 30%. Cleva rate implied **₦1,357.83/$**. Planned $300.00 net at ₦1,361.66 = ₦408,497; came in **₦3,212 over** (the charge looks like $1.79, not $5 — gross $305 unconfirmed). Landed two days after the 14th. Balance = ₦4,064 + ₦411,709, derived, not screenshot-verified. Transfers not yet made when this row was written."
     }
   ],
   "pots": {
@@ -2124,7 +2142,7 @@
   "budget": {
     "plan_start": "2026-09",
     "tracking_start": "2026-08-26",
-    "today": "2026-09-15",
+    "today": "2026-09-16",
     "months": {
       "2026-09": {
         "month": "2026-09",
@@ -2206,11 +2224,11 @@
             "planned": 30000,
             "planned_a": 30000,
             "planned_b": 0,
-            "paid": 0,
-            "paid_a": 0,
+            "paid": 3500,
+            "paid_a": 3500,
             "paid_b": 0,
             "unplanned": 0,
-            "left": 30000,
+            "left": 26500,
             "is_pot": false
           },
           {
@@ -2364,13 +2382,13 @@
         "budget_a": 934600,
         "budget_b": 378241,
         "budget_total": 1312841,
-        "paid_a": 791000,
+        "paid_a": 794500,
         "paid_b": 4860,
-        "paid_total": 848597,
+        "paid_total": 852097,
         "unplanned": 52737,
-        "left_a": 143600,
+        "left_a": 140100,
         "left_b": 373381,
-        "left_total": 516981,
+        "left_total": 513481,
         "cushion_a": 27628,
         "cushion_b": 30256,
         "spend_rows": [
@@ -2464,6 +2482,13 @@
             "amount": 1003,
             "what": "Unattributed bank charges",
             "note": "The gap that closes the day: 211,787 - 94,650 named = 117,137 vs 116,134 reported. His words: 'Probably bank charges'."
+          },
+          {
+            "date": "2026-09-15",
+            "category": "Feeding",
+            "amount": 3500,
+            "what": "Chicken meal",
+            "note": "His words, reported 16 Sep: \"I spent 3,500 from my balance yesterday on chicken meal\". Payday B has no Feeding line - unbudgeted."
           }
         ]
       },
@@ -4840,6 +4865,13 @@
         "amount": 1003,
         "what": "Unattributed bank charges",
         "note": "The gap that closes the day: 211,787 - 94,650 named = 117,137 vs 116,134 reported. His words: 'Probably bank charges'."
+      },
+      {
+        "date": "2026-09-15",
+        "category": "Feeding",
+        "amount": 3500,
+        "what": "Chicken meal",
+        "note": "His words, reported 16 Sep: \"I spent 3,500 from my balance yesterday on chicken meal\". Payday B has no Feeding line - unbudgeted."
       }
     ],
     "items": [
@@ -5408,9 +5440,9 @@
   },
   "warnings": [],
   "gaps": [
-    "SPEND NOT ITEMISED: 2026-09-15 reports money out in money-ledger.md but has no rows in spend.jsonl, so the Budget page counts it as unpaid",
-    "LEDGER IS 1 DAY(S) BEHIND: last row 2026-09-14, today 2026-09-15. A day with no row is a gap, and gaps get named at the weekly review.",
-    "HABIT LOG IS 12 DAY(S) BEHIND: last entry 2026-09-03."
+    "SPEND NOT ITEMISED: 2026-09-16 reports money out in money-ledger.md but has no rows in spend.jsonl, so the Budget page counts it as unpaid",
+    "LEDGER IS 2 DAY(S) BEHIND: last row 2026-09-14, today 2026-09-16. A day with no row is a gap, and gaps get named at the weekly review.",
+    "HABIT LOG IS 13 DAY(S) BEHIND: last entry 2026-09-03."
   ],
-  "content_hash": "67dd956cbe74b663"
+  "content_hash": "7e4c540512d5a0c0"
 }
