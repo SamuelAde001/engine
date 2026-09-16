@@ -318,6 +318,36 @@
     "",
     "Yes",
     "He owes her ₦90,000. This pays ₦40,000. ₦50,000 REMAINS OUTSTANDING WITH NO DATE. money.md still says 'Loans — all cleared'; that is now wrong."
+   ],
+   [
+    "Creator visits",
+    "Creator visits — September CANCELLED",
+    -25000,
+    "Discretionary",
+    "B",
+    "",
+    "Yes",
+    "Samuel, 2026-09-16: the creator is not available and he has no time. SEPTEMBER ONLY — the N25,000 line returns in October."
+   ],
+   [
+    "Community admin",
+    "Community admin — September HELD",
+    -15000,
+    "Fixed",
+    "B",
+    "",
+    "Yes",
+    "Samuel, 2026-09-16: 'holding on community admin payment for now, as the admin is doing a free work right now.' OPEN: is anything owed later, and does October pay?"
+   ],
+   [
+    "Giving",
+    "Giving — September none",
+    -10000,
+    "Committed",
+    "B",
+    "",
+    "Yes",
+    "Samuel, 2026-09-16: 'No giving for now.' OPEN: does October's N10,000 stand?"
    ]
   ]
  },
